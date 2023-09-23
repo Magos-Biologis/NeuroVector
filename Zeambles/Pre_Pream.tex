@@ -1,0 +1,30 @@
+% ========================= Preamble Packages ================================
+
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage[subpreambles=true]{standalone}
+%\usepackage{iftex} % Allows for if Lua LaTeX commands
+%\usepackage{etoolbox} %ifthen
+
+% ========================= Colors/Visuals
+
+\usepackage{graphicx}
+\usepackage[table,dvipsnames]{xcolor}
+\usepackage{blindtext}
+
+% ========================= Math Symbols and Math Related Processes
+
+% https://www.ctan.org/pkg/mnsymbol
+\usepackage{framed}  % Frames for text
+\usepackage[hyperref,standard]{ntheorem}  % Math Theorems
+\usepackage{MnSymbol}
+    \DeclareMathAlphabet\mathbb{U}{msb}{m}{n}
+\usepackage{listings} % source code
+% https://ctan.org/pkg/siunitx
+\usepackage{siunitx} % elegant SI units
+    \DeclareSIUnit\molar{\mole\per\cubic\deci\metre}
+    \DeclareSIUnit\Molar{\textsc{m}}
+%\usepackage{ulem} % for striking through text
+%\usepackage{cancel} % for the fancy canceling line
+
+% ========================================================================

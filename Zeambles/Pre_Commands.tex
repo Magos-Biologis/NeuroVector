@@ -1,0 +1,55 @@
+% ========================- Mathy Commands ===============================
+
+\newcommand{\br}[1]{\left( #1 \right)}                               % (.)
+\newcommand{\sbr}[1]{\left[ #1 \right]}                              % [.]
+\newcommand{\tbr}[1]{\(\left( \text{#1} \right)\)}
+\newcommand{\tsbr}[1]{\(\left[ \text{#1} \right]\)}
+
+\providecommand{\ode}[2]{\frac{\mathrm{d} \displaystyle#1}{\mathrm{d} \displaystyle#2}}
+\providecommand{\pde}[2]{\frac{\partial \displaystyle#1}{\partial \displaystyle#2}}
+% use \mathrm{d} to include math differential
+
+\renewcommand{\iff}{\Leftrightarrow}
+\renewcommand{\implies}{\Rightarrow}
+\renewcommand{\impliedby}{\Leftarrow}
+
+\newcommand{\rmm}[1]{\mathrm{#1}}
+\newcommand{\bfm}[1]{\mathbf{#1}}
+\newcommand{\clm}[1]{\mathcal{#1}}
+\newcommand{\fkm}[1]{\mathfrak{#1}}
+
+\newcommand{\surform}[2]{\left< #1 : #2 \right>}
+
+\providecommand{\N}{\mathbb{N}}
+\providecommand{\Z}{\mathbb{Z}}
+\providecommand{\Q}{\mathbb{Q}}
+\providecommand{\R}{\mathbb{R}}
+\providecommand{\C}{\mathbb{C}}
+\providecommand{\Su}{N_0}
+
+% ========================================================================
+
+\newcommand{\secbre}[0]{\hrulefill\\\hrulefill} % To help differeniate sections when writing them
+\newcommand{\latex}[0]{\LaTeX\xspace} % LaTeX symbol
+
+\newcommand{\citelater}[0]{{\color{red} \textbf{[!!!]}}}
+
+\newcommand{\detailtexcount}[1]{
+  \immediate\write18{texcount -merge -sum -q #1.tex output.bbl > #1.wcdetail }
+  \verbatiminput{#1.wcdetail}}
+
+\newcommand{\quickwordcount}[1]{
+  \immediate\write18{texcount -1 -sum -merge -q #1.tex output.bbl > #1-words.sum }%
+  \input{#1-words.sum}}
+
+\newcommand{\quickcharcount}[1]{
+  \immediate\write18{texcount -1 -sum -merge -char -q #1.tex output.bbl > #1-chars.sum }%
+  \input{#1-chars.sum}}
+
+
+% ====================== Custom Enviroments ==============================
+\newenvironment{citelaterlater}[1][{purple!80!red}]
+    {\color{#1}\hrulefill\subsection*{Cite Later ... Later}}
+    {\hrulefill}%
+
+% ========================================================================

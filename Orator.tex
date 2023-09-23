@@ -1,0 +1,86 @@
+\documentclass[a4paper,11pt]{report}
+
+%==========================================================
+
+\def\zpath#1{\input{Zeambles/Pre_#1}}
+
+\zpath{Pream}
+\zpath{Formate}
+\zpath{Head}
+\zpath{Figure}
+\zpath{Ref}
+\zpath{Commands}
+\zpath{Tikz}
+\zpath{TikzCommands}
+
+% ========================= Bibliography
+
+\usepackage[sorting=none,
+            %style=nature,
+            %citestyle=nature,
+            maxbibnames=99,
+            url=false,
+            ]{biblatex} % For better function
+        \addbibresource[glob=true]{Bibble/*.bib}
+
+% ============================ Subfiles
+
+\usepackage{subfiles} % must be last usepackage
+	\graphicspath{{\subfix{./Pictures/}}}
+
+%==========================================================
+
+\pagenumbering{roman}
+
+\title{Cum}
+\author{Anakin}
+\date{October 2021}
+
+
+\pagenumbering{roman}
+\begin{document}
+
+\def\spath#1{\subfile{Sections/#1}}
+\spath{Title} % Generates the title page
+
+\tableofcontents
+\newpage
+
+%\listoffigures \newpage
+
+
+\pagenumbering{arabic}
+
+\chapter{Introduction}
+\spath{Intro}
+
+
+Hello, I am a secntence \SI{56}{\um}~\cite{dirac}.
+
+
+
+\newpage
+\chapter{Background}
+\spath{backgroudn}
+
+
+\newpage
+\section{Methodology}
+
+
+\newpage
+\section{Results}
+
+
+\newpage
+\chapter{Discussion}
+%\spath{Discussion.tex}
+
+\newpage
+\section{Conclusion}
+%\spath{Conclusion.tex}
+
+
+\newpage
+\printbibliography[title={Bliblyogrpah}]
+\end{document}
