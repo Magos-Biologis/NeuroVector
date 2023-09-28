@@ -1,9 +1,31 @@
 \documentclass[../../Orator]{subfiles}
 \begin{document}
 
-\begin{tikzpicture}
+\begin{tikzpicture}[
+    %x={(1cm,0.4cm)}, y={(8mm, -5mm)}, z={(0cm,1cm)},
+    scale = 1,
+    thick, black!80,
+    ]
+
+    \def\c{1}
+    \def\w{1}
+    \def\radi{1}
+    \def\angle{45}
+    
+    \coordinate (O) at (0,0);
 
 
+    \draw (O) circle (\r{}cm);
+
+    \draw[->] (0,-4) -- (0,4);
+    \draw[->] (-4,0) -- (4,0);
+
+    \draw 
+        (0*2-4, 0*2) sin (1*2-4, 1*2)
+        (1*2-4, 1*2) cos (2*2-4, 0*2)  
+        (2*2-4, 0*2) sin (3*2-4,-1*2) 
+        (3*2-4,-1*2) cos (4*2-4, 0*2) 
+        ;  
 
     
 \end{tikzpicture}
