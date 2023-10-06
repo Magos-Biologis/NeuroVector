@@ -1,0 +1,239 @@
+%\documentclass[../../Orator]{subfiles}
+\documentclass[Orator.tex]{subfiles}
+
+
+\begin{document}
+
+\begin{figure}[h]
+    \centering
+    
+
+\begin{tikzpicture}[
+    %x={(1cm,0.4cm)}, y={(8mm, -5mm)}, z={(0cm,1cm)},
+    scale = 1.5,
+    thick, 
+    black!80,
+    ]
+    
+        \path [use as bounding box] (-2.5,-3) rectangle (6,2);
+        %\draw[white,->] (0,-4) -- (0,4);
+        %\draw[white,->] (-3,0) -- (6,0);
+        
+        % Random Num shit
+        \def\ranAngle#1{\pgfmathrandominteger{#1}{-75}{75}}
+        %\def\ranSpreadL#1{\pgfmathrandominteger{#1}{0}{75}}
+        \def\ranLength#1{\pgfmathrandominteger{#1}{5}{15}}
+
+        % Colors
+        \def\clr{black!80}
+
+        
+        % Random number generation seed
+        %\def\seed{220699}
+        \def\seed{1669}
+        %\def\seed{2356}
+        \pgfmathsetseed{\seed}
+        
+        % Various constants
+        \def\sh{5.0}                    %
+        \def\w{8.0}                     %
+        \def\bloatStr{0.5}              %
+        %\def\armLen{1}                  %
+        \ranLength{\armLen}             %
+        %\def\pole{0.5}                  %
+        \ranLength{\pole}               %
+        \def\axonLen{2.0}               %
+        \def\tentLen{1/15}              %
+        \def\c{0.1}                     %
+        \def\r{0.25}                    %
+        \def\angle{45}                  %
+        \def\linthicc{3pt}              %
+        \def\linthic{0.5*\linthicc}     %
+        \def\linthin{0.5*\linthic}      %
+
+      
+        % Angles for the polar coordinates, uses degrees for god knows what reason
+        %\pgfmathrandominteger{\rara}{0}{300}
+        \def\pI{34}
+        \def\pII{84}
+        \def\pIII{144}
+        \def\pIV{188}
+        \def\pV{253}
+        \def\pVI{325}
+
+        % Shortcut for loop
+        \def\forlist#1{
+        \foreach \i in {\pI,\pII,\pIII,\pIV,\pV,\pVI}{
+                        #1
+                        }
+                }
+        
+        % Fixed points
+        \coordinate (O) at (0,0); % The origin
+        \coordinate (SC) at (2.5*\axonLen,0); % The synaptic cleft potistion
+
+        % Some custom commands/shortcuts
+        % Cell "spikes"
+        \def\pcoord#1{{#1:\armLen/15}}
+        \forlist{
+            \coordinate (P\i) at (\pcoord{\i});
+            %\fill (P\i) circle (1.5pt);
+            }
+        \def\bloat#1{{#1:\bloatStr}}
+            \def\contr#1#2{(P#1) .. controls (\bloat{#1+\sh}) and (\bloat{#2-\sh}) .. }
+        \def\aggcontr#1#2#3#4#5{
+                    \contr{#1}{#2}
+                    \contr{#2}{#3}
+                    \contr{#3}{#4}
+                    \contr{#4}{#5}
+                    }
+        \def\axonPath{(P\pVI) .. controls +(-40:2*\axonLen) and +([turn]-75:0.5*\axonLen) ..  (SC)}
+        \path
+            \axonPath -- ([turn]-45:1) coordinate (CL1);
+        \path
+            \axonPath -- ([turn]+45:1) coordinate (CL2);
+        % Axon mylene sheath decoration
+        \begin{scope}[decoration={markings,
+                        mark=between positions 0.03 and 1 step 0.75cm
+                        with { \node   [rectangle, 
+                                        rounded corners, 
+                                        fill = white, 
+                                        draw = \clr,
+                                        inner sep=0pt,
+                                        minimum height=0.30cm,minimum width=0.7cm,
+                                        %scale = 0.5,
+                                        transform shape] {};}}]
+            \draw[postaction={decorate}, line width = 0.75pt]
+                \axonPath;
+        \end{scope}
+
+
+        \def\synCleft{
+        \foreach \i in {0.0,0.2,0.4,0.8,1.0}{
+            \fill[red] ($(CL1)!\i!(CL2)$) circle (3pt);
+            \draw ($(CL1)!\i!(CL2)$) .. controls +(-60:\tentLen) .. (SC);
+        }}
+
+
+        %\def\armEdge{node[isosceles triangle, fill=red, opacity = 1, shape border rotate=\i]{}}
+        
+                    
+        % Cell body
+        % gives the juicy looking cell body
+        % Generates random angles for the branching arms
+        \def\limbConstruct{
+            \ranAngle{\ra}
+            \ranAngle{\rb}
+            \ranAngle{\rc}
+            \ranAngle{\rangA}
+            \ranAngle{\rangB}
+            \ranAngle{\rangC}
+            \ranLength{\rla}
+            \ranLength{\rlb}
+            \ranLength{\rlc}
+            \ranLength{\rext}
+            \ranLength{\rarm}
+            
+            \foreach \v in {\ra:\tentLen*\rla,
+                            \rb:\tentLen*\rlb,
+                            \rc:\tentLen*\rlc
+                            }{
+                \draw [line cap = round, rounded corners]
+                    (P\i) -- ([turn]0:\rext/20) 
+                    .. controls 
+                    ([turn]\rangB :\rarm/20) and 
+                    ([turn]\rangC:\rarm/20) .. 
+                    ([turn]\v);
+                }
+            \foreach \v in {\i+\rb:\tentLen*\rlc,
+                            \i+\rc:\tentLen*\rla
+                            }{
+                \draw [line cap = round, rounded corners]
+                    (PP\i) 
+                    .. controls 
+                    ([turn]0:\rarm/20) and 
+                    +(\rangA:\rarm/20)  .. 
+                    ([turn]\v);
+                }}
+
+        % Builds the black background layer  
+        \begin{scope}[line width = \linthicc, 
+                        %decoration=snake
+                        ]
+                
+        \pgfmathsetseed{\seed}
+        \foreach \i in {\pI,\pII,\pIII,\pIV,\pV}{
+            \draw 
+                (P\i) -- (\i:\pole/13) coordinate (PP\i);
+                
+            \limbConstruct
+
+            %\fill (PP\i) circle (\linthic);
+            }
+        
+        \draw  
+            \aggcontr{\pI}{\pII}{\pIII}{\pIV}{\pV} 
+            (P\pV) .. controls (\bloat{\pV+\sh}) and (\bloat{\pVI}) ..              
+            (P\pVI) .. controls (\bloat{\pVI}) and (\bloat{\pI-\sh}) ..
+            cycle;
+            
+        \draw [line width = 1.5*\linthicc]
+            \axonPath;
+        \fill (P\pVI) circle (\linthic);
+        \synCleft
+        \end{scope}
+
+
+        % White top layering
+        \begin{scope}[line width = \linthic, 
+                        white, 
+                        %decoration=snake
+                        ] 
+        \pgfmathsetseed{\seed}
+        \foreach \i in {\pI,\pII,\pIII,\pIV,\pV}{            
+            \limbConstruct
+
+            %\fill (PP\i) circle (\linthin);
+            \draw[white] (P\i) -- (PP\i);
+            }
+
+            
+        \filldraw 
+            \aggcontr{\pI}{\pII}{\pIII}{\pIV}{\pV}       
+            (P\pV) .. controls (\bloat{\pV+\sh}) and (\bloat{\pVI}) ..
+            (P\pVI) .. controls (\bloat{\pVI}) and (\bloat{\pI-\sh}) ..
+            cycle;
+        \draw [line width = \linthicc]
+            \axonPath;
+        \fill (P\pVI) circle (\linthin);
+        \synCleft
+        \end{scope}
+        
+        \draw[rounded corners]  (O)+(135:0.5*\r) circle (\r);
+        
+        % Prettifying the connections
+        %\forlist{
+        %    \fill[white] (P\i) circle (\linthin);
+        %    }
+        %\fill[white] (SC) circle (\linthin);
+        
+
+\end{tikzpicture}
+    \caption{Caption}
+    \label{fig:Dendrite}
+\end{figure}
+
+\end{document}
+
+            \draw[name path = mylen, white]
+            ($(O)!0.4!(SCtemp1)$) -- ++(-90:1.5) 
+                -- ($(O)!0.65!(SCtemp1)$) -- ++(-80:1.5) 
+                -- ($(O)!0.89!(SCtemp1)$) 
+                -- ++(-60:1.5) -- ++(80:1.75) -- ++(-140:1)
+                ;
+
+            \fill [name intersections={of=axon and mylen, name=i, total=\t}] 
+            [red, opacity=0.5, every node/.style={above left, black, opacity=1}]
+                \foreach \s in {1,...,\t}{
+                    (i-\s) circle (2pt) node {\footnotesize\s}
+                    };   

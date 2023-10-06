@@ -39,31 +39,33 @@
 \spath{Title} % Generates the title page
 
 \tableofcontents
-\newpage
 
 %\listoffigures \newpage
 
 \pagenumbering{arabic}
 
-\chapter{Introduction}
-\spath{Intro}
+%\newpage
+%\chapter{Introduction}
+%\spath{Intro}
 
 
-%Hello, I am a secntence \SI{56}{\um}~\cite{dirac}.
+%Hello, I am a secntence \SI{56}{\um} \cite{dirac}.
 
-
-
-\newpage
-\chapter{Background}
-%\spath{backgroudn}
 
 
 \newpage
-\section{Methodology}
+\part{Theory}
+%\chapter{Background}
+\spath{background}
 
 
 \newpage
-\section{Results}
+\chapter{Methodology}
+
+
+\newpage
+\part{Discussion}
+\chapter{Results}
 
 
 \newpage
@@ -71,10 +73,10 @@
 %\spath{Discussion.tex}
 
 \newpage
-\section{Conclusion}
+\chapter{Conclusion}
 %\spath{Conclusion.tex}
 
-
+\part{Appendix}
 \newpage
 \printbibliography[title={Bliblyogrpah}]
 \end{document}
