@@ -136,20 +136,20 @@
 
 \tikzset{
   show curve controls/.style={
-    decoration={
-      show path construction,
-      curveto code={
-        \draw [blue, dashed]
-          (\tikzinputsegmentfirst)    -- (\tikzinputsegmentsupporta)
-          node [at end, cross out, draw, solid, red, inner sep=2pt]{};
-        \draw [blue, dashed]
-          (\tikzinputsegmentsupportb) -- (\tikzinputsegmentlast)
-          node [at start, cross out, draw, solid, red, inner sep=2pt]{};
-      }
-    },decorate
-
-  }
-} %[show curve controls]
+    postaction={
+      decoration={
+        show path construction,
+        curveto code={
+          \draw [blue] 
+            (\tikzinputsegmentfirst) -- (\tikzinputsegmentsupporta)
+            (\tikzinputsegmentlast) -- (\tikzinputsegmentsupportb);
+          \fill [red, opacity=0.5] 
+            (\tikzinputsegmentsupporta) circle [radius=.5ex]
+            (\tikzinputsegmentsupportb) circle [radius=.5ex];
+        }
+      },
+      decorate
+}}}
 
 \tikzset{
   Mylen Sheath/.style={decoration={markings,

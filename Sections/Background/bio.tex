@@ -1,42 +1,110 @@
 \documentclass[Orator]{subfiles}
 \begin{document}
-\section{The Neuron}
 
 \input{Pictures/Anakin/Dendrite}
 
-The human body is composed of a vast number of cells and complex interactions, how could anyone ever expect these meaty lumps we call `people' to coordinate properly without an equally complex system for the transfer of information. 
+The human body is composed of a vast number of cells and complex interactions, how could anyone ever expect these meaty lumps we call `\textit{people}' to coordinate properly without an equally complex system for the transfer of information? 
 Neurons are information highways made manifest in multi-cellular organisms. 
-There exists many distinct types of neuron, however, the underlying mechanisms of function stay the same.
+There exists many distinct types of neurons, however, the underlying mechanisms of function stay the same.
 
 
-\section{Defining Cellular Structures}
-
-The neuron has a number of important features that have led to the properties of the Hodgkin-Huxley model;
+\section{Cellular Structures}
+\subsection{Organelles}
+{\noindent
+Nucleus \\
+Ribosomes \\
+Golgi-Apparatus \\
+Endoplasmic Reticulum, rough \& smooth \\
+Lysosome
+}
+\subsection{Specialized Neuronal Structures}
+There exist a number important features that are foundational to the specialized functions found in the neurons;
 \begin{enumerate}
-    \item \textbf{The soma} is the body of the neuron. As it contains the nucleus, most protein synthesis occurs here. The nucleus can range from 3 to 18 micrometers in diameter.
-    \item \textbf{The dendrites} of a neuron are cellular extensions with many branches. This overall shape and structure are referred to metaphorically as a dendritic tree. This is where the majority of input to the neuron occurs via the dendritic spine.
-    \item \textbf{The axon} is a finer, cable-like projection that can extend tens, hundreds, or even tens of thousands of times the diameter of the soma in length. The axon primarily carries nerve signals away from the soma and carries some types of information back to it. Most neurons have only one axon, but this axon will be able to undergo significant branching, enabling communication with many target cells. The part of the axon where it emerges from the soma is called the axon hillock. The axon hillock has the greatest density of voltage-dependent sodium channels. This makes it the most easily excited part of the neuron and the spike initiation zone for the axon. 
-    \item \textbf{The axon terminal} is found at the end of the axon farthest from the soma and contains synapses. 
+    \item \textbf{The soma} is the main body of the neuron. It is the space in which the nucleus resides, and by extension where protein production occurs. The nucleus can range from \qtyrange{3}{18}{\um} in diameter.
+    \item \textbf{The dendrites} of a neuron are extensions of the membrane with many branches. This overall shape and structure are metaphorically referred to as a `\textit{dendritic} tree'\footnotemark. This is where the majority of neuron inputs are received, and carried by the `dendritic spine' down to the soma \cite{}. \footnotetext{Greek root word `\textit{dendron}' meaning tree, translates to `tree tree'.}
+    \item \textbf{The axon} is a finer tendril that can extend tens, if not tens of thousands of times, the diameter of the soma in length. The axon primarily carries nerve signals away from the soma and carries some types of information back to it. Most neurons have only one axon, but this axon will be able to undergo significant branching, enabling communication with many target cells. 
+    \item \textbf{The axon hillock} is the part of the axon where it emerges from the soma. The region contains the greatest density of voltage-dependent sodium channels. This makes it the most easily excited part of the neuron \cite{}. 
+    \item \textbf{The axon terminal} is found at the terminus of the axon and contains synapses. 
+    \item \textbf{The myelin} is a lipid and protein comprised substance that `sheathes' the axon creating additional insulation for capacitance \cite{}.
 \end{enumerate}
 
 
-\section{Lipid Bilayer}
-A lipid bilayer is a powerful electrical insulator, but in neurons, many of the protein structures embedded in the membrane are electrically active \cite{}. 
-These include ion channels that permit electrically charged ions to flow across the membrane and ion pumps that chemically transport ions from one side of the membrane to the other. Most ion channels are permeable only to specific types of ions.
-Some ion channels are voltage gated, meaning that they can be switched between open and closed states by altering the voltage difference across the membrane. 
-Others are chemically gated, meaning that they can be switched between open and closed states by interactions with chemicals that diffuse through the extracellular fluid. 
+\subsection{The Lipid Bilayer} 
+A fundamental component of cells is the cell membrane, composed of what is known as a `\textit{lipid bilayer}'\footnotemark. A lipid bilayer creates a strong electrical insulation, 
+which confers it the property of  \textbf{capacitance} - the capability of an object to store electrical charge 
+\cite{}.  In a neuron, the overall charge in the intracellular space is negative relative to the extracellular space. This difference in charge is known as the resting membrane potential, and it is essential for the neuron's ability to transmit electrical signals. 
+\footnotetext{Latin root word `bi' meaning two, translates to `lipid two-layer'}
 
+The ions found to be involved in the membrane potential include sodium, potassium, chloride, and, to a limited degree, calcium\footnotemark. 
+\footnotetext{\(\Nap, \, \Kp, \, \Cln, \text{ and } \Capp\)} 
+In the extracellular space the concentrations of \(\Nap\) and  \(\Cln\) are kept much higher then in the cytoplasm, whereas \(\Kp\) is found in much higher concentrations  in the cytoplasm compared to the extracellular space. During rest, their concentration gradients are actively regulated and maintained at constant values by 'ion pumps', that chemically transport ions from one side of the membrane to the other \cite{}. 
 
+This separation of charges is what creates a voltage difference across the cell membrane, with the inside being negatively charged relative to the outside. The usual resting membrane potential is found to be around \qty{-70}{millivolts} (\unit{\milli\volt}) in neurons, however, it varies depending on the cell type and conditions \cite{}. 
+
+Another structure embedded in the lipid bilayer includes `ion \textit{channels}' that permit electrically charged ions to diffuse across the membrane gradient. Ion channels are only permeable to a specific ion \cite{}. Some ion channels are voltage gated, meaning that they can be switched between open and closed states by altering the voltage difference across the membrane. 
+Others are `ligand gated', meaning that they can be switched between an open and a closed state by interacting with ligands that travel through the extracellular fluid. 
+
+\vspace{1em}
 \input{Pictures/Anakin/DenCircuit}
 
-The ion materials include sodium, potassium, chloride, and calcium \footnotemark. \footnotetext{\(Na^+, \, K^+, \, Cl^-, \text{ and } Ca^{2+}\)} 
-The interactions between ion channels and ion pumps produce a voltage difference across the membrane, typically a bit less than 1/10 of a volt at baseline. 
-This voltage has two functions: first, it provides a power source for an assortment of voltage-dependent protein machinery that is embedded in the membrane; second, it provides a basis for electrical signal transmission between different parts of the membrane.
+The voltage has two functions: first, it provides a power source for an assortment of voltage-dependent protein machinery that is embedded in the membrane; second, it provides a basis for electrical signal transmission between different parts of the membrane.
 
 
-\section{Action Potential}
+
+\section{Potential}
+\subsection{Equilibrium Potential of a Given Ion, \(E_\bfm{ion}\)}
+All systems yearn for their equilibrium, the fabled \textit{steady state} . 
+The value of membrane potential 
+%where the concentration force that tends to move a particular ion in one direction is exactly balanced by the electrical force that tends to move the same ion in the reverse direction is 
+where the direction of the gradient is perfectly balanced into a net zero is  
+called the `\textit{equilibrium potential}' of the ion \(\br{E_\bfm{ion}}\) or the `\textit{reversal potential}' of the ion \(E_\bfm{rev}\). The equilibrium potential for a particular 
+ion is the value of \(\Vm\) for which the net flux of this ion \(\br{f_\bfm{net}}\) through an open channel is null: when \(\Vm = E_\bfm{ion}\), \(f_\bfm{net} = \qty{0}{\mole\per\second}\).
+\(E_\bfm{ion}\) of the relevant ions can be calculated using the \textit{Nernst} equation:
+\begin{equation}
+    \label{eq:nernst}
+    E_\bfm{ion} = \br{\frac{\clm{R}\,\clm{T}}{z\,\clm{F}}} \,\ln \br{\frac{\sbr{\bfm{ion}}_\clm{E} }{ \sbr{\bfm{ion}}_\clm{I}} } 
+\end{equation}
+
+%{VC\per\kelvin\per\mol}
+%{\kilo\gram\metre^2\second^{-2}\kelvin\per\mol}
+\(\clm{R}\) being the constant of an ideal gas (\qty{8.314}{\joule\per\kelvin\per\mol});
+\(\clm{T}\) is the temperature in kelvin ( \unit{\kelvin} given by \(273.15 +\text{ degrees in } \unit{\degreeCelsius}\)); \(\clm{F}\) is the Faraday constant (\qty{96500}{\degreeCelsius\per\mole}); \(z\) is the valence of the ion; and \(\sbr{\bfm{ion}}\) is the concentration of the given ion in the extracellular \( \br{ \clm{E} } \) or intracellular \( \br{\clm{I}}\) medium.
+This gives:
+\begin{subequations}
+    \label{eq:mVions}
+    \begin{equation} \tag{\ref*{eq:mVions}}
+        E = \frac{\,58\,}{z} \ \log \br{ \frac{ \sbr{\bfm{ion}}_{\clm{E}} }{ \sbr{\bfm{ion}}_{\clm{I}} } }
+    \end{equation}
+
+The equilibrium potential of each ion thus follows as:
+    \begin{align}
+        {E_{\rmm{Na}}} &= \frac{58}{1}\  \log \br{ \frac{140}{14} }      =  \qty{58}{\mV} \\
+        {E_\rmm{K}}    &= \frac{58}{1}\  \log \br{ \frac{3}{140} }       =  \qty{-97}{\mV} \\
+        {E_\rmm{Ca}}   &= \frac{58}{2}\  \log \br{ \frac{1.5}{10^{-4}} } = \qty{121}{\mV} \\
+        {E_\rmm{Cl}}   &= \frac{58}{-1}\ \log \br{ \frac{146}{14} }      = \qty{-59}{\mV} 
+    \end{align}
+\end{subequations}
+
+These equations can be interpreted as such. 
+Should the channels open in the membrane where \(\Kp\) channels are the only open channels, the efflux of \(\Kp\) ions will hyper-polarize the membrane until \(\Vm = E_\rmm{K} = \qty{-97}{\mV}\), at which point the net flux of \(\Kp\) is null being that \(\Kp\) ions have exactly the same potential to move towards the extracellular space as the intracellular space. 
+The efflux of \(\Kp\) will be exactly compensated by the influx of \(\Kp\) and the membrane potential will stabilize at \(\Vm = E_\rmm{K} \) for as long as the \(\Kp\) channels stay open. 
+Assuming only \(\Nap\) channels are open, the membrane potential will move toward \(\Vm = \qty{58}{\mV}\), the potential at which the net flux of \(\Nap\) is null. 
+Similarly, when \(\Vm = E_\rmm{Cl} = \qty{-59}{\mV}\),  
+%\(\Cln\) ions have the  tendency to move down their concentration gradient than to move in the reverse direction according to membrane potential, 
+the net flux of \(\Cln\) is null. 
+By extension, should \(\Vm \neq E_\rmm{K}\), the net flux of  \(\Kp\) will no longer be null. 
+This holds true for all ions: when \(\Vm \neq E_\bfm{ion}\) there is a net flux of the ion \cite{}. 
 
 
+
+\begin{equation*}
+    \begin{split}
+        I &= C_m \ode{V_m}{t} + \bar{g}_\rmm{K} n^4 \br{V_m - V_\rmm{K}} + \bar{g}_\rmm{Na} m^3 h \br{V_m - V_\rmm{Na}}  + \bar{g}_\rmm{L} m^3 h \br{V_m - V_\rmm{L}} \\ 
+        \ode{n}{t} &= \alpha_n \br{V_m} \br{1-n} - \beta_n \br{V_m} n \\
+        \ode{m}{t} &= \alpha_m \br{V_m} \br{1-m} - \beta_m \br{V_m} m \\
+        \ode{h}{t} &= \alpha_h \br{V_m} \br{1-h} - \beta_h \br{V_m} h 
+    \end{split}
+\end{equation*}
 
 
 \end{document}

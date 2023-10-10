@@ -1,8 +1,10 @@
 \documentclass[Orator.tex]{subfiles}
 
 \begin{document}
+
 \begin{figure}[h]
     \centering
+    
 \begin{tikzpicture}[
     %x=1cm, y=1cm, 
     %z={(0cm,1cm)},
@@ -180,8 +182,8 @@
 
         % Outlining the circutry
         \draw[line width = 0.5] (TL) -- (TR)++(-0.75,0) (BL) -- (BR)++(-0.75,0);
-        \draw ($(TL)!13/24!(TR)$) -- ++(0,0.75) node[scale = 0.5,circle,draw,fill = white] {\footnotesize $Outside$}
-              ($(BL)!13/24!(BR)$) -- ++(0,-0.75) node[scale = 0.5,circle,draw,fill = white] {\footnotesize $Inside$};
+        \draw ($(TL)!13/24!(TR)$) -- ++(0,0.75) node[scale = 1,circle,draw,fill = white] {\footnotesize $\mathcal{E}$}
+              ($(BL)!13/24!(BR)$) -- ++(0,-0.75) node[scale = 1,circle,draw,fill = white] {\footnotesize $\mathcal{I}$};
         
     \end{scope}
     
