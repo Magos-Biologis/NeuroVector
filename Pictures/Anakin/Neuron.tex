@@ -1,27 +1,23 @@
-\documentclass[../../Orator.tex]{subfiles}
+\documentclass[../../Orator]{subfiles}
 
 \begin{document}
 
 \begin{figure}[h]
-    \usetikzlibrary{angles, math, calc, matrix}
-    \usetikzlibrary{shapes, shapes.geometric, shapes.misc, shapes.arrows}
-    \usetikzlibrary{decorations.pathreplacing, decorations.markings, decorations.text}
-    \usetikzlibrary{calligraphy}
     \centering
     
-\begin{tikzpicture}[scale = 1.5,
-        thick, 
-        black!80,
+\begin{tikzpicture}[
+        scale = 1.5,
+        draw = black!80,
         fill = white,
         ]
     
-    \clip [use as bounding box] (-2.5,-3) rectangle (6,2);
+    \clip[use as bounding box] (-2.5,-2.5) rectangle (6,2);
+    %\draw[help lines] (-2.5,-3) grid (6,2);
     %\draw[white,->] (0,-4) -- (0,4);
     %\draw[white,->] (-3,0) -- (6,0);
     
     % Random Num shit
     \def\ranAngle#1{\pgfmathrandominteger{#1}{-75}{75}}
-    %\def\ranSpreadL#1{\pgfmathrandominteger{#1}{0}{75}}
     \def\ranLength#1{\pgfmathrandominteger{#1}{5}{15}}
     \def\ranScale#1{\pgfmathrandominteger{#1}{-10}{10}}
 
@@ -83,6 +79,9 @@
         \coordinate (P\i) at (\pcoord{\i}{\armLen});
         %\fill (P\i) circle (1.5pt);
         }
+    \coordinate (AH) at (P\pVI);
+
+
     \def\bloat#1{{#1:\bloatStr}}
         \def\contr#1#2{(P#1) .. controls (\bloat{#1+\sh}) and (\bloat{#2-\sh}) .. }
     \def\aggcontr#1#2#3#4#5{
@@ -92,10 +91,10 @@
                 \contr{#4}{#5}
                 }
     \def\axonPath{(P\pVI) .. controls +(-40:2*\axonLen) and +([turn]-75:0.5*\axonLen) ..  (SC)}
-    \path
-        \axonPath -- ([turn]-45:0.75) coordinate (CL1);
-    \path
-        \axonPath -- ([turn]+45:0.75) coordinate (CL2);
+
+    \path foreach \SIGN/\i in {-/1, +/2}{
+        \axonPath -- ([turn]\SIGN 45:0.75) coordinate (CL\i)};
+
     % Axon mylene sheath decoration
     \begin{scope}[decoration={markings,
                     mark=between positions 0.03 and 1 step 0.75cm
@@ -105,6 +104,7 @@
                                     draw = \clr,
                                     inner sep=0pt,
                                     minimum height=0.30cm,minimum width=0.7cm,
+                                    behind path,
                                     %scale = 0.5,
                                     transform shape] {};}}]
         \draw[postaction={decorate}, line width = 0.75pt]
@@ -145,7 +145,7 @@
                             \rb:\tentLen*\rlb,
                             \rc:\tentLen*\rlc
                             }{
-                \draw [line cap = round]
+                \draw [line cap = round, rounded corners]
                     (P\i) -- ([turn]0:\rext/20) 
                     .. controls 
                     ([turn]\rangB :\rarm/20) and 
@@ -157,7 +157,7 @@
             \foreach \v in {\i+\rb:\tentLen*\rlc,
                             \i+\rc:\tentLen*\rla
                             }{
-                \draw [line cap = round]
+                \draw [line cap = round, rounded corners]
                     (PP\i) 
                     .. controls 
                     ([turn]0:\rarm/20) and 
@@ -167,10 +167,8 @@
                 }}
 
         % Builds and outlines the Neuron
-        \foreach \COLOR/\THICKNESS in {black!80/\linthicc, white/\linthic}{
-            \begin{scope}[line width = \THICKNESS, 
-                            \COLOR 
-                            ]
+    \foreach \COLOR/\THICKNESS in {black!80/\linthicc, white/\linthic}{
+        \begin{scope}[line width = \THICKNESS, \COLOR ]
                     
             \pgfmathsetseed{\seed}
             \foreach \i in {\pI,\pII,\pIII,\pIV,\pV}{
@@ -198,36 +196,45 @@
             
             \synCleft
             \end{scope}
-        }
+    }
 
 
-    \draw[rounded corners, rotate = 23]  
+    \draw[rounded corners, rotate = 23, line width = \linthin]  
             (0,0) ellipse [x radius=\rx cm, y radius=\ry cm];
     %\draw[white,rounded corners, rotate = 90]  
     %        (45:\rx) rectangle (225:\rx);
 
     % Labeling
-    \begin{scope}[opacity = 1, pen colour= black!60]
+    \begin{scope}[opacity = 1, red!80!black]
         % Soma label
         \def\avar{{\pIII/2 + \pVI/2 + 180}}
         \path (P\pIII) -- ++(\avar:0.45) coordinate (Sa);
         \path (P\pVI)  -- ++(\avar:0.45) coordinate (Sb);
 
-        \draw[decoration ={calligraphic brace, amplitude = 8}, decorate, line width = 1.5pt] 
-            (Sa) -- (Sb) node[midway, sloped, above] {Soma};
+        \draw[decoration ={brace, amplitude = 8}, decorate, line width = 1.5pt] 
+            (Sa) -- (Sb) node[midway, sloped, above, yshift = 0.3cm] {Soma};
 
         % Dendrite label
         \path (P\pV) -- ++(0:0.20)   coordinate (Da);
-        \path (P\pV) -- ++(\pV:1.75) coordinate (Db);
 
-        \draw[decoration ={calligraphic brace,amplitude = 8},decorate, line width = 1.5pt] 
-                (Da) -- (Db) node[midway, sloped, above] {Dendrite};
+        \draw[decoration ={brace,amplitude = 8},decorate, line width = 1.5pt] 
+                (Da) -- ($(Da)!1!(Da)+(\pV:1)$) 
+                node[midway, sloped, above, yshift = 0.25cm, allow upside down= true] {Dendrite};
 
         % Axon label
-        \draw[decoration ={calligraphic brace,amplitude = 8,raise=0.25cm},decorate, line width = 1.5pt] 
-                (P\pVI) -- (SC) node[midway, sloped, above] {Axon};    
+        \draw[decoration ={brace,amplitude = 8, raise = 0.25cm}, decorate, line width = 1.5pt] 
+                (P\pVI) -- (SC) node[midway, sloped, above, yshift = 0.5cm] {Axon};    
+        
+        % Axon Hill label
+        \draw[<-, line width = 1.5pt] 
+                (AH) node (AHpoint) [circle] {} -- +(0:1.5) node[align=left, pos = 0.99, sloped, fill = white] {Axon Hill};   
+
+        % Synaptic Cleft label
+        \draw[<-, line width = 1.5pt] 
+                (SC)+(200:1mm) node (SCpoint) [circle] {} -- (3,-0.75) node[align=left, pos = 0.99, sloped, fill = white] {Axon Terminal};   
+
     \end{scope}
-\begin{tikzpicture}     
+\end{tikzpicture}     
 
     \caption{A single neuronal cell.}\label{fig:Dendrite}
 \end{figure}

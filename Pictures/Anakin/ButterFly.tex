@@ -1,0 +1,18 @@
+\documentclass[tikz]{standalone}
+
+
+\begin{document}
+
+\begin{tikzpicture}
+
+    \def\Ybound{4}
+    \def\Xbound{4}
+
+    \draw[opacity = 0.1] (-\Xbound,-\Ybound) grid (\Xbound,\Ybound);
+    \clip[use as bounding box] (-\Xbound,-\Ybound) rectangle (\Xbound,\Ybound);
+
+    \draw plot[raw gnuplot,id=raw-example] function{set samples 25; plot sin(x)};
+
+\end{tikzpicture}
+
+\end{document}
