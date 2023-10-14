@@ -125,7 +125,6 @@
         }}
 
 
-        %\def\armEdge{node[isosceles triangle, fill=red, opacity = 1, shape border rotate=\i]{}}
         
                     
         % Cell body
@@ -169,58 +168,40 @@
                     ;
                 }}
 
-        % Builds the black background layer  
-        \begin{scope}[line width = \linthicc, 
-                        %decoration=snake
-                        ]
-                
-        \pgfmathsetseed{\seed}
-        \foreach \i in {\pI,\pII,\pIII,\pIV,\pV}{
-            \draw 
-                (P\i) -- (\i:\pole/13) coordinate (PP\i);
-                
-            \limbConstruct
-
-            %\fill (PP\i) circle (\linthic);
-            }
-        
-        \draw  
-            \aggcontr{\pI}{\pII}{\pIII}{\pIV}{\pV} 
-            (P\pV) .. controls (\bloat{\pV+\sh}) and (\bloat{\pVI}) ..              
-            (P\pVI) .. controls (\bloat{\pVI}) and (\bloat{\pI-\sh}) ..
-            cycle;
+        % Builds and outlines the Neuron
+        \foreach \COLOR/\THICKNESS in {black!80/\linthicc, white/\linthic}{
+            \begin{scope}[line width = \THICKNESS, 
+                            \COLOR 
+                            ]
+                    
+            \pgfmathsetseed{\seed}
+            \foreach \i in {\pI,\pII,\pIII,\pIV,\pV}{
+                \draw 
+                    (P\i) -- (\i:\pole/13) coordinate (PP\i);
+                    
+                \limbConstruct
+                }
             
-        \draw [line width = 1.5*\linthicc]
-            \axonPath;
-        \fill (P\pVI) circle (\linthic);
-        \synCleft
-        \end{scope}
+            \filldraw  
+                \aggcontr{\pI}{\pII}{\pIII}{\pIV}{\pV} 
+                (P\pV) .. controls (\bloat{\pV+\sh}) and (\bloat{\pVI}) ..              
+                (P\pVI) .. controls (\bloat{\pVI}) and (\bloat{\pI-\sh}) ..
+                cycle;
 
-
-        % White top layering
-        \begin{scope}[line width = \linthic, 
-                        white, 
-                        %decoration=snake
-                        ] 
-        \pgfmathsetseed{\seed}
-        \foreach \i in {\pI,\pII,\pIII,\pIV,\pV}{            
-            \limbConstruct
-
-            %\fill (PP\i) circle (\linthin);
-            \draw[white] (P\i) -- (PP\i);
-            }
-
+            \ifx\clr\COLOR
+            \draw [line width = 1.5*\linthicc]
+                \axonPath;
+            \fill (P\pVI) circle (\linthic);
+            \else 
+            \draw [line width = \linthicc]
+                \axonPath;
+            \fill (P\pVI) circle (\linthin);
+            \fi
             
-        \filldraw 
-            \aggcontr{\pI}{\pII}{\pIII}{\pIV}{\pV}       
-            (P\pV) .. controls (\bloat{\pV+\sh}) and (\bloat{\pVI}) ..
-            (P\pVI) .. controls (\bloat{\pVI}) and (\bloat{\pI-\sh}) ..
-            cycle;
-        \draw [line width = \linthicc]
-            \axonPath;
-        \fill (P\pVI) circle (\linthin);
-        \synCleft
-        \end{scope}
+            \synCleft
+            \end{scope}
+        }
+
 
         \draw[rounded corners, rotate = 23]  
                 (0,0) ellipse [x radius=\rx cm, y radius=\ry cm];
