@@ -13,13 +13,17 @@
 
 \begin{document}
 
-\begin{tikzpicture}
+\begin{tikzpicture}[black!80, line width = 2pt]
     \clip (-4,-0) rectangle (4,8);
-    \draw (-4,-0) grid (4,8);
+    \draw[opacity = 0.1] (-4,-0) grid (4,8);
 
+    \def\nuclea{0.5}
+    \def\radius{2.3}
 
-    
+    \draw (0,0) circle (\radius);
 
+    \draw[rounded corners, rotate = 90]  
+            (0,0) ellipse [x radius= 2.5*\nuclea , y radius= 2.25*\nuclea ];
     
 \end{tikzpicture}
 
