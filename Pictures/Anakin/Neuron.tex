@@ -123,82 +123,82 @@
     }}
 
 
-    
-                
-    % Cell body
-    % gives the juicy looking cell body
-    % Generates random angles for the branching arms
-    \def\limbConstruct{
-        \ranAngle{\ra}
-        \ranAngle{\rb}
-        \ranAngle{\rc}
-        \ranAngle{\rangA}
-        \ranAngle{\rangB}
-        \ranAngle{\rangC}
-        \ranLength{\rla}
-        \ranLength{\rlb}
-        \ranLength{\rlc}
-        \ranLength{\rext}
-        \ranLength{\rarm}
         
-        \foreach \v in {\ra:\tentLen*\rla,
-                        \rb:\tentLen*\rlb,
-                        \rc:\tentLen*\rlc
-                        }{
-            \draw [line cap = round]
-                (P\i) -- ([turn]0:\rext/20) 
-                .. controls 
-                ([turn]\rangB :\rarm/20) and 
-                ([turn]\rangC:\rarm/20) .. 
-                ([turn]\v) 
-                %node[ draw, isosceles triangle, rotate = \rangC, scale = 1]{}
-                ;
-            }
-        \foreach \v in {\i+\rb:\tentLen*\rlc,
-                        \i+\rc:\tentLen*\rla
-                        }{
-            \draw [line cap = round]
-                (PP\i) 
-                .. controls 
-                ([turn]0:\rarm/20) and 
-                +(\rangA:\rarm/20)  .. ([turn]\v) 
-                %node[fill,draw, isosceles triangle, rotate = 180+\rangA, scale = 0.00005]{}
-                ;
-            }}
+                    
+        % Cell body
+        % gives the juicy looking cell body
+        % Generates random angles for the branching arms
+        \def\limbConstruct{
+            \ranAngle{\ra}
+            \ranAngle{\rb}
+            \ranAngle{\rc}
+            \ranAngle{\rangA}
+            \ranAngle{\rangB}
+            \ranAngle{\rangC}
+            \ranLength{\rla}
+            \ranLength{\rlb}
+            \ranLength{\rlc}
+            \ranLength{\rext}
+            \ranLength{\rarm}
+            
+            \foreach \v in {\ra:\tentLen*\rla,
+                            \rb:\tentLen*\rlb,
+                            \rc:\tentLen*\rlc
+                            }{
+                \draw [line cap = round]
+                    (P\i) -- ([turn]0:\rext/20) 
+                    .. controls 
+                    ([turn]\rangB :\rarm/20) and 
+                    ([turn]\rangC:\rarm/20) .. 
+                    ([turn]\v) 
+                    %node[ draw, isosceles triangle, rotate = \rangC, scale = 1]{}
+                    ;
+                }
+            \foreach \v in {\i+\rb:\tentLen*\rlc,
+                            \i+\rc:\tentLen*\rla
+                            }{
+                \draw [line cap = round]
+                    (PP\i) 
+                    .. controls 
+                    ([turn]0:\rarm/20) and 
+                    +(\rangA:\rarm/20)  .. ([turn]\v) 
+                    %node[fill,draw, isosceles triangle, rotate = 180+\rangA, scale = 0.00005]{}
+                    ;
+                }}
 
-    % Builds and outlines the Neuron
-    \foreach \COLOR/\THICKNESS in {black!80/\linthicc, white/\linthic}{
-        \begin{scope}[line width = \THICKNESS, 
-                        \COLOR 
-                        ]
-                
-        \pgfmathsetseed{\seed}
-        \foreach \i in {\pI,\pII,\pIII,\pIV,\pV}{
-            \draw 
-                (P\i) -- (\i:\pole/13) coordinate (PP\i);
-                
-            \limbConstruct
-            }
-        
-        \filldraw  
-            \aggcontr{\pI}{\pII}{\pIII}{\pIV}{\pV} 
-            (P\pV) .. controls (\bloat{\pV+\sh}) and (\bloat{\pVI}) ..              
-            (P\pVI) .. controls (\bloat{\pVI}) and (\bloat{\pI-\sh}) ..
-            cycle;
+        % Builds and outlines the Neuron
+        \foreach \COLOR/\THICKNESS in {black!80/\linthicc, white/\linthic}{
+            \begin{scope}[line width = \THICKNESS, 
+                            \COLOR 
+                            ]
+                    
+            \pgfmathsetseed{\seed}
+            \foreach \i in {\pI,\pII,\pIII,\pIV,\pV}{
+                \draw 
+                    (P\i) -- (\i:\pole/13) coordinate (PP\i);
+                    
+                \limbConstruct
+                }
+            
+            \filldraw  
+                \aggcontr{\pI}{\pII}{\pIII}{\pIV}{\pV} 
+                (P\pV) .. controls (\bloat{\pV+\sh}) and (\bloat{\pVI}) ..              
+                (P\pVI) .. controls (\bloat{\pVI}) and (\bloat{\pI-\sh}) ..
+                cycle;
 
-        \ifx\clr\COLOR
-        \draw [line width = 1.5*\linthicc]
-            \axonPath;
-        \fill (P\pVI) circle (\linthic);
-        \else 
-        \draw [line width = \linthicc]
-            \axonPath;
-        \fill (P\pVI) circle (\linthin);
-        \fi
-        
-        \synCleft
-        \end{scope}
-    }
+            \ifx\clr\COLOR
+            \draw [line width = 1.5*\linthicc]
+                \axonPath;
+            \fill (P\pVI) circle (\linthic);
+            \else 
+            \draw [line width = \linthicc]
+                \axonPath;
+            \fill (P\pVI) circle (\linthin);
+            \fi
+            
+            \synCleft
+            \end{scope}
+        }
 
 
     \draw[rounded corners, rotate = 23]  
