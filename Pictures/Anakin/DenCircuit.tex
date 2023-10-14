@@ -8,7 +8,8 @@
 \begin{tikzpicture}[
     %x=1cm, y=1cm, 
     %z={(0cm,1cm)},
-    scale = 1,
+    scale = 1.2,
+    transform shape,
     thick, 
     black!80,
     circuit ee IEC,
@@ -20,186 +21,263 @@
     ]
 
     % Determines the boundries
-    \path [use as bounding box] (-6,-3.25) rectangle (5.5,3.25);
+    \path[use as bounding box] (-5.5,-3.5) rectangle (5.5,3.5);
+    \fill[black!25] (-5,-1.2) rectangle (3.5,1.2);
     
     
     \def\linWid{1 pt}
     
-    \def\r{0.5}
-    \def\l{2}
-    \def\w{0.5}
-    \def\j{2cm}
+    \def\r{0.5}             % radius of heads
+    \def\s{0.5}             % scale
+    \def\l{2}               % length
+    \def\w{0.75}            % width
+    \def\wl{1}              % width of the lipids
+    \def\wc{1.30}           % width of the capacitor
+    \def\j{2cm}             % not too sure
     \def\chanGap{3cm}
     \def\exShift{3}
-    \def\s{0.5}
     \def\steps{4}
 
     % Ratio for each ion
-    \def\Kr{1/3}
-    \def\Nar{3/4}
+    \def\Nar{3/10}
+    \def\Kr{7/10}
+    \def\Lr{13/11}
+    \def\Nas{Na}
     %\def\Kr{3/12}
     %\def\Nar{7/12}
     %\def\Nar{1/(2*\r*\s)}
     \def\Clr{11/12}
     
     % Random number generation seed
-    \def\seed{220699}
+    \def\seed{22061999}
     
     % Random Num shit
-    \def\randomX#1{\pgfmathrandominteger{#1}{-550}{550}}
-    \def\randomY#1{\pgfmathrandominteger{#1}{225}{325}}
+    \def\randomX#1{\pgfmathrandominteger{#1}{-600}{600}}
+    \def\randomY#1{\pgfmathrandominteger{#1}{225}{330}}
 
-    \def\capWid{1.2}
     
-    \def\boxRatio{33.50}
-    \def\boxSize{3.6}
+    % Definining the coordinates of the box corners
+    \def\boxRise{2.2}
+    \def\boxRun{3.75}
     
-    \def\pcoord#1{{#1:\boxSize}}
+    \coordinate (O)  at (0,0);
+    \coordinate (TR) at ( \boxRun, \boxRise);
+    \coordinate (TL) at (-\boxRun, \boxRise);
+    \coordinate (BL) at (-\boxRun,-\boxRise);
+    \coordinate (BR) at ( \boxRun,-\boxRise);
 
-    \coordinate (O) at (0,0);
-    \coordinate (TR) at (\pcoord{\boxRatio});
-    \coordinate (TL) at (\pcoord{180-\boxRatio});
-    \coordinate (BL) at (\pcoord{180+\boxRatio});
-    \coordinate (BR) at (\pcoord{-\boxRatio});
+    % Define centers of the walls of the circuit
+    \coordinate (CC) at ($(TL)!1/2!(BL)$);
+    \coordinate (LC) at ($(TR)!1/2!(BR)$);
+    
+    % Define centers of the floor and ceiling of the circuit
+    \coordinate (EM) at ($(TL)!1/2!(TR)$);
+    \coordinate (IM) at ($(BL)!1/2!(BR)$);
 
-    %\draw[red] (O) -- (TR) (O) -- (TL) (O) -- (BL) (O) -- (BR);
+    \fill[red] ;
 
         
-    \def\phosLipid#1{
-        \draw [fill = white] (#1)+(-0.5*\w,0) rectangle +(-0.15*\w,-\l);
-        \draw [fill = white] (#1)+(+0.5*\w,0) rectangle +(+0.125*\w,-\l);
-        \draw [fill = white,line width = 1.25pt] (#1) circle (\r) node{} ;
+    \def\phosLipid#1#2#3{
+        \draw [fill = white, line width = 1.20pt] (#1)+(-0.35*\wl,0) rectangle +(-0.1*\wl,-\l);
+        \draw [fill = white, line width = 1.20pt] (#1)+(+0.35*\wl,0) rectangle +(+0.1*\wl,-\l);
+        \draw [fill = white, line width = 1.25pt] (#1) circle (\r) 
+                node[anchor = south, yshift = 15.5, inner sep = 1pt, circle, fill = #2!20!white, scale = 1.5] {$#3$};
     }
 
     \def\lipidBlock#1#2{
     \begin{scope}[xshift = #2]
         \begin{scope}[yshift = \exShift pt +\j*\s, scale = \s ]
             \foreach \i in {0,...,#1}{
-                \phosLipid{ \i , 0 }
+                \phosLipid{ \i , 0 }{red}{+}
             }
         \end{scope}
         \begin{scope}[yshift = -\exShift pt -\j*\s, scale = \s, rotate = 180]
             \foreach \i in {0,...,-#1}{
-                \phosLipid{ \i , 0  }
+                \phosLipid{ \i , 0  }{blue}{-}
             }
         \end{scope}
     \end{scope}
     }
 
     % Maps out certain coordinates in relation to the centers of the channels
-    \path ($(BL)!\Nar!(BR)$) -- ($(TL)!\Nar!(TR)$) node (Na+) [midway] {};\pgfgetlastxy{\Nax}{\Nay}
-    \path ($(BL)!\Kr!(BR)$) -- ($(TL)!\Kr!(TR)$)   node (K+) [midway] {}; \pgfgetlastxy{\Kx}{\Ky}
-    %\path (Na+) -- +(180:\w * 2 cm + 2 * 2 * \r*\s cm) node (K+) {}; \pgfgetlastxy{\Kx}{\Ky}
+    \path ($(CC)!\Nar!(LC)$) node {}; \pgfgetlastxy{\Nax}{\Nay}
+    \path ($(CC)!\Kr!(LC)$)  node {}; \pgfgetlastxy{\Kx}{\Ky}
     %\path (Na+) -- +(0:\w * 2 cm + 2 * 2 * \r*\s cm) node (Cl-) {};\pgfgetlastxy{\Clx}{\Cly}
 
-
-    \begin{scope}[line width = 1.0pt, line cap = rect]   
-        
-        %\draw ($(TR)!1/10!(BR)$) -- (TR) -- (TL) -- ($(TL)!1/10!(BL)$);
-        %\draw ($(BL)!1/10!(TL)$) -- (BL) -- (BR) -- ($(BR)!1/10!(TR)$);
-        
-        \draw (TR) -- +(0.75,0) (BR) -- +(0.75,0);
-        
-        \path (TR)+(0.75,0) coordinate (Up)   (BR)+(0.75,0) coordinate (Lo);
-        \draw (TL) -- (TR) (BL) -- (BR);
-        \foreach \i in {0.1,0.3,0.5,0.7,0.9,1.1}{
-            \draw[white, line width = 3*\i pt] (TR)++(-0.25,0.2) -- ++(\i, 1)  -- +(0,-6);
-        }
-
-
-        % Pathing
-        % Creates a darker path for the membrane region
-        \fill[black!10] (-5.5,-\exShift pt -\j*\s) rectangle (5,\exShift pt +\j*\s);
-
-        % The ghostly lipids in the backgroun
-        \begin{scope}[black!20, line width = 0.75pt]
-            \lipidBlock{ 6}{\Nax  + \w cm + \r*\s cm }
-            \lipidBlock{-8}{\Kx - \w cm - \r*\s cm }
-        \end{scope}
     
-        \draw ($(BL)!1/10!(TL)$) -- (BL)
-              ($(TL)!1/10!(BL)$) -- (TL)
-              ($(TL)!1/10!(BL)$)++(-\capWid*0.5,0) -- +(\capWid,0)
-              ($(BL)!1/10!(TL)$)++(-\capWid*0.5,0) -- +(\capWid,0);
-        
-        \foreach \i in {\Kx,\Nax
-                            %,\Clx
-                            }{
-            \path (\i,0) node  [rectangle,
-                                line width = 1.25,
-                                rounded corners,
-                                minimum height= 1.5 *\l cm,
-                                minimum width = 2 *\w cm,
-                                draw = black!80, 
-                                fill = white,
-                                ] {};
-        }
-        
-        \draw ($(TL)! \Kr !(TR)$) to  [resistor, battery={near end}] ($(BL)! \Kr  !(BR)$);
-        \draw ($(BL)! \Nar !(BR)$) to [battery={near start}, resistor] ($(TL)! \Nar !(TR)$);
-        %\draw ($(TL)! \Clr !(TR)$) to [resistor, battery={near end}] ($(BL)! \Clr !(BR)$);
-        
-        \path ($(TL)!\Kr!(TR)$) -- ($(BL)!\Kr!(BR)$) node[ near start, fill = white,inner sep=1pt] {$K^+$};
-        \path ($(TL)!\Nar!(TR)$) -- ($(BL)!\Nar!(BR)$) node[ near start, fill = white,inner sep=1pt] {$Na^+$};
-        %\path ($(TL)!\Clr!(TR)$) -- ($(BL)!\Clr!(BR)$) node[ near start, fill = white,inner sep=1pt] {$Cl^-$};
-              
-    
-        % Leakage of potential
-        \draw[decoration ={brace,amplitude =8},decorate, line width = 1pt] 
-                (Up)  -- (Lo) 
-                node [midway, xshift = 8, anchor = west, circle, fill = white, draw ] {$E_L$};
-        
-        % random scattering of ions in background
-        % Small Quantities
-        \pgfmathsetseed{\seed}
-        \foreach \i in {1,...,4}{
-            \randomX{\rXk}
-            \randomY{\rYk}
-            \randomX{\rXn}
-            \randomY{\rYn}
-
-            \randomX{\rXc}
-            \randomY{\rYc}
-            
-            \draw (\rXk/100,\rYk/100)   node[circle, fill = white, draw = green!20!white, scale = 0.5] {$K^+$}; 
-            \draw (\rXn/100,-\rYn/100)   node[circle, fill = white, draw = red!20!white, scale = 0.5] {$Na^+$}; 
-            \draw (\rXc/100,-\rYc/100) node[circle, fill = white, draw = yellow!20!white, scale = 0.5] {$Cl^-$}; 
-        }
-        % large Quantities
-        \foreach \i in {1,...,8}{
-            \randomX{\rXk}
-            \randomY{\rYk}
-            \randomX{\rXn}
-            \randomY{\rYn}
-            \randomX{\rXc}
-            \randomY{\rYc}
-            
-            \draw (\rXk/100,-\rYk/100) node[circle, fill = white, draw = green!20!white, scale = 0.5] {$K^+$}; 
-            \draw (\rXn/100,\rYn/100) node[circle, fill = white, draw = red!20!white, scale = 0.5] {$Na^+$}; 
-            \draw (\rXc/100,\rYc/100) node[circle, fill = white, draw = yellow!20!white, scale = 0.5] {$Cl^-$}; 
-        }
-
-
-        % Outlining the circutry
-        \draw[line width = 0.5] (TL) -- (TR)++(-0.75,0) (BL) -- (BR)++(-0.75,0);
-        \draw ($(TL)!13/24!(TR)$) -- ++(0,0.75) node[scale = 1,circle,draw,fill = white] {\footnotesize $\mathcal{E}$}
-              ($(BL)!13/24!(BR)$) -- ++(0,-0.75) node[scale = 1,circle,draw,fill = white] {\footnotesize $\mathcal{I}$};
-        
+    \begin{scope}
+    % random scattering of ions in background
+    \pgfmathsetseed{\seed}
+    \foreach \CYC/\SIGN in {3/-1,8/+1}{
+        \foreach \i in {1,...,\CYC}{
+            \foreach \NN/\CC/\WW/\SS in 
+                {K^+/green/227/-, 
+                 Na^+/red/166/+, 
+                 Cl^-/yellow/79/+}{
+                    \pgfmathrandominteger{\rX}{-550}{550}
+                    \pgfmathrandominteger{\rY}{228}{325}
+                    
+                    \draw (\rX/100,\SIGN * \SS\rY/100)  
+                    node[circle, fill = \CC!25!white, draw = \CC!50, line width = 1pt, inner sep = 2*\WW/227, scale = 0.6] {$\phantom{Na^+}$}
+                    node[scale = 0.6] {$ {\NN} $}; 
+                }
+        }}
     \end{scope}
     
+    % The ghostly lipids in the backgroun
+    \begin{scope}[black!20, line width = 0.75pt]
+    \foreach \N/\I in { 8/  \r*\s,
+                          % 2/-\Nax/+ ,
+                       -11/ -\r*\s }{
+        \lipidBlock{\N}{0 cm}
+    }
+    \end{scope} 
     % The foreground lipids
-    \begin{scope}[line width = \linWid]
-        %\lipidBlock{2}{\Clx  + \w cm + \r*\s cm }
-        \lipidBlock{-4}{\Kx - \w cm - \r*\s cm }
-        \lipidBlock{2}{\Nax  + \w cm + \r*\s cm }
-        \lipidBlock{-2}{\Nax - \w cm - \r*\s cm }
-        %\lipidBlock{ \midLip}{-\midLip * \r * \s cm }
+    \begin{scope}[line width = 0.75pt]
+    \foreach \N/\I/\S in { 1/ \Kx /+,
+                           0/ \Kx /-,
+                           1/ \Nax/+,
+                          -4/ \Nax/- }{
+        \lipidBlock{\N}{\I /1.2 \S \w  cm \S \r*\s cm }
+    }
     \end{scope}
 
-    %\draw[semithick] (-4.5,-3.25) rectangle (6,3.25);
+    % Creates the channels
+    \foreach \i/\RGB in {\Kx/green,\Nax/red
+                        %,\Clx/yellow
+                        }{
+           \node at (\i/1.2,0) [rectangle,
+                            line width = 1.25,
+                            rounded corners,
+                            minimum height= 1.5 *\l cm,
+                            minimum width = 2 *\w cm,
+                            draw = black!80, 
+                            fill = white,
+                            ] {};
+    }
 
+    
+    % Underlines Circuit
+    \begin{scope}[white, line width = 5pt]
+              
+    % Leakage
+    \draw ($(TL)!\Lr!(TR)$) to [resistor={pos = 0.40}, 
+        battery={pos = 0.70, minimum height=0.75cm, minimum width=0.15cm, line cap = rect}]  %node [pos = 0.5, anchor = north west, xshift = -3.5]{$R_\mathrm{L}$} 
+            ($(BL)!\Lr!(BR)$);
+
+          
+    % Outlines circuit
+    \draw[line cap = rect] (TL) -- ($(TL)!\Lr!(TR)$) 
+                           (BL) -- ($(BL)!\Lr!(BR)$);
+    \end{scope}
+        
+    \begin{scope}[line width = 1.5pt] % Draws the visible circuit
+        % Marks the extternal Nodes
+        \path ( 90: \boxRise + 1)  node (E) [circle, minimum width = 0.77cm, fill = white]{};
+        \path (-90: \boxRise + 1) node  (I) [circle, minimum width = 0.77cm, fill = white]{};
+
+    
+        % Node to Cicuit
+        \draw[white, line width = 5pt] 
+              (E) to (EM)
+              (I) to (IM);
+
+              
+        % Node to Cicuit
+        \draw (E) to (EM)
+              (I) to (IM);
+
+         % Node to Cicuit  
+        \node at (I) [circle,draw, fill = white] {\footnotesize $\mathcal{I}$};
+        \node at (E) [circle,draw, fill = white] {\footnotesize $\mathcal{E}$};
+        
+        % Outlines circuit
+        \draw[line cap = rect] (TL) -- ($(TL)!\Lr!(TR)$) 
+                               (BL) -- ($(BL)!\Lr!(BR)$);
+
+
+
+        % Internal labeling and circutry
+        \begin{scope}[align=left]
+        \foreach \F/\I/\R/\A in 
+            {\Nar/Na/0/adjustable', \Kr/K/180/adjustable', \Lr/L/180/}{
+            % Making the main circuit paths
+            \draw ($(BL)!\F!(BR)$) to 
+            [battery={pos = 0.30, minimum height=1cm, minimum width=0.15cm, rotate = \R, line width = 1.2pt}, 
+             resistor={\A, pos = 0.60, minimum height=0.25cm, minimum width = 2cm}] 
+                node[pos = 0.5, anchor = north west, xshift = -3.5]
+                {$R_\mathrm{\I}$} ($(TL)!\F!(TR)$);
+    
+            % Making external markings
+            \path ($(TL)!\F!(TR)$) -- ($(BL)!\F!(BR)$) node (I\I) 
+                [pos = 0.069, anchor = west, inner sep = 1pt]  
+                {$I_{\mathrm{\I}}$};
+            
+            \path ($(TL)!\F!(TR)$) -- ($(BL)!\F!(BR)$) node (E\I) 
+                [pos = 0.925, anchor = west]  
+                {$E_{\mathrm{\I}}$};
+    
+            \foreach \o in {-,+}{
+                \path ($(TL)!\F!(TR)$) -- ($(BL)!\F!(BR)$) 
+                    node (S\I\o) [pos = 0.70, anchor = east, inner sep=0pt, xshift = -0.35cm, yshift = \o 0.28 cm]  {};
+            }
+        }
+    
+        % Arrows
+        \foreach \i in {\Kr, \Nar}{
+            \draw[line width = 1pt] ($(TL)!\i+0.05!(TR)$)++(0,-0.70cm) -- ++(0,-0.75cm) 
+            node[isosceles triangle, scale = 0.25, draw, fill, rotate = 270] 
+            {};
+        }
+
+        % Arrowing each side
+        \path ($(BL)!\Nar/2!(BR)$) -- +(0, 0.25) coordinate (BE)
+              ($(TL)!\Nar/2!(TR)$) -- +(0,-0.25) coordinate (TE);
+        \end{scope}
+        
+        % Capacitance shit
+        \draw[line cap = rect, line width = 1.2pt]  (BL) to 
+            [capacitor={minimum height= \wc cm, minimum width = \l * \r * \s * 4 *1.2 cm + \exShift * \s * 1.2   cm}] (TL);
+        \path (BL) -- (TL) node[near end, anchor = south east, yshift = 0.65cm] {$C_\mathrm{m}$};
+
+        \path (CC)++( 90:\l * \s +  \r * \s  + \exShift * \s  cm) -- +(0:0.5*\wc) coordinate (PR) -- +(180:0.5*\wc) coordinate (PL);
+        \path (CC)++(-90:\l * \s +  \r * \s  + \exShift * \s  cm) -- +(0:0.5*\wc) coordinate (NR) -- +(180:0.5*\wc) coordinate (NL);
+
+    \end{scope}
+
+
+    % Coloring the charges
+    \begin{scope}[circle, inner sep=0.25pt, opacity = 0.75]
+        \foreach \P in {0,0.25,0.50,0.75,1} \foreach \CR/\CL/\S/\RGB in {PR/PL/+/red, NR/NL/-/blue} {
+            \path 
+                (\CR) -- (\CL) node[pos = \P, fill = \RGB!20!white, opacity = 0.0] 
+                {\footnotesize $\S$} 
+                ;
+        }
+        \foreach \i in {Na, K, L}{
+            \ifx\i\Nas
+                \foreach \o/\s/\RGB in {-/+/red, +/-/blue}{
+                     \path (S\i\o) node[fill = \RGB!20!white] 
+                     {\footnotesize$\mathbf{\s}$} 
+                     ;
+            }
+            \else
+                \foreach \o/\RGB in {-/blue,+/red}{
+                     \path (S\i\o) node[fill = \RGB!20!white] 
+                     {\footnotesize$\mathbf{\o}$} 
+                     ;
+            }
+            \fi
+        }
+    \end{scope}
+
+        
+    \draw[white, line width = 2.5pt] (BE) -- (TE);
+    \draw[dashed, <->, line width = 1.5pt] (BE) -- (TE);
+    \path[line width = 1.5pt] (BE) -- (TE)  node[midway,fill=white,draw] {$E$};
 \end{tikzpicture}
-    \caption{Representation of the circuit diagram overlaid with the relevant structures found in the cell membrane.}
+
+    \caption{The Hodgkin-Huxely circuit diagram overlaid with the relevant structures found in the cell membrane. \(\clm{E}\) and \(\clm{I}\) denote the extra-cellular space and the intra-cellular space respectively. Capacitance of the membrane \(\br{C_\rmm{m}}\) is given by the charge difference on either side of the lipid bilayer. Ion channels for \(\Nap\) and \(\Kp\) are shown with the relevant variables, resistor type, and battery. Additional ion channels and other leaked is represented as a lone resistor and battery outside of the membrane region. The \(\Kp\) ions are shown in green, \(\Nap\) are shown in red, and \(\Cln\) ions in yellow; distributed in approximately relative concentrations on either side of the membrane. }
     \label{fig:MembraneCircut}
 \end{figure}
 

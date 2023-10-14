@@ -1,0 +1,46 @@
+\documentclass[Orator.tex]{subfiles}
+\begin{document}
+
+\chapter{Artificial neural networks}
+
+`\textit{Artificial neural networks}' (ANN) are a mathematical analogy of the biological neuronal networks found in the brain \cite{EEGbook}. Each functional unit within the ANN needs to mimic the behavior of a neuronal cell found in the brain, connected together as a series of nodes, allowing for an approximate mathematical construct of real neuronal networks\footnote{Neuronal networks are not the same as a neural network, a term co-opted by the computer scientists to describe black box code.}.
+
+An artificial network will contain \(k = 1, 2, \cdots , K\) interconnected nodes. Each node\footnotemark comprises of three base elements:
+\begin{enumerate}
+    \item \textbf{The Inputs:} a set of \(N\) inputs to the node, \(s_{k1}, s_{k1}, \cdots, s_{kN}\), each with its own weight, \(h_{k1}, h_{k1}, \cdots, h_{kN}\), that represents how much influence a given input has on the node. Analogous to the inputs a biological neuron recieves along its dendrites.
+    \item \textbf{The Integrator:} the mechanism by which all the inputs are summed together. Analogous to how membrane potential is summed in the soma of a biological neuron. 
+    \begin{equation}
+        v_k = \sum_{n=1}^N h_{kn}s_{kn} + b_k
+    \end{equation}
+    \(v_k\) being the summed voltage offset by \(b_k\)
+    \item \textbf{The Activation Function:} a function \(\psi\br{ \cdot }\) which maps \(v_k\) to the output of the node such that \(y_k = \psi\br{v_k}\). Analogous to the firing of an action potential in a neuron.
+\end{enumerate}
+
+\begin{figure}[h]
+    \centering
+
+\begin{tikzpicture}[black!80]
+
+    \draw[help lines, opacity = 0.1] (-4,-4) grid (4,4);
+
+    \begin{scope}[on grid]
+        
+        \node (O) at (0,0) [circle, draw, fill = white] {$\Sigma$};
+        \node (Bi) [above = 2 of O] {Bias}
+              node (bk) [below = 0.5 of Bi] {$b_k$};
+        \draw[->] (bk) -- (O);
+              
+        \node (Out) [right = 2 of O, draw, fill = white] {$\psi\br{\cdot}$};
+    \end{scope}
+        
+
+    
+\end{tikzpicture}
+    
+    \caption{Caption}
+    \label{fig:nodes}
+\end{figure}
+
+bitch
+
+\end{document}

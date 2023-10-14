@@ -1,7 +1,7 @@
 \documentclass[Orator]{subfiles}
 \begin{document}
 
-\input{Pictures/Anakin/Dendrite}
+\input{Pictures/Anakin/Neuron}
 
 The human body is composed of a vast number of cells and complex interactions, how could anyone ever expect these meaty lumps we call `\textit{people}' to coordinate properly without an equally complex system for the transfer of information? 
 Neurons are information highways made manifest in multi-cellular organisms. 
@@ -65,6 +65,7 @@ ion is the value of \(\Vm\) for which the net flux of this ion \(\br{f_\bfm{net}
     E_\bfm{ion} = \br{\frac{\clm{R}\,\clm{T}}{z\,\clm{F}}} \,\ln \br{\frac{\sbr{\bfm{ion}}_\clm{E} }{ \sbr{\bfm{ion}}_\clm{I}} } 
 \end{equation}
 
+
 %{VC\per\kelvin\per\mol}
 %{\kilo\gram\metre^2\second^{-2}\kelvin\per\mol}
 \(\clm{R}\) being the constant of an ideal gas (\qty{8.314}{\joule\per\kelvin\per\mol});
@@ -99,7 +100,7 @@ This holds true for all ions: when \(\Vm \neq E_\bfm{ion}\) there is a net flux 
 
 \begin{equation*}
     \begin{split}
-        I &= C_m \ode{V_m}{t} + \bar{g}_\rmm{K} n^4 \br{V_m - V_\rmm{K}} + \bar{g}_\rmm{Na} m^3 h \br{V_m - V_\rmm{Na}}  + \bar{g}_\rmm{L} m^3 h \br{V_m - V_\rmm{L}} \\ 
+        I &= C_m \ode{V_m}{t} + \bar{g}_\rmm{K} n^4 \br{V_m - V_\rmm{K}} + \bar{g}_\rmm{Na} m^3 h \br{V_m - V_\rmm{Na}}  + \bar{g}_\rmm{L} \br{V_m - V_\rmm{L}} \\ 
         \ode{n}{t} &= \alpha_n \br{V_m} \br{1-n} - \beta_n \br{V_m} n \\
         \ode{m}{t} &= \alpha_m \br{V_m} \br{1-m} - \beta_m \br{V_m} m \\
         \ode{h}{t} &= \alpha_h \br{V_m} \br{1-h} - \beta_h \br{V_m} h 

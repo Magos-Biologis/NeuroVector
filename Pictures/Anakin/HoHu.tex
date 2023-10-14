@@ -1,15 +1,13 @@
-\documentclass[tikz]{standalone}
-
-    \usetikzlibrary{shapes}
-    \usetikzlibrary{circuits.ee.IEC}
-    \usetikzlibrary{angles, math, calc, matrix}
-    \usetikzlibrary{decorations.pathreplacing, decorations.markings,calligraphy}
-
+\documentclass[Orator.tex]{subfiles}
 \begin{document}
-\begin{tikzpicture}[
+
+\begin{figure}
+    \centering
+    \begin{tikzpicture}[
     %x=1cm, y=1cm, 
     %z={(0cm,1cm)},
-    scale = 1,
+    scale = 1.2,
+    transform shape,
     line width = 1.5pt, 
     black!80,
     circuit ee IEC,
@@ -21,7 +19,7 @@
     ]
 
     % Determines the boundries
-    \path [use as bounding box] (-4.25,-3.5) rectangle (4.25,3.5);
+    %\path [use as bounding box] (-4.25,-3.5) rectangle (4.25,3.5);
 
     
     \def\r{0.5}
@@ -43,20 +41,28 @@
     %\def\Nar{1/(2*\r*\s)}
     \def\Clr{11/12}
 
-    \def\boxRatio{33.50}
-    \def\boxSize{3.6}
+    % Definining the coordinates of the box corners
+    \def\boxRise{2.2}
+    \def\boxRun{3.75}
     
-    \def\pcoord#1{{#1:\boxSize}}
+    \coordinate (O)  at (0,0);
+    \coordinate (TR) at ( \boxRun, \boxRise);
+    \coordinate (TL) at (-\boxRun, \boxRise);
+    \coordinate (BL) at (-\boxRun,-\boxRise);
+    \coordinate (BR) at ( \boxRun,-\boxRise);
 
-    \coordinate (O) at (0,0);
-    \coordinate (TR) at (\pcoord{\boxRatio});
-    \coordinate (TL) at (\pcoord{180-\boxRatio});
-    \coordinate (BL) at (\pcoord{180+\boxRatio});
-    \coordinate (BR) at (\pcoord{-\boxRatio});
+    % Define centers of the walls of the circuit
+    \coordinate (CC) at ($(TL)!1/2!(BL)$);
+    \coordinate (LC) at ($(TR)!1/2!(BR)$);
+    
+    % Define centers of the floor and ceiling of the circuit
+    \coordinate (EM) at ($(TL)!1/2!(TR)$);
+    \coordinate (IM) at ($(BL)!1/2!(BR)$);
 
     
     % Outlining the circutry
-    \draw[line width = 0.5] (TL) -- (TR)++(-0.75,0) (BL) -- (BR)++(-0.75,0);
+    \draw[line width = 0.5] (TL) -- (TR)++(-0.75,0) 
+                            (BL) -- (BR)++(-0.75,0);
     \draw ($(TL)!1/2!(TR)$) -- ++(0,1) node (E) [scale = 0.75,circle,draw,fill = white] {\footnotesize $\mathcal{E}$}
           ($(BL)!1/2!(BR)$) -- ++(0,-1) node (I) [scale = 0.75,circle,draw,fill = white] {\footnotesize $\mathcal{I}$};
 
@@ -72,9 +78,9 @@
 
     
     \foreach \f/\i/\r/\a in 
-        {\Nar/Na/0/adjustable', \Kr/K/180/adjustable', \Lr/L/180/}{
+        {\Nar/Na/0/adjustable, \Kr/K/180/adjustable, \Lr/L/180/}{
         % Making the main circuit paths
-        \draw ($(BL)!\f!(BR)$) to  [battery={near start,minimum height=1cm, minimum width=0.15cm, rotate = \r}, resistor={\a}] node[right, yshift = -0.25cm]{$R_\mathrm{\i}$} ($(TL)!\f!(TR)$);  
+        \draw ($(BL)!\f!(BR)$) to  [battery={near start,minimum height=1cm, minimum width=0.15cm, rotate = \r, line width = 1.5pt}, resistor={\a}] node[anchor = west, xshift = 0.1cm]{$R_\mathrm{\i}$} ($(TL)!\f!(TR)$);  
 
         % Making external markings
         \path ($(TL)!\f!(TR)$) -- ($(BL)!\f!(BR)$) node (I\i) [ near start, anchor = south west, fill = white,inner sep=0pt, xshift = 0.1cm, yshift = 0.35cm]  {$I_{\mathrm{\i}}$};
@@ -92,21 +98,24 @@
 
 
     \foreach \i in {Na,K,L}{
-        \draw (I\i) -- +(0,-0.45cm) 
+        \draw[line width = 1pt] (I\i) -- +(0,-0.75cm) 
         node[isosceles triangle, scale = 0.25, draw, fill, rotate = 270] 
         {};
         \ifx\i\Nas
             \foreach \o/\s in {-/+,+/-}{
-                 \path (S\i\o) node {\tiny $\s$};
+                 \path (S\i\o) node {$\mathbf{\s}$};
         }
         \else
             \foreach \o in {-,+}{
-                 \path (S\i\o) node {\tiny $\o$};
+                 \path (S\i\o) node {$\mathbf{\o}$};
         }
         \fi
     }
     
+    \end{tikzpicture}
+    \caption{Caption}
+    \label{fig:HodkinHuxley}
+    
+\end{figure}
 
-        
-\end{tikzpicture}
 \end{document}
