@@ -1,5 +1,0 @@
-@default_files = ('Orator.tex');
-$biber= 'biber --validate-datamodel %O %S'
-
-
-$ENV{'BIBINPUTS'}='./Bibble//:' . $ENV{'BIBINPUTS'};
