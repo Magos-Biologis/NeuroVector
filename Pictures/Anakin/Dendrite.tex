@@ -6,9 +6,7 @@
 \usetikzlibrary{arrows, arrows.meta}
 \usetikzlibrary{angles, math, calc, matrix}
 \usetikzlibrary{positioning}
-%\usetikzlibrary{fadings, shadows, shadings}
 \usetikzlibrary{decorations.pathreplacing, decorations.markings, decorations.text, calligraphy}
-%\usetikzlibrary{circuits.ee.IEC}
 
 \begin{document}
 
@@ -18,14 +16,14 @@
     \def\Xbound{4}
 
     \draw[opacity = 0.1] (-\Xbound,-0) grid (\Xbound,\Ybound);
-    \clip (-\Xbound,-0) rectangle (\Xbound,\Ybound);
+    \clip[use as bounding box] (-\Xbound,-0) rectangle (\Xbound,\Ybound);
 
     \def\nuclea{0.35}
     \def\radius{2.3}
+    \def\angle{65}
+    \def\angledos{5}
 
     \coordinate (O) at (0,0.25);
-    
-
 
     \begin{scope}[scale = 0.60, transform shape]
         \draw (O) circle (\radius);
@@ -33,8 +31,19 @@
                 (O) ellipse [x radius= 2.5*\nuclea , y radius= 2.25*\nuclea ];
     \end{scope}
     
-    \draw (0,0) -- (0,7);
-    \draw foreach \SIGN in {-, +} {(0,5) -- ([turn]\SIGN 45:2)};
+    \path (0,0) -- (0,5) coordinate (Junc);
+    \path foreach \SIGN/\PEAK in {-/I,\angle-/II,+/III} 
+        {(Junc) -- ([turn]\SIGN \angle:3) coordinate (S\PEAK)};
+
+    \foreach \CENTER/\ANG in {SI/-90-\angle, SII/-90, SIII/+\angle-90}{
+        \begin{scope}[shift = (\CENTER), rotate = \ANG]
+            \draw[miter limit = 25] 
+                {(-\angledos:3) -- (\CENTER) -- (+\angledos:3)};
+        \end{scope}}
+
+    
+    \draw (O)+(0:0.25) rectangle +(-0.25,5);
+
 
 \end{tikzpicture}
 
