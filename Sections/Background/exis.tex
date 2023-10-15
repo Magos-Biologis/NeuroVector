@@ -1,0 +1,85 @@
+\documentclass[../../Orator.tex]{subfiles}
+
+\begin{document}
+
+
+
+\section{Existing Models (Only for short term planning)}
+
+
+\subsection{Electrical input–output membrane voltage }
+\subsubsection{Hodgkin–Huxley}
+\begin{subequations}\label{eq:HodHuxSys}
+    \begin{align}
+        I &= C_m \ode{V_m}{t} + \bar{g}_\rmm{K} n^4 \br{V_m - V_\rmm{K}} + \bar{g}_\rmm{Na} m^3 h \br{V_m - V_\rmm{Na}}  + \bar{g}_\rmm{L} \br{V_m - V_\rmm{L}} \\ 
+        \ode{n}{t} &= \alpha_n \br{V_m} \br{1-n} - \beta_n \br{V_m} n \\
+        \ode{m}{t} &= \alpha_m \br{V_m} \br{1-m} - \beta_m \br{V_m} m \\
+        \ode{h}{t} &= \alpha_h \br{V_m} \br{1-h} - \beta_h \br{V_m} h 
+    \end{align}
+\end{subequations}
+
+\subsubsection{Perfect Integrate-and-fire}
+One of the earliest models of a neuron is the perfect integrate-and-fire model (also called non-leaky integrate-and-fire), first investigated in 1907 by Louis Lapicque. A neuron is represented by its membrane voltage V which evolves in time during stimulation with an input current I(t) according
+\begin{equation}\label{eq:IFperf}
+    I\br{t} = C \ode{V\br{t}}{t}
+\end{equation}
+
+\subsubsection{Leaky integrate-and-fire}
+\begin{equation}\label{eq:IFleak}
+    C \ode{V_m\br{t}}{t} =  I\br{t} - \ode{V_m\br{t}}{R_m}
+\end{equation}
+
+
+\subsubsection{adaptive integrate-and-fire neuron}
+\begin{subequations}\label{eq:IFadap}
+    \begin{align}
+        \tau_m \ode{V_m\br{t}}{t} &= R\,I\br{t} - \sbr{V_m\br{t} - E_m} - R \, \sum_k w_k \\ 
+        \tau_k \ode{w_k}{t}  &= - a_k \, \sbr{V_m\br{t} - E_m} - w_k - b_k \tau_k \, \sum_f \delta \br{t-t^f}
+    \end{align}
+\end{subequations}
+
+\subsubsection{adaptive exponential integrate-and-fire neuron}
+
+
+
+
+\subsection{Stochastic models of membrane voltage and spike timing}
+\subsubsection{Noisy input model (diffusive noise)}
+\subsubsection{Noisy output model (escape noise)}
+\subsubsection{Spike response model (SRM)}
+\subsubsection{SRM0}
+
+
+
+\subsection{Didactic toy models of membrane voltage}
+`The models in this category are highly simplified toy models that qualitatively describe the membrane voltage as a function of input. They are mainly used for didactic reasons in teaching but are not considered valid neuron models for large-scale simulations or data fitting.'
+
+\subsubsection{FitzHugh–Nagumo}
+\begin{subequations}\label{eq:FitNagSys}
+    \begin{align}
+        \ode{V}{t} &= V - \frac{V^3}{3} - w + I_{ext} \\ 
+        \tau\ode{w}{t} &= V - a - b\,w 
+    \end{align}
+\end{subequations}
+
+\subsubsection{Morris–Lecar}
+\begin{subequations}\label{eq:MorLecSys}
+    \begin{align}
+        C\ode{V}{t}     &= -I_{ion}\br{V,w}+I \\ 
+        \tau\ode{w}{t}  &=  \varphi \cdot \frac{w_\infty - w}{\tau_w}
+    \end{align}
+\end{subequations}
+Where \(I_{ion}\br{V,w} = \bar{g}_\rmm{Ca} m_\infty \br{V_m - V_\rmm{Ca}} + \bar{g}_\rmm{K} w \br{V_m - V_\rmm{K}}  + \bar{g}_\rmm{L} \br{V_m - V_\rmm{L}}\)
+
+\subsubsection{Hindmarsh–Rose}
+\begin{subequations}\label{eq:HinRosSys}
+    \begin{align}
+        \ode{x}{t} &= y + 3\,x^2 - x^3 - z + I\\
+        \ode{y}{t} &= 1 - 5\,x^2 - y \\
+        \ode{z}{t} &= r\, \br{4 \br{ x+ \frac{8}{5}}-z}
+    \end{align}
+\end{subequations}
+
+
+
+\end{document}
