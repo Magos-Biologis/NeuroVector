@@ -2,7 +2,7 @@
 
 \begin{document}
 
-The attempt to find an equation which can accurately describe the behavior of a chosen system is one of the most fundamental aspects of mathematics. 
+The attempt to find an equation which can accurately describe the behavior of a chosen system is one of the most fundamental aspects of mathematics.
 
 A model is series of mathematical equations capable of replicating the behavior of a system. A role of these models, known as dynamic systems, is to bring light in the gaps of understanding and explain the underlying mechanisms behind some function \citelater. 
 The construction of a model requires equations complex enough to accurately describe the dynamics of interest yet, preferably, simple enough so that mathematical tools exist to analyze the equations\footnotemark. 
@@ -48,5 +48,68 @@ As a consequence, many models will incorporate both deterministic and stochastic
 It's important to determine what is even being modeled, which features can be parameterized and which can not.
 
 
+\newpage
+\section{Building up to Hodgkin-Huxely}
+
+\subsection{FitzHugh–Nagumo}
+`The models in this category are highly simplified toy models that qualitatively describe the membrane voltage as a function of input. They are mainly used for didactic reasons in teaching but are not considered valid neuron models for large-scale simulations or data fitting.'\footnote{Wikipedia}
+
+%\subsubsection{Didactic toy model}
+\begin{subequations} \label{eq:FitNagSys}
+    \begin{align}
+        \ode{V}{t} &= V - \frac{V^3}{3} - w + I_{ext} \\ 
+        \tau\ode{w}{t} &= V - a - b\,w 
+    \end{align}
+\end{subequations}
+
+
+\subsection{Chay}
+
+In 1985, T.R. Chay proposed a model of three-dimensional nonlinear differential equations based on the HH model to study chaotic behavior and show ionic events in excitable membranes. 
+\begin{subequations} \label{eq:ChaySys}
+    \begin{align}
+        \ode{V}{t} &= g_\rmm{I}  m^3_\infty h_\infty \br{V_\rmm{I} - V} + g_\rmm{K, V} n^4 \br{V_\rmm{K} - V} + g_\rmm{K, C}  \frac{C}{1+C}\br{V_\rmm{K} - V} + g_\rmm{L} \br{V_m - V_\rmm{L}} \\ 
+        \ode{n}{t} &= \frac{n_\infty - n}{\tau_n} \\
+        \ode{C}{t} &= \rho \, \sbr{m^3_\infty h_\infty \br{V_c - V} - k_C C}
+    \end{align}
+\end{subequations}
+
+where \textit{V}, \textit{n}, and \textit{C} are membrane potential, probability of the voltage-sensitive \(\Kp\) channel, and intracellular concentration of \(\Capp\) ions, respectively. The Chay model parameters are adopted from \textit{`paper'} and collected in Table
+
+The \(m_\infty\), \(h_\infty\), and \(n_\infty\) are calculated by \(y_\infty = \alpha_y / \br{\alpha_y + \beta_y} \) formula, and the explicit expressions for 
+\(\alpha_m, \beta_m, \alpha_h, \beta_h, \alpha_n, \beta_n\), and \(\tau_n\) are given by:
+{
+\rowcolors{1}{white}{white} % Table row coloration
+\begin{align*}
+    \begin{split}
+        \alpha_m &= 0.1 \frac{ 25 + V }{1 - e^{-0.1 \, V - 2}}, \\
+        \beta_m  &= 4 e^{-\br{\frac{ V + 50 }{ 18 } } }, 
+    \end{split} &
+    \begin{split}
+        \alpha_h &=  0.07 e^{-0.05\,V -2.5}, \\
+        \beta_h  &= \frac{ 1 }{ 1 + e^{-0.1 \, V - 2}},
+    \end{split} &
+    \begin{split}
+        \alpha_n &= 0.01 \, \frac{ 20 + V }{ 1 + e^{-0.1 \, V - 2}}, \\
+        \beta_n  &= 0.125 e^{- \frac{V + 30}{80}},
+    \end{split} &
+    \begin{split}
+    \tau_n &= \frac{1}{ r_n \, \br{\alpha_n + \beta_n} } \\
+    \phantom{fart}
+    \end{split}
+\end{align*}
+}
+
+
+
+\subsection{Hodgkin–Huxley}
+\begin{subequations}\label{eq:HodHuxSys}
+    \begin{align}
+        I &= C_m \ode{V_m}{t} + \bar{g}_\rmm{K} n^4 \br{V_m - V_\rmm{K}} + \bar{g}_\rmm{Na} m^3 h \br{V_m - V_\rmm{Na}}  + \bar{g}_\rmm{L} \br{V_m - V_\rmm{L}} \\ 
+        \ode{n}{t} &= \alpha_n \br{V_m} \br{1-n} - \beta_n \br{V_m} n \\
+        \ode{m}{t} &= \alpha_m \br{V_m} \br{1-m} - \beta_m \br{V_m} m \\
+        \ode{h}{t} &= \alpha_h \br{V_m} \br{1-h} - \beta_h \br{V_m} h 
+    \end{align}
+\end{subequations}
 
 \end{document}

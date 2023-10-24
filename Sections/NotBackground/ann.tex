@@ -12,12 +12,11 @@ An artificial network will contain \(k = 1, 2, \cdots , K\) interconnected nodes
     \begin{equation}
         v_k = \sum_{n=1}^N h_{kn}s_{kn} + b_k
     \end{equation}
-    \(v_k\) being the summed voltage offset by \(b_k\)
+    \(v_k\) being the summed voltage offset by \(b_k\), also known as the `\textit{integrate and fire}' model \cref{eq:IFperf}. 
     \item \textbf{The Activation Function:} a function \(\psi\br{ \cdot }\) which maps \(v_k\) to the output of the node such that \(y_k = \psi\br{v_k}\). Analogous to the firing of an action potential in a neuron.
 \end{enumerate}
 
 \begin{figure}[h]
-    \usetikzlibrary{positioning}
     
     \centering
 
@@ -33,6 +32,13 @@ An artificial network will contain \(k = 1, 2, \cdots , K\) interconnected nodes
         \draw[->] (bk) -- (O);
               
         \node (Out) [right = 2 of O, draw, fill = white] {$\psi\br{\cdot}$};
+        \draw[->] (O) -- (Out);
+
+        \foreach \node in {1, 2, 3, 4}{
+            \node (I\node) [left = of O]  {$\node$};
+        }
+        
+    
     \end{scope}
         
 
