@@ -30,49 +30,46 @@
 	\graphicspath{{\subfix{./Pictures/}}}
 
 %==========================================================
+\begin{comment}
+  Quick ref for package commands
+  
+  Cleverref
+  \cref[⟨options⟩]{⟨reference label⟩}
+  \Cref[⟨options⟩]{⟨reference label⟩}
+  The [options] is not nessecary for general usage the \cref command will detect the enviroment  that the label was made in and create the corresponding refrerence in the text
+  Using \Cref produces the same result but in a  more 'official' style, like fig. 1 vs Figure 1
+  
+  Examples of usage;
+  \cref{eq:lmao}
+  \Cref{fig:penishehe}
+  
+  SiUnitx 
+  Any general value with a unit uses the command for both the number and the unit together:
+  \qty[⟨options⟩]{⟨number⟩}{⟨unit⟩}
+  units are simple to input just use \⟨unit abbreviation⟩
+  
+  Examples of usage;
+  \qty{.23e7}{\candela} 
+  \qty[mode = text]{1.23}{J.mol^{-1}.K^{-1}}
+  \qty[per-mode = symbol]{1.99}{\per\kilogram}
+  \qty[per-mode = symbol]{1.99}{\per\kg}
+  \qty[per-mode = fraction]{1,345}{\coulomb\per\mole}
+  
+  One can break up the numbers from the units by using
+  \num[⟨options⟩]{⟨number⟩}
+  \unit[⟨options⟩]{⟨unit⟩}
+  
+  Additionally, angels can be defined with
+  \ang[⟨options⟩]{⟨angle⟩}
+  
+  General Latex commands
+  for citing papers
+  \cite[⟨options⟩]{⟨citation key⟩}
+  for making footnotes
+  \footnote[⟨options⟩]{⟨text⟩}
+  
+\end{comment}
 
-% Quick ref for package commands
-% Cleverref
-% \cref[⟨options⟩]{⟨reference label⟩}
-% \Cref[⟨options⟩]{⟨reference label⟩}
-% The [options] is not nessecary for general usage
-% the \cref command will detect the enviroment 
-% that the label was made in and create 
-% the corresponding refrerence in the text
-% Using \Cref produces the same result but in a 
-% more 'official' style, like fig. 1 vs Figure 1
-% 
-% Examples of usage;
-% \cref{eq:lmao}
-% \Cref{fig:penishehe}
-% 
-% SiUnitx 
-% Any general value with a unit uses the 
-% command for both the number and the unit together:
-% \qty[⟨options⟩]{⟨number⟩}{⟨unit⟩}
-% units are simple to input just use \⟨unit abbreviation⟩
-% 
-% Examples of usage;
-% \qty{.23e7}{\candela} 
-% \qty[mode = text]{1.23}{J.mol^{-1}.K^{-1}}
-% \qty[per-mode = symbol]{1.99}{\per\kilogram}
-% \qty[per-mode = symbol]{1.99}{\per\kg}
-% \qty[per-mode = fraction]{1,345}{\coulomb\per\mole}
-% 
-% One can break up the numbers from the units by using
-% \num[⟨options⟩]{⟨number⟩}
-% \unit[⟨options⟩]{⟨unit⟩}
-% 
-% Additionally, angels can be defined with
-% \ang[⟨options⟩]{⟨angle⟩}
-% 
-% General Latex commands
-% for citing papers
-% \cite[⟨options⟩]{⟨citation key⟩}
-% for making footnotes
-% \footnote[⟨options⟩]{⟨text⟩}
-% 
-% 
 %==========================================================
 
 % Custom commands specific to this project

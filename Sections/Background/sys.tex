@@ -4,7 +4,7 @@
 
 The attempt to find an equation which can accurately describe the behavior of a chosen system is one of the most fundamental aspects of mathematics.
 
-A model is series of mathematical equations capable of replicating the behavior of a system. A role of these models, known as dynamic systems, is to bring light in the gaps of understanding and explain the underlying mechanisms behind some function \citelater. 
+A model is a series of mathematical equations capable of replicating the behavior of a system. A role of these models, known as dynamic systems, is to bring light in the gaps of understanding and explain the underlying mechanisms behind some function \citelater. 
 The construction of a model requires equations complex enough to accurately describe the dynamics of interest yet, preferably, simple enough so that mathematical tools exist to analyze the equations\footnotemark. 
 \footnotetext{The best model of a cat is a cat. Preferably the same cat\footnotemark. - `\textit{Philosophy of Science, 1945, Arturo Rosenblueth \tbr{1900-1970}}'}
 There exists any number of limitations in the pursuit of this task, some inherent to the system, others inherent to our modern construction of mathematics.
@@ -12,7 +12,7 @@ There exists any number of limitations in the pursuit of this task, some inheren
 
 \section{Dynamic Systems}
 
-When looking at the brain in abstract form it can be seen as a multi-dimensional dynamical system  governed by system variables and parameters. Some of these parameters
+When looking at the brain in abstract form it can be seen as a multi-dimensional dynamical system governed by system variables and parameters. Some of these parameters
 
 
 \textit{Bifurcation} designates a qualitative change in the dynamical behavior of the system associated with modifications in the system parameters.
@@ -102,14 +102,21 @@ The \(m_\infty\), \(h_\infty\), and \(n_\infty\) are calculated by \(y_\infty = 
 
 
 
+
 \subsection{Hodgkin–Huxley}
 \begin{subequations}\label{eq:HodHuxSys}
     \begin{align}
-        I &= C_m \ode{V_m}{t} + \bar{g}_\rmm{K} n^4 \br{V_m - V_\rmm{K}} + \bar{g}_\rmm{Na} m^3 h \br{V_m - V_\rmm{Na}}  + \bar{g}_\rmm{L} \br{V_m - V_\rmm{L}} \\ 
+        I &= C_m \ode{V_m}{t} + \bar{g}_\rmm{K} n^4 \br{V_m - V_\rmm{K}} + \bar{g}_\rmm{Na} m^3 h \br{V_m - V_\rmm{Na}}  + \bar{g}_\rmm{L} \br{V_m - V_\rmm{L}} \\
         \ode{n}{t} &= \alpha_n \br{V_m} \br{1-n} - \beta_n \br{V_m} n \\
         \ode{m}{t} &= \alpha_m \br{V_m} \br{1-m} - \beta_m \br{V_m} m \\
         \ode{h}{t} &= \alpha_h \br{V_m} \br{1-h} - \beta_h \br{V_m} h 
     \end{align}
 \end{subequations}
+
+Mathematically, the flow of current is represented as:
+\begin{equation}
+    I_c = C_m \ode{V_m}{t}
+\end{equation}
+
 
 \end{document}
