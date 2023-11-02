@@ -18,10 +18,19 @@ When looking at the brain in abstract form it can be seen as a multi-dimensional
 The 
 Some of these parameters
 
+\begin{split}\left[\begin{array}{ccll}
+{\displaystyle \frac{du}{dt}} &=& u\left(1-u^{2}\right)-w+I \equiv F(u,w)\\[.2cm]
+{\displaystyle \frac{dw}{dt}} &=& \varepsilon \left(u -0.5w+1\right) \equiv \varepsilon G(u,w)\, ,\\
+\end{array}\right.\end{split}
+[ref:https://neuronaldynamics-exercises.readthedocs.io/en/latest/exercises/brunel-network.html]
+
 \textbf{Phase space} is the space spanned by the system's variables and the trajectories it contain are those variables traversing time
 
 \textit{Bifurcation} designates a qualitative change in the dynamical behavior of the system associated with modifications in the system parameters~\cite{STEFANESCU2012748}.
 
+
+\subsubsection{Dimensionality reduction}
+A neuron model, such as the Hodgkin-Huxley model, use a system of four differential equations
 
 \subsection*{Networks}
 A complex system can be described by a network or a graph with complex topology, whose nodes are the elements of the system and whose edges represent the interactions among them. `One significant recent discovery in the field of complex networks is the observation that a number of
@@ -60,7 +69,7 @@ It's important to determine what is even being modeled, which features can be pa
 
 
 \newpage
-\section{Building up to Hodgkin-Huxely}
+\section{Building up to Hodgkin-Huxley}
 
 The Hodgkin-Huxely Model of Neuron Action Potential is regarded as being apart of the great achievements of 20th-century biophysics. Recieving the Nobel prize in Physiology or Medicine for what is inarguably an incredible feat of human ingenuity. However, the authors of this paper are students, and therefore such a sophisticated model might be beyond the direct reach of abilities within the given timeframe. 
 As such, the exploration begins by investigating simplified Hodgkin-Huxely derived models to see what insights can be built.
