@@ -20,13 +20,13 @@ Some of these parameters
 
 \textbf{Phase space} is the space spanned by the system's variables and the trajectories it contain are those variables traversing time
 
-\textit{Bifurcation} designates a qualitative change in the dynamical behavior of the system associated with modifications in the system parameters \cite{STEFANESCU2012748}.
+\textit{Bifurcation} designates a qualitative change in the dynamical behavior of the system associated with modifications in the system parameters~\cite{STEFANESCU2012748}.
 
 
 \subsection*{Networks}
-A complex system can be described by a network or a graph with complex topology, whose nodes are the elements of the system and whose edges represent the interactions among them. "One significant recent discovery in the field of complex networks is the observation that a number of
+A complex system can be described by a network or a graph with complex topology, whose nodes are the elements of the system and whose edges represent the interactions among them. `One significant recent discovery in the field of complex networks is the observation that a number of
 large-scale and complex networks are scale-free, that is, their connectivity distributions have the
-power-law form" \cite{wang2002synchronization}.
+power-law form'~\cite{wang2002synchronization}.
 
 
 
@@ -62,6 +62,9 @@ It's important to determine what is even being modeled, which features can be pa
 \newpage
 \section{Building up to Hodgkin-Huxely}
 
+The Hodgkin-Huxely Model of Neuron Action Potential is regarded as being apart of the great achievements of 20th-century biophysics. Recieving the Nobel prize in Physiology or Medicine for what is inarguably an incredible feat of human ingenuity. However, the authors of this paper are students, and therefore such a sophisticated model might be beyond the direct reach of abilities within the given timeframe. 
+As such, the exploration begins by investigating simplified Hodgkin-Huxely derived models to see what insights can be built.
+
 \subsection{FitzHugh-Nagumo}
 `The models in this category are highly simplified toy models that qualitatively describe the membrane voltage as a function of input. They are mainly used for didactic reasons in teaching but are not considered valid neuron models for large-scale simulations or data fitting'.\footnote{Wikipedia}
 %\subsubsection{Didactic toy model}
@@ -88,50 +91,58 @@ where \textit{V}, \textit{n}, and \textit{C} are membrane potential, probability
 The \(m_\infty\), \(h_\infty\), and \(n_\infty\) are calculated by \(y_\infty = \alpha_y / \br{\alpha_y + \beta_y} \) formula, and the explicit expressions for 
 \(\alpha_m, \beta_m, \alpha_h, \beta_h, \alpha_n, \beta_n\), and \(\tau_n\) are given by:
 \begin{align*}
-    \alpha_m &= 0.1 \frac{ 25 + V }{1 - e^{-0.1 \, V - 2}}, &
-    \alpha_h &=  0.07 e^{-0.05\,V -2.5}, &
-    \alpha_n &= 0.01 \, \frac{ 20 + V }{ 1 + e^{-0.1 \, V - 2}}, &
+    \alpha_m &= 0.1 \frac{ 25 + V }{1 - \exp{-0.1 \, V - 2}}, &
+    \alpha_h &=  0.07 \exp{-0.05\,V -2.5}, &
+    \alpha_n &= 0.01 \, \frac{ 20 + V }{ 1 + \exp{-0.1 \, V - 2}}, &
     \tau_n &= \frac{1}{ r_n \, \br{\alpha_n + \beta_n} } \\
-    \beta_m  &= 4 e^{-\br{\frac{ V + 50 }{ 18 } } }, &
-    \beta_h  &= \frac{ 1 }{ 1 + e^{-0.1 \, V - 2}}, &
-    \beta_n  &= 0.125 e^{- \frac{V + 30}{80}}, &
+    \beta_m  &= 4 \exp{-\br{\frac{ V + 50 }{ 18 } } }, &
+    \beta_h  &= \frac{ 1 }{ 1 + \exp{-0.1 \, V - 2}}, &
+    \beta_n  &= 0.125 \exp{- \frac{V + 30}{80}}, &
 \end{align*}
 
 
 
 
 \subsection{Hodgkin-Huxley}
+
+The Hodgkin-Huxely model of Action Potential is a system of non-linear differentiable equations with four state variable with respect to time, \(V_m\br{t}, \ n\br{t}, \ m\br{t}, \ h\br{t}\)~\cite{HodHux1952}. The model is built from approximating the circuit-like characteristics of excitable cells, such as neurons. 
+
+The duo of Hodgkin and Huxely divined the model from observing the smooth current changes in terms of pores or channels that were either open or closed, and by using a statistical approach generated predictions for the probability of channels being open. They represented total ionic current as the sum of separate \(\Nap\), \(\Kp\) and leak currents:
 \begin{subequations}\label{eq:HodHuxSys}
     \begin{align}
-        I &= C_m \ode{V_m}{t} + \bar{g}_\rmm{K} n^4 \br{V_m - V_\rmm{K}} + \bar{g}_\rmm{Na} m^3 h \br{V_m - V_\rmm{Na}}  + \bar{g}_\rmm{L} \br{V_m - V_\rmm{L}} \\
+        I &= C_m \ode{V_m}{t} + \bar{g}_\rmm{K} n^4 \br{V_m - V_\rmm{K}} + \bar{g}_\rmm{Na} m^3 h \br{V_m - V_\rmm{Na}}  + \bar{g}_\rmm{L} \br{V_m - V_\rmm{L}} 
+    \end{align}
+Mathematically, the flow of current is represented as:
+    \begin{equation*}
+        I_c = C_m \ode{V_m}{t}
+    \end{equation*}
+
+Additionally, accounting for the current through a any given ion channel is the product of that channel's conductance and the driving potential for the specific ion.
+These `gating' variables \(m\) and \(h\)\footnote{for activation and inactivation of \(g_\rmm{Na}\)}, or \(n\)\footnote{for activation of \(g_\rmm{K}\)} describe the time dependent kinetics of the voltage
+    \begin{align}
         \ode{n}{t} &= \alpha_n \br{V_m} \br{1-n} - \beta_n \br{V_m} n \\
         \ode{m}{t} &= \alpha_m \br{V_m} \br{1-m} - \beta_m \br{V_m} m \\
         \ode{h}{t} &= \alpha_h \br{V_m} \br{1-h} - \beta_h \br{V_m} h 
     \end{align}
 \end{subequations}
 
-Mathematically, the flow of current is represented as:
-\begin{equation}
-    I_c = C_m \ode{V_m}{t}
-\end{equation}
-
-
-
-The ion channel activation/inactivation probabilities, denoted by \(\alpha_p, \, \beta_p : \, p=\br{n,m,h}\), are defined as 
+The ion channel activation/inactivation\footnotemark~probabilities, denoted by \(\alpha_p, \, \beta_p : \, \br{n,m,h} \in p\), are defined such that:
 \begin{align}
     \alpha_p\br{V_m} &= p_\infty \br{V_m} / \tau_p \\
     \beta_p\br{V_m}  &= \br{1 - p_\infty \br{V_m}} / \tau_p 
 \end{align}
-With \(p_\infty\) and \(1-p_\infty\) being the steady state values for activation and inactivation respectively \cite{}. 
+With \(p_\infty\) and its inverse \(1-p_\infty\) being the steady state values for activation and inactivation respectively~\cite{}. 
+\footnotetext{\(\alpha\) for \underline{a}ctivation, \(\beta\) for \underline{b}nactivation, really these are the obvious choices}
 
-Refering to \cref{eq:mVions}
+
+Incorporating \cref{eq:mVions} into 
 \begin{align*}
-    \alpha_n \br{V_m} &= 0.01 \, \frac{ 10 - V }{ e^{ 10 - V } - 1}, &
-    \alpha_m \br{V_m} &= 0.1 \frac{ 25 - V }{e^{\frac{25-V}{10}} - 1}, &
-    \alpha_h \br{V_m} &=  0.07 e^{-\frac{V}{20}}, \\
-    \beta_n \br{V_m}  &= 0.125 e^{- \frac{V}{80}}, &
-    \beta_m \br{V_m}  &= 4 e^{- \frac{V}{18}}, &
-    \beta_h \br{V_m}  &= \frac{ 1 }{ e^{\frac{30 - V}{10}} + 1},
+    \alpha_n \br{V_m} &= 0.01 \, \frac{ 10 - V }{ \exp{ 10 - V } - 1}, &
+    \alpha_m \br{V_m} &= 0.1 \frac{ 25 - V }{\exp{\frac{25-V}{10}} - 1}, &
+    \alpha_h \br{V_m} &=  0.07 \, \exp{-\frac{V}{20}}, \\
+    \beta_n \br{V_m}  &= 0.125 \, \exp{-\frac{V}{80}}, &
+    \beta_m \br{V_m}  &= 4 \, \exp{-\frac{V}{18}}, &
+    \beta_h \br{V_m}  &= \frac{ 1 }{ \exp{\frac{30 - V}{10}} + 1},
 \end{align*}
 Where \(V = V_\rmm{rest} - V_m\) represents the polarization in \unit{\milli\volt}
 
@@ -139,17 +150,29 @@ In order to characterize the ion-channels, the equations can be fitted to voltag
 
 \footnotetext{An assay that measures the flow of current through a neuronal cell membrane by `clamping' the potential at an unchanging value.}
 
-Breaking down the equation we find the following regions:
-\begin{equation*}
-    I = 
-    \overbrace{C_m \ode{V_m}{t}}^{\mathclap{\text{rate of change of voltage scaled by capacitance}}} + 
-    \bar{g}_\rmm{K} n^4 \br{V_m - V_\rmm{K}} + 
-    \bar{g}_\rmm{Na} m^3 h \br{V_m - V_\rmm{Na}}  + 
-    \bar{g}_\rmm{L} \br{V_m - V_\rmm{L}} 
-\end{equation*}
+\begin{comment}
+    Breaking down the equation we find the following regions:
+    \begin{equation*}
+        I = 
+        \overbrace{C_m \ode{V_m}{t}}^{\mathclap{\text{rate of change of voltage scaled by capacitance}}} + 
+        \bar{g}_\rmm{K} n^4 \br{V_m - V_\rmm{K}} + 
+        \bar{g}_\rmm{Na} m^3 h \br{V_m - V_\rmm{Na}}  + 
+        \bar{g}_\rmm{L} \br{V_m - V_\rmm{L}} 
+    \end{equation*}
 
 
 
+
+    \begin{figure}[h]
+        \centering
+        \begin{tikzpicture}
+            
+            \draw (0,0) circle (0.25);
+            
+        \end{tikzpicture}
+        \caption{fart}\label{<label>}
+    \end{figure}
+\end{comment}
 
 
 \end{document}
