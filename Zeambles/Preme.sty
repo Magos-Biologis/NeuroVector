@@ -1,10 +1,6 @@
-% ========================= Preamble Packages ================================
 
-\usepackage[T1]{fontenc}
-\usepackage[utf8]{inputenc}
-\usepackage[subpreambles=true]{standalone}
-%\usepackage{iftex} % Allows for if Lua LaTeX commands
-%\usepackage{etoolbox} %ifthen
+\NeedsTeXFormat{LaTeX2e}
+\ProvidesPackage{Preme}
 
 % ========================= Colors/Visuals
 
@@ -18,10 +14,18 @@
 \usepackage{framed}   % Frames for text
 \usepackage{amsmath}  % Standdard math package
     \addtolength{\jot}{0.75em} % Increases row padding between equations
+    % Modifies the padding around the math display
+    \abovedisplayskip=12pt
+    \belowdisplayskip=12pt
+    \abovedisplayshortskip=0pt
+    \belowdisplayshortskip=7pt
 \usepackage{mathtools} % increased math utility functions
 \usepackage[hyperref,standard,amsmath]{ntheorem}  % Math Theorems
 \usepackage{MnSymbol}
     \DeclareMathAlphabet\mathbb{U}{msb}{m}{n}
+    \DeclareMathSizes{10}{18}{12}{8}   % For size 10 text
+    \DeclareMathSizes{11}{19}{13}{9}   % For size 11 text
+    \DeclareMathSizes{12}{20}{14}{10}  % For size 12 text
 \usepackage{listings} % source code
 % https://ctan.org/pkg/siunitx
 \usepackage{siunitx} % elegant SI units

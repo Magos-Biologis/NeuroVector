@@ -1,17 +1,20 @@
-\documentclass[../../Orator]{subfiles}
+\documentclass[tikz]{standalone}
+
+\usetikzlibrary{shapes, shapes.geometric, shapes.misc, shapes.arrows}
+\usetikzlibrary{angles, math, calc, matrix}
+\usetikzlibrary{decorations.pathreplacing, decorations.markings, decorations.text}
+\usetikzlibrary{positioning}
+
 
 \begin{document}
 
-\begin{figure}[h]
-    \centering
-    
 \begin{tikzpicture}[
         scale = 1.5,
         draw = black!80,
         fill = white,
         ]
     
-    \clip[use as bounding box] (-2.5,-2.5) rectangle (6,2);
+    \clip[use as bounding box] (-2.5,-2.5) rectangle (6.5,2);
     %\draw[help lines] (-2.5,-3) grid (6,2);
     %\draw[white,->] (0,-4) -- (0,4);
     %\draw[white,->] (-3,0) -- (6,0);
@@ -41,7 +44,7 @@
     %\ranLength{\armLen}             %
     %\def\pole{0.5}                  %
     \ranLength{\pole}               %
-    \def\axonLen{2.0}               %
+    \def\axonLen{5.5}               %
     \def\tentLen{1/15}              %
     \def\c{0.1}                     %
     \def\rx{0.25}                   %
@@ -54,12 +57,12 @@
     
     % Angles for the polar coordinates, uses degrees for god knows what reason
     %\pgfmathrandominteger{\rara}{0}{300}
-    \def\pI{34}
-    \def\pII{84}
-    \def\pIII{144}
-    \def\pIV{223}
-    \def\pV{273}
-    \def\pVI{325}
+    \pgfmathsetmacro{\pI}{34}
+    \pgfmathsetmacro{\pII}{84}
+    \pgfmathsetmacro{\pIII}{144}
+    \pgfmathsetmacro{\pIV}{223}
+    \pgfmathsetmacro{\pV}{273}
+    \pgfmathsetmacro{\pVI}{325}
 
     % Shortcut for loop
     \def\forlist#1{
@@ -70,16 +73,17 @@
     
     % Fixed points
     \coordinate (O) at (0,0); % The origin
-    \coordinate (SC) at (2.5*\axonLen,0); % The synaptic cleft potistion
+    \coordinate (SC) at (\axonLen, 0.0); % The synaptic cleft potistion
 
     % Some custom commands/shortcuts
     % Cell "spikes"
-    \def\pcoord#1#2{{#1:#2/15}}
+    \def\pcoord#1#2{{#1:#2}}
     \forlist{
         \pgfmathrandominteger{\armLen}{10}{15}
-        \coordinate (P\i) at (\pcoord{\i}{\armLen});
+        \coordinate (P\i) at (\pcoord{\i}{\armLen/15});
         %\fill (P\i) circle (1.5pt);
         }
+    \coordinate (P\pVI) at (\pcoord{\pVI}{2/3});
     \coordinate (AH) at (P\pVI);
 
 
@@ -91,8 +95,7 @@
                 \contr{#3}{#4}
                 \contr{#4}{#5}
                 }
-    \def\axonPath{(P\pVI) .. controls +(-40:2*\axonLen) and +([turn]-75:0.5*\axonLen) ..  (SC)}
-
+    \def\axonPath{(P\pVI) to[out=\pVI, in=-90] (SC)}
     \path foreach \SIGN/\i in {-/1, +/2}{
         \axonPath -- ([turn]\SIGN 45:0.75) coordinate (CL\i)};
 
@@ -151,6 +154,7 @@
                     .. controls 
                     ([turn]\rangB :\rarm/20) and 
                     ([turn]\rangC:\rarm/20) .. 
+                    %to[out=\rangB, in=\rangC]
                     ([turn]\v) 
                     %node[ draw, isosceles triangle, rotate = \rangC, scale = 1]{}
                     ;
@@ -206,38 +210,46 @@
     %        (45:\rx) rectangle (225:\rx);
 
     % Labeling
-    \begin{scope}[opacity = 1, red!80!black]
+    \begin{scope}[opacity = 1, red!80!black, line width = 1.5pt]
+        
         % Soma label
-        \def\avar{{\pIII/2 + \pVI/2 + 180}}
-        \path (P\pIII) -- ++(\avar:0.45) coordinate (Sa);
-        \path (P\pVI)  -- ++(\avar:0.45) coordinate (Sb);
-
-        \draw[decoration ={brace, amplitude = 8}, decorate, line width = 1.5pt] 
-            (Sa) -- (Sb) node[midway, sloped, above, yshift = 0.3cm] {Soma};
+        \pgfmathsetmacro{\somaSlope}{(\pIII + \pVI)/2}
+        \path (P\pIII) -- +(\somaSlope:-0.45) coordinate (Sa);
+        \path (P\pVI)  -- +(\somaSlope:-0.45) coordinate (Sb);
+    
+        \pgfmathsetmacro{\somaTextSlope}{\somaSlope + 90}
+        \draw[decoration ={brace, amplitude = 8}, decorate] 
+            (Sa) -- (Sb) node[midway, sloped, allow upside down= true, 
+            above, yshift = 0.3cm] { \rotatebox{-\somaTextSlope}{$\left(\, 1 \,\right)$}};
 
         % Dendrite label
-        \path (P\pV) -- ++(0:0.20)   coordinate (Da);
+        \path (P\pV) -- ++(0:0.20) coordinate (Da);
 
-        \draw[decoration ={brace,amplitude = 8},decorate, line width = 1.5pt] 
+        \draw[decoration ={brace, amplitude = 8}, decorate] 
                 (Da) -- ($(Da)!1!(Da)+(\pV:1)$) 
-                node[midway, sloped, above, yshift = 0.25cm, allow upside down= true] {Dendrite};
+                node[midway, sloped, 
+                above, yshift = 0.25cm, allow upside down= true] { \rotatebox{-\pV}{$\left(\, 2 \,\right)$} };
 
         % Axon label
-        \draw[decoration ={brace,amplitude = 8, raise = 0.25cm}, decorate, line width = 1.5pt] 
-                (P\pVI) -- (SC) node[midway, sloped, above, yshift = 0.5cm] {Axon};    
+        \pgfmathsetmacro{\axonTextSlope}{ atan2( (11/15) * sin(\pVI), \axonLen * cos(0)) }
+        \draw[decoration ={brace,amplitude = 8, raise = 0.25cm}, decorate] 
+                (P\pVI) -- (SC) node[midway, sloped, 
+                above, yshift = 0.45cm] {\rotatebox{\axonTextSlope}{$\left(\, 3 \,\right)$}};    
         
         % Axon Hill label
-        \draw[<-, line width = 1.5pt] 
-                (AH) node (AHpoint) [circle] {} -- +(0:1.5) node[align=left, pos = 0.99, sloped, fill = white] {Axon Hill-lock};   
+        \draw[<-] 
+                (AH)+(30:1mm) node (AHpoint) [circle] {} -- +(0:1.5) node[align=left, pos = 0.99, sloped, 
+                fill = white] {\rotatebox{0}{$\left(\, 4 \,\right)$}};   
 
         % Synaptic Cleft label
-        \draw[<-, line width = 1.5pt] 
-                (SC)+(200:1mm) node (SCpoint) [circle] {} -- (3,-0.75) node[align=left, pos = 0.99, sloped, fill = white] {Axon Terminal};   
-
+        \pgfmathsetmacro{\axonTerminalTextSlope}{pi/2 *((4 - \axonLen)/(-0.25 - 0.0))}
+        \draw[<-] 
+                (SC)+(200:1mm) node (SCpoint) [circle] {} -- (4,-0.25) node[align=left, pos = 0.99, sloped, 
+                fill = white] {\rotatebox{-\axonTerminalTextSlope}{$\left(\, 5 \,\right)$}};   
     \end{scope}
-\end{tikzpicture}     
 
-    \caption{A single neuronal cell.}\label{fig:Dendrite}
-\end{figure}
+    %\draw (-10,0) to (10,0);
+    %\draw[yshift = 0.25cm] (-10,0) to (10,0);
+\end{tikzpicture}     
 
 \end{document}

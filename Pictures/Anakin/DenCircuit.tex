@@ -1,9 +1,12 @@
-\documentclass[../../Orator]{subfiles}
+\documentclass[tikz]{standalone}
+
+\usetikzlibrary{shapes, shapes.geometric, shapes.misc, shapes.arrows}
+\usetikzlibrary{angles, math, calc, matrix}
+\usetikzlibrary{decorations.pathreplacing, decorations.markings, decorations.text}
+\usetikzlibrary{circuits.ee.IEC}
 
 \begin{document}
 
-\begin{figure}[h]
-    \centering
     
 \begin{tikzpicture}[
     %x=1cm, y=1cm, 
@@ -277,8 +280,5 @@
     \path[line width = 1.5pt] (BE) -- (TE)  node[midway,fill=white,draw] {$E$};
 \end{tikzpicture}
 
-    \caption{The Hodgkin-Huxely circuit diagram overlaid with the relevant structures found in the cell membrane. \(\clm{E}\) and \(\clm{I}\) denote the extra-cellular space and the intra-cellular space respectively. Capacitance of the membrane \(\br{C_\rmm{m}}\) is given by the charge difference on either side of the lipid bilayer. Ion channels for \(\Nap\) and \(\Kp\) are shown with the relevant variables, resistor type, and battery. Additional ion channels and other leaked is represented as a lone resistor and battery outside of the membrane region. The \(\Kp\) ions are shown in green, \(\Nap\) are shown in red, and \(\Cln\) ions in yellow; distributed in approximately relative concentrations on either side of the membrane. }\label{fig:MembraneCircut}
-
-\end{figure}
 
 \end{document}

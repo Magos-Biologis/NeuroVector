@@ -1,21 +1,34 @@
-\documentclass[a4paper]{report}
+\documentclass[a4paper,
+               11pt,
+               ]{report}
 
-%==========================================================
+% ========================= Preamble Packages ================================
 
-\def\zpath#1{\input{Zeambles/Pre_#1}}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage[subpreambles=false]{standalone} % Allows for independent subfile constructions
+\usepackage{import}
+%\usepackage{iftex} % Allows for if Lua LaTeX commands
+%\usepackage{etoolbox} %ifthen
 
-\zpath{Pream}
-\zpath{Formate}
-\zpath{Head}
-\zpath{Figure}
-\zpath{Ref}
-\zpath{Commands}
-\zpath{Tikz}
-\zpath{TikzCommands}
+% ========================= Custom Packages
+
+\def\zuse#1{\usepackage{Zeambles/#1}}
+
+\zuse{Preme}
+\zuse{Formate}
+\zuse{Head}
+\zuse{Figure}
+\zuse{Refing}
+\zuse{Commands}
+\zuse{Tikz}
+\zuse{TikzCommandz}
 
 
-% ========================= Bibliography
+% ========================= Bibliography and Glossary
 
+\usepackage{glossaries}
+    \input{Gloss}
 \usepackage[sorting=none,
             %style=nature,
             %citestyle=nature,
@@ -24,10 +37,11 @@
             ]{biblatex} % For better function
         \addbibresource[glob=true]{Bibble/*.bib}
 
+
 % ============================ Subfiles
 
 \usepackage{subfiles} % must be last usepackage
-	\graphicspath{{\subfix{./Pictures/}}}
+    \graphicspath{{\subfix{../Pictures/}}}
 
 %==========================================================
 \begin{comment}
@@ -87,7 +101,7 @@
 \pagenumbering{roman}
 \begin{document}
 
-\def\spath#1{\subfile{Sections/#1}}
+\def\spath#1{\import{Sections/}{#1.tex}}
 \spath{Title} % Generates the title page
 
 \tableofcontents
@@ -101,7 +115,6 @@
 
 
 %Hello, I am a secntence \SI{56}{\um} \cite{dirac}.
-
 
 
 \newpage

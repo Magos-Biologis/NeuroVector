@@ -1,3 +1,7 @@
+
+\NeedsTeXFormat{LaTeX2e}
+\ProvidesPackage{Formate}
+
 % ========================= Format page header and footer
 
 \usepackage{datetime}
@@ -13,13 +17,13 @@
     \renewcommand{\footrulewidth}{1pt}
     \renewcommand{\footnoterule}{\vfill\kern -3pt \hrule width \textwidth \kern 2.6pt}
     \fancyhfoffset{0pt}
-
 % =========================  Margin and paragraph formatting
 
 \usepackage{indentfirst} % Indents first paragraph
 \usepackage{enumitem}
 \usepackage{setspace} % Line spacing
 %\doublespacing
+    \setlength{\headheight}{15pt}
     \setlength{\parindent}{2em} % Paragraph indents
     \setlength{\parskip}{2ex} % Paragraph seperation
     \setlength{\arrayrulewidth}{0pt} % Table line widths
