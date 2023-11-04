@@ -4,12 +4,29 @@
 
 % ========================= Class Basis
 
-\LoadClassWithOptions{report}
 
+\DeclareOption*{\PassOptionsToClass{\CurrentOption}{report}}
 \DeclareOption*{%
- \PackageWarning{MyProject}{Unknown option ‘\CurrentOption’}%
- }
- \ProcessOptions\relax
+    \ClassWarning{RUC Project}{Unknown option ‘\CurrentOption’}%
+}
+\ProcessOptions\relax
+\LoadClassWithOptions{report}
+ 
+% ========================= Preamble Packages ================================
+
+\RequirePackage[T1]{fontenc}
+\RequirePackage[utf8]{inputenc}
+\RequirePackage[subpreambles=true]{standalone} % Allows for independent subfile constructions
+\RequirePackage{import}
+%\usepackage{iftex} % Allows for if Lua LaTeX commands
+%\usepackage{etoolbox} %ifthen
+
+% ========================= Colors/Visuals
+
+\RequirePackage{graphicx}
+\RequirePackage[table, dvipsnames]{xcolor}
+    \rowcolors{1}{white}{gray!30} % Table row coloration
+\RequirePackage{blindtext}
 
 % ========================= Format page header and footer
 
@@ -27,10 +44,87 @@
     \renewcommand{\footnoterule}{\vfill\kern -3pt \hrule width \textwidth \kern 2.6pt}
     \fancyhfoffset{0pt}
     
+% =========================  Margin and paragraph formatting
+
+\RequirePackage{indentfirst} % Indents first paragraph
+\RequirePackage{enumitem}
+\RequirePackage{setspace} % Line spacing
+\RequirePackage[margin=2cm]{geometry} % Page margins
+%\doublespacing
+    \setlength{\headheight}{15pt}
+    \setlength{\marginparwidth}{2cm}
+    \setlength{\parindent}{2em} % Paragraph indents
+    \setlength{\parskip}{2ex} % Paragraph seperation
+    \setlength{\arrayrulewidth}{0pt} % Table line widths
+    \setlength{\tabcolsep}{3pt} % Table padding horizontally
+    \renewcommand{\arraystretch}{1.5} % Table padding vertically
+%\RequirePackage{lipsum} % Produces paragraphs of text
+\RequirePackage{ragged2e} % Text Justifier
+    \justifying
+
+
+\tolerance=9999 % Gives more whitespace
+\emergencystretch=10pt % Gives more whitespace
+\hyphenpenalty=10000 % Removes hyphanation
+\exhyphenpenalty=100 % Allows for existing hyphans to stay
+
+% =========================  Margin and paragraph formatting
+
+\RequirePackage{indentfirst} % Indents first paragraph
+\RequirePackage{enumitem}
+\RequirePackage{setspace} % Line spacing
+\RequirePackage[margin=2cm]{geometry} % Page margins
+%\doublespacing
+    \setlength{\headheight}{15pt}
+    \setlength{\marginparwidth}{2cm}
+    \setlength{\parindent}{2em} % Paragraph indents
+    \setlength{\parskip}{2ex} % Paragraph seperation
+    \setlength{\arrayrulewidth}{0pt} % Table line widths
+    \setlength{\tabcolsep}{3pt} % Table padding horizontally
+    \renewcommand{\arraystretch}{1.5} % Table padding vertically
+
+%\RequirePackage{lipsum} % Produces paragraphs of text
+\RequirePackage{ragged2e} % Text Justifier
+    \justifying
+
+
+\tolerance=9999 % Gives more whitespace
+\emergencystretch=10pt % Gives more whitespace
+\hyphenpenalty=10000 % Removes hyphanation
+\exhyphenpenalty=100 % Allows for existing hyphans to stay
+
+% ====================== Margin and Notes ================================
+
+\RequirePackage{marginnote}
+\RequirePackage{todonotes}
+
+% ============== Reference Functions, Figure Functions =========================
+
+\RequirePackage[labelfont={bf}]{caption} % For figure coloration
+    \def\red{\color{red!80!black}}
+    \def\blue{\color{blue!80!black}}
+    \DeclareCaptionFont{red}{\red}
+    \DeclareCaptionFont{blue}{\blue}
+    \DeclareCaptionFont{black}{\color{black}}
+    \captionsetup[figure]{labelfont=red}
+    %\captionsetup[subfigure]{labelfont=black}
+    %
+    %\captionsetup[table]{labelfont=blue}
+    %\captionsetup[subtable]{labelfont=black}
+    %
+\RequirePackage{csquotes} % Recommended
+\RequirePackage{multicol} % allows for merging multiple columns
+\RequirePackage{adjustbox} % allows you to modify figures
+\RequirePackage{subcaption} % Subfigures
+\RequirePackage{enumitem} % for list formatting
+    \interlinepenalty=10000
+\RequirePackage{array} % used for easy access in working memory
+\RequirePackage[outline]{contour} % Glow around text
+    \contourlength{1.4pt}
+
+
+
 % ======================== Custom Headers ================================
-% Sauce:
-% https://www.ctan.org/pkg/titlesec
-% https://www.overleaf.com/learn/latex/Sections_and_chapters
 
 \RequirePackage{titlesec} % Allows for easy editing of of headers
 
@@ -72,10 +166,6 @@
     {1em}
     {}
     
-
-
-
-\pagenumbering{arabic}
 
 
 %\AtBeginDocument{⟨code⟩}

@@ -1,8 +1,11 @@
-\documentclass[Orator.tex]{subfiles}
-\begin{document}
+\documentclass[tikz]{standalone}
 
-\begin{figure}[ht]
-    \centering
+
+\usetikzlibrary{shapes, shapes.geometric, shapes.misc, shapes.arrows}
+\usetikzlibrary{angles, math, calc, matrix}
+\usetikzlibrary{circuits.ee.IEC}
+
+\begin{document}
     \begin{tikzpicture}[
     %x=1cm, y=1cm, 
     %z={(0cm,1cm)},
@@ -19,7 +22,7 @@
     ]
 
     % Determines the boundries
-    %\path [use as bounding box] (-4.25,-3.5) rectangle (4.25,3.5);
+    \path[use as bounding box] (-5.5,-3.6) rectangle (5.5,3.6);
 
     
     \def\r{0.5}
@@ -113,7 +116,4 @@
     }
     
     \end{tikzpicture}
-    \caption{The circuit diagram of the Hodgkin-Huxley model \cite{HodHux1952}.}\label{fig:HHcircuit}
-\end{figure}
-
 \end{document}

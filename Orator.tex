@@ -4,22 +4,13 @@
 
 % ========================= Preamble Packages ================================
 
-\usepackage[T1]{fontenc}
-\usepackage[utf8]{inputenc}
-\usepackage[subpreambles=true]{standalone} % Allows for independent subfile constructions
-\usepackage{import}
-%\usepackage{iftex} % Allows for if Lua LaTeX commands
-%\usepackage{etoolbox} %ifthen
-
-% ========================= Custom Packages
-
-\usepackage{Zeambles/Preme}
-\usepackage{Zeambles/Commands}
+\usepackage{Zeambles/MathPreme}
+\usepackage{Zeambles/Reffer}
 \usepackage{Zeambles/Tikz}
     %\usetikzlibrary{external}
     %\tikzexternalize[prefix=Tikz/]
 
-% ========================= Bibliography and Glossary
+% ============================ Bibliography + Glossary
 
 \import{./}{Gloss.tex}
 \usepackage[sorting=none,
@@ -28,13 +19,11 @@
             maxbibnames=99,
             url=false,
             ]{biblatex} % For better function
-        \addbibresource[glob=true]{Bibble/*.bib}
-
+    \addbibresource[glob=true]{Bibble/*.bib}
 
 % ============================ Subfiles
 
 \usepackage{subfiles} % must be last usepackage
-    \graphicspath{{\subfix{../Pictures/}}}
 
 %==========================================================
 

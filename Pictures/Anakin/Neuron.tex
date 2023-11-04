@@ -57,16 +57,16 @@
     
     % Angles for the polar coordinates, uses degrees for god knows what reason
     %\pgfmathrandominteger{\rara}{0}{300}
-    \pgfmathsetmacro{\pI}{34}
-    \pgfmathsetmacro{\pII}{84}
-    \pgfmathsetmacro{\pIII}{144}
-    \pgfmathsetmacro{\pIV}{223}
-    \pgfmathsetmacro{\pV}{273}
-    \pgfmathsetmacro{\pVI}{325}
+    \pgfmathsetnewmacro{\pI}{34}
+    \pgfmathsetnewmacro{\pII}{84}
+    \pgfmathsetnewmacro{\pIII}{144}
+    \pgfmathsetnewmacro{\pIV}{223}
+    \pgfmathsetnewmacro{\pVee}{273}
+    \pgfmathsetnewmacro{\pVI}{325}
 
     % Shortcut for loop
     \def\forlist#1{
-    \foreach \i in {\pI,\pII,\pIII,\pIV,\pV,\pVI}{
+    \foreach \i in {\pI,\pII,\pIII,\pIV,\pVee,\pVI}{
                     #1
                     }
             }
@@ -176,7 +176,7 @@
         \begin{scope}[line width = \THICKNESS, \COLOR ]
                     
             \pgfmathsetseed{\seed}
-            \foreach \i in {\pI,\pII,\pIII,\pIV,\pV}{
+            \foreach \i in {\pI,\pII,\pIII,\pIV,\pVee}{
                 \draw 
                     (P\i) -- (\i:\pole/13) coordinate (PP\i);
                     
@@ -184,8 +184,8 @@
                 }
             
             \filldraw  
-                \aggcontr{\pI}{\pII}{\pIII}{\pIV}{\pV} 
-                (P\pV) .. controls (\bloat{\pV+\sh}) and (\bloat{\pVI}) ..              
+                \aggcontr{\pI}{\pII}{\pIII}{\pIV}{\pVee} 
+                (P\pVee) .. controls (\bloat{\pVee+\sh}) and (\bloat{\pVI}) ..              
                 (P\pVI) .. controls (\bloat{\pVI}) and (\bloat{\pI-\sh}) ..
                 cycle;
 
@@ -213,25 +213,25 @@
     \begin{scope}[opacity = 1, red!80!black, line width = 1.5pt]
         
         % Soma label
-        \pgfmathsetmacro{\somaSlope}{(\pIII + \pVI)/2}
+        \pgfmathsetnewmacro{\somaSlope}{(\pIII + \pVI)/2}
         \path (P\pIII) -- +(\somaSlope:-0.45) coordinate (Sa);
         \path (P\pVI)  -- +(\somaSlope:-0.45) coordinate (Sb);
     
-        \pgfmathsetmacro{\somaTextSlope}{\somaSlope + 90}
+        \pgfmathsetnewmacro{\somaTextSlope}{\somaSlope + 90}
         \draw[decoration ={brace, amplitude = 8}, decorate] 
             (Sa) -- (Sb) node[midway, sloped, allow upside down= true, 
             above, yshift = 0.3cm] { \rotatebox{-\somaTextSlope}{$\left(\, 1 \,\right)$}};
 
         % Dendrite label
-        \path (P\pV) -- ++(0:0.20) coordinate (Da);
+        \path (P\pVee) -- ++(0:0.20) coordinate (Da);
 
         \draw[decoration ={brace, amplitude = 8}, decorate] 
-                (Da) -- ($(Da)!1!(Da)+(\pV:1)$) 
+                (Da) -- ($(Da)!1!(Da)+(\pVee:1)$) 
                 node[midway, sloped, 
-                above, yshift = 0.25cm, allow upside down= true] { \rotatebox{-\pV}{$\left(\, 2 \,\right)$} };
+                above, yshift = 0.25cm, allow upside down= true] { \rotatebox{-\pVee}{$\left(\, 2 \,\right)$} };
 
         % Axon label
-        \pgfmathsetmacro{\axonTextSlope}{ atan2( (11/15) * sin(\pVI), \axonLen * cos(0)) }
+        \pgfmathsetnewmacro{\axonTextSlope}{ atan2( (11/15) * sin(\pVI), \axonLen * cos(0)) }
         \draw[decoration ={brace,amplitude = 8, raise = 0.25cm}, decorate] 
                 (P\pVI) -- (SC) node[midway, sloped, 
                 above, yshift = 0.45cm] {\rotatebox{\axonTextSlope}{$\left(\, 3 \,\right)$}};    
@@ -242,7 +242,7 @@
                 fill = white] {\rotatebox{0}{$\left(\, 4 \,\right)$}};   
 
         % Synaptic Cleft label
-        \pgfmathsetmacro{\axonTerminalTextSlope}{pi/2 *((4 - \axonLen)/(-0.25 - 0.0))}
+        \pgfmathsetnewmacro{\axonTerminalTextSlope}{pi/2 *((4 - \axonLen)/(-0.25 - 0.0))}
         \draw[<-] 
                 (SC)+(200:1mm) node (SCpoint) [circle] {} -- (4,-0.25) node[align=left, pos = 0.99, sloped, 
                 fill = white] {\rotatebox{-\axonTerminalTextSlope}{$\left(\, 5 \,\right)$}};   

@@ -1,0 +1,40 @@
+
+\NeedsTeXFormat{LaTeX2e}
+\ProvidesPackage{Reffer}[Anakin's personalized Refrencing Preamble package]
+
+
+% ====================== Custom References ================================
+
+    \RequirePackage[hidelinks]{hyperref} % For hyperlinks
+    \hypersetup{%
+        urlcolor=cyan,% Specific for weblinks
+        pdftitle={Semester Project},% Changing the name of the title in the pdf
+        pdfdisplaydoctitle = true,% Displaying the title instead of the filename
+        pdfpagemode=FullScreen,% Opens the pdf in fullscreen
+        }
+    
+    \RequirePackage{cleveref} % For configuration of references
+        \crefdefaultlabelformat{#2(\textbf{\textup{#1}})#3}
+        \creflabelformat{equation}{#2{\(\left( \textbf{\textup{#1}} \right)\)}#3}
+    
+        
+        % Generic Fields ======================================================
+        \crefformat{figure}{[fig.~(#2#1#3)]}
+        \crefrangeformat{figure}{[figs.~(#3#1#4) to~(#5#2#6)]}
+        \crefmultiformat{figure}{[figs.~(#2#1#3)}{ and~(#2#1#3)}{, (#2#1#3)}{ and~(#2#1#3)]}
+        \crefrangemultiformat{figure}{[figs.~(#2#1#3)}{ and~(#2#1#3)}{, (#2#1#3)}{, and~(#2#1#3)]}
+        \Crefformat{figure}{Figure~(#2#1#3)}
+        \Crefrangeformat{figure}{Figures~(#2#1#3) to~(#5#2#6)}
+        \Crefmultiformat{figure}{Figures~(#2#1#3)}{ and~(#2#1#3)}{, (#2#1#3)}{ and~(#2#1#3)}
+        \Crefrangemultiformat{figure}{Figures~(#2#1#3)}{ and~(#2#1#3)}{, (#2#1#3)}{, and~(#2#1#3)}
+    
+        
+        \crefformat{table}{[tab.~(#2#1#3)]}
+        \crefrangeformat{table}{[tabs.~(#3#1#4) to~(#5#2#6)]}
+        \crefmultiformat{table}{[tabs.~(#2#1#3)}{ and~(#2#1#3)}{, (#2#1#3)}{ and~(#2#1#3)]}
+        \crefrangemultiformat{table}{[tabs.~(#2#1#3)}{ and~(#2#1#3)}{, (#2#1#3)}{, and~(#2#1#3)]}
+        \Crefformat{table}{Table~(#2#1#3)}
+        \Crefrangeformat{table}{Tables~(#2#1#3) to~(#5#2#6)}
+        \Crefmultiformat{table}{Tables~(#2#1#3)}{ and~(#2#1#3)}{, (#2#1#3)}{ and~(#2#1#3)}
+        \Crefrangemultiformat{table}{Tables~(#2#1#3)}{ and~(#2#1#3)}{, (#2#1#3)}{, and~(#2#1#3)}
+

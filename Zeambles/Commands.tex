@@ -1,0 +1,37 @@
+
+%==========================================================
+
+% Custom commands specific to this project
+% Variables
+\providecommand{\Vm}{\rmm{V}_m}
+% Ions
+\providecommand{\Kp}{\rmm{K}^+}
+\providecommand{\Nap}{\rmm{Na}^+}
+\providecommand{\Cln}{\rmm{Cl}^-}
+\providecommand{\Capp}{\rmm{Ca}^{2+}}
+
+
+\newcommand{\secbre}[0]{\hrulefill\\\hrulefill} % To help differeniate sections when writing them
+\newcommand{\latex}[0]{\LaTeX\xspace} % LaTeX symbol
+
+\newcommand{\citelater}[0]{{\color{red} \textbf{[!!!]}}}
+
+\newcommand{\detailtexcount}[1]{
+  \immediate\write18{texcount -merge -sum -q #1.tex output.bbl > #1.wcdetail }
+  \verbatiminput{#1.wcdetail}}
+
+\newcommand{\quickwordcount}[1]{
+  \immediate\write18{texcount -1 -sum -merge -q #1.tex output.bbl > #1-words.sum }%
+  \input{#1-words.sum}}
+
+\newcommand{\quickcharcount}[1]{
+  \immediate\write18{texcount -1 -sum -merge -char -q #1.tex output.bbl > #1-chars.sum }%
+  \input{#1-chars.sum}}
+
+
+% ====================== Custom Enviroments ==============================
+\newenvironment{citelaterlater}[1][{purple!80!red}]
+    {\color{#1}\hrulefill\subsection*{Cite Later ... Later}}
+    {\hrulefill}%
+
+% ========================================================================
