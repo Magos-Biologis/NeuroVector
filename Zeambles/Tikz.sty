@@ -1,11 +1,11 @@
 
 \NeedsTeXFormat{LaTeX2e}
-\ProvidesPackage{Tikz}
+\ProvidesPackage{Tikz}[Anakin's personalized Tikz package]
 
 % ========================= Tikz Packages ================================
 
-\usepackage{float} % Allows for showing numbers of significant decimal points also figure
-\usepackage{tikz} % Drawing
+\RequirePackage{float} % Allows for showing numbers of significant decimal points also figure
+\RequirePackage{tikz} % Drawing
     %\usetikzlibrary{shapes, shapes.geometric, shapes.misc, shapes.arrows}
     %\usetikzlibrary{3d, perspective}
     %\usetikzlibrary{arrows, arrows.meta}
@@ -16,11 +16,12 @@
     %\usetikzlibrary{circuits.ee.IEC}
     %\usetikzlibrary{quotes} %Tikz Library
     \tikzset{>=latex} % for LaTeX arrow head
-\usepackage{pgfplots} % For plotting within LaTeX
-\usepackage{pgfplotstable} % table plotting
+    
+\RequirePackage{pgfplots} % For plotting within LaTeX
+\RequirePackage{pgfplotstable} % table plotting
     \pgfplotsset{compat=1.18}
     %\pgfplotsset{width=10cm, compat=1.9}
-\usepackage{chemfig} % Draws chemicals
+\RequirePackage{chemfig} % Draws chemicals
     \setchemfig{
                 atom sep=2em, 
                 bond style={line width= 1pt},

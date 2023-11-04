@@ -1,6 +1,29 @@
 
 \NeedsTeXFormat{LaTeX2e}
-\ProvidesPackage{Commands}
+\ProvidesPackage{Commands}[Anakin's personalized commands package]
+
+% ========================= Math Symbols and Math Related Processes
+
+\RequirePackage{framed}   % Frames for text
+\RequirePackage{amsmath}  % Standdard math package
+    \addtolength{\jot}{0.75em} % Increases row padding between equations
+    % Modifies the padding around the math display
+    \abovedisplayskip=12pt
+    \belowdisplayskip=12pt
+    \abovedisplayshortskip=0pt
+    \belowdisplayshortskip=7pt
+\RequirePackage{mathtools} % increased math utility functions
+\RequirePackage[hyperref,standard,amsmath]{ntheorem}  % Math Theorems
+
+\RequirePackage{MnSymbol}
+    \DeclareMathAlphabet\mathbb{U}{msb}{m}{n}
+    \DeclareMathSizes{10}{18}{12}{8}   % For size 10 text
+    \DeclareMathSizes{11}{19}{13}{9}   % For size 11 text
+    \DeclareMathSizes{12}{20}{14}{10}  % For size 12 text
+\RequirePackage{listings} % source code
+\RequirePackage{siunitx} % elegant SI units
+    \DeclareSIUnit\molar{\mole\per\cubic\deci\metre}
+    \DeclareSIUnit\Molar{\textsc{m}}
 
 % ========================- Mathy Commands ===============================
 
@@ -35,6 +58,29 @@
 \providecommand{\R}{\mathbb{R}}
 \providecommand{\C}{\mathbb{C}}
 \providecommand{\Su}{N_0}
+
+
+% ========================= Theorem Enviroments Using Asmath
+
+\theoremstyle{plain}
+\theoremheaderfont{\normalfont\bfseries}
+\theorembodyfont{\itshape}
+\theoremseparator{}
+\theorempreskip{\topsep}
+\theorempostskip{\topsep}%, where\topseprefers to the spacethat LATEX inserts above and below lists,
+\theoremindent0cm
+\theoremnumbering{greek}
+\theoremsymbol{}
+
+\newtheorem{axiom}{Axiom}
+
+
+% ====================== Custom Cleverrefs ===============================
+
+\crefformat{axiom}{Axiom~#2#1#3}
+\crefrangeformat{axiom}{Axiom~#3#1#4 to~#5#2#6}
+\crefmultiformat{axiom}{Axiom~#2#1#3}{ and~#2#1#3}{, #2#1#3}{ and~#2#1#3}
+\crefrangemultiformat{axiom}{Axiom~#2#1#3}{ and~#2#1#3}{, #2#1#3}{, and~#2#1#3}
 
 %==========================================================
 
