@@ -6,24 +6,16 @@
 
 \usepackage[T1]{fontenc}
 \usepackage[utf8]{inputenc}
-\usepackage[subpreambles=false]{standalone} % Allows for independent subfile constructions
+\usepackage[subpreambles=true]{standalone} % Allows for independent subfile constructions
 \usepackage{import}
 %\usepackage{iftex} % Allows for if Lua LaTeX commands
 %\usepackage{etoolbox} %ifthen
 
 % ========================= Custom Packages
 
-\def\zuse#1{\usepackage{Zeambles/#1}}
-
-\zuse{Preme}
-\zuse{Formate}
-\zuse{Head}
-\zuse{Figure}
-\zuse{Refing}
-\zuse{Commands}
-\zuse{Tikz}
-\zuse{TikzCommandz}
-
+\usepackage{Zeambles/Preme}
+\usepackage{Zeambles/Commands}
+\usepackage{Zeambles/Tikz}
 
 % ========================= Bibliography and Glossary
 
@@ -44,6 +36,7 @@
     \graphicspath{{\subfix{../Pictures/}}}
 
 %==========================================================
+
 \begin{comment}
   Quick ref for package commands
   

@@ -34,4 +34,184 @@
 %\usepackage{ulem} % for striking through text
 %\usepackage{cancel} % for the fancy canceling line
 
+
+% ========================= Format page header and footer
+
+\usepackage{datetime}
+\usepackage{verbatim}
+\usepackage{lastpage}
+\usepackage{fancyhdr}
+    \pagestyle{fancy}
+    \fancyhf{}
+    \fancyhead[LO]{\leftmark}
+    %\fancyhead[RO]{Semester 4 Project}
+    \fancyfoot[CO]{[\thepage]}
+    \renewcommand{\headrulewidth}{2pt}
+    \renewcommand{\footrulewidth}{1pt}
+    \renewcommand{\footnoterule}{\vfill\kern -3pt \hrule width \textwidth \kern 2.6pt}
+    \fancyhfoffset{0pt}
+    
+% ======================== Custom Headers ================================
+% Sauce:
+% https://www.ctan.org/pkg/titlesec
+% https://www.overleaf.com/learn/latex/Sections_and_chapters
+
+\usepackage{titlesec} % Allows for easy editing of of headers
+
+% \titleformat{<command>}[<shape>]{<format>}{<label>}{<sep>}{<before-code>}[<after-code>]
+% \titlespacing{<command>}{<left>}{<before-sep>}{<after-sep>}
+
+\titleformat{\chapter} % command
+    [block] % shape
+    {\bfseries\huge} % format
+    {\thechapter} % label
+    {0.5ex} % sep
+    {\bfseries\fontsize{14}{12} \huge\centering} % before-code
+    [\vspace{-1.5ex}\rule{\textwidth}{0.5pt}\\ \vspace{-2ex}\rule{\textwidth}{0.5pt}] % after-code
+
+\titlespacing*{\chapter}%
+    {0ex}%
+    {-3.55em}%
+    {1em}%
+
+
+\titleformat{\section}% command
+    [block] % shape
+    {\bfseries\Large} % format
+    {\thesection} % label
+    {0.3em} % sep
+    {\bfseries\fontsize{14}{12} \selectfont} % before-code
+    [\vskip 0.5ex \titlerule] % after-code
+
+\titlespacing*{\section}
+    {0pt}%
+    {*4}%
+    {*4}%
+
+
+\titleformat{\subsection}
+    [block]
+    {\bfseries\large}
+    {\thesubsection\hspace{1em}-}
+    {1em}
+    {}
+    
+% =========================  Margin and paragraph formatting
+
+\usepackage{indentfirst} % Indents first paragraph
+\usepackage{enumitem}
+\usepackage{setspace} % Line spacing
+\usepackage[margin=2cm]{geometry} % Page margins
+%\doublespacing
+    \setlength{\headheight}{15pt}
+    \setlength{\marginparwidth}{2cm}
+    \setlength{\parindent}{2em} % Paragraph indents
+    \setlength{\parskip}{2ex} % Paragraph seperation
+    \setlength{\arrayrulewidth}{0pt} % Table line widths
+    \setlength{\tabcolsep}{3pt} % Table padding horizontally
+    \renewcommand{\arraystretch}{1.5} % Table padding vertically
+    \rowcolors{1}{white}{gray!30} % Table row coloration
+%\usepackage{lipsum} % Produces paragraphs of text
+\usepackage{ragged2e} % Text Justifier
+    \justifying
+
+
+\tolerance=9999 % Gives more whitespace
+\emergencystretch=10pt % Gives more whitespace
+\hyphenpenalty=10000 % Removes hyphanation
+\exhyphenpenalty=100 % Allows for existing hyphans to stay
+
+% ====================== Margin and Notes ================================
+
+\usepackage{marginnote}
+\usepackage{todonotes}
+
+
+% ============== Reference Functions, Figure Functions =========================
+
+\usepackage[labelfont={bf}]{caption} % For figure coloration
+    \def\red{\color{red!80!black}}
+    \def\blue{\color{blue!80!black}}
+    \DeclareCaptionFont{red}{\red}
+    \DeclareCaptionFont{blue}{\blue}
+    \DeclareCaptionFont{black}{\color{black}}
+    \captionsetup[figure]{labelfont=red}
+    %\captionsetup[subfigure]{labelfont=black}
+    %
+    %\captionsetup[table]{labelfont=blue}
+    %\captionsetup[subtable]{labelfont=black}
+    %
+\usepackage{csquotes} % Recommended
+\usepackage{multicol} % allows for merging multiple columns
+\usepackage{adjustbox} % allows you to modify figures
+\usepackage{subcaption} % Subfigures
+\usepackage{enumitem} % for list formatting
+    \interlinepenalty=10000
+\usepackage{array} % used for easy access in working memory
+\usepackage[outline]{contour} % Glow around text
+    \contourlength{1.4pt}
+
+
+% ====================== Custom References ================================
+
+\def\red{\color{red!80!black}}
+\def\blue{\color{blue!80!black}}
+
+\usepackage[hidelinks]{hyperref} % For hyperlinks
+\hypersetup{%
+    urlcolor=cyan,% Specific for weblinks
+    pdftitle={Neuronal Signal Dynamics},% Changing the name of the title in the pdf
+    pdfdisplaydoctitle = true,% Displaying the title instead of the filename
+    pdfpagemode=FullScreen,% Opens the pdf in fullscreen
+    }
+
+\usepackage{cleveref} % For configuration of references
+    \crefdefaultlabelformat{#2(\textbf{\textup{#1}})#3}
+    \creflabelformat{equation}{#2{\(\left( \textbf{\textup{#1}} \right)\)}#3}
+
+    
+    % Generic Fields ======================================================
+    \crefformat{figure}{[fig.~(#2#1#3)]}
+    \crefrangeformat{figure}{[figs.~(#3#1#4) to~(#5#2#6)]}
+    \crefmultiformat{figure}{[figs.~(#2#1#3)}{ and~(#2#1#3)}{, (#2#1#3)}{ and~(#2#1#3)]}
+    \crefrangemultiformat{figure}{[figs.~(#2#1#3)}{ and~(#2#1#3)}{, (#2#1#3)}{, and~(#2#1#3)]}
+    \Crefformat{figure}{Figure~(#2#1#3)}
+    \Crefrangeformat{figure}{Figures~(#2#1#3) to~(#5#2#6)}
+    \Crefmultiformat{figure}{Figures~(#2#1#3)}{ and~(#2#1#3)}{, (#2#1#3)}{ and~(#2#1#3)}
+    \Crefrangemultiformat{figure}{Figures~(#2#1#3)}{ and~(#2#1#3)}{, (#2#1#3)}{, and~(#2#1#3)}
+
+    
+    \crefformat{table}{[tab.~(#2#1#3)]}
+    \crefrangeformat{table}{[tabs.~(#3#1#4) to~(#5#2#6)]}
+    \crefmultiformat{table}{[tabs.~(#2#1#3)}{ and~(#2#1#3)}{, (#2#1#3)}{ and~(#2#1#3)]}
+    \crefrangemultiformat{table}{[tabs.~(#2#1#3)}{ and~(#2#1#3)}{, (#2#1#3)}{, and~(#2#1#3)]}
+    \Crefformat{table}{Table~(#2#1#3)}
+    \Crefrangeformat{table}{Tables~(#2#1#3) to~(#5#2#6)}
+    \Crefmultiformat{table}{Tables~(#2#1#3)}{ and~(#2#1#3)}{, (#2#1#3)}{ and~(#2#1#3)}
+    \Crefrangemultiformat{table}{Tables~(#2#1#3)}{ and~(#2#1#3)}{, (#2#1#3)}{, and~(#2#1#3)}
+
+
+
+% ========================= Theorem Enviroments Using Asmath
+
+\theoremstyle{plain}
+\theoremheaderfont{\normalfont\bfseries}
+\theorembodyfont{\itshape}
+\theoremseparator{}
+\theorempreskip{\topsep}
+\theorempostskip{\topsep}%, where\topseprefers to the spacethat LATEX inserts above and below lists,
+\theoremindent0cm
+\theoremnumbering{greek}
+\theoremsymbol{}
+
+\newtheorem{axiom}{Axiom}
+
+
+% ====================== Custom Cleverrefs ===============================
+
+\crefformat{axiom}{Axiom~#2#1#3}
+\crefrangeformat{axiom}{Axiom~#3#1#4 to~#5#2#6}
+\crefmultiformat{axiom}{Axiom~#2#1#3}{ and~#2#1#3}{, #2#1#3}{ and~#2#1#3}
+\crefrangemultiformat{axiom}{Axiom~#2#1#3}{ and~#2#1#3}{, #2#1#3}{, and~#2#1#3}
+
 % ========================================================================
