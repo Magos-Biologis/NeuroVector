@@ -12,7 +12,8 @@
     %\usetikzlibrary{angles, math, calc, matrix}
     %\usetikzlibrary{positioning}
     %\usetikzlibrary{fadings, shadows, shadings}
-    %\usetikzlibrary{decorations.pathreplacing, decorations.markings, decorations.text, calligraphy}
+    %\usetikzlibrary{decorations.pathreplacing, decorations.markings, decorations.text} 
+    %\usetikzlibrary{calligraphy}
     %\usetikzlibrary{circuits.ee.IEC}
     %\usetikzlibrary{quotes} %Tikz Library
     \tikzset{>=latex} % for LaTeX arrow head
@@ -43,7 +44,7 @@
 
 % This bascially automates a \newcommand{<name>}{} to ensure
 % that a command with the given <name> does not already exist
-\newcommand*{\pgfmathsetnewmacro}[2]{%
+\providecommand*{\pgfmathsetnewmacro}[2]{%
     \newcommand*{#1}{}% Error if already defined
     \pgfmathsetmacro{#1}{#2}%
 }%
@@ -113,7 +114,7 @@
 
 \newcommand{\sinewave}[4][]{\draw[#1]  plot (\x,{#2*sin~((#4*pi/180)~r + 2*pi*#3*\x r)})}
 
-\newcommand{\findAngle}[2]{ % 1 = point 1, 2 = point 2
+\providecommand{\findAngle}[2]{ % 1 = point 1, 2 = point 2
     \pgfmathanglebetweenpoints%
     {\pgfpointanchor{#1}{center}}
     {\pgfpointanchor{#2}{center}}
@@ -161,6 +162,7 @@
         \pgfpathsine{\pgfqpoint{0.25\pgfdecorationsegmentlength}{\pgfdecorationsegmentamplitude}}
     }
 }
+
 
 \tikzset{
   show curve controls/.style={

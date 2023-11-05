@@ -71,7 +71,7 @@ The voltage has two functions: first, it provides a power source for an assortme
 
 
 \section{Potential}
-\subsection{Equilibrium Potential of a Given Ion, \(E_\bfm{ion}\)}
+\subsection{Equilibrium Potential of a Given Ion}
 All systems yearn for their equilibrium, the fabled \textit{steady state}. 
 The value of membrane potential 
 %where the concentration force that tends to move a particular ion in one direction is exactly balanced by the electrical force that tends to move the same ion in the reverse direction is 
@@ -80,10 +80,13 @@ called the `\textit{equilibrium potential}' of the ion \(\br{E_\bfm{ion}}\) or t
 ion is the value of \(\Vm\) for which the net flux of this ion \(\br{f_\bfm{net}}\) through an open channel is null: when \(\Vm = E_\bfm{ion}\), \(f_\bfm{net} = \qty{0}{\mole\per\second}\).
 \(E_\bfm{ion}\) of the relevant ions can be calculated using the \textit{Nernst} equation:
 \begin{align}
-    E_\bfm{ion} &= \br{\frac{\clm{R}\, \cdot \,\clm{T}}{z\, \cdot \, \clm{F}}} \, \ln \br{\frac{\sbr{\bfm{ion}}_\clm{E} }{ \sbr{\bfm{ion}}_\clm{I}} }  \label{eq:nernst} \\
-    \intertext{ \(\clm{R}\) being the constant of an ideal gas (\qty{8.314}{\joule\per\kelvin\per\mol}); \(\clm{T}\) is the temperature in kelvin; \(\clm{F}\) is the Faraday constant (\qty{96500}{\degreeCelsius\per\mole}); \(z\) is the valence of the ion; and \(\sbr{\bfm{ion}}\) is the concentration of the given ion in the extracellular \( \br{ \clm{E} } \) or intracellular \( \br{\clm{I}}\) medium. As most of these terms are constants, its simple to reduce the equation down: } 
-    E_\bfm{ion} &= \br{\frac{ \qty{8.314}{\joule\per\kelvin\per\mol} \, \cdot \,\clm{T}}{ z\, \cdot \, \qty{96500}{\degreeCelsius\per\mole} }} \,\ln \br{ \frac{\sbr{\bfm{ion}}_\clm{E} }{ \sbr{\bfm{ion}}_\clm{I}} }  
+    E_\bfm{ion} &= \br{\frac{\clm{R}\, \cdot \,\clm{T}}{z\, \cdot \, \clm{F}}} \, \ln \br{\frac{\sbr{\bfm{ion}}_\clm{E} }{ \sbr{\bfm{ion}}_\clm{I}} }  \label{eq:nernst} 
 \end{align}
+\(\clm{R}\) being the constant of an ideal gas (\qty{8.314}{\joule\per\kelvin\per\mol}); \(\clm{T}\) is the temperature in kelvin; \(\clm{F}\) is the Faraday constant (\qty{96500}{\degreeCelsius\per\mole}); \(z\) is the valence of the ion; and \(\sbr{\bfm{ion}}\) is the concentration of the given ion in the extracellular \( \br{ \clm{E} } \) or intracellular \( \br{\clm{I}}\) medium. As most of these terms are constants, its simple to reduce the equation down:
+\begin{align*} 
+    E_\bfm{ion} &= \br{\frac{ \qty{8.314}{\joule\per\kelvin\per\mol} \, \cdot \, \br{\qty{273.15}{\kelvin} + temp\,\unit{\degreeCelsius}}}{ z\, \cdot \, \qty{96500}{\degreeCelsius\per\mole} }} \,\ln \br{ \frac{\sbr{\bfm{ion}}_\clm{E} }{ \sbr{\bfm{ion}}_\clm{I}} } \\
+    E_\bfm{ion} &= \br{\frac{  \br{ 8.314 \cdot \qty{273.15}{\kelvin} + 8.314 \, \cdot \,temp\,\unit{\degreeCelsius}} \, \cdot \, \unit{\joule\per\kelvin\per\mol}  }{ z\, \cdot \, \qty{96500}{\degreeCelsius\per\mole} }} \,\ln \br{ \frac{\sbr{\bfm{ion}}_\clm{E} }{ \sbr{\bfm{ion}}_\clm{I}} } 
+\end{align*}
 %{VC\per\kelvin\per\mol}
 %{\kilo\gram\metre^2\second^{-2}\kelvin\per\mol}
 

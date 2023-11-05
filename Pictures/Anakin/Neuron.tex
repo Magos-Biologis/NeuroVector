@@ -2,9 +2,16 @@
 
 \usetikzlibrary{shapes, shapes.geometric, shapes.misc, shapes.arrows}
 \usetikzlibrary{angles, math, calc, matrix}
-\usetikzlibrary{decorations.pathreplacing, decorations.markings, decorations.text}
+\usetikzlibrary{decorations.pathreplacing}\usetikzlibrary{decorations.markings}\usetikzlibrary{decorations.text}
 \usetikzlibrary{positioning}
 
+
+% This bascially automates a \newcommand{<name>}{} to ensure
+% that a command with the given <name> does not already exist
+\providecommand*{\pgfmathsetnewmacro}[2]{%
+    \newcommand*{#1}{}% Error if already defined
+    \pgfmathsetmacro{#1}{#2}%
+}%
 
 \begin{document}
 
@@ -109,12 +116,10 @@
                                     inner sep=0pt,
                                     minimum height=0.30cm,minimum width=0.7cm,
                                     behind path,
-                                    %scale = 0.5,
                                     transform shape] {};}}]
         \draw[postaction={decorate}, line width = 0.75pt]
             \axonPath;
     \end{scope}
-
 
     \def\synCleft{
     \foreach \i in {-0.3,-0.15,0.4,0.8,1.4}{

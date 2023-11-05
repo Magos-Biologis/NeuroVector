@@ -3,6 +3,15 @@
 \ProvidesPackage{MathPreme}[Anakin's personalized Math Preamble package]
 
 
+\DeclareOption*{%
+    \PackageWarning{Math Preamble}{Unknown option ‘\CurrentOption’}%
+}
+\ProcessOptions\relax
+
+
+\RequirePackage{ifthen}
+
+
 % ========================= Math Symbols and Math Related Processes
 
 \RequirePackage{framed}   % Frames for text
@@ -25,7 +34,7 @@
 \RequirePackage{siunitx} % elegant SI units
     \DeclareSIUnit\molar{\mole\per\cubic\deci\metre}
     \DeclareSIUnit\Molar{\textsc{m}}
-
+    
 % ========================= Mathy Commands ===============================
 
 \newcommand{\br}[1]{\left(\,#1\,\right)}                               % (.)

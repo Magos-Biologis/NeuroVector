@@ -1,12 +1,12 @@
-\documentclass[a4paper,
-               11pt,
-               ]{Zeambles/MyProject}
+\documentclass[11pt]{_NoTouch/_MyProject}
 
 % ========================= Preamble Packages ================================
 
-\usepackage{Zeambles/MathPreme}
-\usepackage{Zeambles/Reffer}
-\usepackage{Zeambles/Tikz}
+\usepackage[subpreambles=true]{standalone} % Allows for independent subfile constructions
+
+\usepackage{_NoTouch/MathPreme}
+\usepackage{_NoTouch/Reffer}
+\usepackage{_NoTouch/Tikz}
     %\usetikzlibrary{external}
     %\tikzexternalize[prefix=Tikz/]
 
@@ -28,43 +28,55 @@
 %==========================================================
 
 \begin{comment}
-  Quick ref for package commands
-  
-  Cleverref
-  \cref[⟨options⟩]{⟨reference label⟩}
-  \Cref[⟨options⟩]{⟨reference label⟩}
-  The [options] is not nessecary for general usage the \cref command will detect the enviroment  that the label was made in and create the corresponding refrerence in the text
-  Using \Cref produces the same result but in a  more 'official' style, like fig. 1 vs Figure 1
-  
-  Examples of usage;
-  \cref{eq:lmao}
-  \Cref{fig:penishehe}
-  
-  SiUnitx 
-  Any general value with a unit uses the command for both the number and the unit together:
-  \qty[⟨options⟩]{⟨number⟩}{⟨unit⟩}
-  units are simple to input just use \⟨unit abbreviation⟩
-  
-  Examples of usage;
-  \qty{.23e7}{\candela} 
-  \qty[mode = text]{1.23}{J.mol^{-1}.K^{-1}}
-  \qty[per-mode = symbol]{1.99}{\per\kilogram}
-  \qty[per-mode = symbol]{1.99}{\per\kg}
-  \qty[per-mode = fraction]{1,345}{\coulomb\per\mole}
-  
-  One can break up the numbers from the units by using
-  \num[⟨options⟩]{⟨number⟩}
-  \unit[⟨options⟩]{⟨unit⟩}
-  
-  Additionally, angels can be defined with
-  \ang[⟨options⟩]{⟨angle⟩}
-  
-  General Latex commands
-  for citing papers
-  \cite[⟨options⟩]{⟨citation key⟩}
-  for making footnotes
-  \footnote[⟨options⟩]{⟨text⟩}
-  
+    Quick ref for package commands
+    
+    Cleverref
+    \cref[⟨options⟩]{⟨reference label⟩}
+    \Cref[⟨options⟩]{⟨reference label⟩}
+    The [options] is not nessecary for general usage the \cref command will detect the enviroment  that the label was made in and create the corresponding refrerence in the text
+    Using \Cref produces the same result but in a  more 'official' style, like fig. 1 vs Figure 1
+    
+    Examples of usage;
+    \cref{eq:lmao}
+    \Cref{fig:penishehe}
+    
+    SiUnitx 
+    Any general value with a unit uses the command for both the number and the unit together:
+    \qty[⟨options⟩]{⟨number⟩}{⟨unit⟩}
+    units are simple to input just use \⟨unit abbreviation⟩
+    
+    Examples of usage;
+    \qty{.23e7}{\candela} 
+    \qty[mode = text]{1.23}{J.mol^{-1}.K^{-1}}
+    \qty[per-mode = symbol]{1.99}{\per\kilogram}
+    \qty[per-mode = symbol]{1.99}{\per\kg}
+    \qty[per-mode = fraction]{1,345}{\coulomb\per\mole}
+    
+    One can break up the numbers from the units by using
+    \num[⟨options⟩]{⟨number⟩}
+    \unit[⟨options⟩]{⟨unit⟩}
+    
+    Additionally, angels can be defined with
+    \ang[⟨options⟩]{⟨angle⟩}
+
+    
+    Glossaries package
+    \gls{<label>}
+    This command prints the term associated with <label> passed as its argument. If the hyperref package was loaded before glossaries it will also be hyperlinked to the entry in glossary.
+    \glspl{<label>}
+    This command prints the plural of the defined term, other than that it behaves in the same way as gls.
+    \Gls{<label>}
+    This command prints the singular form of the term with the first character converted to upper case.
+    \Glspl{<label>}
+    This command prints the plural form with first letter of the term converted to upper case.
+    
+    
+    General Latex commands
+    for citing papers
+    \cite[⟨options⟩]{⟨citation key⟩}
+    for making footnotes
+    \footnote[⟨options⟩]{⟨text⟩}
+    
 \end{comment}
 
 %==========================================================
@@ -80,14 +92,19 @@
 
 %==========================================================
 
+\title{Modeling of signal propagation through networks of neurons}
+\author{God}
 
-\pagenumbering{roman}
 \begin{document}
 
-\def\spath#1{\import{Sections/}{#1.tex}}
-\spath{Title} % Generates the title page
+% ======================== Title page ================================
+\pagenumbering{roman}
 
+%\maketitle
+\import{_NoTouch/}{Title.tex}
 \tableofcontents
+
+\pagenumbering{arabic}
 
 %\listoffigures \newpage
 
@@ -103,12 +120,11 @@
 \newpage
 \pagenumbering{arabic}
 \chapter*{Introduction} 
-\spath{Intro}
+\import{Sections/}{Intro.tex}
 
 \part{Theory}
 
-\spath{background}
-
+\import{Sections/}{background.tex}
 
 \newpage
 \chapter{Methodology}
@@ -121,16 +137,14 @@
 
 \newpage
 \chapter{Discussion}
-%\spath{Discussion.tex}
+%\import{Sections/}{Discussion.tex}
 
 \newpage
 \chapter{Conclusion}
-%\spath{Conclusion.tex}
+%\import{Sections/}{Conclusion.tex}
 
-\newpage
-\printbibliography[title={Bliblyogrpah}]
-\addcontentsline{toc}{chapter}{Blibo}
-\newpage
 
+\appendix
 \part{Appendix}
+
 \end{document}

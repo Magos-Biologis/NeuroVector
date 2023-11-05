@@ -4,19 +4,21 @@
 
 % ========================= Class Basis
 
+\ExecuteOptions{a4paper, 11pt}
 
 \DeclareOption*{\PassOptionsToClass{\CurrentOption}{report}}
 \DeclareOption*{%
     \ClassWarning{RUC Project}{Unknown option ‘\CurrentOption’}%
 }
 \ProcessOptions\relax
+
 \LoadClassWithOptions{report}
  
 % ========================= Preamble Packages ================================
 
 \RequirePackage[T1]{fontenc}
 \RequirePackage[utf8]{inputenc}
-\RequirePackage[subpreambles=true]{standalone} % Allows for independent subfile constructions
+\RequirePackage{ifthen}
 \RequirePackage{import}
 %\usepackage{iftex} % Allows for if Lua LaTeX commands
 %\usepackage{etoolbox} %ifthen
@@ -168,7 +170,14 @@
     
 
 
-%\AtBeginDocument{⟨code⟩}
 
 
-%\AtEndDocument{⟨code⟩}
+%\AtBeginDocument{}
+
+
+\AtEndDocument{
+    \printbibliography[title={References}]
+    \addcontentsline{toc}{chapter}{References}
+    %\printindex
+    \printglossaries
+}
