@@ -1,15 +1,25 @@
-
 \NeedsTeXFormat{LaTeX2e}
 \ProvidesClass{MyProject}[Anakin's personalized Project writing class]
 
 % ========================= Class Basis
 
-\ExecuteOptions{a4paper, 11pt}
 
 \DeclareOption*{\PassOptionsToClass{\CurrentOption}{report}}
-\DeclareOption*{%
-    \ClassWarning{RUC Project}{Unknown option ‘\CurrentOption’}%
+
+% Report options
+\DeclareOption{10pt}{
+  \PassOptionsToClass{\CurrentOption}{report}
 }
+\DeclareOption{a4paper}{
+  \PassOptionsToClass{\CurrentOption}{report}
+}
+
+\DeclareOption*{%
+\ClassWarning{RUC Project}{Unknown option `\CurrentOption'}%
+}
+
+\ExecuteOptions{a4paper, 11pt}
+
 \ProcessOptions\relax
 
 \LoadClassWithOptions{report}
@@ -125,6 +135,12 @@
     \contourlength{1.4pt}
 
 
+%\RequirePackage[sorting=none,
+%                %style=nature,
+%                %citestyle=nature,
+%                maxbibnames=99,
+%                url=false,
+%                ]{biblatex} % For better function
 
 % ======================== Custom Headers ================================
 
