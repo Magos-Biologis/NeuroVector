@@ -2,11 +2,9 @@
 \begin{document}
 
 \begin{figure}[h]
-
     \centering
     \import{../../Pictures/Anakin}{Neuron.tex}
-    \caption{A simplified representation of a neuronal cell, with labels for each of the important features. (1) the soma of the cell; (2) a dendrite; (3) the axon; (4) the axon hill-lock; (5) the axon terminal.}\label{fig:Neuron}
-
+    \caption{A simplified representation of a neuronal cell, with labels for each of the important features. (1) the \gls{soma} of the cell; (2) a \gls{dendrite}; (3) the \gls{axon}; (4) the \gls{ax-hill}; (5) the \gls{ax-terminal}.}\label{fig:Neuron}
 \end{figure}
 
 The human body is composed of a vast number of cells and complex interactions, how could anyone ever expect these meaty lumps we call `\textit{people}' to coordinate properly without an equally complex system for the transfer of information? 
@@ -30,12 +28,12 @@ There exist many distinct types of neurons, however, the underlying mechanisms o
 \subsection{Specialized Neuronal Structures}
 There exist a number of important features that are foundational to the specialized functions found in the neurons;
 \begin{enumerate}
-    \item \textbf{The soma} is the main body of the neuron. It is the space in which the nucleus resides, and by extension where protein production occurs. The nucleus can range from \qtyrange{3}{18}{\um} in diameter.
-    \item \textbf{The dendrites} of a neuron are extensions of the membrane with many branches. This overall shape and structure are metaphorically referred to as a `\textit{dendritic} tree'\footnotemark. This is where the majority of neuron inputs are received, and carried by the `dendritic spine' down to the soma \cite{}. \footnotetext{Greek root word `\textit{dendron}' meaning tree, translates to `tree tree'.}
-    \item \textbf{The axon} is a finer tendril that can extend tens, if not tens of thousands of times, the diameter of the soma in length. The axon primarily carries nerve signals away from the soma and carries some types of information back to it. Most neurons have only one axon, but this axon will be able to undergo significant branching, enabling communication with many target cells. 
-    \item \textbf{The axon hillock} is the part of the axon where it emerges from the soma. The region contains the greatest density of voltage-dependent sodium channels. This makes it the most easily excited part of the neuron \cite{}. 
-    \item \textbf{The axon terminal} is found at the terminus of the axon and contains synapses. 
-    \item \textbf{The myelin} is a lipid and protein comprised substance that `sheathes' the axon creating additional insulation for capacitance \cite{}.
+    \item \textbf{The \gls{soma}} is the main body of the neuron. It is the space in which the nucleus resides, and by extension where protein production occurs. The nucleus can range from \qtyrange{3}{18}{\um} in diameter.
+    \item \textbf{The \glspl{dendrite}} of a neuron are extensions of the membrane with many branches. This overall shape and structure are metaphorically referred to as a `\textit{dendritic} tree'\footnotemark. This is where the majority of neuron inputs are received, and carried by the `dendritic spine' down to the \gls{soma} \cite{}. \footnotetext{Greek root word `\textit{dendron}' meaning tree, translates to `tree tree'.}
+    \item \textbf{The \gls{axon}} is a finer tendril that can extend tens, if not tens of thousands of times, the diameter of the \gls{soma} in length. The \gls{axon} primarily carries nerve signals away from the \gls{soma} and carries some types of information back to it. Most neurons have only one \gls{axon}, but this \gls{axon} will be able to undergo significant branching, enabling communication with many target cells. 
+    \item \textbf{The \gls{ax-hill}} is the part of the \gls{axon} where it emerges from the \gls{soma}. The region contains the greatest density of voltage-dependent sodium channels. This makes it the most easily excited part of the neuron \cite{}. 
+    \item \textbf{The \gls{ax-terminal}} is found at the terminus of the \gls{axon} and contains synapses. 
+    \item \textbf{The myelin} is a lipid and protein comprised substance that `sheathes' the \gls{axon} creating additional insulation for capacitance \cite{}.
 \end{enumerate}
 
 
@@ -58,11 +56,9 @@ Others are `ligand gated', meaning that they can be switched between an open and
 \vspace{1em}
 
 \begin{figure}[ht]
-
     \centering
     \import{../../Pictures/Anakin}{DenCircuit.tex}
     \caption{The Hodgkin-Huxely circuit diagram overlaid with the relevant structures found in the cell membrane. \(\clm{E}\) and \(\clm{I}\) denote the extra-cellular space and the intra-cellular space respectively. Capacitance of the membrane \(\br{C_\rmm{m}}\) is given by the charge difference on either side of the lipid bilayer. Ion channels for \(\Nap\) and \(\Kp\) are shown with the relevant variables, resistor type, and battery. Additional ion channels and other leaked is represented as a lone resistor and battery outside of the membrane region. The \(\Kp\) ions are shown in green, \(\Nap\) are shown in red, and \(\Cln\) ions in yellow; distributed in approximately relative concentrations on either side of the membrane. }\label{fig:MembraneCircut}
-    
 \end{figure}
 
 
@@ -70,39 +66,71 @@ The voltage has two functions: first, it provides a power source for an assortme
 
 
 
-\section{Potential}
+\section{Action Potential}
 \subsection{Equilibrium Potential of a Given Ion}
-All systems yearn for their equilibrium, the fabled \textit{steady state}. 
-The value of membrane potential 
-%where the concentration force that tends to move a particular ion in one direction is exactly balanced by the electrical force that tends to move the same ion in the reverse direction is 
-where the direction of the gradient is perfectly balanced into a net zero is  
-called the `\textit{equilibrium potential}' of the ion \(\br{E_\bfm{ion}}\) or the `\textit{reversal potential}' of the ion \(E_\bfm{rev}\). The equilibrium potential for a particular 
-ion is the value of \(\Vm\) for which the net flux of this ion \(\br{f_\bfm{net}}\) through an open channel is null: when \(\Vm = E_\bfm{ion}\), \(f_\bfm{net} = \qty{0}{\mole\per\second}\).
+\begingroup
+\allowdisplaybreaks
+All systems yearn for their equilibrium, the fabled \textit{steady state}. This divine relation of the components in a system, one achieved, the system no longer needs to evolve, it has been perfected by entropy. 
+The value of the membrane potential is constantly fluctuating depending on the relative distribution of charged particles that cross the membrane. 
+When the direction of the gradient is perfectly balanced at net zero, it is referred to as the `\textit{equilibrium potential}' of the given ion \(\br{E_\bfm{ion}}\), alternatively, as the `\textit{reversal potential}' of the ion \(E_\bfm{rev}\). 
+%The equilibrium potential for a particular ion is the value of \(\Vm\) for which the net flux of this ion \(\br{f_\bfm{net}}\) through an open channel is null: when \(\Vm = E_\bfm{ion}\), \(f_\bfm{net} = \qty{0}{\mole\per\second}\).
 \(E_\bfm{ion}\) of the relevant ions can be calculated using the \textit{Nernst} equation:
-\begin{align}
-    E_\bfm{ion} &= \br{\frac{\clm{R}\, \cdot \,\clm{T}}{z\, \cdot \, \clm{F}}} \, \ln \br{\frac{\sbr{\bfm{ion}}_\clm{E} }{ \sbr{\bfm{ion}}_\clm{I}} }  \label{eq:nernst} 
-\end{align}
-\(\clm{R}\) being the constant of an ideal gas (\qty{8.314}{\joule\per\kelvin\per\mol}); \(\clm{T}\) is the temperature in kelvin; \(\clm{F}\) is the Faraday constant (\qty{96500}{\degreeCelsius\per\mole}); \(z\) is the valence of the ion; and \(\sbr{\bfm{ion}}\) is the concentration of the given ion in the extracellular \( \br{ \clm{E} } \) or intracellular \( \br{\clm{I}}\) medium. As most of these terms are constants, its simple to reduce the equation down:
-\begin{align*} 
-    E_\bfm{ion} &= \br{\frac{ \qty{8.314}{\joule\per\kelvin\per\mol} \, \cdot \, \br{\qty{273.15}{\kelvin} + temp\,\unit{\degreeCelsius}}}{ z\, \cdot \, \qty{96500}{\degreeCelsius\per\mole} }} \,\ln \br{ \frac{\sbr{\bfm{ion}}_\clm{E} }{ \sbr{\bfm{ion}}_\clm{I}} } \\
-    E_\bfm{ion} &= \br{\frac{  \br{ 8.314 \cdot \qty{273.15}{\kelvin} + 8.314 \, \cdot \,temp\,\unit{\degreeCelsius}} \, \cdot \, \unit{\joule\per\kelvin\per\mol}  }{ z\, \cdot \, \qty{96500}{\degreeCelsius\per\mole} }} \,\ln \br{ \frac{\sbr{\bfm{ion}}_\clm{E} }{ \sbr{\bfm{ion}}_\clm{I}} } 
-\end{align*}
-%{VC\per\kelvin\per\mol}
-%{\kilo\gram\metre^2\second^{-2}\kelvin\per\mol}
+\begin{subequations}\label{eq:nernst}
+\begin{equation}
+    E_\bfm{ion} = \br{\frac{\clm{R}\, \cdot \,\clm{T}}{z\, \cdot \, \clm{F}}} \, \ln \br{\frac{\sbr{\bfm{ion}}_\clm{E} }{ \sbr{\bfm{ion}}_\clm{I}} } \tag{\ref*{eq:nernst}} 
+\end{equation}
 
-    
-This gives:
+\(\clm{R}\) being the ideal gas constant \tbr{\qty{8.314}{\cubic\meter\pascal\per\kelvin\per\mol}}; \(\clm{T}\) is the temperature in \gls{kelvin} \(\br{ x\,\unit{\degreeCelsius} \cong {273.15} + x\,\unit{\kelvin}}\); \(\clm{F}\) is the Faraday constant \tbr{\qty{96500}{\coulomb\per\mole}}; \(z\) is the valence of the ion; and \(\sbr{\bfm{ion}}\) is the concentration of the given ion in the extracellular \( \br{ \clm{E} } \) or intracellular \( \br{\clm{I}}\) medium. 
+As most of the terms are constants, its simple to reduce the equation down in dimensional complexity:
+\begin{align} 
+    E_\bfm{ion} &= \br{\frac{ \qty{8.314}{\cubic\meter\pascal\per\mol\per\kelvin} \, \cdot \, t\,\unit{\kelvin}}{ z\, \cdot \, \qty{96500}{\coulomb\per\mole} }} \,\ln \br{ \frac{\sbr{\bfm{ion}}_\clm{E} }{ \sbr{\bfm{ion}}_\clm{I}} } \\
+    %E_\bfm{ion} &= \br{\frac{ {8.314} \cdot t \cdot \unit{\cubic\meter\pascal}  \,\cancel{\unit{\per\mol}}\,\cancel{\unit{\per\kelvin\kelvin}}  }{ z\, \cdot \, \qty{96500}{\coulomb} \,\cancel{\unit{\per\mol}}}} \,\ln \br{ \frac{\sbr{\bfm{ion}}_\clm{E} }{ \sbr{\bfm{ion}}_\clm{I}} } \\
+    %
+    %E_\bfm{ion} &= \br{\frac{ {8.314} \, \cdot \,  t \, \unit{\cubic\meter\pascal} }{ z\, \cdot \, \qty{96500}{\coulomb}} } \,\ln \br{ \frac{\sbr{\bfm{ion}}_\clm{E} }{ \sbr{\bfm{ion}}_\clm{I}} } \\
+    %
+    \intertext{dividing and rearranging the terms:}
+    E_\bfm{ion} &= \br{\frac{ t \, \unit{\cubic\meter\pascal} }{ z\, \cdot \, \qty{11607}{\coulomb} } } \cdot \,\ln \br{ \frac{\sbr{\bfm{ion}}_\clm{E} }{ \sbr{\bfm{ion}}_\clm{I}} } \\
+    %
+    \intertext{converting the unit of pressure, pascal \tbr{\unit{\pascal}} to the base units representing mass over an area over time \tbr{\unit{\kilo\gram\per\meter\per\square\second}}, as well converting the unit for charge, a \gls{coulomb} \tbr{\unit{\coulomb}}, to the base units denoting the quantity of current in a second, \tbr{\unit{\ampere\second}}, gives the substitution:}
+    E_\bfm{ion} &= \br{\frac{ t \, \unit{\cubic\meter\kilo\gram\per\meter\per\square\second} }{ z\, \cdot \, \qty{11607}{\ampere\second} } } \cdot \,\ln \br{ \frac{\sbr{\bfm{ion}}_\clm{E} }{ \sbr{\bfm{ion}}_\clm{I}} } \\
+    \intertext{at this point we're only left with base SI units, so we need to be a little silly, the unit of magnetic flux is defined \(\unit{\weber} = \unit{\kilo\gram\square\meter\per\square\second\per\ampere}\), implying through substitution \(\unit{\kilo\gram\square\meter\per\cubic\second\per\ampere} = \unit{\weber\per\second} \):}
+    E_\bfm{ion} &= \frac{ t  }{ z\, \cdot \, \num{11607}} \cdot \br{\unit{\weber\per\second}} \cdot \,\ln \br{ \frac{\sbr{\bfm{ion}}_\clm{E} }{ \sbr{\bfm{ion}}_\clm{I}} } \\
+    %
+    \intertext{a unit describing the rate of change of magnetic charge per second, which sounds a lot like a volt, \unit{\volt}, oh wait, \(\unit{\volt} = \unit{\kilo\gram\square\meter\per\cubic\second\per\ampere} = \unit{\weber\per\second} \), the combination of units found through deconstruction is the literal base unit definition of a volt:}
+    E_\bfm{ion} &= \frac{ t }{ z\, \cdot \, \num{11607}} \cdot \,\ln \br{ \frac{\sbr{\bfm{ion}}_\clm{E} }{ \sbr{\bfm{ion}}_\clm{I}} } \unit{\volt} 
+    %E_\bfm{ion} &= \cfrac{ t \cdot \,\ln \br{ \cfrac{\sbr{\bfm{ion}}_\clm{E} }{ \sbr{\bfm{ion}}_\clm{I}} }  }{ z\, \cdot \, \num{11607}}  \cdot \unit{\volt} \cdot  \qty{1000}{\milli\volt\per\volt} \\
+    %E_\bfm{ion} &= \cfrac{ t \cdot \,\ln \br{ \cfrac{\sbr{\bfm{ion}}_\clm{E} }{ \sbr{\bfm{ion}}_\clm{I}} } }{ z\, \cdot \, 1 \, 160}  \ \unit{\milli\volt}
+\end{align}
+%{Volume Concentration \per\kelvin\per\mol}
+%{\kilo\gram\metre^2\second^{-2}\kelvin\per\mol}
+\end{subequations}
+
 \begin{subequations}\label{eq:mVions}
-    \begin{equation} \tag{\ref*{eq:mVions}}
-        E = \frac{\,58\,}{z} \ \log \br{ \frac{ \sbr{\bfm{ion}}_{\clm{E}} }{ \sbr{\bfm{ion}}_{\clm{I}} } }
-    \end{equation}
-The equilibrium potential of each ion thus follows as:
+With minor adjustments to this derived form, one is able to get
+\begin{equation}
+    E_\bfm{ion} =   \cfrac{t}{ z } \, \cdot \, \ln \br{ \cfrac{\sbr{\bfm{ion}}_\clm{E} }{ \sbr{\bfm{ion}}_\clm{I}} } \cdot 1 \, 160^{-1}  \ \unit{\milli\volt} \tag{\ref*{eq:mVions}}
+\end{equation}
+Using the non-fucked with \cref{eq:nernst}
+the equilibrium potential of each ion follows as:
+
+
+\begin{minipage}{.45\textwidth}
     \begin{align}
-        {E_{\rmm{Na}}} &= \frac{58}{1}\  \log \br{ \frac{140}{14} }      =  \qty{58}{\mV} \\
-        {E_\rmm{K}}    &= \frac{58}{1}\  \log \br{ \frac{3}{140} }       =  \qty{-97}{\mV} \\
-        {E_\rmm{Ca}}   &= \frac{58}{2}\  \log \br{ \frac{1.5}{10^{-4}} } = \qty{121}{\mV} \\
-        {E_\rmm{Cl}}   &= \frac{58}{-1}\ \log \br{ \frac{146}{14} }      = \qty{-59}{\mV} 
+        {E_{\rmm{Na}}} &= \frac{58}{1}\  \ln \br{ \frac{140}{14} }\cdot 1 \, 160^{-1}      =  \qty{0}{\mV} \\
+        {E_\rmm{K}}    &= \frac{58}{1}\  \ln \br{ \frac{3}{140} }\cdot 1 \, 160^{-1}       =  \qty{0}{\mV} 
     \end{align}
+\end{minipage}
+~
+\vrule
+~
+\begin{minipage}{.45\textwidth}
+    \begin{align}
+        {E_\rmm{Ca}}   &= \frac{58}{2}\  \ln \br{ \frac{1.5}{10^{-4}} }\cdot 1 \, 160^{-1} =  \qty{0}{\mV} \\
+        {E_\rmm{Cl}}   &= \frac{58}{-1}\ \ln \br{ \frac{146}{14} }\cdot 1 \, 160^{-1}      =  \qty{0}{\mV} 
+    \end{align}
+\end{minipage}
+
+
 \end{subequations}
 
 These equations can be interpreted as such. 
@@ -115,22 +143,22 @@ the net flux of \(\Cln\) is null.
 By extension, should \(\Vm \neq E_\rmm{K}\), the net flux of  \(\Kp\) will no longer be null. 
 This holds true for all ions: when \(\Vm \neq E_\bfm{ion}\) there is a net flux of the ion \cite{}. 
 
-\section{Action Potential}
+\endgroup
+
+\subsection{Action Potential}
 
 Functionally all eukaryotic cell membranes maintain a difference in voltage between the extra-cellular and intra-cellular space, this difference is called the `membrane potential'. An expected membrane potential in human cells is \qty{-70}{\milli\volt}~\cite{}.
-
 Action potential is the measure of the potential that causes action.
 
 An action potential occurs when the potential of an excitable cell's membrane rapidly rises and falls. This depolarization then causes adjacent locations to similarly `depolarize', creating a chain reaction in the form of a `wavelet'.
+The voltage fluctuations take the form of a rapid upward spike followed by a rapid fall.
 
-
+``All-or-none'' principle
 
 \begin{figure}[ht]
-
     \centering
     \import{../../Pictures/Anakin}{Channels.tex}
     \caption{ $\langle \text{temp} \rangle$ }\label{fig:Channels}
-    
 \end{figure}
 
 \end{document}

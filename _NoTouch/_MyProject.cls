@@ -10,6 +10,9 @@
 \DeclareOption{10pt}{
   \PassOptionsToClass{\CurrentOption}{report}
 }
+\DeclareOption{11pt}{
+  \PassOptionsToClass{\CurrentOption}{report}
+}
 \DeclareOption{a4paper}{
   \PassOptionsToClass{\CurrentOption}{report}
 }
@@ -26,12 +29,9 @@
  
 % ========================= Preamble Packages ================================
 
-\RequirePackage[T1]{fontenc}
-\RequirePackage[utf8]{inputenc}
 \RequirePackage{ifthen}
-\RequirePackage{import}
+\RequirePackage{etoolbox} % Includes a lot of useful macros for customizations
 %\usepackage{iftex} % Allows for if Lua LaTeX commands
-%\usepackage{etoolbox} %ifthen
 
 % ========================= Colors/Visuals
 
@@ -124,7 +124,6 @@
     %\captionsetup[table]{labelfont=blue}
     %\captionsetup[subtable]{labelfont=black}
     %
-\RequirePackage{csquotes} % Recommended
 \RequirePackage{multicol} % allows for merging multiple columns
 \RequirePackage{adjustbox} % allows you to modify figures
 \RequirePackage{subcaption} % Subfigures
@@ -145,7 +144,6 @@
 % ======================== Custom Headers ================================
 
 \RequirePackage{titlesec} % Allows for easy editing of of headers
-
 % \titleformat{<command>}[<shape>]{<format>}{<label>}{<sep>}{<before-code>}[<after-code>]
 % \titlespacing{<command>}{<left>}{<before-sep>}{<after-sep>}
 
@@ -196,4 +194,9 @@
     \addcontentsline{toc}{chapter}{References}
     %\printindex
     \printglossaries
+    \addcontentsline{toc}{chapter}{Glossary}
 }
+
+
+% ========================================================================
+\endinput

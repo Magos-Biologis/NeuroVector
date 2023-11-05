@@ -1,6 +1,5 @@
-
 \NeedsTeXFormat{LaTeX2e}
-\ProvidesPackage{MathPreme}[Anakin's personalized Math Preamble package]
+\ProvidesPackage{mathPreamble}[Anakin's personalized Math Preamble package]
 
 
 \DeclareOption*{%
@@ -17,11 +16,13 @@
 \RequirePackage{framed}   % Frames for text
 \RequirePackage{amsmath}  % Standdard math package
     \addtolength{\jot}{0.75em} % Increases row padding between equations
+    %\AtBeginDocument{\renewcommand{\theequation}{\theparentequation-\arabic{equation}} } % Redefines subequation values
     % Modifies the padding around the math display
     \abovedisplayskip=12pt
     \belowdisplayskip=12pt
     \abovedisplayshortskip=0pt
     \belowdisplayshortskip=7pt
+\RequirePackage{cancel}  % Striking through text \cancel{x}
 \RequirePackage{mathtools} % increased math utility functions
 \RequirePackage[hyperref,standard,amsmath]{ntheorem}  % Math Theorems
 
@@ -34,6 +35,8 @@
 \RequirePackage{siunitx} % elegant SI units
     \DeclareSIUnit\molar{\mole\per\cubic\deci\metre}
     \DeclareSIUnit\Molar{\textsc{m}}
+    \DeclareSIUnit{\calorie}{cal}
+    \DeclareSIUnit{\Calorie}{\kilo\calorie}
     
 % ========================= Mathy Commands ===============================
 
@@ -94,3 +97,4 @@
 %}
 
 % ========================================================================
+\endinput

@@ -12,7 +12,8 @@ There exists any number of limitations in the pursuit of this task, some inheren
 
 \section{Dynamic Systems}
 
-When looking at the brain in abstract form it can be seen as a multi-dimensional dynamical system governed by system variables and parameters.
+When looking at the brain in abstract form it can be seen as a multi-dimensional dynamical system governed by an independent set of system variables, such as neuronal membrane potentials, which change in time based on a set of deterministic equations with system parameters that either do not change in time (e.g. maximal conductance of the ion
+channels on the neuronal membrane) or whose evolution happens on a much slower time scale relative to the evolution of the system variables ~\cite{STEFANESCU2012748}.
 
 Fundamentally, a dynamical system is a system that evolves over time. This system is dependent on fixed rules which govern the evolution of the system. Thus a dynamical system is the opposite of a static system, which, unlike dynamical systems, does not depend on the past inputs. A simple example of a dynamical system can be that of a pendulum swinging back and forth \cite{}. 
 
@@ -40,7 +41,9 @@ Lastly, there is the difference between an autonomous system, which is one where
 \subsection{Phase space}
 Phase space is the space spanned by the system's variables and the trajectories it contain are those variables traversing time
 
-When a neuron transitions from rest to firing, that is, when the input current to the neuron reach a sufficient level is called \textit{Bifurcation}. This designates a qualitative change in the dynamical behavior of the system associated with modifications in the system parameters~\cite{STEFANESCU2012748} .
+When a neuron transitions from rest to firing a qualitative change in the dynamical behavior of the system will occur called \textit{bifurcation}. The bifurcation constitutes a 'dividing event' and is associated with modifications to the system parameters such as the amount of current injected into the neuron, the maximal conductance of the ion
+channels on the neuronal membrane etc. ~\cite{STEFANESCU2012748}.
+
 
 
 
@@ -54,7 +57,7 @@ power-law form'~\cite{wang2002synchronization}.
 
 Modeling brain processes can be advantages because of the difficulties  performing certain experiments and it is therefore possible to simulate certain scenarios without the need of conducting large scale exploratory experiments. Aspects like ethical barriers
 
-The practical barriers to simulating brain processes are to do with the modeling framework of the particular question of interest together with the computational resources needed to run complex simulations. Fortunately Moore's Law are still holding and with the emergence of AI the modeling framework have been propelled foreword. Large-scale brain simulation projects, like the Human Brain Project\footnote{https://www.humanbrainproject.eu/en/brain-simulation/}, leverage AI and high-performance computing to simulate the behavior of billions of neurons and their connections.
+The practical barriers to simulating brain processes are to do with the modeling framework of the particular question of interest together with the computational resources needed to run complex simulations. Fortunately Moore's Law are still holding and with the emergence of AI the modeling framework have been propelled foreword. Large-scale brain simulation projects, like the Human Brain Project\footnote{\url{https://www.humanbrainproject.eu/en/brain-simulation/}}, leverage AI and high-performance computing to simulate the behavior of billions of neurons and their connections.
 
 
 \subsection*{Taxonomy of seizures}
@@ -96,7 +99,7 @@ The Hodgkin-Huxley Model of Neuron Action Potential is regarded as being a part 
 As such, the exploration begins by investigating simplified Hodgkin-Huxley derived models to see what insights can be built.
 
 \subsection{FitzHugh-Nagumo}
-`The models in this category are highly simplified toy models that qualitatively describe the membrane voltage as a function of input. They are mainly used for didactic reasons in teaching but are not considered valid neuron models for large-scale simulations or data fitting'.\footnote{Wikipedia} 
+``The models in this category are highly simplified toy models that qualitatively describe the membrane voltage as a function of input. They are mainly used for didactic reasons in teaching but are not considered valid neuron models for large-scale simulations or data fitting''.\footnote{Wikipedia} 
 %\subsubsection{Didactic toy model}
 \begin{subequations}\label{eq:FitNagSys}
     \begin{align}
