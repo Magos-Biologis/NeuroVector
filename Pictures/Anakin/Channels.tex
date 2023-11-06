@@ -1,12 +1,8 @@
 \documentclass[tikz]{standalone}
 
-\usetikzlibrary{shapes, shapes.geometric, shapes.misc, shapes.arrows}
-%\usetikzlibrary{3d, perspective}
-%\usetikzlibrary{arrows, arrows.meta}
-\usetikzlibrary{angles, math, calc, matrix}
-\usetikzlibrary{positioning}
-\usetikzlibrary{decorations.pathreplacing, decorations.markings, decorations.text}
-
+\usetikzlibrary{shapes}
+\usetikzlibrary{angles}
+\usetikzlibrary{calc} 
     
 \begin{document}
 
@@ -22,7 +18,7 @@
 
     % Determines the boundries
     \path[use as bounding box] (-5.5,-3.6) rectangle (5.5,3.6);
-    \fill[black!25] (-5,-1.2) rectangle (3.5,1.2);
+    \fill[black!25] (-5.5,-1.2) rectangle (5.5,1.2);
     
     
     \def\linWid{1 pt}
@@ -77,23 +73,22 @@
     \fill[red] ;
 
         
-    \def\phosLipid#1#2#3{
-        \draw [fill = white, line width = 1.20pt] (#1)+(-0.35*\wl,0) rectangle +(-0.1*\wl,-\l);
-        \draw [fill = white, line width = 1.20pt] (#1)+(+0.35*\wl,0) rectangle +(+0.1*\wl,-\l);
-        \draw [fill = white, line width = 1.25pt] (#1) circle (\r) 
-                node[anchor = south, yshift = 15.5, inner sep = 1pt, circle, fill = #2!20!white, scale = 1.5] {$#3$};
+    \def\phosLipid#1{
+        \draw [fill = white, line width = 1.20pt, transform shape] (#1)+(-0.35*\wl,0) rectangle +(-0.1*\wl,-\l);
+        \draw [fill = white, line width = 1.20pt, transform shape] (#1)+(+0.35*\wl,0) rectangle +(+0.1*\wl,-\l);
+        \draw [fill = white, line width = 1.25pt, transform shape] (#1) circle (\r);
     }
 
     \def\lipidBlock#1#2{
     \begin{scope}[xshift = #2]
         \begin{scope}[yshift = \exShift pt +\j*\s, scale = \s ]
             \foreach \i in {0,...,#1}{
-                \phosLipid{ \i , 0 }{red}{+}
+                \phosLipid{ \i , 0 }
             }
         \end{scope}
         \begin{scope}[yshift = -\exShift pt -\j*\s, scale = \s, rotate = 180]
             \foreach \i in {0,...,-#1}{
-                \phosLipid{ \i , 0  }{blue}{-}
+                \phosLipid{ \i , 0  }
             }
         \end{scope}
     \end{scope}
@@ -104,6 +99,11 @@
     \path ($(CC)!\Kr!(LC)$)  node {}; \pgfgetlastxy{\Kx}{\Ky}
     %\path (Na+) -- +(0:\w * 2 cm + 2 * 2 * \r*\s cm) node (Cl-) {};\pgfgetlastxy{\Clx}{\Cly}
 
+    % The  lipids
+    \foreach \Number/\Initial/\SIGN in {-11/ -1 /+,
+                                         11/  1 /- }{
+        \lipidBlock{\Number}{\Initial * \s cm \SIGN  \r * \s cm }
+    }
     
     \begin{scope}
     % random scattering of ions in background
@@ -123,25 +123,6 @@
                 }
         }}
     \end{scope}
-    
-    % The ghostly lipids in the backgroun
-    \begin{scope}[black!20, line width = 0.75pt]
-    \foreach \N/\I in { 8/  \r*\s,
-                          % 2/-\Nax/+ ,
-                       -11/ -\r*\s }{
-        \lipidBlock{\N}{0 cm}
-    }
-    \end{scope} 
-    % The foreground lipids
-    \begin{scope}[line width = 0.75pt]
-    \foreach \N/\I/\S in { 1/ \Kx /+,
-                           0/ \Kx /-,
-                           1/ \Nax/+,
-                          -4/ \Nax/- }{
-        \lipidBlock{\N}{\I /1.2 \S \w  cm \S \r*\s cm }
-    }
-    \end{scope}
-        
 \end{tikzpicture}
 
 

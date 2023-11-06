@@ -41,29 +41,35 @@ Lastly, there is the difference between an autonomous system, which is one where
 \subsection{Phase space}
 Phase space is the space spanned by the system's variables and the trajectories it contain are those variables traversing time
 
-When a neuron transitions from rest to firing a qualitative change in the dynamical behavior of the system will occur called \textit{bifurcation}. The bifurcation constitutes a 'dividing event' and is associated with modifications to the system parameters such as the amount of current injected into the neuron, the maximal conductance of the ion
-channels on the neuronal membrane etc. ~\cite{STEFANESCU2012748}.
+When a neuron transitions from rest to firing a qualitative change in the dynamical behavior of the system will occur called \textit{bifurcation}. The bifurcation constitutes a 'dividing event' and is associated with modifications to the system parameters such as membrane capacitance and ion channel parameters etc. ~\cite{STEFANESCU2012748}.
 
 
 
 
 
 \subsubsection{Dimensionality reduction}
-A neuron model, such as the Hodgkin-Huxley model, uses a system of four differential equations
+A neuron model, such as the \gls{hh} model, uses a system of four differential equations
+to simulate a complex network this can quickly amount to 
 
 \subsection*{Networks}
 A complex system can be described by a network or a graph with complex topology, whose nodes are the elements of the system and whose edges represent the interactions among them. `One significant recent discovery in the field of complex networks is the observation that a number of large-scale and complex networks are scale-free, that is, their connectivity distributions have the
 power-law form'~\cite{wang2002synchronization}.
+...
 
-Modeling brain processes can be advantages because of the difficulties  performing certain experiments and it is therefore possible to simulate certain scenarios without the need of conducting large scale exploratory experiments. Aspects like ethical barriers
+
+Modeling brain processes can be advantages because of the difficulties  performing certain experiments and it is therefore possible to simulate certain scenarios without the need of conducting large scale exploratory experiments. Aspects like ethical barriers...
 
 The practical barriers to simulating brain processes are to do with the modeling framework of the particular question of interest together with the computational resources needed to run complex simulations. Fortunately Moore's Law are still holding and with the emergence of AI the modeling framework have been propelled foreword. Large-scale brain simulation projects, like the Human Brain Project\footnote{\url{https://www.humanbrainproject.eu/en/brain-simulation/}}, leverage AI and high-performance computing to simulate the behavior of billions of neurons and their connections.
 
 
-\subsection*{Taxonomy of seizures}
-
+\subsection*{Seizure}
 Seizures can be primarily interpreted as a dynamical disease \cite{da2003epilepsies, milton2010epilepsy} and computational models have been successful in gaining insight into and generate hypothesis to the cellular and network level brain mechanisms of seizures \cite{bazhenov2008cellular}.
 
+\subsubsection*{Definition and classification of seizures}
+
+
+- The role of neuronal networks in seizure generation
+- Models for simulating seizures
 
 
 
@@ -95,8 +101,8 @@ It's important to determine what is even being modeled, which features can be pa
 \newpage
 \section{Building up to Hodgkin-Huxley}
 
-The Hodgkin-Huxley Model of Neuron Action Potential is regarded as being a part of the great achievements of 20th-century biophysics. Receiving the Nobel Prize in Physiology or Medicine for what is inarguably an incredible feat of human ingenuity. However, the authors of this paper are students, and therefore such a sophisticated model might be beyond the direct reach of abilities within the given timeframe. 
-As such, the exploration begins by investigating simplified Hodgkin-Huxley derived models to see what insights can be built.
+The \gls{hh} Model of Neuron Action Potential is regarded as being a part of the great achievements of 20th-century biophysics. Receiving the Nobel Prize in Physiology or Medicine for what is inarguably an incredible feat of human ingenuity. However, the authors of this paper are students, and therefore such a sophisticated model might be beyond the direct reach of abilities within the given timeframe. 
+As such, the exploration begins by investigating simplified \gls{hh} derived models to see what insights can be built.
 
 \subsection{FitzHugh-Nagumo}
 ``The models in this category are highly simplified toy models that qualitatively describe the membrane voltage as a function of input. They are mainly used for didactic reasons in teaching but are not considered valid neuron models for large-scale simulations or data fitting''.\footnote{Wikipedia} 
@@ -110,7 +116,7 @@ As such, the exploration begins by investigating simplified Hodgkin-Huxley deriv
 
 
 \subsection{Chay}
-In 1985, T.R. Chay proposed a model of three-dimensional nonlinear differential equations based on the HH model to study chaotic behavior and show ionic events in excitable membranes. 
+In 1985, T.R. Chay proposed a model of three-dimensional nonlinear differential equations based on the \gls{hh} model to study chaotic behavior and show ionic events in excitable membranes. 
 \begin{subequations}\label{eq:ChaySys}
     \begin{align}
         \ode{V}{t} &= g_\rmm{I}  m^3_\infty h_\infty \br{V_\rmm{I} - V} + g_\rmm{K, V} n^4 \br{V_\rmm{K} - V} + g_\rmm{K, C}  \frac{C}{1+C}\br{V_\rmm{K} - V} + g_\rmm{L} \br{V_m - V_\rmm{L}} \\ 
@@ -138,7 +144,7 @@ The \(m_\infty\), \(h_\infty\), and \(n_\infty\) are calculated by \(y_\infty = 
 \newpage
 \subsection{Hodgkin-Huxley}\label{sec:HHMeth}
 
-The Hodgkin-Huxely model of Action Potential is a system of non-linear differentiable equations with four state variables with respect to time, \(V_m\br{t}, \ n\br{t}, \ m\br{t}, \ h\br{t}\)~\cite{HodHux1952}. The model is built from approximating the characteristics of excitable cells, such as neurons, to a circuit-like construct \cref{fig:MembraneCircut}. 
+The \gls{hh} model of Action Potential is a system of non-linear differentiable equations with four state variables with respect to time, \(V_m\br{t}, \ n\br{t}, \ m\br{t}, \ h\br{t}\)~\cite{HodHux1952}. The model is built from approximating the characteristics of excitable cells, such as neurons, to a circuit-like construct \cref{fig:MembraneCircut}. 
 Mathematically, the flow of current is represented as:
     \begin{align}
         I_c &= C_m \ode{V_m}{t} \\
@@ -171,14 +177,35 @@ With \(p_\infty\) and its inverse \(1-p_\infty\) being the steady state values f
 
 
 In the original paper by Hodgkin and Huxley, the relationships of \(\alpha_p, \text{ and }\, \beta_p\) were defined as:
+
+\begin{minipage}{.45\textwidth}
+\begin{equation*}
+n \implies 
+\begin{cases}
+    \alpha_n \br{V_m} &= 0.01 \, \cfrac{ 10 - V }{ \exp{ 10 - V } - 1} \\
+    \beta_n \br{V_m}  &= 0.125 \, \exp{-\cfrac{V}{80}} 
+\end{cases}
+\end{equation*}
+\end{minipage}
+~
+\begin{minipage}{.45\textwidth}
 \begin{align*}
-    \alpha_n \br{V_m} &= 0.01 \, \cfrac{ 10 - V }{ \exp{ 10 - V } - 1}, &
-    \alpha_m \br{V_m} &= 0.1 \cfrac{ 25 - V }{\exp{\cfrac{25-V}{10}} - 1}, &
-    \alpha_h \br{V_m} &=  0.07 \, \exp{-\cfrac{V}{20}}, \\
-    \beta_n \br{V_m}  &= 0.125 \, \exp{-\cfrac{V}{80}}, &
-    \beta_m \br{V_m}  &= 4 \, \exp{-\cfrac{V}{18}}, &
-    \beta_h \br{V_m}  &= { \cfrac{1}{\exp{\cfrac{30 - V}{10}} + 1}},
+    \alpha_m \br{V_m} &= 0.1 \cfrac{ 25 - V }{\exp{\cfrac{25-V}{10}} - 1} \\
+    \beta_m \br{V_m}  &= 4 \, \exp{-\cfrac{V}{18}} 
 \end{align*}
+\end{minipage}
+
+\begin{minipage}{.45\textwidth}
+\begin{align*}
+    \alpha_h \br{V_m} &=  0.07 \, \exp{-\cfrac{V}{20}} \\
+    \beta_h \br{V_m}  &= { \cfrac{1}{\exp{\cfrac{30 - V}{10}} + 1}}
+\end{align*}
+\end{minipage}
+~
+\begin{minipage}{.45\textwidth}
+    \hfill
+\end{minipage}
+
 Where \(V = V_\rmm{rest} - V_m\) represents the polarization in \unit{\milli\volt}
 
 In order to characterize the ion-channels, the equations can be fitted to voltage clamp\footnotemark~data.

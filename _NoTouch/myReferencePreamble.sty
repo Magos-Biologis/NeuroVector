@@ -1,0 +1,99 @@
+\NeedsTeXFormat{LaTeX2e}
+\ProvidesPackage{myReferencePreamble}[Anakin's personalized Refrencing preamable package]
+% ========================= Tools for package ================================
+
+\RequirePackage{ifthen}     % Guess what it does, I dare you
+\RequirePackage{etoolbox}   % Includes a lot of useful macros for customizations
+\RequirePackage{xparse}     % More useful macros
+
+% =========================== Packages =======================================
+
+\RequirePackage[hidelinks]{hyperref} % For hyperlinks
+\RequirePackage{cleveref} % For configuration of references
+
+\RequirePackage{biblatex} % For better function
+\RequirePackage{glossaries}
+    
+% ============================ Options =======================================
+
+%\ExecuteOptions{roman}
+
+\DeclareOption{printing}{
+    \AtEndDocument{
+        \printbibliography[heading=bibintoc, title={References}]
+        \printglossary[type = \glsdefaulttype]
+    }
+}
+
+\DeclareOption{unit}{
+    \AtEndOfPackage{
+        \newcounter{glsunittype}
+        \newglossary*{unit}{Units}[glsunittype]
+    }
+    \AtEndDocument{
+        \printglossary[type = unit]
+    }
+}
+
+\DeclareOption*{%
+    \PackageWarning{Math set-up}{Unknown option `\CurrentOption'}%
+}
+
+\ProcessOptions\relax
+
+% ====================== Custom References ================================
+
+% Custom hyperref design
+\hypersetup{%
+    breaklinks=true,            %
+    %colorlinks=true,            %
+    linkcolor=[rgb]{0.65,0,0},  %
+    urlcolor=[rgb]{0,0,0.65},   %
+    citecolor=[rgb]{0,0.65,0},  %
+    pdfdisplaydoctitle = true,  % Displaying the title instead of the filename
+    pdfpagemode=FullScreen,     % Opens the pdf in fullscreen
+}
+
+% Custom cleveref setups
+    \crefdefaultlabelformat{#2(\textbf{\textup{#1}})#3}
+    \creflabelformat{equation}{#2{\(\left( \textbf{\textup{#1}} \right)\)}#3}
+
+    
+    % Generic Fields ======================================================
+    \crefformat{figure}{[fig.~(#2#1#3)]}
+    \crefrangeformat{figure}{[figs.~(#3#1#4) to~(#5#2#6)]}
+    \crefmultiformat{figure}{[figs.~(#2#1#3)}{ and~(#2#1#3)}{, (#2#1#3)}{ and~(#2#1#3)]}
+    \crefrangemultiformat{figure}{[figs.~(#2#1#3)}{ and~(#2#1#3)}{, (#2#1#3)}{, and~(#2#1#3)]}
+    \Crefformat{figure}{Figure~(#2#1#3)}
+    \Crefrangeformat{figure}{Figures~(#2#1#3) to~(#5#2#6)}
+    \Crefmultiformat{figure}{Figures~(#2#1#3)}{ and~(#2#1#3)}{, (#2#1#3)}{ and~(#2#1#3)}
+    \Crefrangemultiformat{figure}{Figures~(#2#1#3)}{ and~(#2#1#3)}{, (#2#1#3)}{, and~(#2#1#3)}
+
+    
+    \crefformat{table}{[tab.~(#2#1#3)]}
+    \crefrangeformat{table}{[tabs.~(#3#1#4) to~(#5#2#6)]}
+    \crefmultiformat{table}{[tabs.~(#2#1#3)}{ and~(#2#1#3)}{, (#2#1#3)}{ and~(#2#1#3)]}
+    \crefrangemultiformat{table}{[tabs.~(#2#1#3)}{ and~(#2#1#3)}{, (#2#1#3)}{, and~(#2#1#3)]}
+    \Crefformat{table}{Table~(#2#1#3)}
+    \Crefrangeformat{table}{Tables~(#2#1#3) to~(#5#2#6)}
+    \Crefmultiformat{table}{Tables~(#2#1#3)}{ and~(#2#1#3)}{, (#2#1#3)}{ and~(#2#1#3)}
+    \Crefrangemultiformat{table}{Tables~(#2#1#3)}{ and~(#2#1#3)}{, (#2#1#3)}{, and~(#2#1#3)}
+
+
+
+
+
+% ====================== Custom Glossary ================================
+
+\DeclareDocumentCommand{\newdualentry}{ O{} O{} m m m m } {
+  \newglossaryentry{gls-#3}{name={#5},text={#5\glsadd{#3}},
+    description={#6},#1
+  }
+  \makeglossaries
+  \newacronym[see={[Glossary:]{gls-#3}},#2]{#3}{#4}{#5\glsadd{gls-#3}}
+}
+
+%\AtEndDocument{}
+
+% ========================================================================
+\endinput

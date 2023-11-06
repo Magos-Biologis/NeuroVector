@@ -1,9 +1,14 @@
 \documentclass[tikz]{standalone}
 
-\usetikzlibrary{shapes, shapes.geometric, shapes.misc, shapes.arrows}
-\usetikzlibrary{angles, math, calc, matrix}
-\usetikzlibrary{decorations.pathreplacing, decorations.markings, decorations.text}
+\usetikzlibrary{shapes}
+\usetikzlibrary{angles}
+\usetikzlibrary{calc} 
+
 \usetikzlibrary{circuits.ee.IEC}
+
+\usetikzlibrary{shadings}
+\usetikzlibrary{fadings}
+\usetikzlibrary{patterns}
 
 \begin{document}
 
@@ -24,8 +29,14 @@
     ]
 
     % Determines the boundries
+
+    \tikzfading[name=fade outwards,
+                left   color = transparent!100,
+                right  color = transparent!100,
+                middle color = transparent!0,
+                ]
     \path[use as bounding box] (-5.5,-3.6) rectangle (5.5,3.6);
-    \fill[black!25] (-5,-1.2) rectangle (3.5,1.2);
+    \fill[color = black!30, path fading=fade outwards] (-5,-1.2) rectangle (4,1.2);
     
     
     \def\linWid{1 pt}
@@ -81,9 +92,9 @@
 
         
     \def\phosLipid#1#2#3{
-        \draw [fill = white, line width = 1.20pt] (#1)+(-0.35*\wl,0) rectangle +(-0.1*\wl,-\l);
-        \draw [fill = white, line width = 1.20pt] (#1)+(+0.35*\wl,0) rectangle +(+0.1*\wl,-\l);
-        \draw [fill = white, line width = 1.25pt] (#1) circle (\r) 
+        \draw [fill = white, line width = 1.20pt, transform shape] (#1)+(-0.35*\wl,0) rectangle +(-0.1*\wl,-\l);
+        \draw [fill = white, line width = 1.20pt, transform shape] (#1)+(+0.35*\wl,0) rectangle +(+0.1*\wl,-\l);
+        \draw [fill = white, line width = 1.25pt, transform shape] (#1) circle (\r) 
                 node[anchor = south, yshift = 15.5, inner sep = 1pt, circle, fill = #2!20!white, scale = 1.5] {$#3$};
     }
 
@@ -107,7 +118,7 @@
     \path ($(CC)!\Kr!(LC)$)  node {}; \pgfgetlastxy{\Kx}{\Ky}
     %\path (Na+) -- +(0:\w * 2 cm + 2 * 2 * \r*\s cm) node (Cl-) {};\pgfgetlastxy{\Clx}{\Cly}
 
-    
+                
     \begin{scope}
     % random scattering of ions in background
     \pgfmathsetseed{\seed}
@@ -128,22 +139,21 @@
     \end{scope}
     
     % The ghostly lipids in the backgroun
-    \begin{scope}[black!20, line width = 0.75pt]
-    \foreach \N/\I in { 8/  \r*\s,
+    \begin{scope}[black!20, line width = 0.75pt, 
+                  ]
+    \foreach \N/\I in {  8/  \r*\s,
                           % 2/-\Nax/+ ,
                        -11/ -\r*\s }{
         \lipidBlock{\N}{0 cm}
     }
     \end{scope} 
     % The foreground lipids
-    \begin{scope}[line width = 0.75pt]
     \foreach \N/\I/\S in { 1/ \Kx /+,
                            0/ \Kx /-,
                            1/ \Nax/+,
                           -4/ \Nax/- }{
         \lipidBlock{\N}{\I /1.2 \S \w  cm \S \r*\s cm }
     }
-    \end{scope}
 
     % Creates the channels
     \foreach \i/\RGB in {\Kx/green,\Nax/red

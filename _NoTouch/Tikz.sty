@@ -5,38 +5,45 @@
 % ========================= Tikz Packages ================================
 
 \RequirePackage{float} % Allows for showing numbers of significant decimal points also figure
-\RequirePackage{tikz} % Drawing
-    %\usetikzlibrary{shapes, shapes.geometric, shapes.misc, shapes.arrows}
-    %\usetikzlibrary{3d, perspective}
-    %\usetikzlibrary{arrows, arrows.meta}
-    %\usetikzlibrary{angles, math, calc, matrix}
+\RequirePackage{tikz} % Higher level version of procedural graphics package (pgf)
+    %\usetikzlibrary{angles}
+    %\usetikzlibrary{calc} 
+    %\usetikzlibrary{intersections}
+    %\usetikzlibrary{math}
+    %\usetikzlibrary{matrix}
+    %\usetikzlibrary{petrinet}
     %\usetikzlibrary{positioning}
-    %\usetikzlibrary{fadings, shadows, shadings}
-    %\usetikzlibrary{decorations.pathreplacing, decorations.markings, decorations.text} 
+    
+    %\usetikzlibrary{shapes}
+    %\usetikzlibrary{shapes.arrows}
+    %\usetikzlibrary{shapes.geometric}
+    %\usetikzlibrary{shapes.misc}
+    %\usetikzlibrary{shapes.symbols}
+    
+    %\usetikzlibrary{fadings} 
+    %\usetikzlibrary{shadows} 
+    %\usetikzlibrary{shadings}
+    %\usetikzlibrary{patterns}
+    %\usetikzlibrary{perspective}
+    %\usetikzlibrary{3d}
+    
+    %\usetikzlibrary{arrows.meta}
+    %\usetikzlibrary{decorations.markings}
+    %\usetikzlibrary{decorations.pathreplacing}
+    %\usetikzlibrary{decorations.text}
     %\usetikzlibrary{calligraphy}
     %\usetikzlibrary{circuits.ee.IEC}
-    %\usetikzlibrary{quotes} %Tikz Library
+    
+    %\usetikzlibrary{quotes} 
+
+    %\usetikzlibrary{external}
+    
     \tikzset{>=latex} % for LaTeX arrow head
     
 \RequirePackage{pgfplots} % For plotting within LaTeX
 \RequirePackage{pgfplotstable} % table plotting
     \pgfplotsset{compat=1.18}
     %\pgfplotsset{width=10cm, compat=1.9}
-\RequirePackage{chemfig} % Draws chemicals
-    \setchemfig{
-                atom sep=2em, 
-                bond style={line width= 1pt},
-                } % Chem config
-
-% =========================== Tikz Colors ================================
-
-\colorlet{mypurple}{blue!80!red}
-\colorlet{myblue}{blue!80!black}
-\colorlet{myblueshadow}{blue!30!black!90}
-\colorlet{myred}{red!80!black}
-\colorlet{mydarkred}{red!50!black}
-\colorlet{mygreen}{green!60!black!70}
-\colorlet{mydarkgreen}{green!60!black}
 
 % ========================= Tikz Commands ================================
 
@@ -181,19 +188,5 @@
       decorate
 }}}
 
-\tikzset{
-  Mylen Sheath/.style={decoration={markings,
-                        mark=between positions 0 and 1 step 0.75cm
-                        with { \node   [rectangle, 
-                                        rounded corners, 
-                                        fill = white, 
-                                        draw = \clr,
-                                        inner sep=0pt,
-                                        minimum height=0.45cm,minimum width=0.7cm,
-                                        %scale = 0.5,
-                                        transform shape] {};}}
-                                        }
-                                    }
-                                    
 % ========================================================================
 \endinput

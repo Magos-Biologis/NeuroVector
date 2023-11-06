@@ -1,37 +1,54 @@
 \NeedsTeXFormat{LaTeX2e}
-\ProvidesPackage{mathPreamble}[Anakin's personalized Math Preamble package]
+\ProvidesPackage{myMathPreamble}[Anakin's personalized Math preamable package]
+% ========================= Tools for package ================================
 
+\RequirePackage{ifthen}     % Guess what it does, I dare you
+\RequirePackage{etoolbox}   % Includes a lot of useful macros for customizations
+\RequirePackage{xparse}     % More useful macros
+
+%\usepackage{iftex} % Allows for if Lua LaTeX commands
+
+% ========================= Package Basis
 
 \DeclareOption*{%
     \PackageWarning{Math Preamble}{Unknown option ‘\CurrentOption’}%
 }
 \ProcessOptions\relax
 
-
-\RequirePackage{ifthen}
-
-
 % ========================= Math Symbols and Math Related Processes
 
-\RequirePackage{framed}   % Frames for text
-\RequirePackage{amsmath}  % Standdard math package
+\RequirePackage{framed}     % Frames for text
+\RequirePackage{mathtools}  % includes amsmath, and increased math utility functions
+    %%%%% redefining subequations
+    \renewenvironment{subequations}
+    {%
+        \refstepcounter{equation}%
+        \protected@edef\theparentequation{\theequation}%
+        \setcounter{parentequation}{\value{equation}}%
+        \setcounter{equation}{0}%
+        \def\theequation{\theparentequation-\Alph{equation}}%
+        \ignorespaces
+    }{%
+        \setcounter{equation}{\value{parentequation}}%
+        \ignorespacesafterend
+    }
+    
     \addtolength{\jot}{0.75em} % Increases row padding between equations
-    %\AtBeginDocument{\renewcommand{\theequation}{\theparentequation-\arabic{equation}} } % Redefines subequation values
-    % Modifies the padding around the math display
+    
     \abovedisplayskip=12pt
     \belowdisplayskip=12pt
     \abovedisplayshortskip=0pt
     \belowdisplayshortskip=7pt
+    
 \RequirePackage{cancel}  % Striking through text \cancel{x}
-\RequirePackage{mathtools} % increased math utility functions
-\RequirePackage[hyperref,standard,amsmath]{ntheorem}  % Math Theorems
+\RequirePackage[hyperref, standard, amsmath]{ntheorem}  % Math Theorems
 
 \RequirePackage{MnSymbol}
     \DeclareMathAlphabet\mathbb{U}{msb}{m}{n}
     \DeclareMathSizes{10}{18}{12}{8}   % For size 10 text
     \DeclareMathSizes{11}{19}{13}{9}   % For size 11 text
     \DeclareMathSizes{12}{20}{14}{10}  % For size 12 text
-\RequirePackage{listings} % source code
+    
 \RequirePackage{siunitx} % elegant SI units
     \DeclareSIUnit\molar{\mole\per\cubic\deci\metre}
     \DeclareSIUnit\Molar{\textsc{m}}
