@@ -4,24 +4,26 @@
 
 % It's 2022. UTF-8 input for TeX. 
 \RequirePackage[utf8]{inputenc}
-% Latin moder font
-\RequirePackage[nomath]{lmodern}
-% I believe this encodes fonts into your PDF.
+
+
+\RequirePackage[nomath]{lmodern} % Latin modern font
+\RequirePackage{babel} 
+
+
 % Best imported after fonts.
-\RequirePackage[T1]{fontenc}
+\RequirePackage[T1]{fontenc} % I believe this encodes fonts into your PDF.
 
 
 % ========================= Tools for package ================================
 
 \RequirePackage{ifthen}     % Guess what it does, I dare you
 \RequirePackage{etoolbox}   % Includes a lot of useful macros for customizations
+\RequirePackage{xkeyval}     % More useful macros
 \RequirePackage{xparse}     % More useful macros
 
 %\usepackage{iftex} % Allows for if Lua LaTeX commands
 
 % ========================= Class Basis
-
-
 
 % Report options
 
@@ -44,6 +46,31 @@
     \AtBeginDocument{\noindent}
 }
 
+\DeclareOption{draft}{
+    \PassOptionsToClass{\CurrentOption}{report}
+    \PassOptionsToClass{\CurrentOption}{graphicx}
+    %\PassOptionsToClass{\CurrentOption}{graphicx}
+    %\PassOptionsToClass{\CurrentOption}{graphicx}
+}
+% ======================== Class Bibliography Options =====================
+
+\PassOptionsToPackage{
+    sorting=none,
+    maxbibnames=99,
+    url=false,
+}{biblatex}
+
+\PassOptionsToPackage{
+    toc, 
+    xindy, 
+    style=index, 
+}{glosseries}
+
+\AtEndOfClass{
+    \glsdisablehyper
+    \setacronymstyle{long-sc-short}
+}
+
 % ========================= User Options
 
 \DeclareOption{RaggedRight}{
@@ -53,31 +80,33 @@
 \DeclareOption{printing}{
     \PassOptionsToPackage{\CurrentOption}{_NoTouch/myReferencePreamble}
 }
-\DeclareOption{unit}{
+\DeclareOption{unitGlossary}{
     \PassOptionsToPackage{\CurrentOption}{_NoTouch/myReferencePreamble}
 }
 
 % ========================= no more Options
 
 \DeclareOption*{%
-    \ClassWarning{Project Class}{There isn't any `\CurrentOption' option dumbass}%
+    \ClassWarning{Project}{There isn't any `\CurrentOption' option dumbass}%
 }
 
+% Execute `default' options
 \ExecuteOptions{11pt}
 
+% Process given options
 \ProcessOptions\relax
 
 \LoadClass[a4paper]{report}
 
 % ========================= Colors/Visuals/Figures Functions
 
-\RequirePackage{graphicx}       % supplement for the built-in graphics package
-    \RequirePackage{adjustbox}  % additional supplement for box adjustments
-    
 \RequirePackage[table, dvipsnames]{xcolor} % allows for more exciting colors
+\RequirePackage{graphicx}       % supplement for the built-in graphics package
+\RequirePackage{adjustbox}      % additional supplement for box adjustments
+    
     \rowcolors{1}{white}{gray!30} % Table row coloration
-    \def\red{\color{red!80!black}}
-    \def\blue{\color{blue!80!black}}
+    \providecommand{\red}{\color{red!80!black}}
+    \providecommand{\blue}{\color{blue!80!black}}
     
 %\RequirePackage{blindtext} % Usedfor generating large amounts of text for formating purposes
 
@@ -195,25 +224,6 @@
     {}
     
 
-% ======================== Class Bibliography Options =====================
-
-\PassOptionsToPackage{
-    sorting=none,
-    maxbibnames=99,
-    url=false,
-}{biblatex}
-
-\PassOptionsToPackage{
-    acronyms, 
-    toc, 
-    xindy, 
-    style=index, 
-}{glosseries}
-
-\AtEndOfClass{
-    \glsdisablehyper
-    \setacronymstyle{long-sc-short}
-}
 
 % ======================== Custom Packages ================================
 

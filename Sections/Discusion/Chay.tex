@@ -1,0 +1,26 @@
+\documentclass[../Orator]{subfiles}
+\begin{document}
+
+The Chay Model, developed by T.R. Chay in 1958, is a mathematical model designed to capture the dynamic behavior of excitable cells. Inspired by the Hodgkin-Huxley model, it offers a set of differential equations describing the changes in membrane potential (V), the probability of opening the voltage-sensitive K+ channel (n), and the dynamics of the intracellular concentration of \(\Capp\) ions (C) over time. The model includes crucial elements such as voltage-gated ion channels, steady-state variables, and capacitive variables, providing a comprehensive description of the mechanisms related to cellular excitability. This model is fundamental in computational neuroscience and, due to its three-dimensionality, presents a more realistic portrayal of the dynamic processes within excitable cells compared to other known models. One representation of the Chay model is provided below \cite{}.
+
+\begin{align}
+    \ode{V}{t} &= g_\mathrm{I}  m^3_\infty h_\infty \br{V_\mathrm{I} - V} + g_\mathrm{K, V} n^4 \br{V_\mathrm{K} - V} + g_\mathrm{K, C}  \frac{C}{1+C}\br{V_\mathrm{K} - V} + g_\mathrm{L} \br{V_m - V} \\
+    \ode{n}{t} &= \frac{n_\infty - n}{\tau_n} \\
+    \ode{C}{t} &= \rho \, \sbr{m^3_\infty h_\infty \br{V_c - V} - k_C C}
+\end{align}
+
+The equations governing the rate constants are given by:
+
+\begin{align*}
+    \alpha_m &= 0.1 \frac{25 + V}{1 - \exp{-0.1 \, V - 2}}, &
+    \alpha_h &=  0.07 \exp{-0.05\,V -2.5}, &
+    \alpha_n &= 0.01 \frac{20 + V}{1 + \exp{-0.1 \, V - 2}} \\
+    \beta_m  &= 4 \exp{-\br{\frac{ V + 50 }{ 18 } } }, &
+    \beta_h  &= \frac{ 1 }{ 1 + \exp{-0.1 \, V - 2}}, &
+    \beta_n  &= 0.125 \exp{- \frac{V + 30}{80}}, \\
+    \tau_n &= \frac{1}{ r_n \, \br{\alpha_n + \beta_n} }
+\end{align*}
+
+In this context, $V_I$, $V_K$, and $V_L$ denote the reversal potentials for a combination of $Na^+$ and $Ca^{2+}$, $K^+$, and leakage ions, respectively. $C$ represents the concentration of intracellular $Ca^{2+}$ ions divided by their dissociation constant from the receptor. The terms $g_I$, $g_{K,V}$, $g_{K,C}$, and $g_L$ refer to the maximal conductances divided by the membrane capacitance. Here, the subscripts $I$, $(K,V)$, $(K,C)$, and $(L)$ specifically pertain to the voltage-sensitive $K^+$ channel, the $Ca^{2+}$-sensitive $K^+$ channel, and the leakage channels, respectively. Additionally, $\tau_n$ represents the relaxation time, $n_{oo}$ is the steady-state value of $n$. Furthermore, $m_{oo}$ and $h_{oo}$ denote the probabilities of activation and inactivation of the mixed channel. \cite{}.
+
+\end{document}

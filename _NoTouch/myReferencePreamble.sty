@@ -4,19 +4,20 @@
 
 \RequirePackage{ifthen}     % Guess what it does, I dare you
 \RequirePackage{etoolbox}   % Includes a lot of useful macros for customizations
+\RequirePackage{xkeyval}    % Taking in keys for option inputs
 \RequirePackage{xparse}     % More useful macros
 
 % =========================== Packages =======================================
 
-\RequirePackage[hidelinks]{hyperref} % For hyperlinks
-\RequirePackage{cleveref} % For configuration of references
+\RequirePackage[hidelinks]{hyperref}    % For hyperlinks
+\RequirePackage{cleveref}               % For configuration of references
 
-\RequirePackage{biblatex} % For better function
-\RequirePackage{glossaries}
-    
+\RequirePackage{biblatex}               % For better function
+\RequirePackage[acronyms]{glossaries}
+
 % ============================ Options =======================================
 
-%\ExecuteOptions{roman}
+% \ExecuteOptions{roman}
 
 \DeclareOption{printing}{
     \AtEndDocument{
@@ -25,7 +26,16 @@
     }
 }
 
-\DeclareOption{unit}{
+% Toggle reflection.
+\newif\if@toccontents\@toccontentsfalse
+\DeclareOption{toc}{
+  \@toccontentstrue
+}
+
+
+% =============== Pre-defined types
+
+\DeclareOption{unitGlossary}{
     \AtEndOfPackage{
         \newcounter{glsunittype}
         \newglossary*{unit}{Units}[glsunittype]
@@ -34,9 +44,18 @@
         \printglossary[type = unit]
     }
 }
+\DeclareOption{mathGlossary}{
+    \AtEndOfPackage{
+        \newcounter{glsmathtype}
+        \newglossary*{math}{Math}[glsmathtype]
+    }
+    \AtEndDocument{
+        \printglossary[type = math]
+    }
+}
 
 \DeclareOption*{%
-    \PackageWarning{Math set-up}{Unknown option `\CurrentOption'}%
+    \PackageWarning{References}{You're so stupid for thinking that `\CurrentOption' is possible}%
 }
 
 \ProcessOptions\relax

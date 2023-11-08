@@ -1,4 +1,4 @@
-\documentclass[printing, unit]{_NoTouch/_MyProject}
+\documentclass[printing, unitGlossary]{_NoTouch/_MyProject}
 
 % ========================= Preamble Packages ================================
 
@@ -28,10 +28,11 @@
 \providecommand{\Cln}{\rmm{Cl}^-}
 \providecommand{\Capp}{\rmm{Ca}^{2+}}
 
+
 %==========================================================
 
 \title{Modeling of signal propagation through networks of neurons}
-\author{God}
+\author{ Anakin Diermayr \and  Alex Winter \and Konstantina Kalagia \and Svetlana Rusnakova \and Kenni Abild \and  Ana Helena Vieira de Melo Gomes Prata }
 
 \begin{document}
 
@@ -70,13 +71,12 @@
 
 
 \newpage
-\part{Discussion}
 \chapter{Results}
 
 
 \newpage
-\chapter{Discussion}
-%\import{Sections/}{Discussion.tex}
+\part{Discussion}
+\import{Sections/}{discussion.tex}
 
 \newpage
 \chapter{Conclusion}
@@ -84,8 +84,8 @@
 
 
 \appendix
-\part{Appendix}
-
+\part*{Appendix}
+\addcontentsline{toc}{part}{Appendix}
 
 
 \end{document}
