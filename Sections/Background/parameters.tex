@@ -1,0 +1,17 @@
+\documentclass[../../Orator]{subfiles}
+\begin{document} 
+\section{Parameters of Neural Models}
+
+When it comes to modelling the brain activity it is essential to present a set of variables and parameters apropos of the previously chosen dynamic model. The model usually consists of a system of equations, able to describe and predict a model behavior over some specific time frame. But simulating any kind of brain dynamics is in principle a challenging task and therefore one should follow some guidelines for deciding upon the complexity of the model. The goal is to make it as composite as possible to sufficiently describe its machinery but at the same time adequately easy, to be computable by current computing methods. The latter is in fact a prerequisite. 
+
+Each dynamic brain model may be represented by the continuous-time state-transition equation. In this standard format, one may determine the intricacy of the model, by means how much detail should or should not it be included, by varying its components. The formula depicts the development of the state z(t), with a parameter set k(t), and an input u(t). The model’s behavior is then determined by the mapping P. 
+
+\begin{equation}
+    \frac{d\bfm{z}(t)}{dt} = P(\bfm{z}(t), \kappa(t), u(t),t)
+\end{equation}
+
+In the process of studying the model, the aim is to investigate changes in the system variables, which, in dynamic models, are absorbed in the state z(t). 
+
+Parameters k(t), on the other hand, are placeholders that constitute to values in the group of maps (mapping or mapplet). They are used when it is necessary to keep values constant in time, or during a desired observation. In real life, however, parameters can vary, thus we introduce some time-dependency k(t). 
+
+\end{document}

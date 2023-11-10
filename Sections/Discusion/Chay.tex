@@ -1,14 +1,14 @@
 \documentclass[../Orator]{subfiles}
 \begin{document}
 
-The Chay Model, developed by T.R. Chay in 1958, is a mathematical model designed to capture the dynamic behavior of excitable cells. Inspired by the Hodgkin-Huxley model, it offers a set of differential equations describing the changes in membrane potential (V), the probability of opening the voltage-sensitive K+ channel (n), and the dynamics of the intracellular concentration of \(\Capp\) ions (C) over time. The model includes crucial elements such as voltage-gated ion channels, steady-state variables, and capacitive variables, providing a comprehensive description of the mechanisms related to cellular excitability. This model is fundamental in computational neuroscience and, due to its three-dimensionality, presents a more realistic portrayal of the dynamic processes within excitable cells compared to other known models. One representation of the Chay model is provided below \cite{}.
 
+
+The Chay Model, developed by T.R. Chay in 1958, is a mathematical model designed to capture the dynamic behavior of excitable cells. Inspired by the Hodgkin-Huxley model, it offers a set of differential equations describing the changes in membrane potential (V), the probability of opening the voltage-sensitive K+ channel (n), and the dynamics of the intracellular concentration of \(\Capp\) ions (C) over time. The model includes crucial elements such as voltage-gated ion channels, steady-state variables, and capacitive variables, providing a comprehensive description of the mechanisms related to cellular excitability. This model is fundamental in computational neuroscience and, due to its three-dimensionality, presents a more realistic portrayal of the dynamic processes within excitable cells compared to other known models. One representation of the Chay model is provided below \cite{}. \\
 \begin{align}
     \ode{V}{t} &= g_\mathrm{I}  m^3_\infty h_\infty \br{V_\mathrm{I} - V} + g_\mathrm{K, V} n^4 \br{V_\mathrm{K} - V} + g_\mathrm{K, C}  \frac{C}{1+C}\br{V_\mathrm{K} - V} + g_\mathrm{L} \br{V_m - V} \\
     \ode{n}{t} &= \frac{n_\infty - n}{\tau_n} \\
     \ode{C}{t} &= \rho \, \sbr{m^3_\infty h_\infty \br{V_c - V} - k_C C}
-\end{align}
-
+\end{align}\\
 The equations governing the rate constants are given by:
 
 \begin{align*}
@@ -19,8 +19,37 @@ The equations governing the rate constants are given by:
     \beta_h  &= \frac{ 1 }{ 1 + \exp{-0.1 \, V - 2}}, &
     \beta_n  &= 0.125 \exp{- \frac{V + 30}{80}}, \\
     \tau_n &= \frac{1}{ r_n \, \br{\alpha_n + \beta_n} }
-\end{align*}
+\end{align*} 
 
 In this context, $V_I$, $V_K$, and $V_L$ denote the reversal potentials for a combination of $Na^+$ and $Ca^{2+}$, $K^+$, and leakage ions, respectively. $C$ represents the concentration of intracellular $Ca^{2+}$ ions divided by their dissociation constant from the receptor. The terms $g_I$, $g_{K,V}$, $g_{K,C}$, and $g_L$ refer to the maximal conductances divided by the membrane capacitance. Here, the subscripts $I$, $(K,V)$, $(K,C)$, and $(L)$ specifically pertain to the voltage-sensitive $K^+$ channel, the $Ca^{2+}$-sensitive $K^+$ channel, and the leakage channels, respectively. Additionally, $\tau_n$ represents the relaxation time, $n_{oo}$ is the steady-state value of $n$. Furthermore, $m_{oo}$ and $h_{oo}$ denote the probabilities of activation and inactivation of the mixed channel. \cite{}.
+
+Analyzing deeper the dynamics of the Chay model, our exploration now extends to the Jacobian matrix, a mathematical tool that illustrates the behavior of the system around equilibrium points.
+
+\begin{align*}
+     J &= \begin{pmatrix}
+        \frac{dV}{dV} & \frac{dV}{dn} & \frac{dV}{dC} \\
+        \frac{dn}{dV} & \frac{dn}{dn} & \frac{dn}{dC} \\
+        \frac{dC}{dV} & \frac{dC}{dn} & \frac{dC}{dC}
+    \end{pmatrix} \\
+      &= 
+    \begin{pmatrix}
+        -g_{\text{I}} m_{\infty}^3 h_{\infty} - g_{\text{K,V}} n^4 - g_{\text{K,C}} \frac{C}{C+1} - g_{\text{L}} & 4 g_{\text{K,V}} n^3 (V_{\text{K}} - V) & \frac{1}{(1+C)^2} g_{\text{K,C}} (V_{\text{K}} - V) \\
+        0 & -\frac{1}{\tau_{\text{n}}} & 0 \\
+        -\rho m_{\infty}^3 h_{\infty} & 0 & -\rho K_{\text{C}}
+    \end{pmatrix}
+\end{align*}
+
+The focus now shifts to extracting the eigenvalues from the Jacobian matrix. These eigenvalues are key to exploring the stability of the Chay model.
+
+\begin{align*}
+    |J - \lambda I| = 
+    \begin{vmatrix}
+         -g_{\text{I}} m_{\infty}^3 h_{\infty} - g_{\text{K,V}} n^4 - g_{\text{K,C}} \frac{C}{C+1} - g_{\text{L}} - \lambda & 4 g_{\text{K,V}} n^3 (V_{\text{K}} - V) & \frac{1}{(1+C)^2} g_{\text{K,C}} (V_{\text{K}} - V) \\
+         0 & -\frac{1}{\tau_{\text{n}}} - \lambda & 0 \\
+         -\rho m_{\infty}^3 h_{\infty} & 0 & -\rho K_{\text{C}} - \lambda
+    \end{vmatrix} = 0
+\end{align*}
+
+Negative real parts of eigenvalues indicate  stability, while positive real parts  indicate instability. Although it's difficult to find the eigenvalue signs of the Chay model, we notice that the trace of the Matrix is negative.
 
 \end{document}

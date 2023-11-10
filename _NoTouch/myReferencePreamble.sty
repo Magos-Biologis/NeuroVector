@@ -29,7 +29,8 @@
 % Toggle reflection.
 \newif\if@toccontents\@toccontentsfalse
 \DeclareOption{toc}{
-  \@toccontentstrue
+    \PassOptionToPackage{toc}{glossaries}
+    %\@toccontentstrue
 }
 
 

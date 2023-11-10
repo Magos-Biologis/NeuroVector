@@ -11,38 +11,33 @@ The FitzHugh-Nagumo model can be written in many ways, one of which is as follow
     \dot{W}=\phi (V+a-bW)
 \end{equation}
 
-The original values for the constants are \(a=0.7\), \(b=0.8\), and \(\phi=0.08\) \cite{}. For these values, the nullclines look like \Cref{fig:nullclines-original}. 
+The original values for the constants are \(a=0.7\), \(b=0.8\), and \(\phi=0.08\) \cite{}. For these values, the \glspl{gls:nullcline} look like \Cref{fig:nullclines-original}. 
 
 \begin{figure}[h]
     \centering
     \includegraphics[width=400pt]{Pictures/Alex/Nullclines - original.PNG}
-    \caption{Nullclines for \(I=0\), \(a=0.7\), \(b=0.8\), and \(\phi=0.08\)}
+    \caption{\Gls{gls:nullcline}s for \(I=0\), \(a=0.7\), \(b=0.8\), and \(\phi=0.08\)}
     \label{fig:nullclines-original}
 \end{figure}
 
-As can be seen in \Cref{fig:nullclines-original} there is only one equilibrium. This is located at \((-1.1994, -0.62426)\). This is a spiral sink. 
+As can be seen in \Cref{fig:nullclines-original} there is only one \gls{gls:equilibrium}. This is located at \((-1.1994, -0.62426)\). This is a \gls{gls:spiral}. 
 
-It is also possible for the model to have three equilibria. This is for example the case if \(b\) is changed to \(-0.8\). This can be seen in \Cref{fig:nullclines-negative}.
+It is also possible for the model to have three \glspl{gls:equilibrium}. This is for example the case if \(b\) is changed to \(-0.8\). This can be seen in \Cref{fig:nullclines-negative}.
 
 \begin{figure}[h]
     \centering
     \includegraphics[width=400pt]{Pictures/Alex/Nullclines - negative.PNG}
-    \caption{Nullclines for \(I=0\), \(a=0.7\), \(b=-0.8\), and \(\phi=0.08\)}
+    \caption{\gls{gls:nullcline}s for \(I=0\), \(a=0.7\), \(b=-0.8\), and \(\phi=0.08\)}
     \label{fig:nullclines-negative}
 \end{figure}
 
-Here the equilibria are at \((-2.376, 2.0949)\), \((-0.39825, -0.37719)\), and \((2.7742, -4.3428)\). The first and last are saddle points and the middle is a nodal source.
+Here the \glspl{gls:equilibrium} are at \((-2.376, 2.0949)\), \((-0.39825, -0.37719)\), and \((2.7742, -4.3428)\). The first and last are \glspl{gls:saddle} and the middle is a \gls{gls:nodal}.
 
-This change from one to three equilibria changes at b>0. 
+The parametric solution to this system is \(V+a=bW\) and \(W=V-V^3/3+I\).
+
+This change from one to three \glspl{gls:equilibrium} changes at b>0. 
 
 \begin{comment}
-    For Thursday:
-    
-    Parametric solutions: General solution based on the parameters.
-        Write this:
-
-        V+a=bW
-        W=V-V^3/3+I
     Why do we have 1/3 fixed points?
         Because of the slope of W???
         But why in a biological sense?

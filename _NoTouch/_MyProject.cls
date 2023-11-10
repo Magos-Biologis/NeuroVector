@@ -5,9 +5,9 @@
 % It's 2022. UTF-8 input for TeX. 
 \RequirePackage[utf8]{inputenc}
 
-
+%\RequirePackage{csquotes} % Babel wants it
+%\RequirePackage{babel} 
 \RequirePackage[nomath]{lmodern} % Latin modern font
-\RequirePackage{babel} 
 
 
 % Best imported after fonts.
@@ -40,7 +40,7 @@
 
 \DeclareOption{a4}{
     \PassOptionsToClass{a4paper}{report}
-    \PassOptionsToPackage{a4paper}{report}
+    \PassOptionsToPackage{a4paper}{geometry}
 }
 \DeclareOption{noindent}{
     \AtBeginDocument{\noindent}
@@ -48,22 +48,22 @@
 
 \DeclareOption{draft}{
     \PassOptionsToClass{\CurrentOption}{report}
-    \PassOptionsToClass{\CurrentOption}{graphicx}
+    \PassOptionsToPackage{\CurrentOption}{graphicx}
     %\PassOptionsToClass{\CurrentOption}{graphicx}
     %\PassOptionsToClass{\CurrentOption}{graphicx}
 }
 % ======================== Class Bibliography Options =====================
 
-\PassOptionsToPackage{
-    sorting=none,
-    maxbibnames=99,
-    url=false,
+\PassOptionsToPackage{%
+    sorting=none,%
+    maxbibnames=99,%
+    url=false,%
 }{biblatex}
 
-\PassOptionsToPackage{
-    toc, 
-    xindy, 
-    style=index, 
+\PassOptionsToPackage{%
+    toc, %
+    xindy, %
+    style=index, %
 }{glosseries}
 
 \AtEndOfClass{

@@ -4,56 +4,66 @@
 
 \RequirePackage{ifthen}     % Guess what it does, I dare you
 \RequirePackage{etoolbox}   % Includes a lot of useful macros for customizations
+\RequirePackage{xkeyval}    % More useful macros
 \RequirePackage{xparse}     % More useful macros
 
 %\usepackage{iftex} % Allows for if Lua LaTeX commands
 
-% ========================= Package Basis
+% ========================= Package options
 
 \DeclareOption*{%
     \PackageWarning{Math Preamble}{Unknown option ‘\CurrentOption’}%
 }
 \ProcessOptions\relax
 
-% ========================= Math Symbols and Math Related Processes
+
+% ========================= Math Packages
 
 \RequirePackage{framed}     % Frames for text
 \RequirePackage{mathtools}  % includes amsmath, and increased math utility functions
-    %%%%% redefining subequations
-    \renewenvironment{subequations}
-    {%
-        \refstepcounter{equation}%
-        \protected@edef\theparentequation{\theequation}%
-        \setcounter{parentequation}{\value{equation}}%
-        \setcounter{equation}{0}%
-        \def\theequation{\theparentequation-\Alph{equation}}%
-        \ignorespaces
-    }{%
-        \setcounter{equation}{\value{parentequation}}%
-        \ignorespacesafterend
-    }
-    
-    \addtolength{\jot}{0.75em} % Increases row padding between equations
-    
-    \abovedisplayskip=12pt
-    \belowdisplayskip=12pt
-    \abovedisplayshortskip=0pt
-    \belowdisplayshortskip=7pt
-    
+
 \RequirePackage{cancel}  % Striking through text \cancel{x}
 \RequirePackage[hyperref, standard, amsmath]{ntheorem}  % Math Theorems
 
 \RequirePackage{MnSymbol}
-    \DeclareMathAlphabet\mathbb{U}{msb}{m}{n}
-    \DeclareMathSizes{10}{18}{12}{8}   % For size 10 text
-    \DeclareMathSizes{11}{19}{13}{9}   % For size 11 text
-    \DeclareMathSizes{12}{20}{14}{10}  % For size 12 text
-    
+
 \RequirePackage{siunitx} % elegant SI units
-    \DeclareSIUnit\molar{\mole\per\cubic\deci\metre}
-    \DeclareSIUnit\Molar{\textsc{m}}
-    \DeclareSIUnit{\calorie}{cal}
-    \DeclareSIUnit{\Calorie}{\kilo\calorie}
+
+% ========================= Package Configuration
+
+% Redefine AMS math enviroments definitions + hooks
+\renewenvironment{subequations}{%
+    \refstepcounter{equation}%
+    \protected@edef\theparentequation{\theequation}%
+    \setcounter{parentequation}{\value{equation}}%
+    \setcounter{equation}{0}%
+    \def\theequation{\theparentequation-\Alph{equation}}%
+    \ignorespaces%
+}{%
+    \setcounter{equation}{\value{parentequation}}%
+    \ignorespacesafterend
+}
+
+\addtolength{\jot}{0.75em} % Increases row padding between equations
+
+\abovedisplayskip=12pt
+\belowdisplayskip=12pt
+\abovedisplayshortskip=0pt
+\belowdisplayshortskip=7pt
+
+% SI units
+
+\DeclareMathAlphabet\mathbb{U}{msb}{m}{n}
+\DeclareMathSizes{10}{18}{12}{8}   % For size 10 text
+\DeclareMathSizes{11}{19}{13}{9}   % For size 11 text
+\DeclareMathSizes{12}{20}{14}{10}  % For size 12 text
+
+% SI units
+
+\DeclareSIUnit\molar{\mole\per\cubic\deci\metre}
+\DeclareSIUnit\Molar{\textsc{m}}
+\DeclareSIUnit{\calorie}{cal}
+\DeclareSIUnit{\Calorie}{\kilo\calorie}
     
 % ========================= Mathy Commands ===============================
 

@@ -1,5 +1,50 @@
 \makeglossaries
 
+\begin{comment}
+
+\newglossaryentry[<options>]{<label>}{%
+    name={<name>}, % For glossary and in-text listing
+    description={<description>}, % guess what its for 
+    <other options>,
+}
+
+\longnewglossaryentry[<options>]{<label>}{% For much longer descriptions
+	name={<name>},
+	<other options>,
+}{% 
+	<description>
+}
+
+\newacronym[<other options>]{<label>}{<short>}{<long>}
+
+
+% <other options> include, but is not limited to the following options
+%       name={<name>}, % For glossary and in-text listing
+%       description={<description>}, % guess what its for 
+%       text={<text>},          % Appears in-text instead of <name> field
+%       plural={<pluralname>}, % Used for irregular plurals instead of <name> field
+%       sort={<alphkey>}, % Used to sort instead of <name> 
+%       symbol={\ensuremath{<symbol>}}, % Used for \glssymbol command
+
+\end{comment}
+
+
+
+\begin{comment}
+%%%%%%%%%% Commands
+
+\gls[<options>]{<label>}[<insert>] % works for both acronym or glossery term
+\glspl[<options>]{<label>}[<insert>] % creates a plural form of term
+
+\Gls[<options>]{<label>}[<insert>] % capitalizes the first character of the thing
+\Glspl[<options>]{<label>}[<insert>]  % same thing, but plural
+
+\glssymbol[<options>]{<label>}[<insert>]  % summons the symbol in the case a symbol is assigned
+
+\end{comment}
+
+
+
 %%%%%%%% biologu
 
 \newglossaryentry{gls:neuron}{
@@ -114,8 +159,136 @@
         description = {barely sentient meat animated with electricity}
 }
 
+% Electro
 
+\newglossaryentry{gls:circuit diagram}{
+        name   = {Circuit diagram},
+        text   = {circuit diagram},
+        description = {an illustration of an electrical curcuit}
+} 
 
+\newglossaryentry{gls:batteries}{
+        name   = {Batteries},
+        text   = {batteries},
+        description = {a device that transform chemical energy into electrical energy}
+}
+
+\newglossaryentry{gls:capacitor}{
+        name   = {Capacitor},
+        text   = {capacitor},
+        description = {a device that stores energy}
+}
+
+\newglossaryentry{gls:resistor}{
+        name   = {Resistor},
+        text   = {resistor},
+        description = {a device that creates resistance in a circuit}
+}
+
+\newglossaryentry{gls:variable resistors}{
+        name   = {Variable risistors},
+        text   = {variable resistors},
+        description = {a device that can both act as a resistor and as a conductor}
+}
+
+\newglossaryentry{gls:wires}{
+        name   = {Wires},
+        text   = {wires},
+        description = {a device that can carry electricity and connects different components of a circuit}
+}
+
+\newglossaryentry{gls:conductor}{
+        name   = {Conductor},
+        text   = {conductor},
+        description = {a device that can allow electricity to go through it}
+}
+
+% Maths
+
+\newglossaryentry{gls:dynamical system}{
+        name   = {Dynamical system},
+        text   = {dynamical system},
+        description = {a system that evolves over time}
+}
+
+\newglossaryentry{gls:deterministic}{
+        name   = {Deterministic},
+        text   = {deterministic},
+        description = {a predictable equation}
+}
+
+\newglossaryentry{gls:stochastic}{
+        name   = {Stochastic},
+        text   = {stochastic},
+        description = {an equation that has an element of randomness to it}
+}
+
+\newglossaryentry{gls:discrete}{
+        name   = {Discrete},
+        text   = {discrete},
+        description = {measured over integer time}
+}
+
+\newglossaryentry{gls:continuous}{
+        name   = {Continuous},
+        text   = {continuous},
+        description = {measured over all time}
+}
+
+\newglossaryentry{gls:linear}{ 
+        name   = {Linear},
+        text   = {linear},
+        description = {a straight line} 
+}
+
+\newglossaryentry{gls:nonlinear}{
+        name   = {Nonlinear},
+        text   = {nonlinear},
+        description = {has elements that are not linear}
+}
+
+\newglossaryentry{gls:autonomous}{
+        name   = {Autonomous},
+        text   = {autonomous},
+        description = {does not depend on time}
+}
+
+\newglossaryentry{gls:non-autonomous}{
+        name   = {Non-autonomous},
+        text   = {non-autonomous},
+        description = {depends on time}
+}
+
+\newglossaryentry{gls:spiral}{
+        name   = {Spiral sink},
+        text   = {spiral sink},
+        description = {}
+}
+
+\newglossaryentry{gls:equilibrium}{
+        name   = {Equilibrium},
+        text   = {equilibrium},
+        plural = {equilibria},
+        description = {places where all equations are equal to zero}
+}
+
+\newglossaryentry{gls:saddle}{
+        name   = {Saddle point},
+        text   = {saddle point},
+        description = {}
+}
+
+\newglossaryentry{gls:nodal}{
+        name   = {Nodel source},
+        text   = {nodel source},
+        description = {}
+}
+
+\newglossaryentry{gls:nullcline}{
+        name   = {Nullcline},
+        text   = {nullcline},
+        description = {the line where the equation is equal to zero}
+}
 
 %%%%%%%% Units
 

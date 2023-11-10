@@ -10,22 +10,22 @@ The construction of a model requires equations complex enough to accurately desc
 There exists any number of limitations in the pursuit of this task, some inherent to the system, others inherent to our modern construction of mathematics.
 \footnotetext{If man could be crossed with the cat, it would improve man, but it would deteriorate the cat.-`\textit{Mark Twain}'}
 
-\section{Dynamic Systems}
-
-When looking at the brain in abstract form it can be seen as a multi-dimensional dynamical system governed by an independent set of system variables, such as neuronal membrane potentials, which change in time based on a set of deterministic equations with system parameters that either do not change in time (e.g. maximal conductance of the ion
+\section{Dynamic System Fundamentals}
+When looking at the brain in abstract form it can be seen as a multi-dimensional \gls{gls:dynamical system} governed by an independent set of system variables, such as neuronal membrane potentials, which change in time based on a set of \gls{gls:deterministic} equations with system parameters that either do not change in time (e.g. maximal conductance of the ion
 channels on the neuronal membrane) or whose evolution happens on a much slower time scale relative to the evolution of the system variables ~\cite{STEFANESCU2012748}.
 
-Fundamentally, a dynamical system is a system that evolves over time. This system is dependent on fixed rules which govern the evolution of the system. Thus a dynamical system is the opposite of a static system, which, unlike dynamical systems, does not depend on the past inputs. A simple example of a dynamical system can be that of a pendulum swinging back and forth \cite{}. 
 
-There are different types of dynamical systems. A system can be deterministic or stochastic, discrete or continuous, linear or nonlinear, and autonomous or non-autonomous \cite{}. 
+Fundamentally, a \gls{gls:dynamical system} is a system that evolves over time. This system is dependent on fixed rules which govern the evolution of the system. Thus a \gls{gls:dynamical system} is the opposite of a static system, which, unlike \gls{gls:dynamical system}s, does not depend on the past inputs. A simple example of a \gls{gls:dynamical system} can be that of a pendulum swinging back and forth \cite{}. 
 
-If a system is deterministic, it is possible to predict each following state given an initial state. It is also possible for a system to have an element of randomness to it. In this case, the system is said to be stochastic \cite{}. 
+There are different types of \gls{gls:dynamical system}s. A system can be \gls{gls:deterministic} or \gls{gls:stochastic}, \gls{gls:discrete} or \gls{gls:continuous}, \gls{gls:linear} or \gls{gls:nonlinear}, and \gls{gls:autonomous} or \gls{gls:non-autonomous} \cite{}. 
 
-A discrete system is one where there is only measured a position of the integer values of time. On the other hand, is a continuous system, where the positions are measured continuously (ie. for every possible time) \cite{}.
+If a system is \gls{gls:deterministic}, it is possible to predict each following state given an initial state. It is also possible for a system to have an element of randomness to it. In this case, the system is said to be \gls{gls:stochastic} \cite{}. 
 
-A linear system is one where it is only composed of linear functions and a nonlinear system contains at least one nonlinear component \cite{}.
+A \gls{gls:discrete} system is one where there is only measured a position of the integer values of time. On the other hand, is a \gls{gls:continuous} system, where the positions are measured \gls{gls:continuous}ly (ie. for every possible time) \cite{}.
 
-Lastly, there is the difference between an autonomous system, which is one where it does not depend on the independent variable \(t\) \cite{}, and a non-autonomous system, which does depend on \(t\) \cite{}.
+A \gls{gls:linear} system is one where it is only composed of \gls{gls:linear} functions and a \gls{gls:nonlinear} system contains at least one \gls{gls:nonlinear} component \cite{}.
+
+Lastly, there is the difference between an \gls{gls:autonomous} system, which is one where it does not depend on the independent variable \(t\) \cite{}, and a \gls{gls:non-autonomous} system, which does depend on \(t\) \cite{}.
 
 %The 
 %Some of these parameters
@@ -38,23 +38,50 @@ Lastly, there is the difference between an autonomous system, which is one where
     [ref:https://neuronaldynamics-exercises.readthedocs.io/en/latest/exercises/brunel-network.html]
 \end{comment}
 
-\subsection{Phase space}
-Phase space is the space spanned by the system's variables and the trajectories it contain are those variables traversing time
+When analysing differential equations \textit{phase space} analysis is an important concept and tool. Phase space is the space spanned by the system's variables and the trajectories it contain are those variables traversing time. When a neuron transitions from rest to firing a qualitative change in the dynamical behavior of the system will occur. A qualitative change can be associated with phenomena such as \textit{bifurcations}, \textit{phase transitions}, emergence of (new) \textit{attractors}, or shifts in stability. 
 
-When a neuron transitions from rest to firing a qualitative change in the dynamical behavior of the system will occur called \textit{bifurcation}. The bifurcation constitutes a 'dividing event' and is associated with modifications to the system parameters such as membrane capacitance and ion channel parameters etc. ~\cite{STEFANESCU2012748}.
-
+Bifurcations constitutes critical points where the stability of a system changes, leading to abrupt transitions in the system's behavior. As will be shown these transitions can provide insights into the onset of seizures and their characteristics [link to network analysis section]
 
 
 
+
+
+
+Notes
+- Time delays can be the source of instabilities and bifurcations in \gls{gls:dynamical system}s and are frequently observed in biological systems such as neural networks.
+ to understand how system behavior changes as a parameter is varied
+with qualitative change in the dynamical behavior of the system we mean 
+- The bifurcation constitutes a 'dividing event' and is associated with modifications to the system parameters such as membrane capacitance and ion channel parameters etc. ~\cite{STEFANESCU2012748}.
+- Limit cycle
+
+
+Bifurcations are critical points where the stability of a system changes, leading to abrupt transitions in the system's behavior. These transitions can provide insights into the onset of seizures and their characteristics.
+Identifying bifurcation points in neural systems helps to understand the mechanisms underlying the transition from normal brain activity to a seizure state.
 
 \subsubsection{Dimensionality reduction}
 A neuron model, such as the \gls{hh} model, uses a system of four differential equations
-to simulate a complex network this can quickly amount to 
+to simulate a complex network this can quickly amount to ...
 
-\subsection*{Networks}
+
+
+\subsection*{Modeling Neuronal Networks}
 A complex system can be described by a network or a graph with complex topology, whose nodes are the elements of the system and whose edges represent the interactions among them. `One significant recent discovery in the field of complex networks is the observation that a number of large-scale and complex networks are scale-free, that is, their connectivity distributions have the
 power-law form'~\cite{wang2002synchronization}.
+
+
 ...
+
+
+
+When analysing seizures, bifurcation points helps to understand the mechanisms underlying the transition from normal brain activity to a seizure state. The change in parameter can be factors like synaptic strength, excitability of neurons, or network connectivity 
+~\cite{gerstner2014neuronal}. 
+
+
+
+
+
+    
+\subsubsection{Network connectivity and topology}
 
 
 Modeling brain processes can be advantages because of the difficulties  performing certain experiments and it is therefore possible to simulate certain scenarios without the need of conducting large scale exploratory experiments. Aspects like ethical barriers...
@@ -68,8 +95,18 @@ Seizures can be primarily interpreted as a dynamical disease \cite{da2003epileps
 \subsubsection*{Definition and classification of seizures}
 
 
+
+\subsubsection{The role of neuronal networks in seizure generation}
+(or network effects )
+
+- network properties influence seizure dynamics --> connectivity and coupling strengths
+
+
+Some notes:
 - The role of neuronal networks in seizure generation
 - Models for simulating seizures
+- A chaotic process can be classified according to its fractal dimensions and Lyapunov exponent.
+- Identifying bifurcation points in neural systems 
 
 
 
@@ -83,12 +120,12 @@ Therefore we must be smart about creating a model, choosing the `right' approach
 \end{enumerate}
 
 
-A system can be modeled deterministicly or contain stochasticly. When collecting data, measurements will rarely be completely deterministic. This is not because forces act in unpredictable manner, rather that there exists far too many elements in the `real' world for any model to fully account for them. 
-As a consequence, many models will incorporate both deterministic and stochastic elements to more accurately reflect the observed data.
+A system can be modeled \gls{gls:deterministic}ly or contain \gls{gls:stochastic}ly. When collecting data, measurements will rarely be completely \gls{gls:deterministic}. This is not because forces act in unpredictable manner, rather that there exists far too many elements in the `real' world for any model to fully account for them. 
+As a consequence, many models will incorporate both \gls{gls:deterministic} and \gls{gls:stochastic} elements to more accurately reflect the observed data.
 \begin{enumerate}
     \item \textbf{Model simplification}
-    \item \textbf{Stochastic activity}
-    \item \textbf{Stochastic Inputs}
+    \item \textbf{\Gls{gls:stochastic} activity}
+    \item \textbf{\gls{gls:stochastic} Inputs}
 \end{enumerate}
 
 
@@ -96,6 +133,8 @@ As a consequence, many models will incorporate both deterministic and stochastic
 \newpage
 \section{Physiological Parameters}
 It's important to determine what is even being modeled, which features can be parameterized and which can not.
+
+\subfile{parameters}
 
 
 \newpage
@@ -116,7 +155,7 @@ As such, the exploration begins by investigating simplified \gls{hh} derived mod
 
 
 \subsection{Chay}
-In 1985, T.R. Chay proposed a model of three-dimensional nonlinear differential equations based on the \gls{hh} model to study chaotic behavior and show ionic events in excitable membranes. 
+In 1985, T.R. Chay proposed a model of three-dimensional \gls{gls:nonlinear} differential equations based on the \gls{hh} model to study chaotic behavior and show ionic events in excitable membranes. 
 \begin{subequations}\label{eq:ChaySys}
     \begin{align}
         \ode{V}{t} &= g_\rmm{I}  m^3_\infty h_\infty \br{V_\rmm{I} - V} + g_\rmm{K, V} n^4 \br{V_\rmm{K} - V} + g_\rmm{K, C}  \frac{C}{1+C}\br{V_\rmm{K} - V} + g_\rmm{L} \br{V_m - V_\rmm{L}} \\ 
@@ -144,7 +183,7 @@ The \(m_\infty\), \(h_\infty\), and \(n_\infty\) are calculated by \(y_\infty = 
 \newpage
 \subsection{Hodgkin-Huxley}\label{sec:HHMeth}
 
-The \gls{hh} model of Action Potential is a system of non-linear differentiable equations with four state variables with respect to time, \(V_m\br{t}, \ n\br{t}, \ m\br{t}, \ h\br{t}\)~\cite{HodHux1952}. The model is built from approximating the characteristics of excitable cells, such as neurons, to a circuit-like construct \cref{fig:MembraneCircut}. 
+The \gls{hh} model of Action Potential is a system of \gls{gls:nonlinear} differentiable equations with four state variables with respect to time, \(V_m\br{t}, \ n\br{t}, \ m\br{t}, \ h\br{t}\)~\cite{HodHux1952}. The model is built from approximating the characteristics of excitable cells, such as neurons, to a circuit-like construct \cref{fig:MembraneCircut}. 
 Mathematically, the flow of current is represented as:
     \begin{align}
         I_c &= C_m \ode{V_m}{t} \\
@@ -189,17 +228,23 @@ n \implies
 \end{minipage}
 ~
 \begin{minipage}{.45\textwidth}
-\begin{align*}
+\begin{equation*}
+m \implies 
+\begin{cases}
     \alpha_m \br{V_m} &= 0.1 \cfrac{ 25 - V }{\exp{\cfrac{25-V}{10}} - 1} \\
     \beta_m \br{V_m}  &= 4 \, \exp{-\cfrac{V}{18}} 
-\end{align*}
+\end{cases}
+\end{equation*}
 \end{minipage}
 
 \begin{minipage}{.45\textwidth}
-\begin{align*}
+\begin{equation*}
+h \implies 
+\begin{cases}
     \alpha_h \br{V_m} &=  0.07 \, \exp{-\cfrac{V}{20}} \\
     \beta_h \br{V_m}  &= { \cfrac{1}{\exp{\cfrac{30 - V}{10}} + 1}}
-\end{align*}
+\end{cases}
+\end{equation*}
 \end{minipage}
 ~
 \begin{minipage}{.45\textwidth}
