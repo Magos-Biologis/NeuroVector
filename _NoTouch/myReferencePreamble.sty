@@ -102,9 +102,6 @@
     \Crefrangemultiformat{table}{Tables~(#2#1#3)}{ and~(#2#1#3)}{, (#2#1#3)}{, and~(#2#1#3)}
 
 
-
-
-
 % ====================== Custom Glossary ================================
 
 \DeclareDocumentCommand{\newdualentry}{ O{} O{} m m m m } {
@@ -114,6 +111,11 @@
   \makeglossaries
   \newacronym[see={[Glossary:]{gls-#3}},#2]{#3}{#4}{#5\glsadd{gls-#3}}
 }
+
+%\newdualentry{OWD} % label
+%  {OWD}            % abbreviation
+%  {One-Way Delay}  % long form
+%  {The time a packet uses through a network from one host to another} % description
 
 %\AtEndDocument{}
 
