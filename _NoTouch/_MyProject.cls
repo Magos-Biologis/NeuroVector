@@ -41,9 +41,6 @@
  }
 
 
-\DeclareOption{10pt}{
-    \PassOptionsToClass{\CurrentOption}{report}
-}
 \DeclareOption{11pt}{
     \PassOptionsToClass{\CurrentOption}{report}
 }
@@ -67,26 +64,9 @@
     %\PassOptionsToClass{\CurrentOption}{graphicx}
     %\PassOptionsToClass{\CurrentOption}{graphicx}
 }
-% ======================== Class Bibliography Options =====================
-
-\PassOptionsToPackage{%
-    sorting=none,%
-    maxbibnames=99,%
-    url=false,%
-}{biblatex}
-
-\PassOptionsToPackage{
-    toc, %
-    xindy, %
-    style=index, %
-}{glosseries}
-
-\AtEndOfClass{
-    \glsdisablehyper
-    \setacronymstyle{long-sc-short}
-}
 
 % ========================= User Options
+
 
 \DeclareOption{RaggedRight}{
     \PassOptionsToPackage{document}{ragged2e}
@@ -98,6 +78,27 @@
 \DeclareOption{unitGlossary}{
     \PassOptionsToPackage{\CurrentOption}{_NoTouch/myReferencePreamble}
 }
+
+
+% ======================== Class Bibliography Options =====================
+
+\PassOptionsToPackage{%
+    sorting=none,%
+    maxbibnames=99,%
+    url=false,%
+}{biblatex}
+
+\PassOptionsToPackage{%
+    toc, %
+    xindy, %
+    style=index, %
+}{glossaries}
+
+\AtEndOfClass{
+    \glsdisablehyper
+    \setacronymstyle{long-sc-short}
+}
+
 
 % ========================= no more Options
 
@@ -152,6 +153,13 @@
 
 \RequirePackage{setspace} % Line spacing
 \RequirePackage{ragged2e} % Text Justifier
+
+% ======================== Custom Packages ================================
+
+\RequirePackage{_NoTouch/myMathPreamble}
+
+\RequirePackage{_NoTouch/myReferencePreamble}
+
 
 % ====================== Tweaks and settings ================================
 
@@ -245,19 +253,6 @@
     {1em}
     {}
     
-
-
-% ======================== Custom Packages ================================
-
-\RequirePackage{_NoTouch/myMathPreamble}
-
-\RequirePackage{_NoTouch/myReferencePreamble}
-
-% ========================================================================
-
-
-
-
 
 % ========================================================================
 \endinput
