@@ -25,7 +25,21 @@
 
 % ========================= Class Basis
 
-% Report options
+
+ \define@choicekey*{fam}{align}[\val\nr]{left,center,right,just}{%
+     \AtEndOfClass{
+         \ifcase\nr\relax
+            \raggedright
+         \or
+            \centering
+         \or
+            \raggedleft
+         \or
+            \justifying
+         \fi
+     }
+ }
+
 
 \DeclareOption{10pt}{
     \PassOptionsToClass{\CurrentOption}{report}
@@ -42,6 +56,7 @@
     \PassOptionsToClass{a4paper}{report}
     \PassOptionsToPackage{a4paper}{geometry}
 }
+
 \DeclareOption{noindent}{
     \AtBeginDocument{\noindent}
 }
@@ -60,7 +75,7 @@
     url=false,%
 }{biblatex}
 
-\PassOptionsToPackage{%
+\PassOptionsToPackage{
     toc, %
     xindy, %
     style=index, %
@@ -98,89 +113,96 @@
 
 \LoadClass[a4paper]{report}
 
-% ========================= Colors/Visuals/Figures Functions
+% Colors/Visuals/Figures Functions
 
 \RequirePackage[table, dvipsnames]{xcolor} % allows for more exciting colors
 \RequirePackage{graphicx}       % supplement for the built-in graphics package
 \RequirePackage{adjustbox}      % additional supplement for box adjustments
     
-    \rowcolors{1}{white}{gray!30} % Table row coloration
-    \providecommand{\red}{\color{red!80!black}}
-    \providecommand{\blue}{\color{blue!80!black}}
-    
-%\RequirePackage{blindtext} % Usedfor generating large amounts of text for formating purposes
 
 \RequirePackage{listings}   % For source code with syntax highlighting
 \RequirePackage{verbatim}   % For more text enviroment options
 
+
 \RequirePackage[labelfont={bf}]{caption} % For figure coloration
-    \DeclareCaptionFont{red}{\red}
-    \DeclareCaptionFont{blue}{\blue}
-    \DeclareCaptionFont{black}{\color{black}}
-    \captionsetup[figure]{labelfont=red}
-    \captionsetup[subfigure]{labelfont=black}
-    %
-    \captionsetup[table]{labelfont=blue}
-    \captionsetup[subtable]{labelfont=black}
-    %
-\RequirePackage{multicol} % allows for merging multiple columns
 \RequirePackage{subcaption} % Subfigures
+\RequirePackage{multicol} % allows for merging multiple columns
 
 \RequirePackage{enumitem} % for list formatting
-    \interlinepenalty=10000
     
 \RequirePackage{array} % used for easy access in working memory
 \RequirePackage[outline]{contour} % Glow around text
-    \contourlength{1.4pt}
-
-% ========================= Format margins, headers and footers
+    
+% Format margins, headers and footers
 
 \RequirePackage{datetime} % for generating dates and time
 \RequirePackage{lastpage} 
 
 \RequirePackage[%
-    a4paper, centering,
-    vscale = 0.80, hscale = 0.75,
+    a4paper, centering,%
+    vscale = 0.80, hscale = 0.75,%
     %total = {170mm,250mm},
 ]{geometry} % Page margins
-                
-    \setlength{\parindent}{2em} % Paragraph indents
-    \setlength{\parskip}{2ex} % Paragraph seperation
-    \setlength{\marginparwidth}{2cm}
-%\RequirePackage{lipsum} % Produces paragraphs of text
-    \setlength{\arrayrulewidth}{0pt} % Table line widths
-    \setlength{\tabcolsep}{3pt} % Table padding horizontally
-    \renewcommand{\arraystretch}{1.5} % Table padding vertically
 
 \RequirePackage{fancyhdr} % for generating dates and time
-    \pagestyle{fancy}
-    \fancyhf{}
-    \fancyhead[LO]{\leftmark}
-    %\fancyhead[RO]{Semester 4 Project}
-    \fancyfoot[CO]{[\thepage]}
-    \renewcommand{\headrulewidth}{2pt}
-    \renewcommand{\footrulewidth}{1pt}
-    \renewcommand{\footnoterule}{\vfill\kern -3pt \hrule width \textwidth \kern 2.6pt}
-    \fancyhfoffset{0pt}
-    
-% ========================= paragraph formatting
 
-\RequirePackage{indentfirst} % Indents first paragraph
+% Paragraph formatting
+
 \RequirePackage{enumitem}
 
 \RequirePackage{setspace} % Line spacing
 \RequirePackage{ragged2e} % Text Justifier
-    \justifying
+
+% ====================== Tweaks and settings ================================
+
+\AtBeginEnvironment{tabular}{%
+    \rowcolors{1}{white}{gray!30} % Table row coloration
+    \setlength{\arrayrulewidth}{0pt} % Table line widths
+    \setlength{\tabcolsep}{3pt} % Table padding horizontally
+    \renewcommand{\arraystretch}{1.5} % Table padding vertically
+}
+
+\providecommand{\red}{\color{red!80!black}}
+\providecommand{\blue}{\color{blue!80!black}}
+
+\DeclareCaptionFont{red}{\red}
+\DeclareCaptionFont{blue}{\blue}
+\DeclareCaptionFont{black}{\color{black}}
+\captionsetup[figure]{labelfont=red}
+\captionsetup[subfigure]{labelfont=black}
+%
+\captionsetup[table]{labelfont=blue}
+\captionsetup[subtable]{labelfont=black}
+%
+
+\interlinepenalty=10000
+
+
+\contourlength{1.4pt}
+
+
+\setlength{\parindent}{2em} % Paragraph indents
+\setlength{\parskip}{2ex} % Paragraph seperation
+\setlength{\marginparwidth}{2cm}
+\setlength{\headheight}{14pt}
+
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[LO]{\leftmark}
+\fancyhead[RO]{Modeling Project}
+\fancyfoot[CO]{[\thepage]}
+\renewcommand{\headrulewidth}{2pt}
+\renewcommand{\footrulewidth}{1pt}
+\renewcommand{\footnoterule}{\vfill\kern -3pt \hrule width \textwidth \kern 2.6pt}
+\fancyhfoffset{0pt}
+    
+\justifying
 
 \tolerance=9999         % Gives more whitespace
 \emergencystretch=10pt  % Gives more whitespace
 \hyphenpenalty=10000    % Removes hyphanation
 \exhyphenpenalty=100    % Allows for existing hyphans to stay
 
-% ====================== Margin and Notes ================================
-
-\RequirePackage{marginnote}
-\RequirePackage{todonotes}
 
 % ======================== Custom Headers ================================
 
@@ -234,8 +256,6 @@
 % ========================================================================
 
 
-
-%\AtBeginDocument{}
 
 
 

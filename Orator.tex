@@ -2,6 +2,10 @@
 
 % ========================= Preamble Packages ================================
 
+% Margin and Notes 
+\usepackage{marginnote}
+\usepackage{todonotes}
+
 \usepackage[subpreambles=true]{standalone} % Allows for independent subfile constructions
 \usepackage{import}
 
@@ -9,7 +13,7 @@
 
 % ============================ Bibliography + Glossary
 
-\include{INP-00-glossary.tex}
+\input{INP-00-glossary.tex}
 \addbibresource[glob=true]{Bibble/*.bib}
 
 % ============================ Subfiles
