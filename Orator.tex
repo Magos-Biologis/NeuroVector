@@ -1,4 +1,4 @@
-\documentclass[printing, unitGlossary]{_NoTouch/_MyProject}
+\documentclass[printGloss, printUnit]{_NoTouch/myProject}
 
 % ========================= Preamble Packages ================================
 
@@ -13,7 +13,7 @@
 
 % ============================ Bibliography + Glossary
 
-\input{INP-00-glossary.tex}
+\input{INP-00-glossary}
 \addbibresource[glob=true]{Bibble/*.bib}
 
 % ============================ Subfiles
@@ -102,7 +102,7 @@
 \pagenumbering{roman}
 
 %\maketitle
-\import{_NoTouch/}{Title.tex}
+\import{./}{mainTitle.tex}
 \tableofcontents
 
 \printglossary[type=\acronymtype]

@@ -32,18 +32,99 @@
 
 % ========================= Package Configuration
 
+%\def\start@align#1#2#3{%
+%    \let\xatlevel@#1% always \z@, \@ne, or \tw@
+%    \maxfields@#3\relax
+%    \ifnum\maxfields@>\m@ne
+%        \checkat@true
+%        \ifnum\xatlevel@=\tw@
+%                \xxat@true
+%        \fi
+%        \multiply\maxfields@\tw@
+%    \else
+%        \checkat@false
+%    \fi
+%    \ifingather@
+%        \iffalse{\fi\ifnum0=‘}\fi
+%        \DN@{\vcenter\bgroup\savealignstate@\align@#2}%
+%    \else
+%        \ifmmode
+%            \if@display
+%                \DN@{\align@recover}%
+%            \else
+%                \nomath@env
+%                \DN@{\@namedef{end\@currenvir}{}\@gobble}%
+%            \fi
+%        \else
+%            $$%
+%            \let\split\insplit@
+%            \DN@{\align@#2}%
+%        \fi
+%    \fi
+%    \collect@body\next@
+%}
+%\newenvironment{align}{%
+%    \start@align\@ne\st@rredfalse\m@ne
+%}{%
+%    \math@cr \black@\totwidth@
+%    \egroup
+%    \ifingather@
+%        \restorealignstate@
+%        \egroup
+%        \nonumber
+%        \ifnum0=‘{\fi\iffalse}\fi
+%    \else
+%        $$%
+%    \fi
+%    \ignorespacesafterend
+%}
+
 % Redefine AMS math enviroments definitions + hooks
 \renewenvironment{subequations}{%
     \refstepcounter{equation}%
     \protected@edef\theparentequation{\theequation}%
     \setcounter{parentequation}{\value{equation}}%
     \setcounter{equation}{0}%
-    \def\theequation{\theparentequation-\Alph{equation}}%
+    \def\theequation{\theparentequation{}\,\,\roman{equation}}%
     \ignorespaces%
 }{%
     \setcounter{equation}{\value{parentequation}}%
     \ignorespacesafterend
 }
+
+% Custom enviroment for making systems of equations built off amsmath align enviroment
+\newenvironment{eqsystem}{%
+    \refstepcounter{equation}%
+    \protected@edef\theparentequation{\theequation}%
+    \setcounter{parentequation}{\value{equation}}%
+    \setcounter{equation}{0}%
+    \def\theequation{\theparentequation-\Alph{equation}}%
+    %
+    \start@align\@ne\st@rredfalse\m@ne
+    %
+    \ignorespaces%
+}{%
+    \math@cr \black@\totwidth@
+    \egroup
+    \ifingather@
+        \restorealignstate@
+        \egroup
+        \nonumber
+        \ifnum0=‘{\fi\iffalse}\fi
+    \else
+        $$%
+    \fi
+    %
+    \setcounter{equation}{\value{parentequation}}%
+    \ignorespacesafterend%
+}
+%\def\env@cases{%
+%    \let\@ifnextchar\new@ifnextchar
+%    \left\lbrace
+%    \def\arraystretch{1.2}%
+%    \array{@{}l@{\quad}l@{}}%
+%}
+
 
 
 \addtolength{\jot}{0.75em} % Increases row padding between equations

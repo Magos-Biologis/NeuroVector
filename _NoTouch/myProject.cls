@@ -1,5 +1,5 @@
 \NeedsTeXFormat{LaTeX2e}
-\ProvidesClass{_MyProject}[Anakin's personalized project class]
+\ProvidesClass{myProject}[Anakin's personalized project class]
 % ========================= Preamble Packages ================================
 
 % It's 2022. UTF-8 input for TeX. 
@@ -26,27 +26,9 @@
 % ========================= Class Basis
 
 
- \define@choicekey*{fam}{align}[\val\nr]{left,center,right,just}{%
-     \AtEndOfClass{
-         \ifcase\nr\relax
-            \raggedright
-         \or
-            \centering
-         \or
-            \raggedleft
-         \or
-            \justifying
-         \fi
-     }
- }
-
-
-\DeclareOption{11pt}{
-    \PassOptionsToClass{\CurrentOption}{report}
-}
-
 \DeclareOption{draft}{
     \PassOptionsToClass{\CurrentOption}{report}
+    \PassOptionsToPackage{\CurrentOption}{graphicx}
 }
 
 \DeclareOption{a4}{
@@ -58,12 +40,6 @@
     \AtBeginDocument{\noindent}
 }
 
-\DeclareOption{draft}{
-    \PassOptionsToClass{\CurrentOption}{report}
-    \PassOptionsToPackage{\CurrentOption}{graphicx}
-    %\PassOptionsToClass{\CurrentOption}{graphicx}
-    %\PassOptionsToClass{\CurrentOption}{graphicx}
-}
 
 % ========================= User Options
 
@@ -72,33 +48,35 @@
     \PassOptionsToPackage{document}{ragged2e}
 }
 
-\DeclareOption{printing}{
+\DeclareOption{printGloss}{
     \PassOptionsToPackage{\CurrentOption}{_NoTouch/myReferencePreamble}
 }
-\DeclareOption{unitGlossary}{
+\DeclareOption{printUnit}{
     \PassOptionsToPackage{\CurrentOption}{_NoTouch/myReferencePreamble}
+}
+\DeclareOption{printAll}{
+    \PassOptionsToPackage{print,printUnit,printMath}{_NoTouch/myReferencePreamble}
 }
 
 
 % ======================== Class Bibliography Options =====================
 
 \PassOptionsToPackage{%
-    sorting=none,%
-    maxbibnames=99,%
-    url=false,%
-}{biblatex}
-
+        sorting     = none,%
+        maxbibnames = 99,%
+        url         = false,%
+        style       = numeric-comp,%
+    }{biblatex}
 \PassOptionsToPackage{%
-    toc, %
-    xindy, %
-    style=index, %
-}{glossaries}
-
+        toc, %
+        xindy, %
+        style   = index, %
+    }{glossaries}
+    
 \AtEndOfClass{
     \glsdisablehyper
     \setacronymstyle{long-sc-short}
 }
-
 
 % ========================= no more Options
 
@@ -107,12 +85,12 @@
 }
 
 % Execute `default' options
-\ExecuteOptions{11pt}
+\ExecuteOptions{}
 
 % Process given options
 \ProcessOptions\relax
 
-\LoadClass[a4paper]{report}
+\LoadClass[a4paper, 11pt]{report}
 
 % Colors/Visuals/Figures Functions
 
@@ -129,7 +107,6 @@
 \RequirePackage{subcaption} % Subfigures
 \RequirePackage{multicol} % allows for merging multiple columns
 
-\RequirePackage{enumitem} % for list formatting
     
 \RequirePackage{array} % used for easy access in working memory
 \RequirePackage[outline]{contour} % Glow around text
@@ -140,16 +117,17 @@
 \RequirePackage{lastpage} 
 
 \RequirePackage[%
-    a4paper, centering,%
-    vscale = 0.80, hscale = 0.75,%
-    %total = {170mm,250mm},
-]{geometry} % Page margins
+        a4paper, centering,%
+        vscale = 0.80, hscale = 0.75,%
+        %total = {170mm,250mm},
+    ]{geometry} % Page margins
 
 \RequirePackage{fancyhdr} % for generating dates and time
 
 % Paragraph formatting
 
-\RequirePackage{enumitem}
+\RequirePackage{enumitem} % for list formatting
+\RequirePackage{indentfirst}
 
 \RequirePackage{setspace} % Line spacing
 \RequirePackage{ragged2e} % Text Justifier

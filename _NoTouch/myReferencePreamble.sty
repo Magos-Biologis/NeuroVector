@@ -12,37 +12,24 @@
 
 % \ExecuteOptions{roman}
 
-\DeclareOption{printing}{
+\DeclareOption{printGloss}{
     \AtEndDocument{
         \printbibliography[heading=bibintoc, title={References}]
-        \printglossary[type = \glsdefaulttype]
+
+        \printglossary
     }
 }
-
-% Toggle reflection.
-\newif\if@toccontents\@toccontentsfalse
-\DeclareOption{toc}{
-    \PassOptionToPackage{toc}{glossaries}
-    %\@toccontentstrue
-}
-
 
 % =============== Pre-defined types
 
-\DeclareOption{unitGlossary}{
-    \AtEndOfPackage{
-        \newcounter{glsunittype}
-        \newglossary*{unit}{Units}[glsunittype]
-    }
+\DeclareOption{printUnit}{
     \AtEndDocument{
         \printglossary[type = unit]
     }
 }
-\DeclareOption{mathGlossary}{
-    \AtEndOfPackage{
-        \newcounter{glsmathtype}
-        \newglossary*{math}{Math}[glsmathtype]
-    }
+
+
+\DeclareOption{printMath}{
     \AtEndDocument{
         \printglossary[type = math]
     }
@@ -60,9 +47,17 @@
 \RequirePackage[hidelinks]{hyperref}    % For hyperlinks
 \RequirePackage{cleveref}               % For configuration of references
 
-\RequirePackage{biblatex}               % For better function
-\RequirePackage[acronyms]{glossaries}
-
+\RequirePackage[%
+        backend     = biber,%
+        sorting     = none,%
+        style       = numeric,%
+    ]{biblatex}  % For better function
+\RequirePackage[%
+        xindy, %
+        acronyms,%
+        style       = index, %
+    ]{glossaries}
+    
 % ====================== Custom References ================================
 
 % Custom hyperref design
@@ -104,12 +99,28 @@
 
 % ====================== Custom Glossary ================================
 
+% Unit Counter
+\newcounter{glsunittype}
+\newglossary*{unit}{Units}[glsunittype]
+
+% Math Counter
+\newcounter{glsmathtype}
+\newglossary*{math}{Math}[glsmathtype]
+
+
+% Uses xparse to create dual command
 \DeclareDocumentCommand{\newdualentry}{ O{} O{} m m m m } {
-  \newglossaryentry{gls-#3}{name={#5},text={#5\glsadd{#3}},
-    description={#6},#1
-  }
-  \makeglossaries
-  \newacronym[see={[Glossary:]{gls-#3}},#2]{#3}{#4}{#5\glsadd{gls-#3}}
+    \newglossaryentry{gls:#3}{%
+        name={#5},%
+        text={#5\glsadd{#3}},%
+        description={#6},%
+        #1 %
+}
+    \makeglossaries
+        \newacronym[%
+        see={[See glossary entry;]{gls:#3}}, %
+        #2 %
+        ]{#3}{#4}{#5\glsadd{gls:#3}}
 }
 
 %\newdualentry{OWD} % label
