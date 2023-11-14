@@ -11,7 +11,7 @@ There exists any number of limitations in the pursuit of this task, some inheren
 \footnotetext{If man could be crossed with the cat, it would improve man, but it would deteriorate the cat.-`\textit{Mark Twain}'}
 
 \section{Dynamic System Fundamentals}
-When looking at the brain in abstract form it can be seen as a multi-dimensional \gls{gls:dynamical system} governed by an independent set of system variables, such as neuronal membrane potentials, which change in time based on a set of \gls{gls:deterministic} equations with system parameters that either do not change in time (e.g. maximal conductance of the ion
+When looking at the brain in abstract form it can be seen as a multi-dimensional \gls{gls:dynamical system} governed by an independent set of system variables, such as neuronal membrane potentials, which change in time based on a set of \gls{gls:deterministic} equations with system parameters that either do not change in time (e.g. maximal \gls{gls:conductance} of the ion
 channels on the neuronal membrane) or whose evolution happens on a much slower time scale relative to the evolution of the system variables ~\cite{STEFANESCU2012748}.
 
 
@@ -47,7 +47,7 @@ Bifurcations constitutes critical points where the stability of a system changes
 
 
 
-Notes
+Notes:
 - Time delays can be the source of instabilities and bifurcations in \gls{gls:dynamical system}s and are frequently observed in biological systems such as neural networks.
  to understand how system behavior changes as a parameter is varied
 with qualitative change in the dynamical behavior of the system we mean 
@@ -67,6 +67,22 @@ to simulate a complex network this can quickly amount to ...
 \subsection*{Modeling Neuronal Networks}
 A complex system can be described by a network or a graph with complex topology, whose nodes are the elements of the system and whose edges represent the interactions among them. `One significant recent discovery in the field of complex networks is the observation that a number of large-scale and complex networks are scale-free, that is, their connectivity distributions have the
 power-law form'~\cite{wang2002synchronization}.
+
+
+Self-organized criticality has been proposed as a framework to understand various phenomena in nature ranging from earthquakes, forest fires to neuronal activity in the brain.
+Avalanche Dynamics: In self-organized critical systems, events or disturbances can lead to cascading effects, causing a series of interconnected events or "avalanches." The size distribution of these avalanches often follows a power-law distribution ~\cite{beggs2004neuronal, plenz2007organizing}.
+
+The power-law form in connectivity distributions refers to a specific mathematical relationship that characterizes the distribution of connections or links among elements in a network. In a power-law distribution, the probability of a node having k connections (degree) is proportional to k raised to the power of a negative exponent.
+
+Mathematically, the power-law distribution is often expressed as:
+\(P(k)  \sim  k^\gamma\)
+\begin{eqSystem}\label{eq:Power-law}
+    P(k)  \sim  k^\gamma
+\end{eqSystem}
+
+$P(k)$ is the probability that a node has $k$ connections.
+$\gamma$ is the exponent characterizing the power-law distribution.
+
 
 
 ...
@@ -146,25 +162,20 @@ As such, the exploration begins by investigating simplified \gls{hh} derived mod
 \subsection{FitzHugh-Nagumo}
 ``The models in this category are highly simplified toy models that qualitatively describe the membrane voltage as a function of input. They are mainly used for didactic reasons in teaching but are not considered valid neuron models for large-scale simulations or data fitting''.\footnote{Wikipedia} 
 %\subsubsection{Didactic toy model}
-\begin{subequations}\label{eq:FitNagSys}
-    \begin{align}
-        \ode{V}{t} &= V - \frac{V^3}{3} - w + I_{ext} \\ 
-        \tau\ode{w}{t} &= V - a - b\,w 
-    \end{align}
-\end{subequations}
-
+\begin{eqSystem}\label{eq:FitNagSys}
+    \ode{V}{t} &= V - \frac{V^3}{3} - w + I_{ext} \\ 
+    \tau\ode{w}{t} &= V - a - b\,w 
+\end{eqSystem}
 
 \subsection{Chay}
 In 1985, T.R. Chay proposed a model of three-dimensional \gls{gls:nonlinear} differential equations based on the \gls{hh} model to study chaotic behavior and show ionic events in excitable membranes. 
-\begin{subequations}\label{eq:ChaySys}
-    \begin{align}
-        \ode{V}{t} &= g_\rmm{I}  m^3_\infty h_\infty \br{V_\rmm{I} - V} + g_\rmm{K, V} n^4 \br{V_\rmm{K} - V} + g_\rmm{K, C}  \frac{C}{1+C}\br{V_\rmm{K} - V} + g_\rmm{L} \br{V_m - V_\rmm{L}} \\ 
-        \ode{n}{t} &= \frac{n_\infty - n}{\tau_n} \\
-        \ode{C}{t} &= \rho \, \sbr{m^3_\infty h_\infty \br{V_c - V} - k_C C}
-    \end{align}
-\end{subequations}
+\begin{eqSystem}\label{eq:ChaySys}
+    \ode{V}{t} &= g_\rmm{I}  m^3_\infty h_\infty \br{V_\rmm{I} - V} + g_\rmm{K, V} n^4 \br{V_\rmm{K} - V} + g_\rmm{K, C}  \frac{C}{1+C}\br{V_\rmm{K} - V} + g_\rmm{L} \br{V_m - V_\rmm{L}} \\ 
+    \ode{n}{t} &= \frac{n_\infty - n}{\tau_n} \\
+    \ode{C}{t} &= \rho \, \sbr{m^3_\infty h_\infty \br{V_c - V} - k_C C}
+\end{eqSystem}
 
-where \textit{V}, \textit{n}, and \textit{C} are membrane potential, probability of the voltage-sensitive \(\Kp\) channel, and intracellular concentration of \(\Capp\) ions, respectively. The Chay model parameters are adopted from \textit{`paper'} and collected in Table
+where \textit{V}, \textit{n}, and \textit{C} are membrane potential, probability of the voltage-sensitive \gls{K} channel, and intracellular concentration of \gls{Ca} ions, respectively. The Chay model parameters are adopted from \textit{`paper'} and collected in Table
 
 The \(m_\infty\), \(h_\infty\), and \(n_\infty\) are calculated by \(y_\infty = \alpha_y / \br{\alpha_y + \beta_y} \) formula, and the explicit expressions for 
 \(\alpha_m, \beta_m, \alpha_h, \beta_h, \alpha_n, \beta_n\), and \(\tau_n\) are given by:
@@ -187,31 +198,36 @@ The \gls{hh} model of Action Potential is a system of \gls{gls:nonlinear} differ
 Mathematically, the flow of current is represented as:
     \begin{align}
         I_c &= C_m \ode{V_m}{t} \\
-        \intertext{and the current through a given ion channel is the product of that channel's conductance and the reversal potential for the specific ion}
-        I_\bfm{ion} &= {g_\bfm{ion}}(V_\rmm{m}-V_i)  
+        \intertext{and the current through a given ion channel is the product of that channel's \gls{gls:conductance} and the reversal potential for the specific ion}
+        I_\bfm{ion} &= {g_\bfm{ion}}(V_\rmm{m}-V_\bfm{ion})  
     \end{align}
-        where \(V_\bfm{ion}\) is the reversal potential of the specific ion channel. Thus, for a cell with sodium and potassium channels, the total current through the membrane is given by:
-    \begin{subequations}\label{eq:HodHuxSys}
-        \begin{equation}
-            I = C_m \ode{V_m}{t} + \bar{g}_\rmm{K} n^4 \br{V_m - V_\rmm{K}} + \bar{g}_\rmm{Na} m^3 h \br{V_m - V_\rmm{Na}}  + \bar{g}_\rmm{L} \br{V_m - V_\rmm{L}} 
-        \end{equation}
-The duo of Hodgkin and Huxley divined the model from observing the smooth current changes in terms of pores or channels that were either open or closed, and by using a statistical approach generated predictions for the probability of channels being open. 
+where \(V_\bfm{ion}\) is the reversal potential of the specific ion channel. Thus, for a cell with sodium and potassium channels, the total current through the the membrane can be defined by:
+\begin{equation}
+     I  =  I_c + \sum_{i = 1}^{p} I_i =  I_c + \sum_{i = 1}^{p} g_\bfm{ion} \cdot \br{V_\rmm{m}-V_\bfm{ion}} 
+\end{equation} 
+with \(I\) representing the total membrane current per unit area; 
+\begin{alignat}{5}
+    &\quad I &&= \quad I_c \quad&&+ \quad I_\rmm{K} \quad&&+ \quad I_\rmm{Na} \quad&&+ \quad I_\rmm{L} \\ 
+    \implies &\quad I &&= C_m \ode{V_m}{t} &&+ {g}_\rmm{K}\br{V_m - V_\rmm{K}} &&+ {g}_\rmm{Na} \br{V_m - V_\rmm{Na}}  &&+ {g}_\rmm{L} \br{V_m - V_\rmm{L}} 
+\end{alignat}
+Where \(C_m\) the membrane capacitance per unit area; and \({g}_\rmm{K}\), \(V_\rmm{K}\), along with  \({g}_\rmm{Na}\), \(V_\rmm{Na}\) make up the \gls{gls:conductance} and \gls{gls:rPotential} of \gls{K} and \gls{Na} respectively.
+The directly time dependent element of this equation is \(V_m\), with \({g}_\rmm{Na}\), and \({g}_\rmm{K}\) are time dependant by virtue of explicit dependence on the membrane voltage \(\br{V_m}\). 
 
-Accounting for the current through a any given ion channel is the product of the channel's conductance and equilibrium potential for the specific ion.
-These `gating' variables \(m\) and \(h\), or \(n\) describe the time dependent kinetics of the voltage
-        \begin{align}
-            \ode{n}{t} &= \alpha_n \br{V_m} \br{1-n} - \beta_n \br{V_m} n \\
-            \ode{m}{t} &= \alpha_m \br{V_m} \br{1-m} - \beta_m \br{V_m} m \\
-            \ode{h}{t} &= \alpha_h \br{V_m} \br{1-h} - \beta_h \br{V_m} h 
-        \end{align}
-    \end{subequations}
+Through long term experimentation, the duo of Hodgkin and Huxley divined a model built from the observations of smooth current change as a function of pores (or channels) that were either open or closed. By using a statistical approach, H\&H generated predictions for the probability of channels being open or closed at a given time in the process~\cite{HodHux1939}. H\&H presented the model as a set of four \glspl{ode} with respect to time.
+\begin{eqSystem}\label{eq:HodHuxSys}
+    C_m \ode{V_m}{t} &= I_m - \br{\bar{g}_\rmm{K} n^4 \br{V_m - V_\rmm{K}} + \bar{g}_\rmm{Na} m^3 h \br{V_m - V_\rmm{Na}}  + \bar{g}_\rmm{L} \br{V_m - V_\rmm{L}}} \\
+    \ode{n}{t} &= \alpha_n \br{V_m} \br{1-n} - \beta_n \br{V_m} n \\
+    \ode{m}{t} &= \alpha_m \br{V_m} \br{1-m} - \beta_m \br{V_m} m \\
+    \ode{h}{t} &= \alpha_h \br{V_m} \br{1-h} - \beta_h \br{V_m} h 
+\end{eqSystem}
 
+The `gating' variables \(m\) and \(h\), or \(n\) describe the time dependent kinetics of the voltage
 The ion channel activation/inactivation\footnotemark~probabilities, denoted by \(\alpha_p, \, \beta_p : \, \br{n,m,h} \in p\), are defined such that:
 \begin{align}
     \alpha_p\br{V_m} &= p_\infty \br{V_m} / \tau_p \\
     \beta_p\br{V_m}  &= \br{1 - p_\infty \br{V_m}} / \tau_p 
 \end{align}
-With \(p_\infty\) and its inverse \(1-p_\infty\) being the steady state values for activation and inactivation respectively~\cite{}. 
+With \(p_\infty\) and its inverse \(1-p_\infty\) being the steady state values for activation and inactivation respectively~\cite{HodHux1952}. 
 \footnotetext{\underline{a}ctivation gives \(\alpha\), \underline{b}nactivation gives \(\beta\), really these are the obvious choices}
 
 
@@ -256,6 +272,17 @@ Where \(V = V_\rmm{rest} - V_m\) represents the polarization in \unit{\milli\vol
 In order to characterize the ion-channels, the equations can be fitted to voltage clamp\footnotemark~data.
 
 \footnotetext{An assay that measures the flow of current through a neuronal cell membrane by `clamping' the potential at an unchanging value.}
+
+
+
+\begin{table}[htb]
+    \centering
+    \caption{Caption}\label{tab:my_label}
+    \begin{tabular}{p{0.20\textwidth}p{0.20\textwidth}p{0.20\textwidth}}\hline
+        Description & Parameter & Value \\\hline
+         & &
+    \end{tabular}
+\end{table}
 
 \begin{comment}
     Breaking down the equation we find the following regions:

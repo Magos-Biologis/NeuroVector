@@ -88,16 +88,16 @@ As most of the terms are constants, its simple to reduce the equation down in di
     %E_\bfm{ion} &= \br{\frac{ {8.314} \, \cdot \,  t \, \unit{\cubic\meter\pascal} }{ z\, \cdot \, \qty{96500}{\coulomb}} } \,\ln \br{ \frac{\sbr{\bfm{ion}}_\clm{E} }{ \sbr{\bfm{ion}}_\clm{I}} } \\
     %
     \intertext{dividing and rearranging the terms:}
-    E_\bfm{ion} &= \br{\frac{ t \, \unit{\cubic\meter\pascal} }{ z\, \cdot \, \qty{11607}{\coulomb} } } \cdot \,\ln \br{ \frac{\sbr{\bfm{ion}}_\clm{E} }{ \sbr{\bfm{ion}}_\clm{I}} } \\
+    E_\bfm{ion} &= \br{\frac{ t \, \unit{\cubic\meter\pascal} }{ z\, \cdot \, \qty{11612.515042118}{\coulomb} } } \cdot \,\ln \br{ \frac{\sbr{\bfm{ion}}_\clm{E} }{ \sbr{\bfm{ion}}_\clm{I}} } \\
     %
     \intertext{converting the unit of pressure, pascal \tbr{\unit{\pascal}} to the base units representing mass over an area over time \tbr{\unit{\kilo\gram\per\meter\per\square\second}}, as well converting the unit for charge, a \gls{gls:coulomb} \tbr{\unit{\coulomb}}, to the base units denoting the quantity of current in a second, \tbr{\unit{\ampere\second}}, gives the substitution:}
-    E_\bfm{ion} &= \br{\frac{ t \, \unit{\cubic\meter\kilo\gram\per\meter\per\square\second} }{ z\, \cdot \, \qty{11607}{\ampere\second} } } \cdot \,\ln \br{ \frac{\sbr{\bfm{ion}}_\clm{E} }{ \sbr{\bfm{ion}}_\clm{I}} } \\
+    E_\bfm{ion} &= \br{\frac{ t \, \unit{\cubic\meter\kilo\gram\per\meter\per\square\second} }{ z\, \cdot \, \qty{11612.515042118}{\ampere\second} } } \cdot \,\ln \br{ \frac{\sbr{\bfm{ion}}_\clm{E} }{ \sbr{\bfm{ion}}_\clm{I}} } \\
     \intertext{at this point we're only left with base SI units, so we need to be a little silly, the unit of magnetic flux is defined \(\unit{\weber} = \unit{\kilo\gram\square\meter\per\square\second\per\ampere}\), implying through substitution \(\unit{\kilo\gram\square\meter\per\cubic\second\per\ampere} = \unit{\weber\per\second} \):}
-    E_\bfm{ion} &= \frac{ t  }{ z\, \cdot \, \num{11607}} \cdot \br{\unit{\weber\per\second}} \cdot \,\ln \br{ \frac{\sbr{\bfm{ion}}_\clm{E} }{ \sbr{\bfm{ion}}_\clm{I}} } \\
+    E_\bfm{ion} &= \frac{ t  }{ z\, \cdot \, \num{11612.515042118}} \cdot \br{\unit{\weber\per\second}} \cdot \,\ln \br{ \frac{\sbr{\bfm{ion}}_\clm{E} }{ \sbr{\bfm{ion}}_\clm{I}} } \\
     %
     \intertext{a unit describing the rate of change of magnetic charge per second, which sounds a lot like a volt, \unit{\volt}, oh wait, \(\unit{\volt} = \unit{\kilo\gram\square\meter\per\cubic\second\per\ampere} = \unit{\weber\per\second} \), the combination of units found through deconstruction is the literal base unit definition of a volt:}
-    E_\bfm{ion} &= \frac{ t }{ z\, \cdot \, \num{11607}} \cdot \,\ln \br{ \frac{\sbr{\bfm{ion}}_\clm{E} }{ \sbr{\bfm{ion}}_\clm{I}} } \unit{\volt} \label{eq:derivedNerst}
-    %E_\bfm{ion} &= \cfrac{ t \cdot \,\ln \br{ \cfrac{\sbr{\bfm{ion}}_\clm{E} }{ \sbr{\bfm{ion}}_\clm{I}} }  }{ z\, \cdot \, \num{11607}}  \cdot \unit{\volt} \cdot  \qty{1000}{\milli\volt\per\volt} \\
+    E_\bfm{ion} &= \frac{ t }{ z\, \cdot \, \num{11612.515042118}} \cdot \,\ln \br{ \frac{\sbr{\bfm{ion}}_\clm{E} }{ \sbr{\bfm{ion}}_\clm{I}} } \unit{\volt} \label{eq:derivedNerst}
+    %E_\bfm{ion} &= \cfrac{ t \cdot \,\ln \br{ \cfrac{\sbr{\bfm{ion}}_\clm{E} }{ \sbr{\bfm{ion}}_\clm{I}} }  }{ z\, \cdot \, \num{11612.515042118}}  \cdot \unit{\volt} \cdot  \qty{1000}{\milli\volt\per\volt} \\
     %E_\bfm{ion} &= \cfrac{ t \cdot \,\ln \br{ \cfrac{\sbr{\bfm{ion}}_\clm{E} }{ \sbr{\bfm{ion}}_\clm{I}} } }{ z\, \cdot \, 1 \, 160}  \ \unit{\milli\volt}
 \end{align}
 %{Volume Concentration \per\kelvin\per\mol}
@@ -107,34 +107,34 @@ As most of the terms are constants, its simple to reduce the equation down in di
 \begin{subequations}\label{eq:mVions}
 With minor adjustments to \cref{eq:derivedNerst}, the now derived form of \cref{eq:nernst}, one is able to get
 \begin{equation}
-    E_\bfm{ion} =   \cfrac{t}{ z } \, \cdot \, \ln \br{ \cfrac{\sbr{\bfm{ion}}_\clm{E} }{ \sbr{\bfm{ion}}_\clm{I}} } \cdot 1 \, 160^{-1}  \ \unit{\milli\volt} \tag{\ref*{eq:mVions}}
+    E_\bfm{ion} =   \cfrac{t}{ z } \, \cdot \, \ln \br{ \cfrac{\sbr{\bfm{ion}}_\clm{E} }{ \sbr{\bfm{ion}}_\clm{I}} } \cdot \num{11.612515042}^{-1}  \ \unit{\milli\volt} \tag{\ref*{eq:mVions}}
 \end{equation}
 Plugging the relative concentrations, measured in concetration \tbr{\unit{\milli\mol}}, of each ion into \cref{eq:mVions}, as well as choosing an arbitrary temperature of \qty{293.15}{\glssymbol{gls:kelvin}},
 the equilibrium potential of each ion follows as:
 
-\begin{minipage}{.45\textwidth}
+\begin{minipage}{.48\textwidth}
     \begin{align}
-        {E_{\rmm{Na}}} &= \num{293.15}\  \ln \br{ \frac{140}{14} }\cdot 1 \, 160^{-1} =  \qty{0}{\mV} \\
-        {E_\rmm{K}}    &= \num{293.15}\  \ln \br{ \frac{3}{140} }\cdot 1 \, 160^{-1}  =  \qty{0}{\mV} 
+        {E_{\rmm{Na}}} &= \num{293.15}\  \ln \br{ \frac{140}{14} }\cdot \num{11.612515042}^{-1} =  \qty{58.127185848}{\mV} \\
+        {E_\rmm{K}}    &= \num{293.15}\  \ln \br{ \frac{3}{140} }\cdot \num{11.612515042}^{-1}  =  \qty{-97.014667339}{\mV} 
     \end{align}
 \end{minipage}
 ~
 \vrule
 ~
-\begin{minipage}{.45\textwidth}
+\begin{minipage}{.48\textwidth}
     \begin{align}
-        {E_\rmm{Ca}}   &= \frac{293.15}{2}\  \ln \br{ \frac{1.5}{10^{-4}} }\cdot 1 \, 160^{-1} =  \qty{0}{\mV} \\
-        {E_\rmm{Cl}}   &= \num{-293.15}\ \ln \br{ \frac{146}{14} }\cdot 1 \, 160^{-1} =  \qty{0}{\mV} 
+        {E_\rmm{Ca}}   &= \frac{293.15}{2}\  \ln \br{ \frac{1.5}{10^{-4}} }\cdot \num{11.612515042}^{-1} =  \qty{121.372216367}{\mV} \\
+        {E_\rmm{Cl}}   &= \num{-293.15}\ \ln \br{ \frac{146}{14} }\cdot \num{11.612515042}^{-1} =  \qty{-59.186543354}{\mV} 
     \end{align}
 \end{minipage}
 
 \end{subequations}
 
 These equations can be interpreted such that when
- \gls{K} channels open in the membrane, the efflux of \gls{K} ions will hyper-polarize the membrane until \(\Vm = E_\rmm{K} = \qty{-97}{\mV}\), at which point the net flux of \gls{K} is null being that \gls{K} ions have exactly the same potential to move towards the extracellular space as the intracellular space. 
+ \gls{K} channels open in the membrane, the efflux of \gls{K} ions will hyper-polarize the membrane until \(\Vm = E_\rmm{K} \approx \qty{-97}{\mV}\), at which point the net flux of \gls{K} is null being that \gls{K} ions have exactly the same potential to move towards the extracellular space as the intracellular space. 
 The efflux of \gls{K} will be exactly compensated by the influx of \gls{K} and the \gls{gls:mPotential} will stabilize at \(\Vm = E_\rmm{K} \) for as long as the \gls{K} channels stay open. 
 Assuming only \gls{Na} channels are open, the \gls{gls:mPotential} will move toward \(\Vm = \qty{58}{\mV}\), the potential at which the net flux of \gls{Na} is null. 
-Similarly, when \(\Vm = E_\rmm{Cl} = \qty{-59}{\mV}\),  
+Similarly, when \(\Vm = E_\rmm{Cl} \approx \qty{-59}{\mV}\),  
 %\gls{Cl} ions have the  tendency to move down their concentration gradient than to move in the reverse direction according to \gls{gls:mPotential}, 
 the net flux of \gls{Cl} is null. 
 By extension, should \(\Vm \neq E_\rmm{K}\), the net flux of  \gls{K} will no longer be null. 

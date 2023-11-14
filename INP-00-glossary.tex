@@ -161,7 +161,7 @@
 
 % Electro
 
-\newglossaryentry{gls:circuit diagram}{
+\newglossaryentry{gls:circuit}{
         name   = {Circuit diagram},
         text   = {circuit diagram},
         description = {an illustration of an electrical curcuit}
@@ -185,9 +185,9 @@
         description = {a device that creates resistance in a circuit}
 }
 
-\newglossaryentry{gls:variable resistors}{
-        name   = {Variable risistors},
-        text   = {variable resistors},
+\newglossaryentry{gls:varresistor}{
+        name   = {Variable risistor},
+        text   = {variable resistor},
         description = {a device that can both act as a resistor and as a conductor}
 }
 
@@ -222,6 +222,13 @@
         text   = {stochastic},
         description = {an equation that has an element of randomness to it}
 }
+
+\newglossaryentry{gls:rPotential}{
+        name   = {Reversal Potential},
+        text   = {reversal potential},
+        description = {the equilibrium point for passive diffusion of a given ion}
+}
+
 
 \newglossaryentry{gls:discrete}{
         name   = {Discrete},
@@ -262,7 +269,7 @@
 \newglossaryentry{gls:spiral}{
         name   = {Spiral sink},
         text   = {spiral sink},
-        description = {}
+        description = {\textit{let that sink in}}
 }
 
 \newglossaryentry{gls:equilibrium}{
@@ -270,6 +277,12 @@
         text   = {equilibrium},
         plural = {equilibria},
         description = {places where all equations are equal to zero}
+}
+
+\newglossaryentry{gls:conductance}{
+        name   = {Conductance},
+        text   = {conductance},
+        description = {the measure of how conductive something is?}
 }
 
 \newglossaryentry{gls:saddle}{
@@ -357,20 +370,26 @@
 
 %%%%%%%% chemtry
 
-\newacronym[description = {cation with element number 19, an alkali metal}, sort = {elK}]{K}{\ensuremath{\mathrm{K^+}}}{potassium}
+\newacronym[description = {cation with element number 19, an alkali metal}, sort = {0K}]{K}{\ensuremath{\mathrm{K^+}}}{potassium}
 
-\newacronym[description = {cation with element number 11, a highly reactive alkali metal}, sort = {elNa}]{Na}{\ensuremath{\mathrm{Na}^+}}{sodium}
+\newacronym[description = {cation with element number 11, a highly reactive alkali metal}, sort = {0Na}]{Na}{\ensuremath{\mathrm{Na}^+}}{sodium}
 
-\newacronym[description = {anion with element number 17, the second-lightest of the halogens}, sort = {elCl}]{Cl}{\ensuremath{\mathrm{Cl}^-}}{chlorine}
+\newacronym[description = {anion with element number 17, the second-lightest of the halogens}, sort = {0Cl}]{Cl}{\ensuremath{\mathrm{Cl}^-}}{chlorine}
 
-\newacronym[description = {cation with element number 20, an alkaline earth metal}, sort = {elCa}]{Ca}{\ensuremath{\mathrm{Ca}^{2+}}}{calcium}
+\newacronym[description = {cation with element number 20, an alkaline earth metal}, sort = {0Ca}]{Ca}{\ensuremath{\mathrm{Ca}^{2+}}}{calcium}
 
 
 
-\newacronym{er}{ER}{Endoplasmic Reticulum}
 
 
 % Dual entry is a custom command, just ask Anakin if you want to us it
-\newdualentry{hh}{HH}{Hodgekin-Huxely}{model of neuron action potential over time}
+\newDualEntry{er}{ER}{Endoplasmic Reticulum}{organelle in eurkaryote cell responsible for protein and lipid construction}
+
+\newDualEntry{hh}{HH}{Hodgkin-Huxely}{model of neuron action potential over time}
+
+\newDualEntry[sort = {difO}][sort = {difO}]{ode}{ODE}{ordinary differential equation}{a differential equation with respect to a single variables}
+
+\newDualEntry[sort = {difP}][sort = {difP}]{pde}{PDE}{partial differential equation}{a differential equation with respect to multiple variables}
+
 
 %\newacronym{lcm}{LCM}{Least Common Multiple}

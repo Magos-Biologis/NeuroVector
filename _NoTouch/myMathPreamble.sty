@@ -93,7 +93,7 @@
 }
 
 % Custom enviroment for making systems of equations built off amsmath align enviroment
-\newenvironment{eqsystem}{%
+\newenvironment{eqSystem}{%
     \refstepcounter{equation}%
     \protected@edef\theparentequation{\theequation}%
     \setcounter{parentequation}{\value{equation}}%
@@ -173,7 +173,7 @@
 \newcommand{\clm}[1]{\mathcal{#1}}
 \newcommand{\fkm}[1]{\mathfrak{#1}}
 
-\newcommand{\surform}[2]{\left< #1~:~#2 \right>}
+\newcommand{\surform}[2]{\ensuremath{\left< #1~:~#2 \right>}}
 
 \providecommand{\N}{\mathbb{N}}
 \providecommand{\Z}{\mathbb{Z}}

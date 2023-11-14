@@ -7,9 +7,8 @@
 
 %\RequirePackage{csquotes} % Babel wants it
 %\RequirePackage{babel} 
+
 \RequirePackage[nomath]{lmodern} % Latin modern font
-
-
 % Best imported after fonts.
 \RequirePackage[T1]{fontenc} % I believe this encodes fonts into your PDF.
 
@@ -26,37 +25,39 @@
 % ========================= Class Basis
 
 
-\DeclareOption{draft}{
+\DeclareOption{draft}{%
     \PassOptionsToClass{\CurrentOption}{report}
     \PassOptionsToPackage{\CurrentOption}{graphicx}
-}
+    }
 
-\DeclareOption{a4}{
+\DeclareOption{a4}{%
     \PassOptionsToClass{a4paper}{report}
     \PassOptionsToPackage{a4paper}{geometry}
-}
+    }
 
-\DeclareOption{noindent}{
-    \AtBeginDocument{\noindent}
-}
+\DeclareOption{noindent}{%
+    \AtBeginDocument{%
+        \setlength{\parindent}{0em} % Paragraph indents
+        }
+    }
 
 
 % ========================= User Options
 
 
-\DeclareOption{RaggedRight}{
+\DeclareOption{RaggedRight}{%
     \PassOptionsToPackage{document}{ragged2e}
-}
+    }
 
-\DeclareOption{printGloss}{
+\DeclareOption{printGloss}{%
     \PassOptionsToPackage{\CurrentOption}{_NoTouch/myReferencePreamble}
-}
-\DeclareOption{printUnit}{
+    }
+\DeclareOption{printUnit}{%
     \PassOptionsToPackage{\CurrentOption}{_NoTouch/myReferencePreamble}
-}
-\DeclareOption{printAll}{
+    }
+\DeclareOption{printAll}{%
     \PassOptionsToPackage{print,printUnit,printMath}{_NoTouch/myReferencePreamble}
-}
+    }
 
 
 % ======================== Class Bibliography Options =====================
@@ -76,7 +77,12 @@
 \AtEndOfClass{
     \glsdisablehyper
     \setacronymstyle{long-sc-short}
-}
+    }
+
+
+\AtEndOfClass{% for number rounding
+    \sisetup{round-mode=places, round-precision=2}
+    }
 
 % ========================= no more Options
 
@@ -143,13 +149,17 @@
 
 \AtBeginEnvironment{tabular}{%
     \rowcolors{1}{white}{gray!30} % Table row coloration
-    \setlength{\arrayrulewidth}{0pt} % Table line widths
+    \setlength{\arrayrulewidth}{1pt} % Table line widths
     \setlength{\tabcolsep}{3pt} % Table padding horizontally
     \renewcommand{\arraystretch}{1.5} % Table padding vertically
 }
 
 \providecommand{\red}{\color{red!80!black}}
 \providecommand{\blue}{\color{blue!80!black}}
+
+
+\renewcommand{\thefootnote}{\fnsymbol{footnote}}
+
 
 \DeclareCaptionFont{red}{\red}
 \DeclareCaptionFont{blue}{\blue}
