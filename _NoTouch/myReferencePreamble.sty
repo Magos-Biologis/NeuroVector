@@ -45,6 +45,8 @@
 % =========================== Packages =======================================
 
 \RequirePackage[hidelinks]{hyperref}    % For hyperlinks
+\PassOptionsToPackage{hyperref}{ntheorem}
+
 \RequirePackage{cleveref}               % For configuration of references
 
 \RequirePackage[%
@@ -122,6 +124,8 @@
         #2 %
         ]{#3}{#4}{#5\glsadd{gls:#3}}
 }
+
+
 
 %\newDualEntry[<glossaryoptions>][<acronymoptions>]{<key>}{<short>}{<long>}{<description>}
 

@@ -1,23 +1,10 @@
 \NeedsTeXFormat{LaTeX2e}
 \ProvidesClass{myProject}[Anakin's personalized project class]
-% ========================= Preamble Packages ================================
-
-% It's 2022. UTF-8 input for TeX. 
-\RequirePackage[utf8]{inputenc}
-
-%\RequirePackage{csquotes} % Babel wants it
-%\RequirePackage{babel} 
-
-\RequirePackage[nomath]{lmodern} % Latin modern font
-% Best imported after fonts.
-\RequirePackage[T1]{fontenc} % I believe this encodes fonts into your PDF.
-
-
 % ========================= Tools for package ================================
 
 \RequirePackage{ifthen}     % Guess what it does, I dare you
 \RequirePackage{etoolbox}   % Includes a lot of useful macros for customizations
-\RequirePackage{xkeyval}     % More useful macros
+\RequirePackage{xkeyval}    % More useful macros
 \RequirePackage{xparse}     % More useful macros
 
 %\usepackage{iftex} % Allows for if Lua LaTeX commands
@@ -59,31 +46,6 @@
     \PassOptionsToPackage{print,printUnit,printMath}{_NoTouch/myReferencePreamble}
     }
 
-
-% ======================== Class Bibliography Options =====================
-
-\PassOptionsToPackage{%
-        sorting     = none,%
-        maxbibnames = 99,%
-        url         = false,%
-        style       = numeric-comp,%
-    }{biblatex}
-\PassOptionsToPackage{%
-        toc, %
-        xindy, %
-        style   = index, %
-    }{glossaries}
-    
-\AtEndOfClass{
-    \glsdisablehyper
-    \setacronymstyle{long-sc-short}
-    }
-
-
-\AtEndOfClass{% for number rounding
-    \sisetup{round-mode=places, round-precision=2}
-    }
-
 % ========================= no more Options
 
 \DeclareOption*{%
@@ -98,7 +60,18 @@
 
 \LoadClass[a4paper, 11pt]{report}
 
-% Colors/Visuals/Figures Functions
+% ========================= Text Packages 
+
+% It's 2022. UTF-8 input for TeX. 
+\RequirePackage[utf8]{inputenc}
+%\RequirePackage{csquotes} % Babel wants it?
+%\RequirePackage{babel} 
+
+\RequirePackage[protrusion=true,expansion]{microtype}
+% Best imported after fonts.
+\RequirePackage[T1]{fontenc} % I believe this encodes fonts into your PDF.
+
+% ========================= Colors/Visuals/Figures Function
 
 \RequirePackage[table, dvipsnames]{xcolor} % allows for more exciting colors
 \RequirePackage{graphicx}       % supplement for the built-in graphics package
@@ -117,15 +90,15 @@
 \RequirePackage{array} % used for easy access in working memory
 \RequirePackage[outline]{contour} % Glow around text
     
-% Format margins, headers and footers
+% ========================= Format margins, headers and footers
 
 \RequirePackage{datetime} % for generating dates and time
 \RequirePackage{lastpage} 
 
 \RequirePackage[%
-        a4paper, centering,%
-        vscale = 0.80, hscale = 0.75,%
-        %total = {170mm,250mm},
+    a4paper, centering,%
+    vscale = 0.80, hscale = 0.75,%
+    %total = {170mm,250mm},
     ]{geometry} % Page margins
 
 \RequirePackage{fancyhdr} % for generating dates and time
@@ -138,21 +111,49 @@
 \RequirePackage{setspace} % Line spacing
 \RequirePackage{ragged2e} % Text Justifier
 
+
+
+% ======================== Class Bibliography Options =====================
+
+\PassOptionsToPackage{%
+    sorting     = none,%
+    maxbibnames = 99,%
+    url         = false,%
+    style       = numeric-comp,%
+    }{biblatex}
+\PassOptionsToPackage{%
+    nonumberlist,%
+    toc, %
+    xindy, %
+    style   = index, %
+    }{glossaries}
+    
+\AtEndOfClass{
+    \glsdisablehyper
+    \setacronymstyle{long-sc-short}
+    }
+
+
+\AtEndOfClass{% for number rounding
+    \sisetup{drop-zero-decimal=true, round-mode=places, round-precision=2}
+    }
+
 % ======================== Custom Packages ================================
 
 \RequirePackage{_NoTouch/myMathPreamble}
 
-\RequirePackage{_NoTouch/myReferencePreamble}
 
+\RequirePackage{_NoTouch/myReferencePreamble}
 
 % ====================== Tweaks and settings ================================
 
-\AtBeginEnvironment{tabular}{%
+\AtBeginEnvironment{table}{%
     \rowcolors{1}{white}{gray!30} % Table row coloration
     \setlength{\arrayrulewidth}{1pt} % Table line widths
     \setlength{\tabcolsep}{3pt} % Table padding horizontally
     \renewcommand{\arraystretch}{1.5} % Table padding vertically
-}
+    \sisetup{per-mode = symbol}
+    }
 
 \providecommand{\red}{\color{red!80!black}}
 \providecommand{\blue}{\color{blue!80!black}}

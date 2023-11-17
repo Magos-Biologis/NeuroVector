@@ -20,12 +20,10 @@
 
 % ========================= Math Packages
 
-\RequirePackage{framed}     % Frames for text
 \RequirePackage{mathtools}  % includes amsmath, and increased math utility functions
+\RequirePackage[standard, amsmath]{ntheorem}  % Math Theorems
 
 \RequirePackage{cancel}  % Striking through text \cancel{x}
-\RequirePackage[hyperref, standard, amsmath]{ntheorem}  % Math Theorems
-
 \RequirePackage{MnSymbol}
 
 \RequirePackage{siunitx} % elegant SI units
@@ -85,16 +83,44 @@
     \protected@edef\theparentequation{\theequation}%
     \setcounter{parentequation}{\value{equation}}%
     \setcounter{equation}{0}%
-    \def\theequation{\theparentequation{}\,\,\roman{equation}}%
+    \def\theequation{\ensuremath{\theparentequation{}_\mathrm{\,\roman{equation}}}}%
     \ignorespaces%
 }{%
     \setcounter{equation}{\value{parentequation}}%
     \ignorespacesafterend
 }
 
+
 % Custom enviroment for making systems of equations built off amsmath align enviroment
-\newenvironment{eqSystem}{%
-    \refstepcounter{equation}%
+%\newenvironment{sysEquation}{%
+%    \refstepcounter{equation}%
+%    \protected@edef\theparentequation{\theequation}%
+%    \setcounter{parentequation}{\value{equation}}%
+%    \setcounter{equation}{0}%
+%    \def\theequation{\theparentequation-\Alph{equation}}%
+%    %
+%    \start@align\@ne\st@rredfalse\m@ne
+%    %
+%    \ignorespaces%
+%}{%
+%    \math@cr \black@\totwidth@
+%    \egroup
+%    \ifingather@
+%        \restorealignstate@
+%        \egroup
+%        \nonumber
+%        \ifnum0=‘{\fi\iffalse}\fi
+%    \else
+%        $$%
+%    \fi
+%    %
+%    \setcounter{equation}{\value{parentequation}}%
+%    \ignorespacesafterend%
+%}
+
+% xparse strat
+\ProvideDocumentEnvironment{sysEquation}{ O{\theequation} +b }{%
+    \refstepcounter{equation}\label{eq:#1}%
     \protected@edef\theparentequation{\theequation}%
     \setcounter{parentequation}{\value{equation}}%
     \setcounter{equation}{0}%
@@ -103,21 +129,25 @@
     \start@align\@ne\st@rredfalse\m@ne
     %
     \ignorespaces%
-}{%
-    \math@cr \black@\totwidth@
-    \egroup
-    \ifingather@
-        \restorealignstate@
-        \egroup
-        \nonumber
-        \ifnum0=‘{\fi\iffalse}\fi
-    \else
+    %
+    #2
+    }{%
+    \math@cr \black@\totwidth@%
+    \egroup%
+    \ifingather@%
+        \restorealignstate@%
+        \egroup%
+        \nonumber%
+        \ifnum0=‘{\fi\iffalse}\fi%
+    \else%
         $$%
-    \fi
+    \fi%
     %
     \setcounter{equation}{\value{parentequation}}%
     \ignorespacesafterend%
-}
+    }
+
+
 %\def\env@cases{%
 %    \let\@ifnextchar\new@ifnextchar
 %    \left\lbrace
@@ -129,10 +159,10 @@
 
 \addtolength{\jot}{0.75em} % Increases row padding between equations
 
-\abovedisplayskip=12pt
-\belowdisplayskip=12pt
-\abovedisplayshortskip=0pt
-\belowdisplayshortskip=7pt
+\abovedisplayskip       = 12pt
+\belowdisplayskip       = 12pt
+\abovedisplayshortskip  = 0pt
+\belowdisplayshortskip  = 7pt
 
 % SI units
 
@@ -147,17 +177,30 @@
 \DeclareSIUnit\Molar{\textsc{m}}
 \DeclareSIUnit{\calorie}{cal}
 \DeclareSIUnit{\Calorie}{\kilo\calorie}
+
+\robustify\dots
+\sisetup{input-digits = 0123456789\dots}%
     
 % ========================= Mathy Commands ===============================
 
-\newcommand{\br}[1]{\left(\,#1\,\right)}                               % (.)
-\newcommand{\sbr}[1]{\left[\,#1\,\right]}                              % [.]
-\newcommand{\tbr}[1]{\(\left(\,\text{#1}\,\right)\)}
-\newcommand{\tsbr}[1]{\(\left[\,\text{#1}\,\right]\)}
+\NewDocumentCommand{\br}{ s m }{%
+    \IfBooleanTF {#1}{%
+        \ensuremath{\left(\,\text{#2}\,\right)}%
+        }{%
+        \ensuremath{\left(\,#2\,\right)}%
+        }%
+    } % (.)
+\NewDocumentCommand{\sbr}{ s m }{% 
+    \IfBooleanTF {#1}{%
+        \ensuremath{\left[\,\text{#2}\,\right]}%
+        }{%
+        \ensuremath{\left[\,#2\,\right]}%
+        }%
+    } % [.]
 
 \providecommand{\ode}[2]{\frac{\mathrm{d}\displaystyle#1}{\mathrm{d}\displaystyle#2}}
 \providecommand{\pde}[2]{\frac{\partial\displaystyle#1}{\partial\displaystyle#2}}
-\providecommand{\rfrac}[2]{{}^{#1}\!/_{#2}}
+\NewDocumentCommand{\rfrac}{ m m }{{}^{#1}\!/_{#2}}
 
 %\DeclareMathOperator{\argmax}{arg\,max}
 

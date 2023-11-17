@@ -3,13 +3,14 @@
 
 
 
-The Chay Model, developed by T.R. Chay in 1958, is a mathematical model designed to capture the dynamic behavior of excitable cells. Inspired by the Hodgkin-Huxley model, it offers a set of differential equations describing the changes in membrane potential (V), the probability of opening the voltage-sensitive K+ channel (n), and the dynamics of the intracellular concentration of \(\Capp\) ions (C) over time. The model includes crucial elements such as voltage-gated ion channels, steady-state variables, and capacitive variables, providing a comprehensive description of the mechanisms related to cellular excitability. This model is fundamental in computational neuroscience and, due to its three-dimensionality, presents a more realistic portrayal of the dynamic processes within excitable cells compared to other known models. One representation of the Chay model is provided below \cite{}. \\
+The Chay Model, developed by T.R. Chay in 1958, is a mathematical model designed to capture the dynamic behavior of excitable cells. Based on the Hodgkin-Huxley model, it offers a set of differential equations describing the changes in membrane potential (V), the probability of opening the voltage-sensitive \gls{K} channel (n), and the dynamics of the intracellular concentration of \gls{Ca} ions (C) over time. The model includes crucial elements such as voltage-gated ion channels, steady-state variables, and capacitive variables, providing a comprehensive description of the mechanisms related to cellular excitability. This model is uaseful in computational neuroscience and, due to its three-dimensionality, presents a more realistic portrayal of the dynamic processes within excitable cells compared to other known models that are two-dimensional. One representation of the Chay model is provided below \cite{Chay1985}. \\
 \begin{align}
     \ode{V}{t} &= g_\mathrm{I}  m^3_\infty h_\infty \br{V_\mathrm{I} - V} + g_\mathrm{K, V} n^4 \br{V_\mathrm{K} - V} + g_\mathrm{K, C}  \frac{C}{1+C}\br{V_\mathrm{K} - V} + g_\mathrm{L} \br{V_m - V} \\
     \ode{n}{t} &= \frac{n_\infty - n}{\tau_n} \\
     \ode{C}{t} &= \rho \, \sbr{m^3_\infty h_\infty \br{V_c - V} - k_C C}
 \end{align}\\
-The equations governing the rate constants are given by:
+
+The equations presenting the rate constants are given by:
 
 \begin{align*}
     \alpha_m &= 0.1 \frac{25 + V}{1 - \exp{-0.1 \, V - 2}}, &
@@ -21,7 +22,7 @@ The equations governing the rate constants are given by:
     \tau_n &= \frac{1}{ r_n \, \br{\alpha_n + \beta_n} }
 \end{align*} 
 
-In this context, $V_I$, $V_K$, and $V_L$ denote the reversal potentials for a combination of $Na^+$ and $Ca^{2+}$, $K^+$, and leakage ions, respectively. $C$ represents the concentration of intracellular $Ca^{2+}$ ions divided by their dissociation constant from the receptor. The terms $g_I$, $g_{K,V}$, $g_{K,C}$, and $g_L$ refer to the maximal conductances divided by the membrane capacitance. Here, the subscripts $I$, $(K,V)$, $(K,C)$, and $(L)$ specifically pertain to the voltage-sensitive $K^+$ channel, the $Ca^{2+}$-sensitive $K^+$ channel, and the leakage channels, respectively. Additionally, $\tau_n$ represents the relaxation time, $n_{oo}$ is the steady-state value of $n$. Furthermore, $m_{oo}$ and $h_{oo}$ denote the probabilities of activation and inactivation of the mixed channel. \cite{}.
+In this context, $V_I$, $V_K$, and $V_L$ represent the reversal potentials for a combination of $Na^+$ and $Ca^{2+}$, $K^+$, and leakage ions, respectively. $C$ represents the concentration of intracellular $Ca^{2+}$ ions divided by their dissociation constant from the receptor. The terms $g_I$, $g_{K,V}$, $g_{K,C}$, and $g_L$ refer to the maximal conductances divided by the membrane capacitance. Here, the subscripts $I$, $(K,V)$, $(K,C)$, and $(L)$ specifically address to the voltage-sensitive $K^+$ channel, the $Ca^{2+}$-sensitive $K^+$ channel, and the leakage channels, respectively. Additionally, $\tau_n$ represents the relaxation time and $n_{oo}$ is the steady-state value of $n$. Furthermore, $m_{oo}$ and $h_{oo}$ are set to  be the probabilities of activation and inactivation of the mixed channel. \cite{Chay1985}.
 
 Analyzing deeper the dynamics of the Chay model, our exploration now extends to the Jacobian matrix, a mathematical tool that illustrates the behavior of the system around equilibrium points.
 
@@ -39,7 +40,7 @@ Analyzing deeper the dynamics of the Chay model, our exploration now extends to 
     \end{pmatrix}
 \end{align*}
 
-The focus now shifts to extracting the eigenvalues from the Jacobian matrix. These eigenvalues are key to exploring the stability of the Chay model.
+We now focus on extracting the eigenvalues from the Jacobian matrix, using its determinant. These eigenvalues are key to exploring the stability of the model.
 
 \begin{align*}
     |J - \lambda I| = 
@@ -51,5 +52,30 @@ The focus now shifts to extracting the eigenvalues from the Jacobian matrix. The
 \end{align*}
 
 Negative real parts of eigenvalues indicate  stability, while positive real parts  indicate instability. Although it's difficult to find the eigenvalue signs of the Chay model, we notice that the trace of the Matrix is negative.
+
+
+\begin{table}[htb]
+    \centering
+    \caption{Parameters’ values and significations of Chay neuron model.}\label{tab:paraChay}
+    \footnotesize
+    \begin{tabular}{m{0.15\textwidth} @{}
+                    p{0.55\textwidth}  @{}
+                    m{0.15\textwidth}} \hline
+        Parameters & Significations & Values \\\hline
+        VI & Reversal potentials for mixed \gls{Na} - \gls{Ca} ions & \qty{100}{\mV} \\
+        VK & Reversal potentials for \gls{K} ions & \qty{-75}{\mV}   \\
+        VL & Reversal potentials for leakage ions & \qty{-40}{\mV} \\ 
+        VC & Reversal potentials for \gls{Ca} ions & \qty{100}{\mV} \\ 
+        gI & Maximal conductance of mixed \gls{Na} - \gls{Ca} channel & \qty{1800}{\ms\per\square\cm}   \\
+        gK,V & Maximal conductance of \gls{K} channel & \qty{1700}{\ms\per\square\cm}\\ 
+        gK,C & Maximal conductance of \gls{Ca} - sensitive \gls{K} channel & \qty{12}{\ms\per\square\cm} \\
+        gL & Maximal conductance of leakage channel & \qty{7}{\ms\per\square\cm} \\
+        rn & Relaxation time of the voltage-gated \gls{K} channel & \qty{230}{\ms}  \\
+        kc & Rate constant for the efflux of intracellular \gls{Ca} ions & \num{3.3}/\qty{18}{\, \per\ms} \\
+        {}\(\rho\) & Proportionality constant & \num{0.27} \\\hline
+    \end{tabular}
+\end{table}
+
+
 
 \end{document}

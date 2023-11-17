@@ -1,0 +1,48 @@
+
+
+\subsection*{Seizure}
+Seizures can be primarily interpreted as a dynamical disease \cite{da2003epilepsies, milton2010epilepsy} and computational models have been successful in gaining insight into and generate hypothesis to the cellular and network level brain mechanisms of seizures \cite{bazhenov2008cellular}.
+
+\subsubsection*{Definition and classification of seizures}
+
+
+
+\subsubsection{The role of neuronal networks in seizure generation}
+(or network effects )
+
+- network properties influence seizure dynamics --> connectivity and coupling strengths
+
+
+Some notes:
+- The role of neuronal networks in seizure generation
+- Models for simulating seizures
+- A chaotic process can be classified according to its fractal dimensions and Lyapunov exponent ~\cite{du2013neural}.
+- Identifying bifurcation points in neural systems 
+
+
+
+When modeling neuronal interactions, and in particular modeling of seizures, the model must reflect the fact that thousands of neurons need to interact in order to display seizure-like activity. 
+The first major roadblock becomes the quantity of neurons involved, it is not possible to measure the activity of every individual neuron, even assuming one could do so, it would be a monumental task to extract useful information from the bulk. 
+Therefore we must be smart about creating a model, choosing the `right' approach to simplify the equations can save astronomical amounts of time and effort.
+\begin{enumerate}
+    \item \textbf{Model average activity}
+    \item \textbf{Reduce parameter space}
+    \item \textbf{Tackle a smaller problem}
+\end{enumerate}
+
+
+A system can be modeled \gls{gls:deterministic}ly or contain \gls{gls:stochastic}ly. When collecting data, measurements will rarely be completely \gls{gls:deterministic}. This is not because forces act in unpredictable manner, rather that there exists far too many elements in the `real' world for any model to fully account for them. 
+As a consequence, many models will incorporate both \gls{gls:deterministic} and \gls{gls:stochastic} elements to more accurately reflect the observed data.
+\begin{enumerate}
+    \item \textbf{Model simplification}
+    \item \textbf{\Gls{gls:stochastic} activity}
+    \item \textbf{\gls{gls:stochastic} Inputs}
+\end{enumerate}
+
+
+
+\newpage
+\section{Physiological Parameters}
+It's important to determine what is even being modeled, which features can be parameterized and which can not.
+
+\subfile{parameters}

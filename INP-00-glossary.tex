@@ -25,6 +25,7 @@
 %       plural={<pluralname>}, % Used for irregular plurals instead of <name> field
 %       sort={<alphkey>}, % Used to sort instead of <name> 
 %       symbol={\ensuremath{<symbol>}}, % Used for \glssymbol command
+%       parent={<parentkey>}
 
 \end{comment}
 
@@ -64,56 +65,70 @@
         name = {Excitable Cell},
         text = {excitable cell},
         description = {a specialized cell for transmitting signal impulses; a nerve cell},
-        see = [see also]{gls:cell}
+        parent = {gls:cell},
 }
 
 \newglossaryentry{gls:membrane}{
         name = {Cell Membrane},
         text = {cell membrane},
-        description = {specialized cell for transmitting signal impulses; a nerve cell}
-}
-
-\newglossaryentry{gls:mPotential}{
-        name = {Membrane potential},
-        description = {specialized cell for transmitting signal impulses; a nerve cell}
+        description = {specialized cell for transmitting signal impulses; a nerve cell},
+        parent = {gls:cell},
 }
 
 \newglossaryentry{gls:dendrite}{
         name = {Dendrite},
         text = {dendrite},
-        description = {extensions of the membrane with many branching structures}
+        description = {extensions of the membrane with many branching structures},
+        parent = {gls:neuron},
+}
+
+\newglossaryentry{gls:denTree}{
+        name = {Dendritic Tree},
+        text = {dendritic tree},
+        description = {a structural comparison of the dendrites},
+        parent = {gls:dendrite},
 }
 
 \newglossaryentry{gls:soma}{
         name = {Soma},
         text = {soma},
-        description = {the main body of the neuron; the space in which the nucleus resides}
-}
-
-\newglossaryentry{gls:ax-terminal}{
-        name = {Axon terminal},
-        text = {axon terminal},
-        description = {found at the terminus of the axon and contains the synapses}
+        description = {the main body of the neuron; the space in which the nucleus resides},
+        parent = {gls:neuron},
 }
 
 \newglossaryentry{gls:axon}{
         name = {Axon},
         text = {axon},
-        description = {a finer tendril primarily carrying nerve signals away from the soma}
+        description = {a finer tendril primarily carrying nerve signals away from the soma},
+        parent = {gls:neuron},
 }
 
-\newglossaryentry{gls:myelin}{
-        name = {Myelin Sheath},
-        text = {myelin sheath},
-        description = {collection of Schwann cells that produce fatty lipid substances for increased conductivity}
+\newglossaryentry{gls:ionPump}{
+        name = {Ion Pump},
+        text = {ion pumps},
+        description = {5},
+}
+
+\newglossaryentry{gls:ax-terminal}{
+        name = {Axon terminal},
+        text = {axon terminal},
+        description = {found at the terminus of the axon and contains the synapses},
+        parent = {gls:axon},
 }
 
 \newglossaryentry{gls:ax-hill}{
         name = {Axon hill-lock},
         text = {axon hill-lock},
-        description = {is the part of the axon where it emerges from the soma}
+        description = {is the part of the axon where it emerges from the soma},
+        parent = {gls:axon},
 }
 
+\newglossaryentry{gls:myelin}{
+        name = {Myelin Sheath},
+        text = {myelin sheath},
+        description = {collection of Schwann cells that produce fatty lipid substances for increased conductivity},
+        parent = {gls:neuron},
+}
 
 
 %%%%%%%%% Cell components
@@ -122,28 +137,33 @@
 \newglossaryentry{gls:cytoplasm}{
         name = {Cytoplasm},
         text = {cytoplasm},
-        description = {material which makes up space within a living cell, excluding the nucleus}
+        description = {material which makes up space within a living cell, excluding the nucleus},
+        parent = {gls:cell},
 }
 
 \newglossaryentry{gls:smoothER}{
         name = {smoothER},
-        description = {network of membranous tubules within the cytoplasm of a eukaryotic cell, continuous with the nuclear membrane. It usually has ribosomes attached and is involved in protein and lipid synthesis}
+        description = {network of membranous tubules within the cytoplasm of a eukaryotic cell, continuous with the nuclear membrane. It usually has ribosomes attached and is involved in protein and lipid synthesis},
+        parent = {gls:cell},
 }
 
 \newglossaryentry{gls:roughER}{
         name = {roughER},
-        description = {dense organelle present in most eukaryotic cells, typically a single rounded structure bounded by a double membrane, containing the genetic material}
+        description = {dense organelle present in most eukaryotic cells, typically a single rounded structure bounded by a double membrane, containing the genetic material},
+        parent = {gls:cell},
 }
 
 \newglossaryentry{gls:ribosome}{
         name = {ribosome},
-        description = {dense organelle present in most eukaryotic cells, typically a single rounded structure bounded by a double membrane, containing the genetic material}
+        description = {dense organelle present in most eukaryotic cells, typically a single rounded structure bounded by a double membrane, containing the genetic material},
+        parent = {gls:cell},
 }
 
 \newglossaryentry{gls:golgi}{
         name = {Golgi Apparatus},
         text = {golgi apparatus},
-        description = {dense organelle present in most eukaryotic cells, typically a single rounded structure bounded by a double membrane, containing the genetic material}
+        description = {dense organelle present in most eukaryotic cells, typically a single rounded structure bounded by a double membrane, containing the genetic material},
+        parent = {gls:cell},
 }
 
 \newglossaryentry{gls:bilipid}{
@@ -179,6 +199,13 @@
         description = {a device that stores energy}
 }
 
+\newglossaryentry{gls:capacitance}{
+        name   = {Capacitance},
+        text   = {capacitance},
+        parent = {gls:capacitor},
+        description = {capace}
+}
+
 \newglossaryentry{gls:resistor}{
         name   = {Resistor},
         text   = {resistor},
@@ -186,15 +213,16 @@
 }
 
 \newglossaryentry{gls:varresistor}{
-        name   = {Variable risistor},
+        name   = {Variable Resistor},
         text   = {variable resistor},
-        description = {a device that can both act as a resistor and as a conductor}
+        description = {a device that can both act as a resistor and as a conductor},
+        parent = {gls:resistor},
 }
 
-\newglossaryentry{gls:wires}{
-        name   = {Wires},
-        text   = {wires},
-        description = {a device that can carry electricity and connects different components of a circuit}
+\newglossaryentry{gls:wire}{
+        name   = {Wire},
+        text   = {wire},
+        description = {a medium by which electricity connects different components of a circuit}
 }
 
 \newglossaryentry{gls:conductor}{
@@ -203,9 +231,16 @@
         description = {a device that can allow electricity to go through it}
 }
 
-% Maths
+\newglossaryentry{gls:conductance}{
+        name   = {Conductance},
+        text   = {conductance},
+        description = {the measure of how conductive something is?},
+        parent = {gls:conductor}
+}
 
-\newglossaryentry{gls:dynamical system}{
+% Math
+
+\newglossaryentry{gls:dynSystem}{
         name   = {Dynamical system},
         text   = {dynamical system},
         description = {a system that evolves over time}
@@ -214,182 +249,288 @@
 \newglossaryentry{gls:deterministic}{
         name   = {Deterministic},
         text   = {deterministic},
-        description = {a predictable equation}
+        description = {},
+        parent = {gls:dynSystem},
 }
 
 \newglossaryentry{gls:stochastic}{
         name   = {Stochastic},
         text   = {stochastic},
-        description = {an equation that has an element of randomness to it}
+        description = {a model that incorporates randomness},
+        parent = {gls:dynSystem},
 }
 
-\newglossaryentry{gls:rPotential}{
-        name   = {Reversal Potential},
-        text   = {reversal potential},
-        description = {the equilibrium point for passive diffusion of a given ion}
-}
 
 
 \newglossaryentry{gls:discrete}{
         name   = {Discrete},
         text   = {discrete},
-        description = {measured over integer time}
+        description = {measured over integer time},
+        parent = {gls:dynSystem},
 }
 
 \newglossaryentry{gls:continuous}{
         name   = {Continuous},
         text   = {continuous},
-        description = {measured over all time}
+        description = {measured over all time},
+        parent = {gls:dynSystem},
 }
 
 \newglossaryentry{gls:linear}{ 
         name   = {Linear},
         text   = {linear},
-        description = {a straight line} 
+        description = {a straight line},
+        parent = {gls:dynSystem},
 }
 
 \newglossaryentry{gls:nonlinear}{
         name   = {Nonlinear},
         text   = {nonlinear},
-        description = {has elements that are not linear}
+        description = {has elements that are not linear},
+        parent = {gls:dynSystem},
 }
 
 \newglossaryentry{gls:autonomous}{
         name   = {Autonomous},
         text   = {autonomous},
-        description = {does not depend on time}
+        description = {independant},
+        parent = {gls:dynSystem},
 }
 
 \newglossaryentry{gls:non-autonomous}{
-        name   = {Non-autonomous},
+        name   = {Non-Autonomous},
         text   = {non-autonomous},
-        description = {depends on time}
+        sort   = {an},
+        description = {dependant},
+        parent = {gls:dynSystem},
+}
+
+\newglossaryentry{gls:equil}{
+        name   = {Equilibrium},
+        text   = {equilibrium},
+        plural = {equilibria},
+        symbol = {\textit{E}},
+        description = {a state where change has balanced perfectly}
+}
+
+\newglossaryentry{gls:fixed}{name={Fixed Point}, description={\nopostdesc}}
+
+\newglossaryentry{gls:saddle}{
+        name   = {Saddle},
+        text   = {saddle point},
+        description = {},
+        parent = {gls:fixed},
+}
+
+\newglossaryentry{gls:sink}{
+        name   = {Sink},
+        text   = {sink},
+        description = {},
+        parent = {gls:fixed},
+}
+
+\newglossaryentry{gls:source}{
+        name   = {Source},
+        text   = {source},
+        description = {},
+        parent = {gls:fixed},
+}
+
+\newglossaryentry{gls:max}{
+        name   = {Maxima},
+        text   = {maximal point},
+        description = {},
+        parent = {gls:fixed},
+}
+
+\newglossaryentry{gls:min}{
+        name   = {Minima},
+        text   = {minimal point},
+        description = {},
+        parent = {gls:fixed},
 }
 
 \newglossaryentry{gls:spiral}{
         name   = {Spiral sink},
         text   = {spiral sink},
-        description = {\textit{let that sink in}}
+        description = {\textit{let that sink in}},
+        parent = {gls:fixed},
 }
 
-\newglossaryentry{gls:equilibrium}{
-        name   = {Equilibrium},
-        text   = {equilibrium},
-        plural = {equilibria},
-        description = {places where all equations are equal to zero}
-}
-
-\newglossaryentry{gls:conductance}{
-        name   = {Conductance},
-        text   = {conductance},
-        description = {the measure of how conductive something is?}
-}
-
-\newglossaryentry{gls:saddle}{
-        name   = {Saddle point},
-        text   = {saddle point},
-        description = {}
-}
 
 \newglossaryentry{gls:nodal}{
         name   = {Nodel source},
         text   = {nodel source},
-        description = {}
+        description = {},
+        parent = {gls:dynSystem},
 }
 
 \newglossaryentry{gls:nullcline}{
-        name   = {Nullcline},
-        text   = {nullcline},
-        description = {the line where the equation is equal to zero}
-}
+    name   = {Nullcline},
+    text   = {nullcline},
+    description = {the line where the equation is equal to zero},
+    }
 
 %%%%%%%% Units
+
+\newglossaryentry{gls:unit}{
+    name = {Unit},
+    description = {\nopostdesc},
+    }
 
 \newglossaryentry{gls:kelvin}{
         name = {Kelvin},
         text = {kelvin},
-        type = {unit},
+        %type = {unit},
         symbol = {\unit{\kelvin}},
-        description = {the SI unit of temperature, with the $0^\circ$ mark at absolute 0, equal step-size as Celcius},
-        see = {gls:celsius}
+        description = {the SI unit of temperature, with \qty{0}{\kelvin} mark at absolute 0},
+        see = {gls:celsius},
+        parent = {gls:unit}
 }
 
 \newglossaryentry{gls:kg}{
         name = {kilogram},
-        type = {unit},
+        %type = {unit},
         symbol = {\unit{\kilo\gram}},
-        description = {the SI unit of mass}
+        description = {the SI unit of mass},
+        parent = {gls:unit},
 }
 
 \newglossaryentry{gls:meter}{
         name = {meter},
-        type = {unit},
+        %type = {unit},
         symbol = {\unit{\meter}},
-        description = {the SI unit of length}
+        description = {the SI unit of length},
+        parent = {gls:unit},
 }
 
 \newglossaryentry{gls:sec}{
         name = {second},
-        type = {unit},
+        %type = {unit},
         symbol = {\unit{\second}},
-        description = {the SI unit of time}
+        description = {the SI unit of time},
+        parent = {gls:unit}
 }
 
 \newglossaryentry{gls:amp}{
         name = {ampere},
         text = {Ampere},
-        type = {unit},
+        %type = {unit},
         symbol = {\unit{\ampere}},
-        description = {the SI unit of current}
+        description = {the SI unit of current},
+        parent = {gls:unit},
 }
 
 \newglossaryentry{gls:volt}{
         name = {volt},
         text = {Volt},
-        type = {unit},
+        %type = {unit},
         symbol = {\unit{\volt}},
-        description = {standard unit used to measure how strongly an electrical current is sent around an electrical system}
+        description = {standard unit used to measure how strongly an electrical current is sent around an electrical system},
+        parent = {gls:unit},
 }
 
 \newglossaryentry{gls:celsius}{
         name = {Celsius},
-        type = {unit},
+        %type = {unit},
         symbol = {\unit{\degreeCelsius}},
-        description = {denoting a scale of temperature on which water freezes at $0^\circ$ and boils at $100^\circ$ under standard conditions}
+        description = {denoting a scale of temperature on which water freezes at $0^\circ$ and boils at $100^\circ$ under standard conditions},
+        parent = {gls:unit},
 }
 
 \newglossaryentry{gls:coulomb}{
         name = {coulomb},
-        type = {unit},
+        %type = {unit},
         symbol = {\unit{\coulomb}},
-        description = {unit charge equivalent to the amount of current in a second}
+        description = {unit charge equivalent to the amount of current in a second},
+        parent = {gls:unit},
 }
+
+
+%%%%%%%%% Potentials
+
+\newglossaryentry{gls:Potential}{
+        name   = {Potential},
+        text   = {potential},
+        description = {An undefined type of energy, where the possibility is what causes the difference},
+    }
+
+\newglossaryentry{gls:rPotential}{
+        name   = {Reversal Potential},
+        text   = {reversal potential},
+        description = {the equilibrium point for passive diffusion of a given ion},
+        see    = {gls:ePotential},
+        parent = {gls:Potential}
+    }
+
+\newglossaryentry{gls:ePotential}{
+        name   = {Equilibrium Potential},
+        text   = {equilibrium potential},
+        description = {the equilibrium of potential in a system},
+        parent = {gls:Potential}
+    }
+
+\newglossaryentry{gls:mPotential}{
+        name = {Membrane Potential},
+        text = {membrane potential},
+        description = {potential of membrane},
+        parent = {gls:Potential}
+    }
+
+\newDualEntry[parent = {gls:Potential}, text ={action potential}]{aPotential}{AP}{Action Potential}{potential of action}
+
 
 %%%%%%%% Acros
 
 
 %%%%%%%% chemtry
 
-\newacronym[description = {cation with element number 19, an alkali metal}, sort = {0K}]{K}{\ensuremath{\mathrm{K^+}}}{potassium}
-
-\newacronym[description = {cation with element number 11, a highly reactive alkali metal}, sort = {0Na}]{Na}{\ensuremath{\mathrm{Na}^+}}{sodium}
-
-\newacronym[description = {anion with element number 17, the second-lightest of the halogens}, sort = {0Cl}]{Cl}{\ensuremath{\mathrm{Cl}^-}}{chlorine}
-
-\newacronym[description = {cation with element number 20, an alkaline earth metal}, sort = {0Ca}]{Ca}{\ensuremath{\mathrm{Ca}^{2+}}}{calcium}
-
-
-
-
+\newglossaryentry{gls:ion}{
+    name   = {ion},
+    description = {\nopostdesc}
+    }
+\newglossaryentry{gls:anion}{
+    name   = {Anion},
+    text   = {anion},
+    description = {negatively charged ion},
+    parent = {gls:ion},
+    }
+\newglossaryentry{gls:cation}{
+    name   = {Cation},
+    text   = {cation},
+    description = {positively charged ion},
+    parent = {gls:ion},
+    }
 
 % Dual entry is a custom command, just ask Anakin if you want to us it
+
+
+\newglossaryentry{gls:element}{name={Elements}, text={element}, description={\nopostdesc}}
+
+
+\newDualEntry[sort = {0K}, parent = {gls:element}][sort = {0k}, parent = {gls:element}]
+    {K}{\ensuremath{\mathrm{K^+}}}{potassium}{cation with element number 19, an alkali metal}
+
+\newDualEntry[sort = {0Na}, parent = {gls:element}][sort = {0na}, parent = {gls:element}]
+    {Na}{\ensuremath{\mathrm{Na}^+}}{sodium}{cation with element number 11, a highly reactive alkali metal}
+
+\newDualEntry[sort = {0Cl}, parent = {gls:element}][sort = {0Cl}, parent = {gls:element}]
+    {Cl}{\ensuremath{\mathrm{Cl}^-}}{chlorine}{anion with element number 17, the second-lightest of the halogens}
+
+\newDualEntry[sort = {0Ca}, parent = {gls:element}][sort = {0Ca}, parent = {gls:element}]
+    {Ca}{\ensuremath{\mathrm{Ca}^{2+}}}{calcium}{cation with element number 20, an alkaline earth metal}
+ 
+ 
+\newglossaryentry{gls:diff}{name={Differential Equation}, description={\nopostdesc}}
+
+
 \newDualEntry{er}{ER}{Endoplasmic Reticulum}{organelle in eurkaryote cell responsible for protein and lipid construction}
 
-\newDualEntry{hh}{HH}{Hodgkin-Huxely}{model of neuron action potential over time}
+\newDualEntry[text = {Hodgkin-Huxely Model}]{hh}{HH}{Hodgkin-Huxely}{of neuron action potential over time}
 
-\newDualEntry[sort = {difO}][sort = {difO}]{ode}{ODE}{ordinary differential equation}{a differential equation with respect to a single variables}
+\newDualEntry[parent = {gls:diff}, text = {ordinary differential equation}, sort = {or}][sort = {or}, first = {ordinary differential equation}, firstplural = {ordinary differential equations}]{ode}{ODE}{Ordinary Differential}{a differential equation with respect to a single variables}
 
-\newDualEntry[sort = {difP}][sort = {difP}]{pde}{PDE}{partial differential equation}{a differential equation with respect to multiple variables}
+\newDualEntry[parent = {gls:diff}, text = {partial differential equation}, sort = {pa}][sort = {pa}, first = {partial differential equation}, firstplural = {partial differential equations}]{pde}{PDE}{Partial Differential}{a differential equation with respect to multiple variables}
 
 
 %\newacronym{lcm}{LCM}{Least Common Multiple}
