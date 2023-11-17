@@ -1,4 +1,4 @@
-\documentclass[printGloss, printUnit]{_NoTouch/myProject}
+\documentclass[printGloss]{_NoTouch/myProject}
 
 % ========================= Preamble Packages ================================
 
@@ -40,6 +40,13 @@
     \qty[⟨options⟩]{⟨number⟩}{⟨unit⟩}
     units are simple to input just use \⟨unit abbreviation⟩
     
+    One can break up the numbers from the units by using
+    \num[⟨options⟩]{⟨number⟩}
+    \unit[⟨options⟩]{⟨unit⟩}
+    
+    Additionally, angels can be defined with
+    \ang[⟨options⟩]{⟨angle⟩}
+    
     Examples of usage;
     \qty{.23e7}{\candela} 
     \qty[mode = text]{1.23}{J.mol^{-1}.K^{-1}}
@@ -47,12 +54,6 @@
     \qty[per-mode = symbol]{1.99}{\per\kg}
     \qty[per-mode = fraction]{1,345}{\coulomb\per\mole}
     
-    One can break up the numbers from the units by using
-    \num[⟨options⟩]{⟨number⟩}
-    \unit[⟨options⟩]{⟨unit⟩}
-    
-    Additionally, angels can be defined with
-    \ang[⟨options⟩]{⟨angle⟩}
 
     
     Glossaries package
@@ -63,11 +64,10 @@
     The pl addition prints the plural of the defined term, other than that it behaves in the same way as gls.
     \Gls[<options>]{<label>} 
     \Glspl[<options>]{<label>} 
+    
     These commands are the same as the first two, just that it will print the word capitalized
     \glssymbol[<options>]{<label>} 
-    This commands prints the defined symbol of the word, useful for notation
-    \glslink{<label>}{<alternate text>}
-    This commands prints what has been written in the alt-text slot, and links to the origianl label
+    
 
     
     General Latex commands
@@ -82,13 +82,32 @@
 
 
 % Custom commands specific to this project
-% Variables
-\providecommand{\Vm}{\rmm{V}_m}
-% Ions
-\providecommand{\Kp}{\rmm{K}^+}
-\providecommand{\Nap}{\rmm{Na}^+}
-\providecommand{\Cln}{\rmm{Cl}^-}
-\providecommand{\Capp}{\rmm{Ca}^{2+}}
+
+% Unit shit
+\DeclareSIUnit\equilibria{\textit{E}}
+\DeclareSIUnit\cur{\mathit{I}}
+\DeclareSIUnit\cap{\mathit{C}}
+\DeclareSIUnit\con{g}
+\DeclareSIUnit\maxcon{\bar{g}}
+
+\DeclareSIUnit\ioconc{\ensuremath{\left[\mathbf{ion}\right]}}
+\DeclareSIQualifier\ion{\mathbf{ion}}
+
+\DeclareSIQualifier\potassium{\mathrm{K}}
+\DeclareSIQualifier\sodium{\mathrm{Na}}
+\DeclareSIQualifier\calcium{\mathrm{Cl}}
+\DeclareSIQualifier\chlorine{\mathrm{Ca}}
+\DeclareSIQualifier\leakage{\mathrm{L}}
+
+\DeclareSIQualifier\membrane{m}
+\DeclareSIQualifier\reverse{rev}
+\DeclareSIQualifier\excell{\mathcal{E}}
+\DeclareSIQualifier\incell{\mathcal{I}}
+
+\DeclareSIQualifier\dn{\mathit{n}}
+\DeclareSIQualifier\dm{\mathit{m}}
+\DeclareSIQualifier\dh{\mathit{h}}
+
 
 
 %==========================================================
@@ -105,7 +124,7 @@
 \import{./}{mainTitle.tex}
 \tableofcontents
 
-\printglossary[type=\acronymtype]
+\printacronyms
 
 %\listoffigures \newpage
 
@@ -130,7 +149,8 @@
 
 \newpage
 \chapter{Methodology}
-
+%HAVE A SECTION WHERE WE TALK ABOUT SIMULATIONS. PYTHON-> APPROACHABLE, MUCH IN THE USE, MANY MATERIALS, WELL DOCUMENTED. 
+%PRESENTATION: WE MAKE GRAPHS, TABLES, PHASE-PLANES, HOW TO MAKE SIMULATIONS(EULER METHOD, OR SOLVE THINGS). REVIEW ALEX COMMENTS!
 
 \newpage
 \chapter{Results}

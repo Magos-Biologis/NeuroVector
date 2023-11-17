@@ -45,6 +45,8 @@
 % =========================== Packages =======================================
 
 \RequirePackage[hidelinks]{hyperref}    % For hyperlinks
+\PassOptionsToPackage{hyperref}{ntheorem}
+
 \RequirePackage{cleveref}               % For configuration of references
 
 \RequirePackage[%
@@ -109,7 +111,7 @@
 
 
 % Uses xparse to create dual command
-\DeclareDocumentCommand{\newdualentry}{ O{} O{} m m m m } {
+\DeclareDocumentCommand{\newDualEntry}{ O{} O{} m m m m } {
     \newglossaryentry{gls:#3}{%
         name={#5},%
         text={#5\glsadd{#3}},%
@@ -123,7 +125,11 @@
         ]{#3}{#4}{#5\glsadd{gls:#3}}
 }
 
-%\newdualentry{OWD} % label
+
+
+%\newDualEntry[<glossaryoptions>][<acronymoptions>]{<key>}{<short>}{<long>}{<description>}
+
+%\newDualEntry{OWD} % label
 %  {OWD}            % abbreviation
 %  {One-Way Delay}  % long form
 %  {The time a packet uses through a network from one host to another} % description

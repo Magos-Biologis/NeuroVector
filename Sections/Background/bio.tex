@@ -12,39 +12,39 @@ The human body is composed of a vast number of cells and complex interactions, h
 There exist many distinct types of neurons, however, the underlying mechanisms of function stay the same.
 
 \section{Cellular Structures}
+\subsection{Organelles}
+\begin{enumerate}
 
-\begin{comment}
-    \subsection{Organelles}
-    {\noindent
-    Nucleus \\
-    Ribosomes \\
-    Golgi-Apparatus \\
-    Endoplasmic Reticulum, rough \& smooth \\
-    Lysosome
-    }
-\end{comment}
+    \item \textbf{The Nucleus} is mainly found in the centre of the cell and is responsible for distinguishing between eukaryotic and prokaryotic cells - existing only in the first ones. It functions as the key factor in the cell's activities, it contains the cell's gentic information (DNA), and is where the DNA replication, transcription, and RNA processing all happen.
+    \item \textbf{The Ribosomes}
+    \item \textbf{The Golgi-Apparatus}
+    \item \textbf{The Endoplasmic Reticulum}
+    \item \textbf{The Lysosome}
+    
+\end{enumerate}
 
 \subsection{Specialized Neuronal Structures}
 There exist a number of important features that are foundational to the specialized functions found in the neurons;
 \begin{enumerate}
     \item \glslink{gls:soma}{\textbf{The soma}} is the main body of the \gls{gls:neuron}. It is the space in which the nucleus resides, and by extension where protein production occurs. The nucleus can range from \qtyrange{3}{18}{\um} in diameter.
-    \item \glslink{gls:dendrite}{\textbf{The dendrites}} of a \gls{gls:neuron} are extensions of the membrane with many branches. This overall shape and structure are metaphorically referred to as a `\textit{dendritic} tree'\footnotemark. This is where the majority of \gls{gls:neuron} inputs are received, and carried by the `dendritic spine' down to the \gls{gls:soma} \cite{}. \footnotetext{Greek root word `\textit{dendron}' meaning tree, translates to `tree tree'.}
+    \item \glslink{gls:dendrite}{\textbf{The dendrites}} of a \gls{gls:neuron} are extensions of the membrane with many branches. This overall shape and structure are metaphorically referred to as a `\textit{\gls{gls:denTree}}'\footnotemark. This is where the majority of \gls{gls:neuron} inputs are received, and carried by the `dendritic spine' down to the \gls{gls:soma} \cite{}. \footnotetext{Greek root word `\textit{dendron}' meaning tree, translates to `tree tree'.}
     \item \glslink{gls:axon}{\textbf{The axon}} is a finer tendril that can extend tens, if not tens of thousands of times, the diameter of the \gls{gls:soma} in length. The \gls{gls:axon} primarily carries nerve signals away from the \gls{gls:soma} and carries some types of information back to it. Most neurons have only one \gls{gls:axon}, but this \gls{gls:axon} will be able to undergo significant branching, enabling communication with many target cells. 
     \item \glslink{gls:ax-hill}{\textbf{The axon hill-lock}} is the part of the \gls{gls:axon} where it emerges from the \gls{gls:soma}. The region contains the greatest density of voltage-dependent sodium channels. This makes it the most easily excited part of the \gls{gls:neuron} \cite{}. 
     \item \glslink{gls:ax-terminal}{\textbf{The axon terminal}} is found at the terminus of the \gls{gls:axon} and contains synapses. 
-    \item \textbf{The myelin sheathe} is a lipid and protein comprised substance that `sheathes' the \gls{gls:axon} creating additional insulation for capacitance \cite{}.
+    \item \textbf{The myelin sheathe} is a lipid and protein comprised substance excreted from ??? cells that `sheathes' the \gls{gls:axon}, creating additional insulation for capacitance \cite{}.
 \end{enumerate}
 
 
-\subsection{The Lipid Bilayer} 
+\section{The Resting Membrane Potential} 
 A fundamental component of cells is the \gls{gls:membrane}, composed of what is known as a `\textit{\gls{gls:bilipid}}'\footnotemark. A lipid bilayer creates a strong electrical insulation, 
-which confers it the property of \textbf{capacitance} - the capability of an object to store electrical charge \cite{}.  
+which confers it the property of `\gls{gls:capacitance}'- the capability of an object to store electrical charge \cite{}.  
 In a \gls{gls:neuron}, the overall charge in the intracellular space is negative relative to the extracellular space. 
 This difference in charge is known as the resting \gls{gls:mPotential}, and it is essential for the \glslink{gls:neuron}{neuron's} ability to transmit electrical signals. 
 \footnotetext{Latin root word `bi' meaning two, translates to `lipid two-layer'}
 
+
 The ions found to be involved in the \gls{gls:mPotential} include \gls{Na}, \gls{K}, \gls{Cl}, and, to a limited degree, \gls{Ca}. 
-In the extracellular space the concentrations of \gls{Na} and  \gls{Cl} are kept much higher then in the cytoplasm, whereas \gls{K} is found in much higher concentrations  in the cytoplasm compared to the extracellular space. During rest, their concentration gradients are actively regulated and maintained at constant values by `ion pumps', that chemically transport ions from one side of the membrane to the other \cite{}. 
+In the extracellular space the concentrations of \gls{Na} and  \gls{Cl} are kept much higher then in the cytoplasm, whereas \gls{K} is found in much higher concentrations  in the cytoplasm compared to the extracellular space. During rest, their concentration gradients are actively regulated and maintained at constant values by `\gls{gls:ionPump}', that chemically transport ions from one side of the membrane to the other \cite{}. 
 
 This separation of charges is what creates a voltage difference across the \gls{gls:membrane}, with the inside being negatively charged relative to the outside. The usual resting \gls{gls:mPotential} is found to be around \glslink{gls:volt}{\qty{-70}{millivolts} (\unit{\milli\volt})} in neurons, however, it varies depending on the cell type and conditions \cite{}. 
 
@@ -56,49 +56,73 @@ Others are `ligand gated', meaning that they can be switched between an open and
 \begin{figure}[ht]
     \centering
     \import{../../Pictures/Anakin}{LipidCircuit.tex}
-    \caption{The Hodgkin-Huxely circuit diagram overlaid with the relevant structures found in the \gls{gls:membrane}. \(\clm{E}\) and \(\clm{I}\) denote the extra-cellular space and the intra-cellular space respectively. Capacitance of the membrane \(\br{C_\rmm{m}}\) is given by the charge difference on either side of the lipid bilayer. Ion channels for \gls{Na} and \gls{K} are shown with the relevant variables, resistor type, and battery. Additional ion channels and other leaked is represented as a lone resistor and battery outside of the membrane region. The \gls{K} ions are shown in green, \gls{Na} are shown in red, and \gls{Cl} ions in yellow; distributed in approximately relative concentrations on either side of the membrane. }\label{fig:MembraneCircut}
+    \caption{The Hodgkin-Huxely circuit diagram overlaid with the relevant structures found in the \gls{gls:membrane}. \(\clm{E}\) and \(\clm{I}\) denote the extra-cellular space and the intra-cellular space respectively. Capacitance of the membrane \(\br{\unit{\cap\membrane}}\) is given by the charge difference on either side of the lipid bilayer. Ion channels for \gls{Na} and \gls{K} are shown with the relevant variables, resistor type, and battery. Additional ion channels and other leaked is represented as a lone resistor and battery outside of the membrane region. The \gls{K} ions are shown in green, \gls{Na} are shown in red, and \gls{Cl} ions in yellow; distributed in approximately relative concentrations on either side of the membrane. }\label{fig:MembraneCircut}
 \end{figure}
 
 
 The voltage has two functions: first, it provides a power source for an assortment of voltage-dependent protein machinery that is embedded in the membrane; second, it provides a basis for electrical signal transmission between different parts of the membrane.
 
+\section{Ions Passively Diffuse Down Their Electrochemical Gradient}
+To predict the direction of the passive diffusion of ions through an open channel, both the concentration gradient of the ion and the membrane potential have to be known. The resultant of these two forces is called the electrochemical gradient.
 
+Suppose that membrane potential is null (Vm=0mV), there is no difference of potential between the two faces of the membrane, so ions will diffuse according to their concentration gradient only (Figure3a). since the extracellular concentrations of \gls{Na}, \gls{Ca} and \gls{Cl} are higher than the respective intracellular ones, these ions will diffuse passively towards the intracellular medium (when \gls{Na}, \gls{Ca} or \gls{Cl} permeable channels are open) as a result of their concentration gradient. In contrast, \gls{K} will move from the intracellular medium to the extracellular one (when \gls{K} permeable channels are open). 
 
-\section{Action Potential}
-\subsection{Equilibrium Potential of a Given Ion}
+If we suppose that there is no concentration gradient for any ions (there is the same concentration of each ion in the extracellular and intracellular media), ions will diffuse according to membrane potential only: at a membrane potential Vm=-30mV (Figure3b), positively charged ions, the cations \gls{Na}, \gls{Ca} and \gls{K}, will move from the extracellular medium to the intracellular one according to membrane potential. In contrast, \glspl{gls:anion} (\gls{Cl}) will move from the intracellular medium to the extracellular one. 
+ 
+\begin{figure}[H]
+    \begin{subfigure}[t]{0.48\textwidth}
+    \centering
+      \caption{}
+      \includegraphics[height=6cm]{Pictures/Anakin/c.grad.png}
+    \end{subfigure}
+    \begin{subfigure}[t]{0.48\textwidth}
+    \centering
+      \caption{}
+      \includegraphics[height=6cm]{Pictures/Anakin/el.grad.png}
+    \end{subfigure}
+    
+      \caption{Passive  diffusion  of  ions.  Passive  diffusion  of  ions  according  (a)  their  concentration  gradient  only,  or  (b)  to  membrane  potential (electrical gradient) only (Vm = -30mV).
+}
+      
+      \label{} 
+\end{figure}
+
+In physiological conditions, both the concentration gradient and membrane potential determine the direction and amplitude of ion diffusion through an open channel. since concentration gradient is constant for each ion, the direction and amplitude of diffusion varies with membrane potential. When comparing Figure3 a and b it appears that at a membrane potential of -30mV, concentration gradient and membrane potential drive \gls{Na} and \gls{Ca} ions in the same direction, toward the intracellular medium, whereas they drive \gls{K} and \gls{Cl} in reverse directions. The resultant of these two forces, concentration and potential gradients, is the electrochemical gradient. To know how to express the electrochemical gradient, the equilibrium potential must first be explained.
+
+\section{Equilibrium Potential of a Given Ion}
 \begingroup
 \allowdisplaybreaks
-All systems yearn for their equilibrium, the fabled \textit{steady state}. This divine relation of the components in a system, one achieved, the system no longer needs to evolve, it has been perfected by entropy. 
+All systems yearn for their \gls{gls:equil}, the fabled \textit{steady state}. This divine relation of the components in a system, one achieved, the system no longer needs to evolve, it has been perfected by entropy. 
 The value of the \gls{gls:mPotential} is constantly fluctuating depending on the relative distribution of charged particles that cross the membrane. 
-When the direction of the gradient is perfectly balanced at net zero, it is referred to as the `\textit{equilibrium potential}' of the given ion \(\br{E_\bfm{ion}}\), alternatively, as the `\textit{reversal potential}' of the ion \(E_\bfm{rev}\). 
-%The equilibrium potential for a particular ion is the value of \(\Vm\) for which the net flux of this ion \(\br{f_\bfm{net}}\) through an open channel is null: when \(\Vm = E_\bfm{ion}\), \(f_\bfm{net} = \qty{0}{\mole\per\second}\).
-\(E_\bfm{ion}\) of the relevant ions can be calculated using the \textit{Nernst} equation:
+When the direction of the gradient is perfectly balanced at net zero, it is referred to as the `\textit{\gls{gls:ePotential}}' of the given ion \br{\unit{\equilibria\ion}}, alternatively, as the `\textit{reversal potential}' of the ion \(E_\bfm{rev}\). 
+%The equilibrium potential for a particular ion is the value of \(\unit{\V\membrane}\) for which the net flux of this ion \(\br{f_\bfm{net}}\) through an open channel is null: when \(\unit{\V\membrane} = \unit{\equilibria\ion}\), \(f_\bfm{net} = \qty{0}{\mole\per\second}\).
+\(\unit{\equilibria\ion}\) of the relevant ions can be calculated using the \textit{Nernst} equation:
 \begin{subequations}\label{eq:nernst}
 
 \begin{equation}
-    E_\bfm{ion} = \br{\frac{\clm{R}\, \cdot \,\clm{T}}{z\, \cdot \, \clm{F}}} \, \ln \br{\frac{\sbr{\bfm{ion}}_\clm{E} }{ \sbr{\bfm{ion}}_\clm{I}} } \tag{\ref*{eq:nernst}} 
+    \unit{\equilibria\ion} = \br{\frac{\clm{R}\, \cdot \,\clm{T}}{z\, \cdot \, \clm{F}}} \, \ln \br{\frac{\sbr{\bfm{ion}}_\clm{E} }{ \sbr{\bfm{ion}}_\clm{I}} } \tag{\ref*{eq:nernst}} 
 \end{equation}
 
-Where \(\clm{R}\) is the ideal gas constant \tbr{\qty{8.314}{\cubic\meter\pascal\per\kelvin\per\mol}}; \(\clm{T}\) is the temperature in \gls{gls:kelvin} \(\br{ x\,\unit{\glssymbol{gls:celsius}} \cong {273.15} + x\,\unit{\kelvin}}\); \(\clm{F}\) is the Faraday constant \tbr{\qty{96500}{\coulomb\per\mole}}; \(z\) is the valence of the ion; and \(\sbr{\bfm{ion}}\) is the concentration of the given ion in the extracellular \( \br{ \clm{E} } \) or intracellular \( \br{\clm{I}}\) medium. 
+Where \(\clm{R}\) is the ideal gas constant \br{\qty{8.314}{\cubic\meter\pascal\per\kelvin\per\mol}}; \(\clm{T}\) is the temperature in \gls{gls:kelvin} \(\br{ x\,\unit{\glssymbol{gls:celsius}} \cong {273.15} + x\,\unit{\kelvin}}\); \(\clm{F}\) is the Faraday constant \br{\qty{96500}{\coulomb\per\mole}}; \(z\) is the valence of the ion; and \(\sbr{\bfm{ion}}\) is the concentration of the given ion in the extracellular \( \br{ \clm{E} } \) or intracellular \( \br{\clm{I}}\) medium. 
 As most of the terms are constants, its simple to reduce the equation down in dimensional complexity:
 \begin{align} 
-    E_\bfm{ion} &= \br{\frac{ \qty{8.314}{\cubic\meter\pascal\per\mol\per\kelvin} \, \cdot \, t\,\unit{\kelvin}}{ z\, \cdot \, \qty{96500}{\coulomb\per\mole} }} \,\ln \br{ \frac{\sbr{\bfm{ion}}_\clm{E} }{ \sbr{\bfm{ion}}_\clm{I}} } \\
-    %E_\bfm{ion} &= \br{\frac{ {8.314} \cdot t \cdot \unit{\cubic\meter\pascal}  \,\cancel{\unit{\per\mol}}\,\cancel{\unit{\per\kelvin\kelvin}}  }{ z\, \cdot \, \qty{96500}{\coulomb} \,\cancel{\unit{\per\mol}}}} \,\ln \br{ \frac{\sbr{\bfm{ion}}_\clm{E} }{ \sbr{\bfm{ion}}_\clm{I}} } \\
+    \unit{\equilibria\ion} &= \br{\frac{ \qty{8.314}{\cubic\meter\pascal\per\mol\per\kelvin} \, \cdot \, \clm{T}}{ z\, \cdot \, \qty{96500}{\coulomb\per\mole} }} \,\ln \br{ \frac{ \unit{\ioconc\excell} }{ \unit{\ioconc\incell}} } \\
+    %\unit{\equilibria\ion} &= \br{\frac{ {8.314} \cdot t \cdot \unit{\cubic\meter\pascal}  \,\cancel{\unit{\per\mol}}\,\cancel{\unit{\per\kelvin\kelvin}}  }{ z\, \cdot \, \qty{96500}{\coulomb} \,\cancel{\unit{\per\mol}}}} \,\ln \br{ \frac{ \unit{\ioconc\excell} }{ \unit{\ioconc\incell}} } \\
     %
-    %E_\bfm{ion} &= \br{\frac{ {8.314} \, \cdot \,  t \, \unit{\cubic\meter\pascal} }{ z\, \cdot \, \qty{96500}{\coulomb}} } \,\ln \br{ \frac{\sbr{\bfm{ion}}_\clm{E} }{ \sbr{\bfm{ion}}_\clm{I}} } \\
+    %\unit{\equilibria\ion} &= \br{\frac{ {8.314} \, \cdot \,  t \, \unit{\cubic\meter\pascal} }{ z\, \cdot \, \qty{96500}{\coulomb}} } \,\ln \br{ \frac{ \unit{\ioconc\excell} }{ \unit{\ioconc\incell}} } \\
     %
     \intertext{dividing and rearranging the terms:}
-    E_\bfm{ion} &= \br{\frac{ t \, \unit{\cubic\meter\pascal} }{ z\, \cdot \, \qty{11607}{\coulomb} } } \cdot \,\ln \br{ \frac{\sbr{\bfm{ion}}_\clm{E} }{ \sbr{\bfm{ion}}_\clm{I}} } \\
+    \unit{\equilibria\ion} &= \br{\frac{ \clm{T}\unit{\per\K} \, \unit{\cubic\meter\pascal} }{ z\, \cdot \, \qty{11612.515042118}{\coulomb} } } \cdot \,\ln \br{ \frac{ \unit{\ioconc\excell} }{ \unit{\ioconc\incell}} } \\
     %
-    \intertext{converting the unit of pressure, pascal \tbr{\unit{\pascal}} to the base units representing mass over an area over time \tbr{\unit{\kilo\gram\per\meter\per\square\second}}, as well converting the unit for charge, a \gls{gls:coulomb} \tbr{\unit{\coulomb}}, to the base units denoting the quantity of current in a second, \tbr{\unit{\ampere\second}}, gives the substitution:}
-    E_\bfm{ion} &= \br{\frac{ t \, \unit{\cubic\meter\kilo\gram\per\meter\per\square\second} }{ z\, \cdot \, \qty{11607}{\ampere\second} } } \cdot \,\ln \br{ \frac{\sbr{\bfm{ion}}_\clm{E} }{ \sbr{\bfm{ion}}_\clm{I}} } \\
+    \intertext{converting the unit of pressure, pascal \br{\unit{\pascal}} to the base units representing mass over an area over time \br{\unit{\kilo\gram\per\meter\per\square\second}}, as well converting the unit for charge, a \gls{gls:coulomb} \br{\unit{\coulomb}}, to the base units denoting the quantity of current in a second, \br{\unit{\ampere\second}}, gives the substitution:}
+    \unit{\equilibria\ion} &= \br{\frac{ \clm{T}\unit{\per\K} \, \unit{\cubic\meter\kilo\gram\per\meter\per\square\second} }{ z\, \cdot \, \qty{11612.515042118}{\ampere\second} } } \cdot \,\ln \br{ \frac{ \unit{\ioconc\excell} }{ \unit{\ioconc\incell}} } \\
     \intertext{at this point we're only left with base SI units, so we need to be a little silly, the unit of magnetic flux is defined \(\unit{\weber} = \unit{\kilo\gram\square\meter\per\square\second\per\ampere}\), implying through substitution \(\unit{\kilo\gram\square\meter\per\cubic\second\per\ampere} = \unit{\weber\per\second} \):}
-    E_\bfm{ion} &= \frac{ t  }{ z\, \cdot \, \num{11607}} \cdot \br{\unit{\weber\per\second}} \cdot \,\ln \br{ \frac{\sbr{\bfm{ion}}_\clm{E} }{ \sbr{\bfm{ion}}_\clm{I}} } \\
+    \unit{\equilibria\ion} &= \frac{ \clm{T}\unit{\per\K}  }{ z\, \cdot \, \num{11612.515042118}} \cdot \br{\unit{\weber\per\second}} \cdot \,\ln \br{ \frac{ \unit{\ioconc\excell} }{ \unit{\ioconc\incell}} } \\
     %
-    \intertext{a unit describing the rate of change of magnetic charge per second, which sounds a lot like a volt, \unit{\volt}, oh wait, \(\unit{\volt} = \unit{\kilo\gram\square\meter\per\cubic\second\per\ampere} = \unit{\weber\per\second} \), the combination of units found through deconstruction is the literal base unit definition of a volt:}
-    E_\bfm{ion} &= \frac{ t }{ z\, \cdot \, \num{11607}} \cdot \,\ln \br{ \frac{\sbr{\bfm{ion}}_\clm{E} }{ \sbr{\bfm{ion}}_\clm{I}} } \unit{\volt} \label{eq:derivedNerst}
-    %E_\bfm{ion} &= \cfrac{ t \cdot \,\ln \br{ \cfrac{\sbr{\bfm{ion}}_\clm{E} }{ \sbr{\bfm{ion}}_\clm{I}} }  }{ z\, \cdot \, \num{11607}}  \cdot \unit{\volt} \cdot  \qty{1000}{\milli\volt\per\volt} \\
-    %E_\bfm{ion} &= \cfrac{ t \cdot \,\ln \br{ \cfrac{\sbr{\bfm{ion}}_\clm{E} }{ \sbr{\bfm{ion}}_\clm{I}} } }{ z\, \cdot \, 1 \, 160}  \ \unit{\milli\volt}
+    \intertext{a unit describing the rate of change of magnetic charge per second, which is equivalent to a Volt, \(\unit{\weber\per\second}  = \unit{\volt} = \unit{\kilo\gram\square\meter\per\cubic\second\per\ampere} \), the combination of units found through deconstruction is the literal base unit definition of a volt:}
+    \unit{\equilibria\ion} &= \frac{ \clm{T}\unit{\per\K} }{ z\, \cdot \, \num{11612.515042118}} \cdot \,\ln \br{ \frac{ \unit{\ioconc\excell} }{ \unit{\ioconc\incell}} } \unit{\volt} \label{eq:derivedNerst}
+    %\unit{\equilibria\ion} &= \cfrac{ t \cdot \,\ln \br{ \cfrac{\sbr{\bfm{ion}}_\clm{E} }{ \sbr{\bfm{ion}}_\clm{I}} }  }{ z\, \cdot \, \num{11612.515042118}}  \cdot \unit{\volt} \cdot  \qty{1000}{\milli\volt\per\volt} \\
+    %\unit{\equilibria\ion} &= \cfrac{ t \cdot \,\ln \br{ \cfrac{\sbr{\bfm{ion}}_\clm{E} }{ \sbr{\bfm{ion}}_\clm{I}} } }{ z\, \cdot \, 1 \, 160}  \ \unit{\milli\volt}
 \end{align}
 %{Volume Concentration \per\kelvin\per\mol}
 %{\kilo\gram\metre^2\second^{-2}\kelvin\per\mol}
@@ -107,67 +131,157 @@ As most of the terms are constants, its simple to reduce the equation down in di
 \begin{subequations}\label{eq:mVions}
 With minor adjustments to \cref{eq:derivedNerst}, the now derived form of \cref{eq:nernst}, one is able to get
 \begin{equation}
-    E_\bfm{ion} =   \cfrac{t}{ z } \, \cdot \, \ln \br{ \cfrac{\sbr{\bfm{ion}}_\clm{E} }{ \sbr{\bfm{ion}}_\clm{I}} } \cdot 1 \, 160^{-1}  \ \unit{\milli\volt} \tag{\ref*{eq:mVions}}
+    \unit{\equilibria\ion} = \cfrac{\clm{T}\unit{\per\K}}{ z } \, \cdot \, \ln \br{ \frac{ \unit{\ioconc\excell} }{ \unit{\ioconc\incell}} } \cdot \num{11.612515042}^{-1}  \ \unit{\milli\volt} \tag{\ref*{eq:mVions}}
 \end{equation}
-Plugging the relative concentrations, measured in concetration \tbr{\unit{\milli\mol}}, of each ion into \cref{eq:mVions}, as well as choosing an arbitrary temperature of \qty{293.15}{\glssymbol{gls:kelvin}},
-the equilibrium potential of each ion follows as:
 
-\begin{minipage}{.45\textwidth}
+Plugging the relative concentrations, measured in millimols \br{\unit{\milli\mol}}, of each ion into \cref{eq:mVions}, as well as choosing an arbitrary temperature, such as room temperature \(\approx\) \qty{20}{\degreeCelsius} \br{\br{\num{20} + \num{273.15}}\unit{\glssymbol{gls:kelvin}}},
+the equilibrium potential of each ion follows as:
+\begin{minipage}{.48\textwidth}
     \begin{align}
-        {E_{\rmm{Na}}} &= \num{293.15}\  \ln \br{ \frac{140}{14} }\cdot 1 \, 160^{-1} =  \qty{0}{\mV} \\
-        {E_\rmm{K}}    &= \num{293.15}\  \ln \br{ \frac{3}{140} }\cdot 1 \, 160^{-1}  =  \qty{0}{\mV} 
+        {\unit{\equilibria\sodium}} &= \num{293.15}\  \ln \br{ \frac{140}{14} }\cdot \num{11.612515042}^{-1} =  \qty{58.127185848}{\mV} \\
+        {\unit{\equilibria\potassium}}    &= \num{293.15}\  \ln \br{ \frac{3}{140} }\cdot \num{11.612515042}^{-1}  =  \qty{-97.014667339}{\mV} 
     \end{align}
 \end{minipage}
 ~
-\vrule
-~
-\begin{minipage}{.45\textwidth}
+\begin{minipage}{.48\textwidth}
     \begin{align}
-        {E_\rmm{Ca}}   &= \frac{293.15}{2}\  \ln \br{ \frac{1.5}{10^{-4}} }\cdot 1 \, 160^{-1} =  \qty{0}{\mV} \\
-        {E_\rmm{Cl}}   &= \num{-293.15}\ \ln \br{ \frac{146}{14} }\cdot 1 \, 160^{-1} =  \qty{0}{\mV} 
+        {\unit{\equilibria\calcium}}   &= \frac{293.15}{2}\  \ln \br{ \frac{1.5}{10^{-4}} }\cdot \num{11.612515042}^{-1} =  \qty{121.372216367}{\mV} \\
+        {\unit{\equilibria\chlorine}}   &= \num{-293.15}\ \ln \br{ \frac{146}{14} }\cdot \num{11.612515042}^{-1} =  \qty{-59.186543354}{\mV} 
     \end{align}
 \end{minipage}
 
 \end{subequations}
 
 These equations can be interpreted such that when
- \gls{K} channels open in the membrane, the efflux of \gls{K} ions will hyper-polarize the membrane until \(\Vm = E_\rmm{K} = \qty{-97}{\mV}\), at which point the net flux of \gls{K} is null being that \gls{K} ions have exactly the same potential to move towards the extracellular space as the intracellular space. 
-The efflux of \gls{K} will be exactly compensated by the influx of \gls{K} and the \gls{gls:mPotential} will stabilize at \(\Vm = E_\rmm{K} \) for as long as the \gls{K} channels stay open. 
-Assuming only \gls{Na} channels are open, the \gls{gls:mPotential} will move toward \(\Vm = \qty{58}{\mV}\), the potential at which the net flux of \gls{Na} is null. 
-Similarly, when \(\Vm = E_\rmm{Cl} = \qty{-59}{\mV}\),  
+\gls{K} channels open in the membrane, the efflux of \gls{K} ions will hyper-polarize the membrane until \(\unit{\V\membrane} = \unit{\equilibria\potassium} \approx \qty{-97}{\mV}\), at which point the net flux of \gls{K} is null being that \gls{K} ions have exactly the same potential to move towards the extracellular space as the intracellular space. 
+The efflux of \gls{K} will be exactly compensated by the influx of \gls{K} and the \gls{gls:mPotential} will stabilize at \unit{\equilibria\potassium} for as long as the \gls{K} channels stay open. 
+Assuming only \gls{Na} channels are open, the \gls{gls:mPotential} will move toward \(\unit{\V\membrane} = \qty{58}{\mV}\), the potential at which the net flux of \gls{Na} is null. 
+Similarly, when \(\unit{\V\membrane} = \unit{\equilibria\chlorine} \approx \qty{-59}{\mV}\),  
 %\gls{Cl} ions have the  tendency to move down their concentration gradient than to move in the reverse direction according to \gls{gls:mPotential}, 
 the net flux of \gls{Cl} is null. 
-By extension, should \(\Vm \neq E_\rmm{K}\), the net flux of  \gls{K} will no longer be null. 
-This holds true for all ions: when \(\Vm \neq E_\bfm{ion}\) there is a net flux of the ion \cite{}. 
+By extension, should \(\unit{\V\membrane} \neq \unit{\equilibria\potassium}\), the net flux of  \gls{K} will no longer be null. 
+This holds true for all ions: when \(\unit{\V\membrane} \neq \unit{\equilibria\ion}\) there is a net flux of the ion \cite{}. The difference (\(V_m-E_{ion}\)) is called the electrochemical gradient. It is the force that makes the ions move through an open channel.
 
 \endgroup
 
-\subsection{Action Potential}
+\section{Ionic currents}
+The passive diffusion of ions through an open channel is a movement of charges through a resistance (resistance here is a measure of the difficulty of ions moving through the channel pore). Movement of charges through a resistance is a current. Through a single channel the current is called ‘single-channel current’ or ‘unitary current’, \(i_{ion}\). The amplitude of  \(i_{ion}\) is expressed in amperes \((A)\) which are coulombs per seconds (C.s-1). 
 
-Functionally all eukaryotic \glspl{gls:membrane} maintain a difference in voltage between the extra-cellular and intra-cellular space, this difference is called the `\gls{gls:mPotential}'. An expected \gls{gls:mPotential} in human cells is \glslink{gls:volt}{\qty{-70}{\milli\volt}}~\cite{}.
-Action potential is the measure of the potential that causes action.
+In general, currents are expressed following ohm’s law: U=RI, where I is the current through a resistance R and U is the difference of potential between the two ends of the resistance. For currents carried by ions (and not by electrons as in copper wires), I is called  \(i_{ion}\), the current that passes through the resistance of the channel pore which has a resistance R (called  \(r_{ion}\)). But what is U in biological systems? U is the force that makes ions move in a particular direction; it is the electrochemical gradient for the considered ion and is also called the driving force: \(U=(V_m-E_{ion})\). According to ohm’s law, the current \(i_{ion}\) through a single channel is derived from \[(V_m - E_{ion}) = r_{ion}\times i_{ion}\]
+So:\[i_{ion}=1/r_{ion}(V_m - E_{ion})= \gamma_{ion}(V_m - E_{ion}) \]
+\(\gamma_{ion}\) is the reciprocal of resistance; it is called the \textit{conductance} of the channel, or unitary conductance. It is a measure of the ease of flow of ions (flow of current) through the channel pore. Whereas resistance is expressed in ohms (\(\Omega\)), conductance is expressed in siemens (\(S\)). By convention \(i_{ion} \) is negative when it represents an inward flux of positive charges (cations) and \( i_{ion}\) is positive when it represents an outward flux of positive charges. It is generally of the order of pico-amperes (1 pA=10-12 A). At physiological concentrations, \(\gamma_{ion}\) varies between 10 and 150 pico-siemens (\(pS\)), according to the channel type. 
 
-An action potential occurs when the potential of an excitable cell's membrane rapidly rises and falls. This depolarization then causes adjacent locations to similarly `depolarize', creating a chain reaction in the form of a `wavelet'.
+In physiological conditions, however,  several channels of the same type are open at the same time in the neuronal membrane. Suppose that only one type of channel is open in the membrane, for example \gls{Na} channels, the total current \(I_{Na}\) that crosses the membrane at time \(t\) is the sum of the unitary currents \(i_{Na}\) at time \(t\):\[I_{Na} = N p_o i_{Na}\]
+where \(N\) is the number of \gls{Na} channels present in the membrane; \(p_o\) is the probability of \gls{Na} channels being open at time t (\(N p_o\) is therefore the number of open \gls{Na}channels in the membrane at time \(t\)); and \(i_{Na}\) is the unitary \gls{Na} current.  
+
+More generally:\[I_{ion} = N p_o i_{ion}\]
+By analogy, the total conductance of the membrane for a particular ion is: \[G_{ion} = N p_o \gamma_{ion}\]
+and from \(i_{ion}=\gamma_{ion}(V_m - E_{ion})\) above: 
+\[I_{ion}= G_{ion}(V_m - E_{ion})\]
+ \(I_{ion}\) and \(i_{ion}\) can be measured experimentally. The latter is the current measured from a patch of membrane where only one channel of a particular type is present. Iion is the current measured from a whole cell membrane where N channels of the same type are present. 
+ 
+\section{Action Potential}
+
+Functionally all eukaryotic \glspl{gls:membrane} maintain a difference in voltage between the extracellular and intracellular space, this difference is called the `\gls{gls:mPotential}'. An expected \gls{gls:mPotential} in human cells is \glslink{gls:volt}{\qty{-70}{\milli\volt}}~\cite{}.
+\gls{aPotential} is the measure of the potential that causes action.
+
+An \gls{aPotential} occurs when the potential of an excitable cell's membrane rapidly rises and falls. This depolarization then causes adjacent lo\glspl{gls:cation} to similarly `depolarize', creating a chain reaction in the form of a `wavelet'.
 The voltage fluctuations take the form of a rapid upward spike followed by a rapid fall.
 
 ``All-or-none'' principle
 
-\begin{figure}[ht]
+\begin{figure}[H]
     \centering
     \import{../../Pictures/Anakin}{Channels.tex}
     \caption{ $\langle \text{temp} \rangle$ }\label{fig:Channels}
 \end{figure}
 
 \begin{comment}
-    Each excitable patch of membrane has two important levels of \gls{gls:mPotential}: the resting potential, which is the value the \gls{gls:mPotential} maintains as long as nothing perturbs the cell, and a higher value called the threshold potential. At the axon hillock of a typical \gls{gls:neuron}, the resting potential is around –70 millivolts (mV) and the threshold potential is around –55 mV. Synaptic inputs to a \gls{gls:neuron} cause the membrane to depolarize or hyperpolarize; that is, they cause the \gls{gls:mPotential} to rise or fall. Action potentials are triggered when enough depolarization accumulates to bring the \gls{gls:mPotential} up to threshold. When an action potential is triggered, the \gls{gls:mPotential} abruptly shoots upward and then equally abruptly shoots back downward, often ending below the resting level, where it remains for some period of time. The shape of the action potential is stereotyped; this means that the rise and fall usually have approximately the same amplitude and time course for all action potentials in a given cell. (Exceptions are discussed later in the article). In most neurons, the entire process takes place in about a thousandth of a second. Many types of neurons emit action potentials constantly at rates of up to 10–100 per second. However, some types are much quieter, and may go for minutes or longer without emitting any action potentials.
+    Each excitable patch of membrane has two important levels of \gls{gls:mPotential}: the resting potential, which is the value the \gls{gls:mPotential} maintains as long as nothing perturbs the cell, and a higher value called the threshold potential. At the axon hillock of a typical \gls{gls:neuron}, the resting potential is around –70 millivolts (mV) and the threshold potential is around –55 mV. Synaptic inputs to a \gls{gls:neuron} cause the membrane to depolarize or hyperpolarize; that is, they cause the \gls{gls:mPotential} to rise or fall. \gls{aPotential}s are triggered when enough depolarization accumulates to bring the \gls{gls:mPotential} up to threshold. When an \gls{aPotential} is triggered, the \gls{gls:mPotential} abruptly shoots upward and then equally abruptly shoots back downward, often ending below the resting level, where it remains for some period of time. The shape of the \gls{aPotential} is stereotyped; this means that the rise and fall usually have approximately the same amplitude and time course for all \gls{aPotential}s in a given cell. (Exceptions are discussed later in the article). In most neurons, the entire process takes place in about a thousandth of a second. Many types of neurons emit \gls{aPotential}s constantly at rates of up to 10–100 per second. However, some types are much quieter, and may go for minutes or longer without emitting any \gls{aPotential}s.
 
-    Action potentials result from the presence in a cell's membrane of special types of voltage-gated ion channels.[6] A voltage-gated ion channel is a transmembrane protein that has three key properties:
+    \gls{aPotential}s result from the presence in a cell's membrane of special types of voltage-gated ion channels.[6] A voltage-gated ion channel is a transmembrane protein that has three key properties:
 
     It is capable of assuming more than one conformation.
     At least one of the conformations creates a channel through the membrane that is permeable to specific types of ions.
     The transition between conformations is influenced by the \gls{gls:mPotential}.
     Thus, a voltage-gated ion channel tends to be open for some values of the \gls{gls:mPotential}, and closed for others. In most cases, however, the relationship between \gls{gls:mPotential} and channel state is probabilistic and involves a time delay. Ion channels switch between conformations at unpredictable times: The \gls{gls:mPotential} determines the rate of transitions and the probability per unit time of each type of transition.
 \end{comment}
+%original text
+The \gls{aPotential} is a sudden and rapid depolarization of the membrane as a result of positive inward current entering the axon initial segment. In neuronal somas and axons, these positive inward currents are most commonly carried by \gls{Na} \glspl{gls:cation} (positively charged ions).
+
+The ionic basis for neuronal excitation was first described in the squid giant axon by Hodgkin and Huxley \br{1952} using the voltage clamp technique. They observed a key phenomenon, that the \gls{aPotential} is underlied by two separate voltage-dependent currents: an early transient inward \gls{Na} current which depolarizes the membrane, and a delayed outward \gls{K} current largely responsible for repolarization. The resulting voltage waveform takes the shape of a rapid upward spike followed by a rapid inactivation that eventually slightly hyperpolarizes the membrane before returning to resting membrane potential \Cref{fig:AP}.
+
+Up to a threshold level of membrane depolarization (called the threshold potential), only passive ohmic response can be recorded, but when the membrane is depolarized just above threshold, an \gls{aPotential} can be evoked.  Increasing the intensity of the stimulating current pulse does not increase the amplitude of the \gls{aPotential},  the \gls{aPotential} is all or none. 
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.5\linewidth]{Pictures//Anakin/AP.png}
+    \caption{The \gls{aPotential} spike, indicating the different phases.}
+    \label{fig:AP}
+\end{figure}
+
+The depolarization phase of \gls{Na}-dependent \gls{aPotential} results from the transient entry of \gls{Na} ions through voltage gated \gls{Na} channels. The threshold  for initiation of \gls{Na}-dependent  action  potential is due to the fact that voltage-gated \gls{Na} channels open only  in  response  to  a  depolarization  positive  of \qtyrange{-50}{-40}{\mV}, hence the name `voltage-gated'. 
+
+In response to a depolarization to the threshold potential, the closed \gls{Na} channels of the axon initial segment begin to open. The flux of \gls{Na} ions through the few open \gls{Na} channels depolarizes the membrane more and thus triggers the opening of other \gls{Na} channels. In consequence, the flux of \gls{Na} ions increases, depolarizes the membrane more and opens other \gls{Na} channels until all the \gls{Na} channels of the segment of membrane are opened, which is when the depolarization phase is at its peak. \gls{Na} channels are opened by depolarization and once opened, they contribute to the membrane depolarization and therefore to their activation: it is a self-maintained process, which is why the  \gls{Na}-dependent  action  potential  is  all  or  none. Once initiated, the \gls{aPotential} propagate along the axon without decaying, with a speed varying from \qtyrange{1}{100}{\m\per\s} depending on the type of \gls{gls:axon}.  It  propagates  without  attenuation  since  the  density of voltage-gated \gls{Na} channels is constant along the  axon as well as due to the presence of the insulating myelin sheathe.  Once the channels inactivate, they may not reopen, which ensures that AP only propagates  unidirectionally forward. 
+%originaltextend
+The time during which the \gls{Na} channel stays open varies around an average value, \(\tau_0\), called the mean open time. The functional significance of this value is the following: during a time equal to \(\tau_0\) the channel has a high probability of staying open. 
+
+The \unit[per-mode = symbol]{\cur\sodium\per\V} relation is obtained by plotting the amplitude of the unitary current (\unit{\cur\sodium}) versus membrane potential (\unit{\V\membrane}). It is linear between \qtyrange{-50}{0}{\mV}. For membrane potentials more hyperpolarized than \qty{-50}{\mV}, there are no values of \unit{\cur\sodium} since the channel rarely opens or does not open at all. Quantitative data for potentials more depolarized than \qty{0}{\mV} are not available.
+
+When the activity of a single \gls{Na} channel is  recorded at different test potentials, it was observed that the amplitude of the inward unitary current (\unit{\cur\sodium}) diminishes as the memrane is further and further depolarized. The critical point of the current/voltage relation is the membrane potential for which the current is zero; i.e. the reversal potential of the current (\unit{\equilibria\reverse}). If only \gls{Na} ions flow through the \gls{Na} channel, the reversal potential is equal to \unit{\equilibria\sodium}. From \qty{-50}{\mV} to \unit{\equilibria\reverse}, \unit{\cur\sodium} is inward and its amplitude decreases. This results from the decrease of the \gls{Na} driving force \(\br{\unit{\V\membrane}-\unit{\equilibria\sodium}}\) as the membrane approaches the reversal potential for \gls{Na} ions. For membrane potentials more depolarized than \unit{\equilibria\reverse}, \unit{\cur\sodium} is now outward. Above \unit{\equilibria\reverse}, the amplitude of the outward \gls{Na} current progressively increases as the driving force for the exit of \gls{Na} ions increases. 
+
+The linear \unit[per-mode = symbol]{\cur\sodium\per\V}relation is described by the equation \(\unit{\cur\sodium} = \unit{\con\sodium} \br{\unit{\V\membrane}-\unit{\equilibria\sodium}}\), where \unit{\V\membrane} is the test potential, \unit{\equilibria\sodium} is the reversal potential of the \gls{Na} current, and \unit{\con\sodium} is the conductance of a single \gls{Na} channel (unitary conductance). The value of \unit{\con\sodium} is given by the slope of the linear \unit[per-mode = symbol]{\cur\sodium\per\V} curve. It has a constant value at any given membrane potential. This value varies between \qtyrange{5}{18}{\pico\second} depending on the preparation.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.5\linewidth]{Pictures//Anakin/iNa-VNa.png}
+    \caption{The single-channel current/voltage \br{\unit[per-mode = symbol]{\cur\sodium\per\volt}} relation is linear. }
+    \label{fig:enter-label}
+\end{figure}
+The open probability of the voltage-gated \gls{Na} channel is voltage and time dependent. During cell recordings of \gls{Na} channels, it was observed that when the membrane potential is depolarized, the probability of the \gls{Na} channel being in the open state increases with depolarization to a maximal level. The higher is the depolarizing step, the higher is the probability of the \gls{Na} channel opening. It also varies with time during the depolarizing step: openings occur more frequently at the beginning of the step. It was observed  that after \qtyrange{4}{6}{\ms} the probability of the \gls{Na} channel being in the open state is very low, even with large depolarizing steps: the \gls{Na} channel in-activates in \qtyrange{4}{6}{\ms}.  The probability of the \gls{Na} channel being in the open state at time \(t=\qty{2}{\ms}\), for example, increases with the amplitude of the depolarizing step. To generalize, at \qty{-30}{\mV} the open probability is maximum, and the channels inactivate in \qty{4}{\ms}. 
+
+\(I_{Na}\) is the macroscopic current, or the sum of all unitary currents, \unit{\cur\sodium} flowing through all the open \gls{Na} channels of the recorded membrane. In Figure 7b, an average of \(\num{300}\) unitary \gls{Na} currents elicited by a \(\qty{40}{\mV}\) depolarizing pulse is shown. For a given potential, the ‘averaged’ inward \gls{Na} current has a fast rising phase and presents a peak at the time \(t=\qty{1.5}{\ms}\). The peak corresponds to the time when most of the \gls{Na} channels are opened at each trial. Then the averaged current decays with time because the \gls{Na} channel has a low probability of being in the open state later in the step (owing to the inactivation of the \gls{Na} channel). At each trial, the \gls{Na} channel does not inactivate exactly at the same time, which explains the progressive decay of the averaged macroscopic \gls{Na} current. A similar averaged \gls{Na} current is shown in Figure 4.8b. %The averaged current does not have a rectangular shape because the \gls{Na} channel does not open with the same delay and does not inactivate at the same time at each trial. 
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.5\linewidth]{Pictures//Anakin/iNa.png}
+    \caption{Single \gls{Na} channel openings in response to adepolarizing step. (a) Nine successive recordings of single channel openings (iNa) in response to a 40mV depolarizing pulse (V trace in green) applied at 1s intervals from resting membrane potential. (b) Averaged inward \gls{Na} current from 300 elementary \gls{Na} currents as in (a).  }
+    \label{fig:enter-label}
+\end{figure}
+
+The more numerous are the \gls{Na} channels opened by the depolarizing step, the smoother is the total \gls{Na} current. The value of \(I_{Na}\) at each time t at a given potential is: 
+
+\[I_{Na}=N p_{(t)} i_{Na} \]
+where N is the number of \gls{Na} channels in the recorded membrane and p(t) is the open probability at time t of the \gls{Na} channel; it depends on the membrane potential and on the channel opening and inactivating rate constants. \unit{\cur\sodium} is the unitary \gls{Na} current and Np(t) is the number of \gls{Na} channels open at time t. 
+
+Subsequently, the relation of the macroscopic \gls{Na} current \(I_{Na}\) and voltage \(V\) is not linear, but rather has a clear bell shape, with a peak at around \qty{-40}{\mV}. 
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.5\linewidth]{Pictures//Anakin/I-V.bell.png}
+    \caption{The INa-V relation has a bell shape. (From Chiu Sy, ritchie JM, bogart rb, Stagg d (1979) A quantitative description of membrane currents from a rabbit myelinated nerve. J. Physiol.292, 149–166)}
+    \label{fig:enter-label}
+\end{figure}
+ 
+For small steps, the peak current amplitude is small (0.2nA) and has a slow time to peak (1ms). At these potentials, the \gls{Na} driving force is strong but the \gls{Na} channels have a low probability of opening. Therefore, INa is small since it represents the current through a small number of open \gls{Na} channels. 
+
+As the depolarizing steps increase in amplitude (to -42/-35mV), the amplitude of INa increases to a maximum (-3nA) and the time to peak decreases to a minimum (0.2ms). Larger depolarizations increase the probability of the \gls{Na} channel being in the open state and shorten the delay of opening. Therefore, though the amplitude of iNa decreases between \qtylist{-63;-35}{\mV}, the amplitude of INa increases owing to the large increase of open \gls{Na}channels. 
+
+After this peak, the amplitude of INa decreases to zero since the open probability does not increase enough to compensate for the decrease of iNa. The reversal potential of INa is the same as that of iNa since it depends only on the extracellular and intracellular concentrations of \gls{Na} ions.
+
+INa changes polarity for Vm more depolarized than Erev: it is now an outward current whose amplitude increases with the depolarization 
+
+\subsubsection{Activation and inactivation curves }
+Activation rate is the rate at which a macroscopic current turns on in response to a depolarizing voltage step. The \gls{Na} current is recorded in voltage clamp from a node of rabbit nerve. Depolarizing steps from -70mV to +20mV are applied from a holding potential of -80mV. When the ratio of the peak current at each test potential to the maximal peak current (\(I_{Na}/I_{Namax}\)) is plotted against test potential, the activation curve of INa can be visualized. The distribution is fitted by a sigmoidal curve. In this preparation, the threshold of \gls{Na} channel activation is -60mV. At -40mV, INa is already maximal (INa/INamax = 1). This steepness of activation is a characteristic of the voltage-gated \gls{Na} channels. 
+
+Inactivation of a current is the decay of this current during a maintained depolarization. To study inactivation, the membrane is held at varying holding potentials and a depolarizing step to a fixed value is applied where INa is maximal (0mV, for example). The amplitude of the peak \gls{Na} current is plotted against the holding potential. INa begins to inactivate at -90mV and is fully inactivated at -50mV. Knowing that the resting membrane potential in this preparation is around -80mV, some of the \gls{Na} channels are already inactivated at rest. 
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.5\linewidth]{Pictures//Anakin/activ-inactiv.png}
+    \caption{Activation (right curve) and inactivation (left curve) curves obtained from nine different experiments. The voltage protocols used are shown in insets. In the ordinates, I/Imax represents the ratio of the peak \gls{Na} current (I) recorded at the tested potential of the abscissae and the maximal peak \gls{Na} current (Imax) recorded in this experiment. (From Chiu Sy, ritchie JM, bogart rb, Stagg d (1979) A quantitative description of membrane currents from a rabbit myelinated nerve. J. Physiol.292, 149–166) }
+    \label{fig:enter-label}
+\end{figure}
+
+THE REPOLARIZATION PHASE OF THE SODIUM-DEPENDENT \gls{aPotential} RESULTS FROM \gls{Na}CHANNEL INACTIVATION AND PARTLY FROM \gls{K} CHANNEL ACTIVATION 
+
 
 
 \end{document}
