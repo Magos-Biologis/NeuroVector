@@ -23,6 +23,9 @@
 % =============== Pre-defined types
 
 \DeclareOption{printUnit}{
+    % Unit Counter
+    \newcounter{glsunittype}
+    \newglossary*{unit}{Units}[glsunittype]
     \AtEndDocument{
         \printglossary[type = unit]
     }
@@ -30,6 +33,9 @@
 
 
 \DeclareOption{printMath}{
+    % Math Counter
+    \newcounter{glsmathtype}
+    \newglossary*{math}{Math}[glsmathtype]
     \AtEndDocument{
         \printglossary[type = math]
     }
@@ -101,13 +107,6 @@
 
 % ====================== Custom Glossary ================================
 
-% Unit Counter
-\newcounter{glsunittype}
-\newglossary*{unit}{Units}[glsunittype]
-
-% Math Counter
-\newcounter{glsmathtype}
-\newglossary*{math}{Math}[glsmathtype]
 
 
 % Uses xparse to create dual command
