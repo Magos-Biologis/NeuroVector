@@ -134,10 +134,10 @@
 
 % ======================== Custom Packages ================================
 
-\RequirePackage{_NoTouch/myMathPreamble}
+\RequirePackage{myMathPreamble}
 
 
-\RequirePackage{_NoTouch/myReferencePreamble}
+\RequirePackage{myReferencePreamble}
 
 % ====================== Tweaks and settings ================================
 

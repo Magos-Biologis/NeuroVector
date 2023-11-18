@@ -1,0 +1,126 @@
+% ls-R -- filename database for kpathsea; do not change this line.
+./:
+.:
+Bibble
+.chktexrc
+INP-00-glossary.tex
+.latexmkrc
+ls-R
+mainTitle.tex
+_NoTouch
+Orator.tex
+_Output
+Pictures
+Sections
+
+./Bibble:
+biblatex-entries.json
+biblatex-optional-entries.json
+BioCites.bib
+MathCites.bib
+
+
+./_NoTouch:
+myMathPreamble.sty
+myProject.cls
+myReferencePreamble.sty
+myStyle.sty
+Tikz.sty
+
+./_Output:
+Orator.aux
+Orator.bcf
+Orator.pdf
+Orator.run.xml
+Orator.synctex.gz
+Sections
+
+./_Output/Sections:
+Background
+Discusion
+
+./_Output/Sections/Background:
+
+./_Output/Sections/Discusion:
+
+./Pictures:
+Alex
+Ana
+Anakin
+Kenni
+RUCLOGO.png
+
+./Pictures/Alex:
+Hodgkin-Huxley model 2.png
+Nullclines - negative.PNG
+Nullclines - original.PNG
+
+./Pictures/Ana:
+Motif.png
+White_noise.svg.png
+
+./Pictures/Anakin:
+activ-inactiv.png
+AP.png
+ButterFly.tex
+c.grad.png
+Channels.tex
+Dendrite.tex
+el.grad.png
+HoHu.tex
+IK-V.png
+iNa.png
+iNa-VNa.png
+I-V.bell.png
+I-V.K.png
+K+channel.png
+LipidCircuit.tex
+Neuron.tex
+N.K.png
+
+./Pictures/Kenni:
+A futuristic levels of neurobiological description2.jfif
+A futuristic levels of neurobiological description.jfif
+different scales.png
+FitzHugh-Nagumo Phase Plane.png
+images_large_cr2c00212_0007.jpeg
+implimentation cost.png
+Level of description.png
+properties_spiking_bursting_models_all.png
+properties_spiking_bursting_models.png
+Summary biological spiking neurons.png
+
+./Sections:
+Appendix.tex
+Background
+background.tex
+Discusion
+discussion.tex
+Intro.tex
+Modeling Neuronal Networks
+Nelogy.tex
+NotBackground
+Template.tex
+
+./Sections/Background:
+bio.tex
+code.tex
+electro.tex
+parameters.tex
+sie.tex
+simulations.tex
+sys.tex
+
+./Sections/Discusion:
+Chay.tex
+Choice.tex
+Coupling.tex
+FitNag.tex
+HH.tex
+
+./Sections/Modeling Neuronal Networks:
+Modeling.tex
+
+./Sections/NotBackground:
+ann.tex
+exis.tex
