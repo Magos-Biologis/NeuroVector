@@ -39,12 +39,6 @@
 \DeclareOption{printGloss}{%
     \PassOptionsToPackage{\CurrentOption}{_NoTouch/myReferencePreamble}
     }
-\DeclareOption{printUnit}{%
-    \PassOptionsToPackage{\CurrentOption}{_NoTouch/myReferencePreamble}
-    }
-\DeclareOption{printAll}{%
-    \PassOptionsToPackage{print,printUnit,printMath}{_NoTouch/myReferencePreamble}
-    }
 
 % ========================= no more Options
 
