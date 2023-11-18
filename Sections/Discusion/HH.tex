@@ -5,7 +5,7 @@
 
 Mathematically, the flow of current is represented as:
     \begin{align}
-        I_c &= C_m \ode{\unit{\V\membrane}}{t} \\
+        I_c &= C_m \ode{\unit{\V\membrane}} \\
         \intertext{and the current through a given ion channel is the product of that channel's \gls{gls:conductance} and the reversal potential for the specific ion}
         I_\bfm{ion} &= {g_\bfm{ion}}(\unit{\V\membrane}-\unit{\V\ion})  
     \end{align}
@@ -16,7 +16,7 @@ where \(\unit{\V\ion}\) is the reversal potential of the specific ion channel. T
 with \(I\) representing the total membrane current per unit area; 
 \begin{alignat}{5}
     &\quad \unit{\cur} &&= \quad I_c \quad&&+ \quad I_\rmm{K} \quad&&+ \quad I_\rmm{Na} \quad&&+ \quad I_\rmm{L} \\ 
-    \implies &\quad \unit{\cur} &&= C_m \ode{\unit{\V\membrane}}{t} &&+ {g}_\rmm{K}\br{\unit{\V\membrane} - V_\rmm{K}} &&+ {g}_\rmm{Na} \br{\unit{\V\membrane} - V_\rmm{Na}}  &&+ {g}_\rmm{L} \br{\unit{\V\membrane} - V_\rmm{L}} 
+    \implies &\quad \unit{\cur} &&= C_m \ode{\unit{\V\membrane}} &&+ {g}_\rmm{K}\br{\unit{\V\membrane} - V_\rmm{K}} &&+ {g}_\rmm{Na} \br{\unit{\V\membrane} - V_\rmm{Na}}  &&+ {g}_\rmm{L} \br{\unit{\V\membrane} - V_\rmm{L}} 
 \end{alignat}
 Where \(C_m\) the membrane capacitance per unit area; and \({g}_\rmm{K}\), \(V_\rmm{K}\), along with  \({g}_\rmm{Na}\), \(V_\rmm{Na}\) make up the \gls{gls:conductance} and \gls{gls:rPotential} of \gls{K} and \gls{Na} respectively.
 The directly time dependent element of this equation is \(\unit{\V\membrane}\), with \({g}_\rmm{Na}\), and \({g}_\rmm{K}\) are time dependant by virtue of explicit dependence on the membrane voltage \(\br{\unit{\V\membrane}}\). 
@@ -60,7 +60,7 @@ In order to characterize the ion-channels, the equations can be fitted to voltag
     Breaking down the equation we find the following regions:
     \begin{equation*}
         \unit{\cur} = 
-        \overbrace{C_m \ode{\unit{\V\membrane}}{t}}^{\mathclap{\text{rate of change of voltage scaled by capacitance}}} + 
+        \overbrace{C_m \ode{\unit{\V\membrane}}}^{\mathclap{\text{rate of change of voltage scaled by capacitance}}} + 
         \bar{g}_\rmm{K} n^4 \br{\unit{\V\membrane} - V_\rmm{K}} + 
         \bar{g}_\rmm{Na} m^3 h \br{\unit{\V\membrane} - V_\rmm{Na}}  + 
         \bar{g}_\rmm{L} \br{\unit{\V\membrane} - V_\rmm{L}} 

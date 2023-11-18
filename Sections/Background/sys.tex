@@ -192,16 +192,16 @@ These models are only going to be presented for now, and discussion regarding th
 ``The models in this category are highly simplified toy models that qualitatively describe the membrane voltage as a function of input. They are mainly used for didactic reasons in teaching but are not considered valid neuron models for large-scale simulations or data fitting''.\footnote{Wikipedia} 
 %\subsubsection{Didactic toy model}
 \begin{sysEquation}[FitNagSys]
-    \ode{V}{t} &= V - \frac{V^3}{3} - w + I_{ext} \\ 
-    \tau\ode{w}{t} &= V - a - b\,w 
+    \ode{V} &= V - \frac{V^3}{3} - w + I_{ext} \\ 
+    \tau\ode{w} &= V - a - b\,w 
 \end{sysEquation}
 
 \subsection{Chay}
 In 1985, T.R. Chay proposed a model of three-dimensional \gls{gls:nonlinear} differential equations based on the \gls{hh} model to study chaotic behavior and show ionic events in excitable membranes. 
 \begin{sysEquation}[ChaySys]
-    \ode{V}{t} &= g_\rmm{I}  m^3_\infty h_\infty \br{V_\rmm{I} - V} + g_\rmm{K, V} n^4 \br{V_\rmm{K} - V} + g_\rmm{K, C}  \frac{C}{1+C}\br{V_\rmm{K} - V} + g_\rmm{L} \br{\unit{\V\membrane} - V_\rmm{L}} \\ 
-    \ode{n}{t} &= \frac{n_\infty - n}{\tau_n} \\
-    \ode{C}{t} &= \rho \, \sbr{m^3_\infty h_\infty \br{V_c - V} - k_C C}
+    \ode{V} &= g_\rmm{I}  m^3_\infty h_\infty \br{V_\rmm{I} - V} + g_\rmm{K, V} n^4 \br{V_\rmm{K} - V} + g_\rmm{K, C}  \frac{C}{1+C}\br{V_\rmm{K} - V} + g_\rmm{L} \br{\unit{\V\membrane} - V_\rmm{L}} \\ 
+    \ode{n} &= \frac{n_\infty - n}{\tau_n} \\
+    \ode{C} &= \rho \, \sbr{m^3_\infty h_\infty \br{V_c - V} - k_C C}
 \end{sysEquation}
 
 where \textit{V}, \textit{n}, and \textit{C} are membrane potential, probability of the voltage-sensitive \gls{K} channel, and intracellular concentration of \gls{Ca} ions, respectively. The Chay model parameters are adopted from \textit{`paper'} and collected in Table
@@ -226,10 +226,10 @@ The \gls{hh} model of Action Potential is a system of \gls{gls:nonlinear} differ
 
 Through long term experimentation, the duo of Hodgkin and Huxley divined a model built from the observations of smooth current change as a function of pores (or channels) that were either open or closed. By using a statistical approach, H\&H generated predictions for the probability of channels being open or closed at a given time in the process~\cite{HodHux1939}. H\&H presented the model as a set of four \glspl{ode} with respect to time.
 \begin{sysEquation}[HodHuxSys]
-    C_m \ode{\unit{\V\membrane}}{t} &= I_m - \br{\bar{g}_\rmm{K} n^4 \br{\unit{\V\membrane} - V_\rmm{K}} + \bar{g}_\rmm{Na} m^3 h \br{\unit{\V\membrane} - V_\rmm{Na}}  + \bar{g}_\rmm{L} \br{\unit{\V\membrane} - V_\rmm{L}}} \\
-    \ode{n}{t} &= \alpha_n \br{\unit{\V\membrane}} \br{1-n} - \beta_n \br{\unit{\V\membrane}} n \\
-    \ode{m}{t} &= \alpha_m \br{\unit{\V\membrane}} \br{1-m} - \beta_m \br{\unit{\V\membrane}} m \\
-    \ode{h}{t} &= \alpha_h \br{\unit{\V\membrane}} \br{1-h} - \beta_h \br{\unit{\V\membrane}} h 
+    C_m \ode{\unit{\V\membrane}} &= I_m - \br{\bar{g}_\rmm{K} n^4 \br{\unit{\V\membrane} - V_\rmm{K}} + \bar{g}_\rmm{Na} m^3 h \br{\unit{\V\membrane} - V_\rmm{Na}}  + \bar{g}_\rmm{L} \br{\unit{\V\membrane} - V_\rmm{L}}} \\
+    \ode{n} &= \alpha_n \br{\unit{\V\membrane}} \br{1-n} - \beta_n \br{\unit{\V\membrane}} n \\
+    \ode{m} &= \alpha_m \br{\unit{\V\membrane}} \br{1-m} - \beta_m \br{\unit{\V\membrane}} m \\
+    \ode{h} &= \alpha_h \br{\unit{\V\membrane}} \br{1-h} - \beta_h \br{\unit{\V\membrane}} h 
 \end{sysEquation}
 
 The `gating' variables \(m\) and \(h\), part \(n\) describe the time dependent kinetics of the voltage

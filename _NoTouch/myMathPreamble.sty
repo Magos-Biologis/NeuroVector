@@ -198,8 +198,12 @@
         }%
     } % [.]
 
-\providecommand{\ode}[2]{\frac{\mathrm{d}\displaystyle#1}{\mathrm{d}\displaystyle#2}}
-\providecommand{\pde}[2]{\frac{\partial\displaystyle#1}{\partial\displaystyle#2}}
+\ProvideDocumentCommand{\ode}{ m O{t} }{%
+    \frac{\mathrm{d}\displaystyle#1}{\mathrm{d}\displaystyle#2}
+    }
+\ProvideDocumentCommand{\pde}{ m m }{%
+    \frac{\partial\displaystyle#1}{\partial\displaystyle#2}
+    }
 \NewDocumentCommand{\rfrac}{ m m }{{}^{#1}\!/_{#2}}
 
 %\DeclareMathOperator{\argmax}{arg\,max}

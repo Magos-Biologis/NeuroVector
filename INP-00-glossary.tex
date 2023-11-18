@@ -103,11 +103,6 @@
         parent = {gls:neuron},
 }
 
-\newglossaryentry{gls:ionPump}{
-        name = {Ion Pump},
-        text = {ion pumps},
-        description = {5},
-}
 
 \newglossaryentry{gls:ax-terminal}{
         name = {Axon terminal},
@@ -133,6 +128,21 @@
 
 %%%%%%%%% Cell components
 
+\newglossaryentry{gls:excell}{
+        name = {Extra-Cellular Space},
+        text = {extracellular},
+        symbol = {\ensuremath{\mathcal{E}}},
+        description = {the outside of a cell's enclosed membrane},
+        parent = {gls:cell},
+}
+
+\newglossaryentry{gls:incell}{
+        name = {Intra-Cellular Space},
+        text = {intracellular},
+        symbol = {\ensuremath{\mathcal{I}}},
+        description = {the inside of a cell's enclosed membrane},
+        parent = {gls:cell},
+}
 
 \newglossaryentry{gls:cytoplasm}{
         name = {Cytoplasm},
@@ -164,6 +174,19 @@
         text = {golgi apparatus},
         description = {dense organelle present in most eukaryotic cells, typically a single rounded structure bounded by a double membrane, containing the genetic material},
         parent = {gls:cell},
+}
+
+
+\newglossaryentry{gls:lig}{
+        name = {Ligand},
+        text = {ligand},
+        description = {a molecule that binds to another (usually larger) molecule},
+}
+
+\newglossaryentry{gls:gate}{
+        name = {Gate},
+        text = {gate},
+        description = {construct which blocks passage to unsuitable entities},
 }
 
 \newglossaryentry{gls:bilipid}{
@@ -199,7 +222,7 @@
         description = {a device that stores energy}
 }
 
-\newglossaryentry{gls:capacitance}{
+\newglossaryentry{gls:capa}{
         name   = {Capacitance},
         text   = {capacitance},
         parent = {gls:capacitor},
@@ -370,6 +393,19 @@
     text   = {nullcline},
     description = {the line where the equation is equal to zero},
     }
+    
+\newglossaryentry{gls:flux}{
+    name   = {Flux},
+    text   = {flux},
+    description = {the quantity of essence moving through a boundry per time},
+    }
+    
+\newglossaryentry{gls:media}{
+    name   = {Medium},
+    text   = {medium},
+    plural = {media},
+    description = {a liminal substance},
+    }
 
 %%%%%%%% Units
 
@@ -449,35 +485,35 @@
 
 %%%%%%%%% Potentials
 
-\newglossaryentry{gls:Potential}{
+\newglossaryentry{gls:Pote}{
         name   = {Potential},
         text   = {potential},
         description = {An undefined type of energy, where the possibility is what causes the difference},
     }
 
-\newglossaryentry{gls:rPotential}{
+\newglossaryentry{gls:rPote}{
         name   = {Reversal Potential},
         text   = {reversal potential},
         description = {the equilibrium point for passive diffusion of a given ion},
-        see    = {gls:ePotential},
-        parent = {gls:Potential}
+        see    = {gls:ePote},
+        parent = {gls:Pote}
     }
 
-\newglossaryentry{gls:ePotential}{
+\newglossaryentry{gls:ePote}{
         name   = {Equilibrium Potential},
         text   = {equilibrium potential},
         description = {the equilibrium of potential in a system},
-        parent = {gls:Potential}
+        parent = {gls:Pote}
     }
 
-\newglossaryentry{gls:mPotential}{
+\newglossaryentry{gls:mPote}{
         name = {Membrane Potential},
         text = {membrane potential},
         description = {potential of membrane},
-        parent = {gls:Potential}
+        parent = {gls:Pote}
     }
 
-\newDualEntry[parent = {gls:Potential}, text ={action potential}]{aPotential}{AP}{Action Potential}{potential of action}
+\newDualEntry[parent = {gls:Pote}, text ={action potential}]{ap}{AP}{Action Potential}{potential of action}
 
 
 %%%%%%%% Acros
@@ -486,8 +522,9 @@
 %%%%%%%% chemtry
 
 \newglossaryentry{gls:ion}{
-    name   = {ion},
-    description = {\nopostdesc}
+    name   = {Ion},
+    text   = {ion},
+    description = {a charged particle}
     }
 \newglossaryentry{gls:anion}{
     name   = {Anion},
@@ -502,6 +539,34 @@
     parent = {gls:ion},
     }
 
+\newglossaryentry{gls:ionChan}{
+    name   = {Ion Channel},
+    text   = {ion channel},
+    description = {passive ion transport}
+    }
+\newglossaryentry{gls:ionPump}{
+    name = {Ion Pump},
+    text = {ion pump},
+    description = {active ion transport},
+    }
+    
+\newglossaryentry{gls:polar}{
+    name   = {Polarization},
+    text   = {polarization},
+    description = {\nopostdesc}
+    }
+\newglossaryentry{gls:depol}{
+    name = {Depolarization},
+    text = {depolarization},
+    description = {approaches a non-polar state},
+    parent = {gls:polar},
+    }
+\newglossaryentry{gls:repol}{
+    name = {Repolarization},
+    text = {repolarization},
+    description = {approaches a polar state},
+    parent = {gls:polar},
+    }
 % Dual entry is a custom command, just ask Anakin if you want to us it
 
 
