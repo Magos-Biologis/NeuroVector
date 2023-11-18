@@ -1,0 +1,23 @@
+\contentsline {chapter}{Introduction}{1}{chapter*.3}%
+\contentsline {part}{I\hspace {1em}Theory}{2}{part.1}%
+\contentsline {chapter}{\numberline {1}The Neuron}{3}{chapter.1}%
+\contentsline {chapter}{\numberline {2}Electromagnetism}{4}{chapter.2}%
+\contentsline {chapter}{\numberline {3}Mathematical Modeling}{5}{chapter.3}%
+\contentsline {chapter}{\numberline {4}Mathematical Modeling}{6}{chapter.4}%
+\contentsline {subsubsection}{The role of neuronal networks in seizure generation}{6}{chapter.4}%
+\contentsline {section}{\numberline {4.1}Physiological Parameters}{7}{section.4.1}%
+\contentsline {section}{\numberline {4.2}Parameters of Neural Models}{7}{section.4.2}%
+\contentsline {subsection}{\numberline {4.2.1}One neuron}{8}{subsection.4.2.1}%
+\contentsline {chapter}{\numberline {5}Our Approach}{9}{chapter.5}%
+\contentsline {chapter}{\numberline {6}Methodology}{10}{chapter.6}%
+\contentsline {chapter}{\numberline {7}Results}{11}{chapter.7}%
+\contentsline {part}{II\hspace {1em}Discussion}{12}{part.2}%
+\contentsline {chapter}{\numberline {8}Model Discussion}{13}{chapter.8}%
+\contentsline {section}{\numberline {8.1}Fithugh-Nagamo}{13}{section.8.1}%
+\contentsline {section}{\numberline {8.2}Chay}{14}{section.8.2}%
+\contentsline {section}{\numberline {8.3}Hodgkin-Huxley}{15}{section.8.3}%
+\contentsline {section}{\numberline {8.4}Choice of model}{16}{section.8.4}%
+\contentsline {chapter}{\numberline {9}Coupling}{17}{chapter.9}%
+\contentsline {chapter}{\numberline {10}Conclusion}{18}{chapter.10}%
+\contentsline {part}{Appendix}{20}{part*.4}%
+\contentsline {section}{\numberline {.1}Images}{20}{section.Alph0.1}%
