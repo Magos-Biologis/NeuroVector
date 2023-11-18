@@ -46,7 +46,7 @@ This difference in charge is known as the resting \gls{gls:mPotential}, and it i
 The ions found to be involved in the \gls{gls:mPotential} include \gls{Na}, \gls{K}, \gls{Cl}, and, to a limited degree, \gls{Ca}. 
 In the extracellular space the concentrations of \gls{Na} and  \gls{Cl} are kept much higher then in the cytoplasm, whereas \gls{K} is found in much higher concentrations  in the cytoplasm compared to the extracellular space. During rest, their concentration gradients are actively regulated and maintained at constant values by `\gls{gls:ionPump}', that chemically transport ions from one side of the membrane to the other \cite{}. 
 
-This separation of charges is what creates a voltage difference across the \gls{gls:membrane}, with the inside being negatively charged relative to the outside. The usual resting \gls{gls:mPotential} is found to be around \glslink{gls:volt}{\qty{-70}{millivolts} (\unit{\milli\volt})} in neurons, however, it varies depending on the cell type and conditions \cite{}. 
+This separation of charges is what creates a voltage difference across the \gls{gls:membrane}, with the inside being negatively charged relative to the outside. The usual resting \gls{gls:mPotential} is found to be around \glslink{gls:volt}{\qty{-70}{millivolts\br{\milli\volt}}} in neurons, however, it varies depending on the cell type and conditions \cite{}. 
 
 Another structure embedded in the lipid bilayer includes `ion \textit{channels}' that permit electrically charged ions to diffuse across the membrane gradient. Ion channels are only permeable to a specific ion \cite{}. Some ion channels are voltage gated, meaning that they can be switched between open and closed states by altering the voltage difference across the membrane. 
 Others are `ligand gated', meaning that they can be switched between an open and a closed state by interacting with ligands that travel through the extracellular fluid. 
@@ -219,7 +219,8 @@ Up to a threshold level of membrane depolarization (called the threshold potenti
     \label{fig:AP}
 \end{figure}
 
-The depolarization phase of \gls{Na}-dependent \gls{aPotential} results from the transient entry of \gls{Na} ions through voltage gated \gls{Na} channels. The threshold  for initiation of \gls{Na}-dependent  action  potential is due to the fact that voltage-gated \gls{Na} channels open only  in  response  to  a  depolarization  positive  of \qtyrange{-50}{-40}{\mV}, hence the name `voltage-gated'. 
+\subsection{The depolarization phase of \gls{Na}-dependent \gls{aPotential} results from the transient entry of \gls{Na} ions through voltage gated \gls{Na} channels.}
+The threshold  for initiation of \gls{Na}-dependent  action  potential is due to the fact that voltage-gated \gls{Na} channels open only  in  response  to  a  depolarization  positive  of \qtyrange{-50}{-40}{\mV}, hence the name `voltage-gated'. 
 
 In response to a depolarization to the threshold potential, the closed \gls{Na} channels of the axon initial segment begin to open. The flux of \gls{Na} ions through the few open \gls{Na} channels depolarizes the membrane more and thus triggers the opening of other \gls{Na} channels. In consequence, the flux of \gls{Na} ions increases, depolarizes the membrane more and opens other \gls{Na} channels until all the \gls{Na} channels of the segment of membrane are opened, which is when the depolarization phase is at its peak. \gls{Na} channels are opened by depolarization and once opened, they contribute to the membrane depolarization and therefore to their activation: it is a self-maintained process, which is why the  \gls{Na}-dependent  action  potential  is  all  or  none. Once initiated, the \gls{aPotential} propagate along the axon without decaying, with a speed varying from \qtyrange{1}{100}{\m\per\s} depending on the type of \gls{gls:axon}.  It  propagates  without  attenuation  since  the  density of voltage-gated \gls{Na} channels is constant along the  axon as well as due to the presence of the insulating myelin sheathe.  Once the channels inactivate, they may not reopen, which ensures that AP only propagates  unidirectionally forward. 
 %originaltextend
@@ -280,8 +281,53 @@ Inactivation of a current is the decay of this current during a maintained depol
     \label{fig:enter-label}
 \end{figure}
 
-THE REPOLARIZATION PHASE OF THE SODIUM-DEPENDENT \gls{aPotential} RESULTS FROM \gls{Na}CHANNEL INACTIVATION AND PARTLY FROM \gls{K} CHANNEL ACTIVATION 
+\subsection{The repolarization phase of the sodium-dependent \gls{aPotential} results from  \gls{Na} channel inactivation and partly from  \gls{Ka} channel activation}
 
+The voltage-gated Ka+ channel type that participates in membrane repolarization are the so called delayed rectifiers, which activate after a delay following membrane depolarization and inactivate slowly. The function of the delayed rectifier channel is to transduce, with a delay, membrane depolarization into an exit of K+ ions. 
 
+The gating behavior of the delayed rectifier channel is different from that of the Na+ channel.  Whereas all four voltage-sensitive domains in K+ channels must be activated in order for pore opening to occur, Na+ channel pore opening requires activation of only three voltage-sensitive domains. Thus, part of the difference in activation speed between Na+ and K+ channels may be due to the lesser number of voltage-sensitive domains required to move in Na+ channels.
 
-\end{document}
+The average open time \(\tau_O\) measured in the patch illustrated in Figure10 is 4.6ms. The mean closed time \(\tau_c\) is 1.5ms. As seen in the figure, during a depolarizing pulse to 0mV the delayed rectifier channel spends much more time in the open state than in the closed state: at 0mV its average open probability is high (po=0.76).
+
+In order to test whether the delayed rectifier channels show some inactivation, long-lasting recordings are performed. Though no significant inactivation is apparent during test pulses in the range of seconds, during long test depolarizations (in the range of minutes) the channel shows steady-state inactivation at positive holding potentials (not shown). Therefore, in the range of seconds, the inactivation of the delayed rectifier channel can be omitted: the channel fluctuates between the closed and open states:
+\[C\rightleftharpoons O\]
+The transition from the closed (C) state to the open (o) state is triggered by membrane depolarization with a delay. The delayed rectifier channel activates in the range of milliseconds. In comparison, the Na+ channel activates in the range of submilliseconds. The O to C transitions of the Na+ channel frequently happen though the membrane is still depolarized. It also happens when the membrane repolarizes. 
+  \begin{figure}[H]
+      \centering
+      \includegraphics[width=0.5\linewidth]{Pictures//Anakin/K+channel.png}
+      \caption{Single K+ channel openings in response to a depolarizing step. The activity of a single delayed rectifier channel expressed from rat brain is recorded in patch clamp (inside-out patch). A depolarizing step to 0mV from a holding potential of -60mV(a) evokes the opening of the channel (b). The elementary current is outward. The channel then closes briefly and reopens several times during the depolarization, as shown in the drawing (c) that interprets the current trace. bathing solution or intracellular solution (in mM): 100 KCl, 10 eGTA, 10 HepeS. pipette solution or extracellular solution (in mM): 115 NaCl, 2 KCl, 1.8 CaCl2, 10 HepeS. Adapted from Stühmer W, Stocker M, Sakmann bet al. (1988) potassium channels expressed from rat brain cdNA have delayed rectifier properties. FEBS Lett.242, 199–206, with permission. }
+      \label{fig:enter-label}
+  \end{figure}
+
+The K+ channel has a constant unitary conductance \(\gamma_K\). In Figure 11a, unitary currents are shown in response to increasing depolarizing steps from -50 to +20mV from a holding potential of -80mV. It can be observed that both the amplitude of the unitary current and the time spent by the channel in the open state increase with depolarization. 
+
+When the mean amplitude of the unitary K+ current is plotted versus membrane test potential, a linear \(i_K/V\) relation is obtained.  This linear \(i_K/V\) relation (between -50 and +20mV) is described by the equation \(i_K = \gamma_K(V-E_K)\), where V is the membrane potential, \(E_K\) is the reversal potential of the K+ current, and \(\gamma_K\) is the conductance of the single delayed rectifier K+ channel, or unitary conductance. 
+
+Linear back-extrapolation gives a reversal potential value around -90/-80mV, a value close to \(E_K\) calculated from the Nernst equation. This means that from -80mV to more depolarized potentials, which correspond to the physiological conditions, the K+ current is outward. For more hyperpolarized potentials, the K+ current is inward. The value of \(\gamma_K\) is given by the slope of the linear \(i_K/V\)curve. It has a constant value at any given membrane potential. This value varies between 10 and 15pS depending on the preparation. 
+
+\begin{figure}[H]
+     \centering
+     \includegraphics[width=0.5\linewidth]{Pictures//Anakin/I-V.K.png}
+     \caption{The single-channel current/voltage (iK/V) relation is linear.delayed rectifier K+ channels from rat brain are expressed in a myo-blast cell line. (a) The activity of a single channel is recorded in patch clamp (cell-attached patch). unitary currents are recorded at different test potentials (from -50mV to +20mV) from a holding potential at -80mV. bottom trace is the voltage trace. (b)iK-V relation obtained by plotting the mean amplitude of iK at the different test potentials tested. iK reverses at =-75mV and gK=14pS. Intrapipette solution (in mM): 145 NaCl, 5.5 KCl, 2 CaCl2, 2 MgCl2, 10 HepeS. Adapted from Koren G, liman er, logothetis deet al. (1990) Gating mechanism of a cloned potassium channel expressed in frog oocytes and mammalian cells. Neuron2, 39–51.}
+     \label{fig:enter-label}
+ \end{figure} 
+
+The macroscopic delayed rectifier K+current (IK) has a delayed voltage dependence of activation and inactivates within tens of seconds. Whole cell currents start to activate at potentials positive to -30mV and their amplitude is clearly voltage dependent. When unitary currents recorded from 70 successive depolarizing steps to 0mV are averaged (Figure4.20b), the macroscopic outward current obtained has a slow time to peak (4ms) and lasts the entire depolarizing step. The whole cell current amplitude at steady state (once it has reached its maximal amplitude) for a given potential is
+\[I_K= N p_o i_K,\]
+where N is the number of delayed rectifier channels in the membrane recorded, \(p_o\) the open probability at steady state and iK the elementary current. The number of open channels Npo increases with depolarization (to a maximal value) and so does IK. 
+
+The IK/V relation shows that the whole cell current varies linearly with voltage from a threshold potential which, for those conditions, is around -40mV . When the membrane is more hyperpolarized than the threshold potential, very few channels are open and IK is equal to zero. For membrane potentials more depolarized than the threshold potential, IK depends on \(p_o\) and the driving force state (V-EK) which augments with depolarization. once \(p_o\) is maximal, IK augments linearly with depolarization since it depends only on the driving force. 
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.5\linewidth]{Pictures//Anakin/IK-V.png}
+    \caption{Characteristics of the macroscopic delayed recti-fier K+ current.  The amplitude of the current at steady state is plotted against test potential. The potential threshold for its activation is -40mV.  }
+    \label{fig:enter-label}
+\end{figure}
+In conclusion, owing to their delay of opening, delayed rectifier channels open when the membrane is already depolarized by the entry of Na+ ions through open voltage-gated Na+ channels. Therefore, the exit of K+ ions does not occur at the same time as the entry of Na+ ions. This allows the membrane to first depolarize in response to the entry of Na+ ions and then to repolarize as a consequence of the exit of K+ ions.
+ \begin{figure}[H]
+     \centering
+     \includegraphics[width=0.5\linewidth]{Pictures//Anakin/N.K.png}
+     \caption{Gating of Na+ and K+ chan-nels during the Na+-dependent action potential.(a) Interpretation of the manner in which the con-ductances to Na+ and K+ contribute to the action potential. (b) State of the Na+ and K+ voltage-gated channels during the course of the action potential. o, channels open; I, channels inactivate; C, channels close or are closed. Trace (a) adapted from Hodgkin Al, Huxley AF (1952) A quantitative description of membrane current and its application to conduction and excitation in nerve. J. Physiol.117, 500–544.}
+     \label{fig:enter-label}
+ \end{figure}
+ \end{document}

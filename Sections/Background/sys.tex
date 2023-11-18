@@ -8,7 +8,7 @@ A model is a series of mathematical equations capable of replicating the behavio
 The construction of a model requires equations complex enough to accurately describe the dynamics of interest yet, preferably, simple enough so that mathematical tools exist to analyze the equations\footnotemark. 
 \footnotetext{The best model of a cat is a cat. Preferably the same cat\footnotemark.-`\textit{Philosophy of Science, 1945, Arturo Rosenblueth \br*{1900-1970}}'}
 There exists any number of limitations in the pursuit of this task, some inherent to the system, others inherent to our modern construction of mathematics.
-\footnotetext{If man could be crossed with the cat, it would improve man, but it would deteriorate the cat.-`\textit{Mark Twain}'}
+\footnotetext{If man could be crossed with the cat, it would improve man, but it would deteriorate the cat.-`\textit{Mark Twain}'.}
 
 
 
@@ -18,7 +18,7 @@ There exists any number of limitations in the pursuit of this task, some inheren
 In scaling processes the complexity of a system will often change. Scaling neural models is a multidimensional challenge involving trade-offs between model complexity, computational efficiency, and the ability to provide meaningful insights into neural function.
 As can be seen in figure\ref{fig:computational_properties} the 
 
-
+cf. appendix\cref{fig:sum_spike_neuro} on the summery of different spiking scenarios.
 
 
 For neural networks scaling up involves increasing the number of neurons interacting and 
@@ -26,10 +26,10 @@ To capture the realism the number of parameters will have to increase as well.
 
 
 
-\begin{figure}[ht]
+\begin{figure}[H]
     \centering
     \includegraphics[width = 0.75\textwidth]{Pictures/Kenni/Level of description.png}
-    \caption{Level of description, ~\cite{Burger2017}}
+    \caption{Level of description, ~\cite{Burger2017}.}
     \label{fig:scale}
 \end{figure}
 
@@ -37,10 +37,10 @@ To capture the realism the number of parameters will have to increase as well.
 ....
 
 
-\begin{figure}[ht]
+\begin{figure}[H]
     \centering
     \includegraphics[width = 0.75\textwidth]{Pictures/Kenni/properties_spiking_bursting_models_all.png}
-    \caption{“\# of FLOPS” is an approximate number of floating point operations (addition, multiplication, etc.) needed to simulate the model during a 1 ms time span. Each empty square indicates the property that the model should exhibit if the parameters are chosen appropriately, ~\cite{izhikevich2004model}}
+    \caption{“\# of FLOPS” is an approximate number of floating point operations (addition, multiplication, etc.) needed to simulate the model during a 1 ms time span. Each empty square indicates the property that the model should exhibit if the parameters are chosen appropriately, ~\cite{izhikevich2004model}.}
     \label{fig:computational_properties}
 \end{figure}
 
@@ -97,7 +97,7 @@ dxdt = alpha * (1 - x**2) - beta * y
 %This is a simplified version of the FitzHugh-Nagumo model, commonly used to study excitable systems. Parameters α, β, γ, and 
 %δ control the behavior of the system.
 
-\begin{figure}[ht]
+\begin{figure}[H]
     \centering
     \includegraphics[width = 0.75\textwidth]{Pictures/Kenni/FitzHugh-Nagumo Phase Plane.png}
     \caption{Caption}
@@ -108,7 +108,11 @@ Notes:
 - Time delays can be the source of instabilities and bifurcations in \gls{gls:dynSystem}s and are frequently observed in biological systems such as neural networks.
 - with qualitative change in the dynamical behavior of the system we mean 
 - The bifurcation constitutes a 'dividing event' and is associated with modifications to the system parameters such as membrane capacitance and ion channel parameters etc. ~\cite{STEFANESCU2012748}.
-- Limit cycle
+- The reduced, two dimensional Hodgkin-Huxley model constitutes what is called a relaxation oscillator. Oscillator because solutions oscillate, there is a limit cycle. 
+%Relaxation is because \v at first gradually rises, while \n falls,
+“building up tension” as it were, then all of the sudden the tension is “released”
+when the trajectory shoots over from the left branch of the v-nullcline to its right
+branch. See example 
 
 
 Bifurcations are critical points where the stability of a system changes, leading to abrupt transitions in the system's behavior. These transitions can provide insights into the onset of seizures and their characteristics.
@@ -118,6 +122,8 @@ Identifying bifurcation points in neural systems helps to understand the mechani
 A neuron model, such as the \gls{hh} model, uses a system of four differential equations
 to simulate a complex network this can quickly amount to an insurmountable task with contemporary computer technology...
 % perhaps a note or two about what is actually needed in terms of computational operations and why a reduction in complexity is relevant??
+
+% A Two-Dimensional Reduction of the Classical Hodgkin-Huxley Model --> SEE "An Introduction to Modeling Neuron Dynamics", (978-3-319-51171-9), page 73 in our litterature folder.
 
 
 
