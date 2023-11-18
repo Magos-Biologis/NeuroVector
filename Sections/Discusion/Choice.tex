@@ -10,15 +10,32 @@
 % Pros and cons
 % Accuracy
 
-\subsection{Hudgkin-Huxley}
+\subsection{Hodgkin-Huxley}
 % Pros and cons
 % Accuracy
 
 \subsection{Other possible models}
-% Intergrate and fire and adaptations
+% Integrate and fire and adaptations
 % Izhikevich
-% Hindmarch-Rose
 % Morris-Lecar
+% Hindmarch-Rose
 % Wilson
+
+\begin{table}[]
+\centering
+\begin{tabular}{lllll}
+\hline
+Name& \begin{tabular}[c]{@{}l@{}}Biophysically\\ relevant\end{tabular} & \begin{tabular}[c]{@{}l@{}}Number of\\ operations\\ per ms\end{tabular} & Dimensions & \begin{tabular}[c]{@{}l@{}}Number of\\ neurons in\\ a network\end{tabular} \\ \hline
+FitzHugh-Nagumo & No& 72& 2&Thousand\\
+Chay&Yes&& 3&\\
+Hodgkin-Huxley& Yes& 1200& 4& Tens\\
+\begin{tabular}[c]{@{}l@{}}Standard integrate\\ and fire\end{tabular}& No& 5& 1& Thousands\\
+\begin{tabular}[c]{@{}l@{}}Integrate and fire\\ adaptations\end{tabular} & No& 7-13& 1-2& Thousands\\
+Izhikevich& No& 13& 2&Thousands\\
+Moris-Lecar& Yes& 600& 2&\\
+Hindmarch-Rose& No& 120& 3&\\
+Wilson& No& 180& 4&\\ \hline
+\end{tabular}
+\end{table}
 
 \end{document}
