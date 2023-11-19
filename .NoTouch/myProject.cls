@@ -65,6 +65,7 @@
 % Best imported after fonts.
 \RequirePackage[T1]{fontenc} % I believe this encodes fonts into your PDF.
 
+
 % ========================= Colors/Visuals/Figures Function
 
 \RequirePackage[table, dvipsnames]{xcolor} % allows for more exciting colors
@@ -78,16 +79,15 @@
 
 \RequirePackage[labelfont={bf}]{caption} % For figure coloration
 \RequirePackage{subcaption} % Subfigures
-\RequirePackage{multicol} % allows for merging multiple columns
 
-    
-\RequirePackage{array} % used for easy access in working memory
+\RequirePackage{multicol} % allows for merging multiple columns
+% \RequirePackage{array} % used for easy access in working memory
 \RequirePackage[outline]{contour} % Glow around text
     
 % ========================= Format margins, headers and footers
 
 \RequirePackage{datetime} % for generating dates and time
-\RequirePackage{lastpage} 
+\RequirePackage{lastpage} %
 
 \RequirePackage[%
     a4paper, centering,%
@@ -134,10 +134,10 @@
 
 % ======================== Custom Packages ================================
 
-\RequirePackage{_NoTouch/myMathPreamble}
+\RequirePackage{.NoTouch/myMathPreamble}
 
 
-\RequirePackage{_NoTouch/myReferencePreamble}
+\RequirePackage{.NoTouch/myReferencePreamble}
 
 % ====================== Tweaks and settings ================================
 
@@ -149,8 +149,8 @@
     \sisetup{per-mode = symbol}
     }
 
-\providecommand{\red}{\color{red!80!black}}
-\providecommand{\blue}{\color{blue!80!black}}
+\newcommand{\red}{\color{red!80!black}}
+\newcommand{\blue}{\color{blue!80!black}}
 
 
 \renewcommand{\thefootnote}{\fnsymbol{footnote}}
@@ -238,4 +238,8 @@
     
 
 % ========================================================================
+
+\RequirePackage{import}
+
+
 \endinput

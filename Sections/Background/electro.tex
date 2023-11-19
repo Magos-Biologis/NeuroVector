@@ -1,4 +1,14 @@
-\documentclass[../../Orator]{subfiles}
+% \documentclass[../../Orator]{subfiles}
+\documentclass[class={.NoTouch/myProject}, crop=false]{standalone}
+\IfStandalone{%
+    \import{}{customCommands}
+    \import{}{INP-00-glossary}
+    }{}
+
+\usepackage[subpreambles = true]{standalone}
+\usepackage{.NoTouch/myTikz}
+
+    
 \begin{document} 
  
 % Make a table of symbols

@@ -1,4 +1,4 @@
-\documentclass[printGloss]{_NoTouch/myProject}
+\documentclass[printGloss]{.NoTouch/myProject}
 
 % ========================= Preamble Packages ================================
 
@@ -7,18 +7,18 @@
 \usepackage{todonotes}
 
 \usepackage[subpreambles=true]{standalone} % Allows for independent subfile constructions
-\usepackage{import}
 
-\usepackage{_NoTouch/Tikz}
+\usepackage{.NoTouch/myTikz}
 
-% ============================ Bibliography + Glossary
+% ============================ Important Files
 
-\input{INP-00-glossary}
+\import{}{customCommands}
+\import{}{INP-00-glossary}
 \addbibresource[glob=true]{Bibble/*.bib}
 
 % ============================ Subfiles
 
-\usepackage{subfiles} % must be last usepackage
+% \usepackage{subfiles} % must be last usepackage
 
 %==========================================================
 
@@ -77,38 +77,6 @@
     \footnote[⟨options⟩]{⟨text⟩}
     
 \end{comment}
-
-%==========================================================
-
-
-% Custom commands specific to this project
-
-% Unit shit
-\DeclareSIUnit\equilibria{\textit{E}}
-\DeclareSIUnit\cur{\mathit{I}}
-\DeclareSIUnit\cap{\mathit{C}}
-\DeclareSIUnit\con{g}
-\DeclareSIUnit\maxcon{\bar{g}}
-
-\DeclareSIUnit\ioconc{\ensuremath{\left[\mathbf{ion}\right]}}
-\DeclareSIQualifier\ion{\mathbf{ion}}
-
-\DeclareSIQualifier\potassium{\mathrm{K}}
-\DeclareSIQualifier\sodium{\mathrm{Na}}
-\DeclareSIQualifier\calcium{\mathrm{Cl}}
-\DeclareSIQualifier\chlorine{\mathrm{Ca}}
-\DeclareSIQualifier\leakage{\mathrm{L}}
-
-\DeclareSIQualifier\membrane{m}
-\DeclareSIQualifier\reverse{rev}
-\DeclareSIQualifier\excell{\mathcal{E}}
-\DeclareSIQualifier\incell{\mathcal{I}}
-
-\DeclareSIQualifier\dn{\mathit{n}}
-\DeclareSIQualifier\dm{\mathit{m}}
-\DeclareSIQualifier\dh{\mathit{h}}
-
-
 
 %==========================================================
 
@@ -177,7 +145,7 @@
 \part*{Appendix}
 \addcontentsline{toc}{part}{Appendix}
 
-\section{Images}\label{ap:sfd}
+\chapter{Images}\label{ap:sfd}
 \import{Sections/}{Appendix}
 
 \end{document}

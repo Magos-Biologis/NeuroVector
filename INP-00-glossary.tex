@@ -130,7 +130,7 @@
 
 \newglossaryentry{gls:excell}{
         name = {Extra-Cellular Space},
-        text = {extracellular},
+        text = {extra-cellular},
         symbol = {\ensuremath{\mathcal{E}}},
         description = {the outside of a cell's enclosed membrane},
         parent = {gls:cell},
@@ -138,7 +138,7 @@
 
 \newglossaryentry{gls:incell}{
         name = {Intra-Cellular Space},
-        text = {intracellular},
+        text = {intra-cellular},
         symbol = {\ensuremath{\mathcal{I}}},
         description = {the inside of a cell's enclosed membrane},
         parent = {gls:cell},
@@ -232,7 +232,7 @@
 \newglossaryentry{gls:resistor}{
         name   = {Resistor},
         text   = {resistor},
-        description = {a device that creates resistance in a circuit}
+        description = {a device that creates resistance in a circuit},
 }
 
 \newglossaryentry{gls:varresistor}{
@@ -245,21 +245,28 @@
 \newglossaryentry{gls:wire}{
         name   = {Wire},
         text   = {wire},
-        description = {a medium by which electricity connects different components of a circuit}
+        description = {a medium by which electricity connects different components of a circuit},
 }
 
-\newglossaryentry{gls:conductor}{
+\newglossaryentry{gls:cond}{
         name   = {Conductor},
         text   = {conductor},
-        description = {a device that can allow electricity to go through it}
+        description = {a device that can allow electricity to go through it},
 }
 
-\newglossaryentry{gls:conductance}{
+\newglossaryentry{gls:contan}{
         name   = {Conductance},
         text   = {conductance},
-        description = {the measure of how conductive something is?},
-        parent = {gls:conductor}
+        description = {the measure of how conductive something is?\nopostdesc},
+        parent = {gls:cond}
 }
+
+
+\newglossaryentry{gls:grad}{
+        name = {Gradient},
+        text = {gradient},
+        description = {gradient},
+    }
 
 % Math
 
@@ -495,6 +502,7 @@
         name   = {Reversal Potential},
         text   = {reversal potential},
         description = {the equilibrium point for passive diffusion of a given ion},
+        symbol = {\unit{\equilibria\reverse}},
         see    = {gls:ePote},
         parent = {gls:Pote}
     }
@@ -503,6 +511,7 @@
         name   = {Equilibrium Potential},
         text   = {equilibrium potential},
         description = {the equilibrium of potential in a system},
+        symbol = {\unit{\equilibria}},
         parent = {gls:Pote}
     }
 
@@ -510,9 +519,18 @@
         name = {Membrane Potential},
         text = {membrane potential},
         description = {potential of membrane},
+        symbol = {\unit{\V\membrane}},
         parent = {gls:Pote}
     }
 
+\newglossaryentry{gls:tPote}{
+        name = {Threshold Potential},
+        text = {threshold potential},
+        description = {threshold that potential needs to cross to trigger an action potential},
+        symbol = {\unit{\V\membrane}},
+        parent = {gls:Pote}
+    }
+    
 \newDualEntry[parent = {gls:Pote}, text ={action potential}]{ap}{AP}{Action Potential}{potential of action}
 
 

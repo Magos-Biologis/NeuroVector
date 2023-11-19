@@ -2,7 +2,13 @@
 % Copy paste the shit below into a new file 
 % And write everything between the "begin" and "end" document
 % That's the best way to experiment
-\documentclass[Master.tex]{subfiles}
+% \documentclass[../../Orator]{subfiles}
+\documentclass[class={.NoTouch/myProject}, crop=false]{standalone}
+\IfStandalone{%
+    \import{}{customCommands}
+    \import{}{INP-00-glossary}
+    }{}
+    
 \begin{document}
 
 

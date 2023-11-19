@@ -1,43 +1,64 @@
 \NeedsTeXFormat{LaTeX2e}
-\ProvidesPackage{Tikz}[Anakin's personalized Tikz package]
+\ProvidesPackage{myTikz}[Anakin's personalized Tikz package]
+% ========================= Tools for package ================================
+
+\RequirePackage{ifthen}     % Guess what it does, I dare you
+\RequirePackage{etoolbox}   % Includes a lot of useful macros for customizations
+\RequirePackage{xkeyval}    % More useful macros
+\RequirePackage{xparse}     % More useful macros
+
+%\usepackage{iftex} % Allows for if Lua LaTeX commands
 
 % ========================= Tikz Packages ================================
 
 \RequirePackage{float} % Allows for showing numbers of significant decimal points also figure
 \RequirePackage{tikz} % Higher level version of procedural graphics package (pgf)
-    %\usetikzlibrary{angles}
-    %\usetikzlibrary{calc} 
-    %\usetikzlibrary{intersections}
-    %\usetikzlibrary{math}
-    %\usetikzlibrary{matrix}
-    %\usetikzlibrary{petrinet}
-    %\usetikzlibrary{positioning}
-    
-    %\usetikzlibrary{shapes}
-    %\usetikzlibrary{shapes.arrows}
-    %\usetikzlibrary{shapes.geometric}
-    %\usetikzlibrary{shapes.misc}
-    %\usetikzlibrary{shapes.symbols}
-    
-    %\usetikzlibrary{fadings} 
-    %\usetikzlibrary{shadows} 
-    %\usetikzlibrary{shadings}
-    %\usetikzlibrary{patterns}
-    %\usetikzlibrary{perspective}
-    %\usetikzlibrary{3d}
-    
-    %\usetikzlibrary{arrows.meta}
-    %\usetikzlibrary{decorations.markings}
-    %\usetikzlibrary{decorations.pathreplacing}
-    %\usetikzlibrary{decorations.text}
-    %\usetikzlibrary{calligraphy}
-    %\usetikzlibrary{circuits.ee.IEC}
-    
-    %\usetikzlibrary{quotes} 
 
-    %\usetikzlibrary{external}
-    
-    \tikzset{>=latex} % for LaTeX arrow head
+\DeclareOption{mathLib}{%
+    \usetikzlibrary{angles}
+    \usetikzlibrary{calc} 
+    \usetikzlibrary{intersections}
+    \usetikzlibrary{math}
+    \usetikzlibrary{matrix}
+    \usetikzlibrary{petrinet}
+    \usetikzlibrary{positioning}
+    }
+
+\DeclareOption{shapeLib}{%
+    \usetikzlibrary{shapes}
+    \usetikzlibrary{shapes.arrows}
+    \usetikzlibrary{shapes.geometric}
+    \usetikzlibrary{shapes.misc}
+    \usetikzlibrary{shapes.symbols}
+    }
+
+\DeclareOption{artLib}{%
+    \usetikzlibrary{fadings} 
+    \usetikzlibrary{shadows} 
+    \usetikzlibrary{shadings}
+    \usetikzlibrary{patterns}
+    \usetikzlibrary{perspective}
+    \usetikzlibrary{3d}
+    }
+
+\DeclareOption{decoLib}{%
+    \usetikzlibrary{arrows.meta}
+    \usetikzlibrary{decorations.markings}
+    \usetikzlibrary{decorations.pathreplacing}
+    \usetikzlibrary{decorations.text}
+    \usetikzlibrary{calligraphy}
+    \usetikzlibrary{circuits.ee.IEC}
+    \usetikzlibrary{quotes} 
+    }
+
+\DeclareOption{exterLib}{%    
+    \usetikzlibrary{external}
+    }
+
+\ExecuteOptions{}
+\ProcessOptions\relax
+
+\tikzset{>=latex} % for LaTeX arrow head
     
 \RequirePackage{pgfplots} % For plotting within LaTeX
 \RequirePackage{pgfplotstable} % table plotting

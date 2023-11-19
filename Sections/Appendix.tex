@@ -1,5 +1,10 @@
-\documentclass[../../Orator.tex]{subfiles}
-
+% \documentclass[../../Orator]{subfiles}
+\documentclass[class={.NoTouch/myProject}, crop=false]{standalone}
+\IfStandalone{%
+    \import{}{customCommands}
+    \import{}{INP-00-glossary}
+    }{}
+    
 \begin{document}
 
 
