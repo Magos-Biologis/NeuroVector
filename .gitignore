@@ -1,5 +1,6 @@
 # Ignore the output file
 _Output/
+.Output/
 
 _NoTouch/
 
