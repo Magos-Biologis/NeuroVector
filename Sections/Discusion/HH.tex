@@ -12,7 +12,7 @@ The \gls{hh} model of Action Potential is a system of \gls{gls:nonlinear} differ
 Mathematically, the flow of current is represented as the change in voltage over time scaled by capacitance:
     \begin{align}
         I_c &= C_m \ode{\unit{\V\membrane}} \\
-    \intertext{and the current through a given \gls{gls:ionChan} is the product of that channel's \gls{gls:conductance} and the \gls{gls:rPote} for the specific ion}
+    \intertext{and the current through a given \gls{gls:ionChan} is the product of that channel's \gls{gls:cond} and the \gls{gls:rPote} for the specific ion}
         I_\bfm{ion} &= {g_\bfm{ion}}(\unit{\V\membrane}-\unit{\V\ion})  
     \end{align}
 \(\unit{\V\ion}\) is the \gls{gls:rPote} of the specific \gls{gls:ionChan}. Thus, for a cell with \gls{Na} and \gls{K} channels, the total current through the the membrane can be defined by:
@@ -24,7 +24,7 @@ with \(I\) representing the total membrane current per unit area;
     &\quad \unit{\cur} &&= \quad I_c \quad&&+ \quad I_\rmm{K} \quad&&+ \quad I_\rmm{Na} \quad&&+ \quad I_\rmm{L} \\ 
     \implies &\quad \unit{\cur} &&= C_m \ode{\unit{\V\membrane}} &&+ {g}_\rmm{K}\br{\unit{\V\membrane} - V_\rmm{K}} &&+ {g}_\rmm{Na} \br{\unit{\V\membrane} - V_\rmm{Na}}  &&+ {g}_\rmm{L} \br{\unit{\V\membrane} - V_\rmm{L}} 
 \end{alignat}
-Where \(C_m\) the membrane capacitance per unit area; and \({g}_\rmm{K}\), \(V_\rmm{K}\), along with  \({g}_\rmm{Na}\), \(V_\rmm{Na}\) make up the \gls{gls:conductance} and \gls{gls:rPote} of \gls{K} and \gls{Na} respectively.
+Where \(C_m\) the membrane capacitance per unit area; and \({g}_\rmm{K}\), \(V_\rmm{K}\), along with  \({g}_\rmm{Na}\), \(V_\rmm{Na}\) make up the \gls{gls:cond} and \gls{gls:rPote} of \gls{K} and \gls{Na} respectively.
 The directly time dependent element of this equation is \(\unit{\V\membrane}\), with \({g}_\rmm{Na}\), and \({g}_\rmm{K}\) are time dependant by virtue of explicit dependence on the membrane voltage \(\br{\unit{\V\membrane}}\). 
 
 
@@ -89,9 +89,9 @@ In order to characterize the ion-channels, the equations can be fitted to voltag
     \unit{\cap\membrane} & Membrane Capacitance & 1 µF/cm2\\
     \unit{\V\membrane} & Membrane Potential & mV\\
     %t &time & ms\\
-    \unit{\maxcon\potassium} & maximal conductance for \gls{K} & \qty{36}{m.mho/cm2} \\
-    \unit{\maxcon\sodium} & maximal conductance for \gls{Na} &\qty{120}{m.mho/cm2} \\
-    \unit{\maxcon\leakage} & maximal conductance for “leaking” ions & \qty{0.3}{\per\milli\ohm\per\square\cm} \\
+    \unit{\maxcon\potassium} & maximal cond for \gls{K} & \qty{36}{m.mho/cm2} \\
+    \unit{\maxcon\sodium} & maximal cond for \gls{Na} &\qty{120}{m.mho/cm2} \\
+    \unit{\maxcon\leakage} & maximal cond for “leaking” ions & \qty{0.3}{\per\milli\ohm\per\square\cm} \\
     \unit{\V\potassium} & Resting Potential of \gls{K} & \qty{12}{mV} \\
     \unit{\V\sodium} & Resting potential for \gls{Na} & \qty{-115}{mV} \\
     \unit{\V\leakage} & Resting potential for “leaking” ions & \qty{-10.613}{mV} \\
