@@ -1,5 +1,5 @@
 \NeedsTeXFormat{LaTeX2e}
-\ProvidesClass{myProject}[Anakin's personalized project class]
+\ProvidesClass{myRUCProject}[Anakin's personalized project class]
 % ========================= Tools for package ================================
 
 \RequirePackage{ifthen}     % Guess what it does, I dare you
@@ -37,7 +37,7 @@
     }
 
 \DeclareOption{printGloss}{%
-    \PassOptionsToPackage{\CurrentOption}{_NoTouch/myReferencePreamble}
+    \PassOptionsToPackage{\CurrentOption}{myReferencePreamble}
     }
 
 % ========================= no more Options
@@ -134,10 +134,10 @@
 
 % ======================== Custom Packages ================================
 
-\RequirePackage{.NoTouch/myMathPreamble}
+\RequirePackage{myMathPreamble}
 
 
-\RequirePackage{.NoTouch/myReferencePreamble}
+\RequirePackage{myReferencePreamble}
 
 % ====================== Tweaks and settings ================================
 
