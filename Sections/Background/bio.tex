@@ -54,7 +54,7 @@ which confers it the property of `\gls{gls:capa}'~\cite{}
 In a \gls{gls:neuron}, the overall charge in the \gls{gls:incell} space is more negative relative to the \gls{gls:excell} space. This difference in charge at rest is known as the resting \gls{gls:mPote}, and it is essential for the \gls{gls:neuron}['s] ability to transmit electrical signals. 
 \footnotetext{Latin root word `bi' meaning two, translates to `lipid two-layer'} 
 
-By convention, membrane potential - or voltage \(\br{V_m}\) is the difference between the electric potential of the internal and external faces of the membrane \(\br{V_m=V_i-V_e}\). In the absence of ongoing electrical activity, this negative potential is termed the resting membrane potential \(\br{V_{rest}}\).  The usual resting \gls{gls:mPote} is found to be around \glslink{gls:volt}{\qty{-70}{millivolts\br{\milli\volt}}} in \glspl{gls:neuron}, however, it varies depending on the cell type and conditions~\cite{}. When the membrane potential is less negative than  \(V_{rest}\), the membrane is considered to be depolarized. In contrast, when the membrane potential is more negative than \(V_{rest}\), the membrane is said to be hyperpolarized \cite{Hammond2015ch3}. 
+By convention, membrane potential - or voltage \(\br{\unit{\V\membrane}}\) is the difference between the electric potential of the internal and external faces of the membrane \(\br{\unit{\V\membrane}=\unit{\V\incell}-\unit{\V\excell}}\). In the absence of ongoing electrical activity, this negative potential is termed the resting membrane potential \(\br{V_{rest}}\).  The usual resting \gls{gls:mPote} is found to be around \glslink{gls:volt}{\qty{-70}{millivolts\br{\milli\volt}}} in \glspl{gls:neuron}, however, it varies depending on the cell type and conditions~\cite{}. When the membrane potential is less negative than  \(V_{rest}\), the membrane is considered to be depolarized. In contrast, when the membrane potential is more negative than \(V_{rest}\), the membrane is said to be hyperpolarized \cite{Hammond2015ch3}. 
 
 The \glspl{gls:ion} found to be involved in the \gls{gls:mPote} include \gls{Na}, \gls{K}, \gls{Cl}, and, to a limited degree, \gls{Ca}. 
 In the \gls{gls:excell} space the concentrations of \gls{Na} and  \gls{Cl} are kept much higher than in the cytoplasm of the \gls{gls:incell} space, whereas \gls{K} is found in much higher concentrations in the cytoplasm compared to the \gls{gls:excell} space. During rest, their concentration \glspl{gls:grad} are actively regulated and maintained at constant values by `\glspl{gls:ionPump}', that chemically transport \glspl{gls:ion} across the \gls{gls:membrane}~\cite{}. However, the main contributors to the negative potential of the intracellular side of the memrane are the anions of the intracellular fluid, which are organic molecules such as negatively charged amino acids, proteins, nucleic acids, phosphates, etc., which have a large molecular weight and cannot cross the lipid membrane and thus do not participate directly in electrical signaling in neurons\cite{Hammond2015ch3}. 
@@ -68,7 +68,7 @@ Others are `\gls{gls:lig} gated', meaning that they can be switched between an o
 \begin{figure}[H]
     \centering
     \import{../../Pictures/Anakin}{LipidCircuit.tex}
-    \caption{The Hodgkin-Huxely circuit diagram overlaid with the relevant structures found in the \gls{gls:membrane}. \glssymbol{gls:excell} and \glssymbol{gls:incell} denote the \gls{gls:excell} space and the \gls{gls:incell} space respectively. \Gls{gls:capa} of the \gls{gls:membrane} \(\br{\unit{\cap\membrane}}\) is given by the charge difference on either side of the \gls{gls:bilipid}. \Glspl{gls:ionChan} for \gls{Na} and \gls{K} are shown with the relevant variables, resistor type, and battery. Additional \glspl{gls:ionChan} and other leaked is represented as a lone resistor and battery outside of the \gls{gls:membrane} region. The \gls{K} \glspl{gls:ion} are shown in green, \gls{Na} are shown in red, and \gls{Cl} \glspl{gls:ion} in yellow; distributed in approximately relative concentrations on either side of the \gls{gls:membrane}. }\label{fig:MembraneCircut}
+    \caption{The Hodgkin-Huxely circuit diagram overlaid with the relevant structures found in the \gls{gls:membrane}. \glssymbol{gls:excell} and \glssymbol{gls:incell} denote the \gls{gls:excell} space and the \gls{gls:incell} space respectively. \Gls{gls:capa} of the \gls{gls:membrane} \(\br{\cap\membrane}\) is given by the charge difference on either side of the \gls{gls:bilipid}. \Glspl{gls:ionChan} for \gls{Na} and \gls{K} are shown with the relevant variables, resistor type, and battery. Additional \glspl{gls:ionChan} and other leaked is represented as a lone resistor and battery outside of the \gls{gls:membrane} region. The \gls{K} \glspl{gls:ion} are shown in green, \gls{Na} are shown in red, and \gls{Cl} \glspl{gls:ion} in yellow; distributed in approximately relative concentrations on either side of the \gls{gls:membrane}. }\label{fig:MembraneCircut}
 \end{figure}
 
 
@@ -103,34 +103,34 @@ In physiological conditions, the concentration \gls{gls:grad} is maintained cons
 \allowdisplaybreaks
 All systems yearn for their \gls{gls:equil}, the fabled \textit{steady state}. This divine relation of the components in a system, one achieved, the system no longer needs to evolve, it has been perfected by entropy. 
 The value of the \gls{gls:mPote} is constantly fluctuating depending on the relative distribution of charged particles that cross the \gls{gls:membrane}. 
-When the direction of the \gls{gls:grad} is perfectly balanced at net zero, it is referred to as the `\gls{gls:ePote}' of the given \gls{gls:ion} \br{\unit{\equilibria\ion}}, alternatively, as the `\gls{gls:rPote}' of the \gls{gls:ion} \(\unit{\equilibria\reverse}\). 
-%The \gls{gls:ePote} for a particular \gls{gls:ion} is the value of \(\unit{\V\membrane}\) for which the net \gls{gls:flux} of this \gls{gls:ion}\(\br{f_\bfm{net}}\) through an open channel is null: when \(\unit{\V\membrane} = \unit{\equilibria\ion}\), \(f_\bfm{net} = \qty{0}{\mole\per\second}\).
-The \(\unit{\equilibria\ion}\) of the given \glspl{gls:ion} can be calculated using the \textit{Nernst} equation:
+When the direction of the \gls{gls:grad} is perfectly balanced at net zero, it is referred to as the `\gls{gls:ePote}' of the given \gls{gls:ion} \br{\equilibria\ion}, alternatively, as the `\gls{gls:rPote}' of the \gls{gls:ion} \(\equilibria\reverse\). 
+%The \gls{gls:ePote} for a particular \gls{gls:ion} is the value of \(\unit{\V\membrane}\) for which the net \gls{gls:flux} of this \gls{gls:ion}\(\br{f_\bfm{net}}\) through an open channel is null: when \(\unit{\V\membrane} = \equilibria\ion\), \(f_\bfm{net} = \qty{0}{\mole\per\second}\).
+The \(\equilibria\ion\) of the given \glspl{gls:ion} can be calculated using the \textit{Nernst} equation:
 \begin{subequations}\label{eq:nernst}
 \begin{equation}
-    \unit{\equilibria\ion} = \br{\frac{\clm{R}\, \cdot \,\clm{T}}{z\, \cdot \, \clm{F}}} \, \ln \br{\frac{\sbr{\bfm{ion}}_\clm{E} }{ \sbr{\bfm{ion}}_\clm{I}} } \tag{\ref*{eq:nernst}} 
+    \equilibria\ion = \br{\frac{\clm{R}\, \cdot \,\clm{T}}{z\, \cdot \, \clm{F}}} \, \ln \br{\frac{\ionconc\excell }{ \ionconc\incell} } \tag{\ref*{eq:nernst}} 
 \end{equation}
 
-Where \(\clm{R}\) is the ideal gas constant \br{\qty{8.314}{\cubic\meter\pascal\per\kelvin\per\mol}}; \(\clm{T}\) is the temperature in \gls{gls:kelvin} \(\br{ x\,\unit{\glssymbol{gls:celsius}} \cong {273.15} + x\,\unit{\kelvin}}\); \(\clm{F}\) is the Faraday constant \br{\qty{96500}{\coulomb\per\mole}}; \(z\) is the valence of the \gls{gls:ion}; and \(\sbr{\bfm{ion}}\) is the concentration of the given \gls{gls:ion} in the \gls{gls:excell} \( \br{ \clm{E} } \) or \gls{gls:incell} \( \br{\clm{I}}\) \gls{gls:media}. 
+Where \(\clm{R}\) is the ideal gas constant \br{\qty{8.314}{\cubic\meter\pascal\per\kelvin\per\mol}}; \(\clm{T}\) is the temperature in \gls{gls:kelvin} \(\br{ x\,\unit{\glssymbol{gls:celsius}} \cong {273.15} + x\,\unit{\kelvin}}\); \(\clm{F}\) is the Faraday constant \br{\qty{96500}{\coulomb\per\mole}}; \(z\) is the valence of the \gls{gls:ion}; and \(\ionconc\) is the concentration of the given \gls{gls:ion} in the \gls{gls:excell} \( \br{ \clm{E} } \) or \gls{gls:incell} \( \br{\clm{I}}\) \gls{gls:media}. 
 As most of these terms are constants, it is simple to reduce the equation down in dimensional complexity:
 \begin{align} 
-    \unit{\equilibria\ion} &= \br{\frac{ \qty{8.314}{\cubic\meter\pascal\per\mol\per\kelvin} \, \cdot \, \clm{T}}{ z\, \cdot \, \qty{96500}{\coulomb\per\mole} }} \,\ln \br{ \frac{ \unit{\ioconc\excell} }{ \unit{\ioconc\incell}} } \\
-    %\unit{\equilibria\ion} &= \br{\frac{ {8.314} \cdot \(t\) \cdot \unit{\cubic\meter\pascal}  \,\cancel{\unit{\per\mol}}\,\cancel{\unit{\per\kelvin\kelvin}}  }{ z\, \cdot \, \qty{96500}{\coulomb} \,\cancel{\unit{\per\mol}}}} \,\ln \br{ \frac{ \unit{\ioconc\excell} }{ \unit{\ioconc\incell}} } \\
+    \equilibria\ion &= \br{\frac{ \qty{8.314}{\cubic\meter\pascal\per\mol\per\kelvin} \, \cdot \, \clm{T}}{ z\, \cdot \, \qty{96500}{\coulomb\per\mole} }} \,\ln \br{ \frac{ {\ionconc\excell} }{ {\ionconc\incell}} } \\
+    %\equilibria\ion &= \br{\frac{ {8.314} \cdot \(t\) \cdot \unit{\cubic\meter\pascal}  \,\cancel{\unit{\per\mol}}\,\cancel{\unit{\per\kelvin\kelvin}}  }{ z\, \cdot \, \qty{96500}{\coulomb} \,\cancel{\unit{\per\mol}}}} \,\ln \br{ \frac{ {\ionconc\excell} }{ {\ionconc\incell}} } \\
     %
-    %\unit{\equilibria\ion} &= \br{\frac{ {8.314} \, \cdot \,  \(t\) \, \unit{\cubic\meter\pascal} }{ z\, \cdot \, \qty{96500}{\coulomb}} } \,\ln \br{ \frac{ \unit{\ioconc\excell} }{ \unit{\ioconc\incell}} } \\
+    %\equilibria\ion &= \br{\frac{ {8.314} \, \cdot \,  \(t\) \, \unit{\cubic\meter\pascal} }{ z\, \cdot \, \qty{96500}{\coulomb}} } \,\ln \br{ \frac{ {\ionconc\excell} }{ {\ionconc\incell}} } \\
     %
     \intertext{dividing and rearranging the terms:}
-    \unit{\equilibria\ion} &= \br{\frac{ \clm{T}\unit{\per\K} \, \unit{\cubic\meter\pascal} }{ z\, \cdot \, \qty{11612.515042118}{\coulomb} } } \cdot \,\ln \br{ \frac{ \unit{\ioconc\excell} }{ \unit{\ioconc\incell}} } \\
+    \equilibria\ion &= \br{\frac{ \clm{T}\unit{\per\K} \, \unit{\cubic\meter\pascal} }{ z\, \cdot \, \qty{11612.515042118}{\coulomb} } } \cdot \,\ln \br{ \frac{ {\ionconc\excell} }{ {\ionconc\incell}} } \\
     %
     \intertext{converting the unit of pressure, pascal \br{\unit{\pascal}} to the base units representing mass over an area over time \br{\unit{\kilo\gram\per\meter\per\square\second}}, as well converting the unit for charge, a \gls{gls:coulomb} \br{\unit{\coulomb}}, to the base units denoting the quantity of current in a second, \br{\unit{\ampere\second}}, gives the substitution:}
-    \unit{\equilibria\ion} &= \br{\frac{ \clm{T}\unit{\per\K} \, \unit{\cubic\meter\kilo\gram\per\meter\per\square\second} }{ z\, \cdot \, \qty{11612.515042118}{\ampere\second} } } \cdot \,\ln \br{ \frac{ \unit{\ioconc\excell} }{ \unit{\ioconc\incell}} } \\
+    \equilibria\ion &= \br{\frac{ \clm{T}\unit{\per\K} \, \unit{\cubic\meter\kilo\gram\per\meter\per\square\second} }{ z\, \cdot \, \qty{11612.515042118}{\ampere\second} } } \cdot \,\ln \br{ \frac{ {\ionconc\excell} }{ {\ionconc\incell}} } \\
     \intertext{at this point we're only left with base SI units, so we need to be a little silly, the unit of magnetic \gls{gls:flux} is defined \(\unit{\weber} = \unit{\kilo\gram\square\meter\per\square\second\per\ampere}\), implying through substitution \(\unit{\kilo\gram\square\meter\per\cubic\second\per\ampere} = \unit{\weber\per\second} \):}
-    \unit{\equilibria\ion} &= \frac{ \clm{T}\unit{\per\K}  }{ z\, \cdot \, \num{11612.515042118}} \cdot \br{\unit{\weber\per\second}} \cdot \,\ln \br{ \frac{ \unit{\ioconc\excell} }{ \unit{\ioconc\incell}} } \\
+    \equilibria\ion &= \frac{ \clm{T}\unit{\per\K}  }{ z\, \cdot \, \num{11612.515042118}} \cdot \br{\unit{\weber\per\second}} \cdot \,\ln \br{ \frac{ {\ionconc\excell} }{ {\ionconc\incell}} } \\
     %
     \intertext{a unit describing the rate of change of magnetic charge per second, which is equivalent to a Volt, \(\unit{\weber\per\second}  = \unit{\volt} = \unit{\kilo\gram\square\meter\per\cubic\second\per\ampere} \), the combination of units found through deconstruction is the literal base unit definition of a volt:}
-    \unit{\equilibria\ion} &= \frac{ \clm{T}\unit{\per\K} }{ z\, \cdot \, \num{11612.515042118}} \cdot \unit{\volt} \cdot \ln \br{ \frac{ \unit{\ioconc\excell} }{ \unit{\ioconc\incell}} }\label{eq:derivedNerst}
-    %\unit{\equilibria\ion} &= \cfrac{ \(t\) \cdot \,\ln \br{ \cfrac{\sbr{\bfm{ion}}_\clm{E} }{ \sbr{\bfm{ion}}_\clm{I}} }  }{ z\, \cdot \, \num{11612.515042118}}  \cdot \unit{\volt} \cdot  \qty{1000}{\milli\volt\per\volt} \\
-    %\unit{\equilibria\ion} &= \cfrac{ \(t\) \cdot \,\ln \br{ \cfrac{\sbr{\bfm{ion}}_\clm{E} }{ \sbr{\bfm{ion}}_\clm{I}} } }{ z\, \cdot \, 1 \, 160}  \ \unit{\milli\volt}
+    \equilibria\ion &= \frac{ \clm{T}\unit{\per\K} }{ z\, \cdot \, \num{11612.515042118}} \cdot \unit{\volt} \cdot \ln \br{ \frac{ {\ionconc\excell} }{ {\ionconc\incell}} }\label{eq:derivedNerst}
+    %\equilibria\ion &= \cfrac{ \(t\) \cdot \,\ln \br{ \cfrac{\ionconc\excell }{ \ionconc\incell} }  }{ z\, \cdot \, \num{11612.515042118}}  \cdot \unit{\volt} \cdot  \qty{1000}{\milli\volt\per\volt} \\
+    %\equilibria\ion &= \cfrac{ \(t\) \cdot \,\ln \br{ \cfrac{\ionconc\excell }{ \ionconc\incell} } }{ z\, \cdot \, 1 \, 160}  \ \unit{\milli\volt}
 \end{align}
 %{Volume Concentration \per\kelvin\per\mol}
 %{\kilo\gram\metre^2\second^{-2}\kelvin\per\mol}
@@ -139,72 +139,72 @@ As most of these terms are constants, it is simple to reduce the equation down i
 \begin{subequations}\label{eq:mVions}
 With minor adjustments to \cref{eq:derivedNerst}, the now derived form of \cref{eq:nernst}, one is able to get
 \begin{equation}
-    \unit{\equilibria\ion} = \cfrac{\clm{T}\unit{\per\K}}{ z } \, \cdot \, \ln \br{ \frac{ \unit{\ioconc\excell} }{ \unit{\ioconc\incell}} } \cdot \num{11.612515042}^{-1}  \ \unit{\milli\volt} \tag{\ref*{eq:mVions}}
+    \equilibria\ion = \cfrac{\clm{T}\unit{\per\K}}{ z } \, \cdot \, \ln \br{ \frac{ {\ionconc\excell} }{ {\ionconc\incell}} } \cdot \num{11.612515042}^{-1}  \ \unit{\milli\volt} \tag{\ref*{eq:mVions}}
 \end{equation}
 
 Plugging the relative concentrations, measured in millimols \br{\unit{\milli\mol}}, of each \gls{gls:ion} into \cref{eq:mVions}, as well as choosing an arbitrary temperature, such as room temperature \(\approx\) \qty{20}{\degreeCelsius} \(\br{\br{\num{20} + \num{273.15}}\unit{\glssymbol{gls:kelvin}}}\),
 the \gls{gls:ePote} of each \gls{gls:ion}follows as:
 \begin{minipage}{.48\textwidth}
     \begin{align}
-        {\unit{\equilibria\sodium}} &= \num{293.15}\  \ln \br{ \frac{140}{14} }\cdot \num{11.612515042}^{-1} =  \qty{58.127185848}{\mV} \\
-        {\unit{\equilibria\potassium}}    &= \num{293.15}\  \ln \br{ \frac{3}{140} }\cdot \num{11.612515042}^{-1}  =  \qty{-97.014667339}{\mV} 
+        {\equilibria\sodium} &= \num{293.15}\  \ln \br{ \frac{140}{14} }\cdot \num{11.612515042}^{-1} =  \qty{58.127185848}{\mV} \\
+        {\equilibria\potassium}    &= \num{293.15}\  \ln \br{ \frac{3}{140} }\cdot \num{11.612515042}^{-1}  =  \qty{-97.014667339}{\mV} 
     \end{align}
 \end{minipage}
 ~
 \begin{minipage}{.48\textwidth}
     \begin{align}
-        {\unit{\equilibria\calcium}}   &= \frac{293.15}{2}\  \ln \br{ \frac{1.5}{10^{-4}} }\cdot \num{11.612515042}^{-1} =  \qty{121.372216367}{\mV} \\
-        {\unit{\equilibria\chlorine}}   &= \num{-293.15}\ \ln \br{ \frac{146}{14} }\cdot \num{11.612515042}^{-1} =  \qty{-59.186543354}{\mV} 
+        {\equilibria\calcium}   &= \frac{293.15}{2}\  \ln \br{ \frac{1.5}{10^{-4}} }\cdot \num{11.612515042}^{-1} =  \qty{121.372216367}{\mV} \\
+        {\equilibria\chlorine}   &= \num{-293.15}\ \ln \br{ \frac{146}{14} }\cdot \num{11.612515042}^{-1} =  \qty{-59.186543354}{\mV} 
     \end{align}
 \end{minipage}
 
 \end{subequations}
 
 These equations can be interpreted such that when
-\gls{K} channels open in the \gls{gls:membrane}, the efflux of \gls{K} \glspl{gls:ion} will hyper-polarize the \gls{gls:membrane} until \(\unit{\V\membrane} = \unit{\equilibria\potassium} \approx \qty{-97}{\mV}\), at which point the net \gls{gls:flux} of \gls{K} is null being that \gls{K} \glspl{gls:ion} have exactly the same \gls{gls:Pote} to move towards the \gls{gls:excell} space as the \gls{gls:incell} space. 
-The efflux of \gls{K} will be exactly compensated by the influx of \gls{K} and the \gls{gls:mPote} will stabilize at \unit{\equilibria\potassium} for as long as the \gls{K} channels stay open. 
+\gls{K} channels open in the \gls{gls:membrane}, the efflux of \gls{K} \glspl{gls:ion} will hyper-polarize the \gls{gls:membrane} until \(\unit{\V\membrane} = \equilibria\potassium \approx \qty{-97}{\mV}\), at which point the net \gls{gls:flux} of \gls{K} is null being that \gls{K} \glspl{gls:ion} have exactly the same \gls{gls:Pote} to move towards the \gls{gls:excell} space as the \gls{gls:incell} space. 
+The efflux of \gls{K} will be exactly compensated by the influx of \gls{K} and the \gls{gls:mPote} will stabilize at \equilibria\potassium for as long as the \gls{K} channels stay open. 
 Assuming only \gls{Na} channels are open, the \gls{gls:mPote} will move toward \(\unit{\V\membrane} = \qty{58}{\mV}\), the \gls{gls:Pote} at which the net \gls{gls:flux} of \gls{Na} is null. 
-Similarly, when \(\unit{\V\membrane} = \unit{\equilibria\chlorine} \approx \qty{-59}{\mV}\),  
+Similarly, when \(\unit{\V\membrane} = \equilibria\chlorine \approx \qty{-59}{\mV}\),  
 %\gls{Cl} \glspl{gls:ion} have the  tendency to move down their concentration \gls{gls:grad} than to move in the reverse direction according to \gls{gls:mPote}, 
 the net \gls{gls:flux} of \gls{Cl} is null. 
-By extension, should \(\unit{\V\membrane} \neq \unit{\equilibria\potassium}\), the net \gls{gls:flux} of  \gls{K} will no longer be null. 
-This holds true for all \glspl{gls:ion}: when \(\unit{\V\membrane} \neq \unit{\equilibria\ion}\) there is a net \gls{gls:flux} of the \gls{gls:ion}~\cite{}. The difference \(\br{\unit{\V\membrane} - \unit{\equilibria\ion}}\) is called the electrochemical \gls{gls:grad}. It is the force that makes the \glspl{gls:ion} move through an open channel.
+By extension, should \(\unit{\V\membrane} \neq \equilibria\potassium\), the net \gls{gls:flux} of  \gls{K} will no longer be null. 
+This holds true for all \glspl{gls:ion}: when \(\unit{\V\membrane} \neq \equilibria\ion\) there is a net \gls{gls:flux} of the \gls{gls:ion}~\cite{}. The difference \(\br{\unit{\V\membrane} - \equilibria\ion}\) is called the electrochemical \gls{gls:grad}. It is the force that makes the \glspl{gls:ion} move through an open channel.
 
 \endgroup
 
 \subsection{Ionic currents}
-The passive diffusion of \glspl{gls:ion} through an open channel is a movement of charge through a resistance (resistance here is a measure of the difficulty of \glspl{gls:ion} moving through the channel pore). Movement of charges through a resistance is a current. Through a single channel the current is called `single-channel current' or `unitary current', \(\unit{\uncur\ion}\). The amplitude of  \(\unit{\uncur\ion}\) is expressed in amperes \(\br{\unit{\ampere}}\) which are coulombs per seconds \(\br{\unit{\coulomb\per\second}}\). 
+The passive diffusion of \glspl{gls:ion} through an open channel is a movement of charge through a resistance (resistance here is a measure of the difficulty of \glspl{gls:ion} moving through the channel pore). Movement of charges through a resistance is a current. Through a single channel the current is called `single-channel current' or `unitary current', \(\uncur\ion\). The amplitude of  \(\uncur\ion\) is expressed in amperes \(\br{\unit{\ampere}}\) which are coulombs per seconds \(\br{\unit{\coulomb\per\second}}\). 
 
-In general, currents are expressed following ohm's law: U=RI, where I is the current through a resistance R and U is the difference of \gls{gls:Pote} between the two ends of the resistance. For currents carried by \glspl{gls:ion} (and not by electrons as in copper wires), I is called  \(\unit{\cur\ion}\), the current that passes through the resistance of the channel pore which has a resistance R \(\br{\unit{\res\ion}}\). But what is U in biological systems? U is the force that makes \glspl{gls:ion} move in a particular direction; it is the electrochemical \gls{gls:grad} for the considered \gls{gls:ion} and is also called the driving force: \(U=(\unit{\V\membrane} - \unit{\equilibria\ion})\). According to ohm's law, the current \(\unit{\cur\ion}\) through a single channel is derived from 
+In general, currents are expressed following ohm's law: U=RI, where I is the current through a resistance R and U is the difference of \gls{gls:Pote} between the two ends of the resistance. For currents carried by \glspl{gls:ion} (and not by electrons as in copper wires), I is called  \(\cur\ion\), the current that passes through the resistance of the channel pore which has a resistance R \(\br{\res\ion}\). But what is U in biological systems? U is the force that makes \glspl{gls:ion} move in a particular direction; it is the electrochemical \gls{gls:grad} for the considered \gls{gls:ion} and is also called the driving force: \(U=(\unit{\V\membrane} - \equilibria\ion)\). According to ohm's law, the current \(\cur\ion\) through a single channel is derived from 
 \begin{equation}
-    \unit{\V\membrane} - \unit{\equilibria\ion} = r_{ion} \cdot \unit{\cur\ion}
+    \unit{\V\membrane} - \equilibria\ion = r_{ion} \cdot \cur\ion
 \end{equation}
 So:
 \begin{equation}
-    \unit{\cur\ion} = \frac{1}{r_{ion}\br{\unit{\V\membrane} - \unit{\equilibria\ion}}} = \unit{\uncon\ion}(\unit{\V\membrane} - \unit{\equilibria\ion})
+    \cur\ion= \frac{1}{r_{ion}\br{\unit{\V\membrane} - \equilibria\ion}} = \uncon\ion(\unit{\V\membrane} - \equilibria\ion)
 \end{equation}
-\(\unit{\uncon\ion}\) is the reciprocal of resistance; it is called the \textit{\gls{gls:contan}} of the channel, or unitary \gls{gls:contan}. It is a measure of the ease of flow of \glspl{gls:ion} (flow of current) through the channel pore. Whereas resistance is expressed in ohms \(\br{\unit{\ohm}}\), \gls{gls:contan} is expressed in siemens \(\br{\unit{\siemens}}\). By convention \(\unit{\cur\ion} \) is negative when it represents an inward \gls{gls:flux} of positive charges (\glspl{gls:cation}) and \(\unit{\cur\ion}\) is positive when it represents an outward \gls{gls:flux} of positive charges. It is generally of the order of pico-amperes \(\br{\qty{1}{\pico\ampere}=\qty{e-12}{\ampere}}\). At physiological concentrations, \(\unit{\uncon\ion}\) varies between \(\qtyrange{10}{150}{\pico\siemens}\) dependent on channel type~\cite{}.
+\(\uncon\ion\) is the reciprocal of resistance; it is called the \textit{\gls{gls:contan}} of the channel, or unitary \gls{gls:contan}. It is a measure of the ease of flow of \glspl{gls:ion} (flow of current) through the channel pore. Whereas resistance is expressed in ohms \(\br{\unit{\ohm}}\), \gls{gls:contan} is expressed in siemens \(\br{\unit{\siemens}}\). By convention \(\cur\ion\) is negative when it represents an inward \gls{gls:flux} of positive charges (\glspl{gls:cation}) and \(\cur\ion\) is positive when it represents an outward \gls{gls:flux} of positive charges. It is generally of the order of pico-amperes \(\br{\qty{1}{\pico\ampere}=\qty{e-12}{\ampere}}\). At physiological concentrations, \(\uncon\ion\) varies between \(\qtyrange{10}{150}{\pico\siemens}\) dependent on channel type~\cite{}.
 
-In physiological conditions, however,  several channels of the same type are open at the same time in the \gls{gls:neuron}[al] \gls{gls:membrane}. Suppose that only one type of channel is open in the \gls{gls:membrane}, for example \gls{Na} channels, the total current \(\unit{\cur\sodium}\) crossing the \gls{gls:membrane} at time \(t\) is the sum of the unitary currents \(i_{Na}\) at time \(t\):
+In physiological conditions, however,  several channels of the same type are open at the same time in the \gls{gls:neuron}[al] \gls{gls:membrane}. Suppose that only one type of channel is open in the \gls{gls:membrane}, for example \gls{Na} channels, the total current \(\unit{\cur\sodium}\) crossing the \gls{gls:membrane} at time \(t\) is the sum of the unitary currents \(\unit{\uncur\sodium}\) at time \(t\):
 \begin{equation}
     \unit{\cur\sodium} = N \, p_o \, \unit{\uncur\sodium}
 \end{equation}
 where \(N\) is the \emph{number} of \gls{Na} channels present in the \gls{gls:membrane}; \(p_o\) is the \emph{probability} of \gls{Na} channels being open at time \(t\)
 %(\(N\,p_o\) is therefore the number of open \gls{Na}channels in the \gls{gls:membrane} at time \(t\))
-; and \(i_{Na}\) is the unitary \gls{Na} current.  \newline
+; and \(\unit{\uncur\sodium}\) is the unitary \gls{Na} current.  \newline
 More generally:
 \begin{equation}
-    \unit{\cur\ion} = N \, p_o \, \unit{\uncur\ion}
+    \cur\ion= N \, p_o \, \uncur\ion
 \end{equation}
 By analogy, the total \gls{gls:contan} of the \gls{gls:membrane} for a particular \gls{gls:ion} is: 
 \begin{equation}
-    \unit{\con\ion} = N \, p_o \, \unit{\uncon\ion}
+    \unit{\con\ion} = N \, p_o \, \uncon\ion
 \end{equation}
-and from \(\unit{\cur\ion}= \unit{\uncon\ion} \, \br{\unit{\V\membrane} - \unit{\equilibria\ion}}\) above: 
+and from \(\cur\ion= \uncon\ion \, \br{\unit{\V\membrane} - \equilibria\ion}\) above: 
 \begin{equation}\label{eq:ionCurrent}
-    \unit{\cur\ion} = \unit{\con\ion} \, \br{\unit{\V\membrane} - \unit{\equilibria\ion}}
+    \cur\ion= \unit{\con\ion} \, \br{\unit{\V\membrane} - \equilibria\ion}
 \end{equation}
-\(\unit{\uncur\ion}\) and \(\unit{\cur\ion}\) can be measured experimentally. The former is the current measured from a patch of \gls{gls:membrane} where only one channel of a particular type is present. \unit{\cur\ion} is the current measured from a whole cell \gls{gls:membrane} where \(N\) channels of the same type are present. 
+\(\uncur\ion\) and \(\cur\ion\) can be measured experimentally. The former is the current measured from a patch of \gls{gls:membrane} where only one channel of a particular type is present. \(\cur\ion\) is the current measured from a whole cell \gls{gls:membrane} where \(N\) channels of the same type are present. 
  
 \section{Action Potential}
 
@@ -254,17 +254,17 @@ In response to a \gls{gls:depol} to the \gls{gls:tPote}, the closed \gls{Na} cha
 %originaltextend
 The time during which the \gls{Na} channel stays open varies around an average value, \(\tau_O\), called the mean open time. The functional significance of this value is the following: during a time equal to \(\tau_O\) the channel has a high probability of staying open. 
 
-The \unit[per-mode = symbol]{\cur\sodium\per\V} relation is obtained by plotting the amplitude of the unitary current (\unit{\cur\sodium}) versus \gls{gls:mPote} (\unit{\V\membrane}). It is linear between \qtyrange{-50}{0}{\mV}. For \glspl{gls:mPote} more hyperpolarized than \qty{-50}{\mV}, there are no values of \unit{\cur\sodium} since the channel rarely opens or does not open at all. Quantitative data for potentials more depolarized than \qty{0}{\mV} are not available.
+The \unit[per-mode = symbol]{\cur\sodium\per\V} relation is obtained by plotting the amplitude of the unitary current \(\br{\cur\sodium}\) versus \gls{gls:mPote} \(\br{\unit{\V\membrane}}\). It is linear between \qtyrange{-50}{0}{\mV}. For \glspl{gls:mPote} more hyperpolarized than \qty{-50}{\mV}, there are no values of \unit{\cur\sodium} since the channel rarely opens or does not open at all. Quantitative data for potentials more depolarized than \qty{0}{\mV} are not available.
 
-When the activity of a single \gls{Na} channel is  recorded at different test potentials, it was observed that the amplitude of the inward unitary current (\unit{\cur\sodium}) diminishes as the \gls{gls:membrane} is further and further depolarized. The critical point of the current/voltage relation is the \gls{gls:mPote} for which the current is zero; i.e. the reversal \gls{gls:Pote} of the current (\unit{\equilibria\reverse}). If only \gls{Na} \glspl{gls:ion} flow through the \gls{Na} channel, the reversal \gls{gls:Pote} is equal to \unit{\equilibria\sodium}. From \qty{-50}{\mV} to \unit{\equilibria\reverse}, \unit{\cur\sodium} is inward and its amplitude decreases. This results from the decrease of the \gls{Na} driving force \(\br{\unit{\V\membrane}-\unit{\equilibria\sodium}}\) as the \gls{gls:membrane} approaches the reversal \gls{gls:Pote} for \gls{Na} \glspl{gls:ion}. For \glspl{gls:mPote} more depolarized than \unit{\equilibria\reverse}, \unit{\cur\sodium} is now outward. Above \unit{\equilibria\reverse}, the amplitude of the outward \gls{Na} current progressively increases as the driving force for the exit of \gls{Na} \glspl{gls:ion} increases. 
+When the activity of a single \gls{Na} channel is  recorded at different test potentials, it was observed that the amplitude of the inward unitary current \(\br{\cur\sodium}\) diminishes as the \gls{gls:membrane} is further and further depolarized. The critical point of the current/voltage relation is the \gls{gls:mPote} for which the current is zero; i.e. the reversal \gls{gls:Pote} of the current (\equilibria\reverse). If only \gls{Na} \glspl{gls:ion} flow through the \gls{Na} channel, the reversal \gls{gls:Pote} is equal to \equilibria\sodium. From \qty{-50}{\mV} to \equilibria\reverse, \unit{\cur\sodium} is inward and its amplitude decreases. This results from the decrease of the \gls{Na} driving force \(\br{\unit{\V\membrane}-\equilibria\sodium}\) as the \gls{gls:membrane} approaches the reversal \gls{gls:Pote} for \gls{Na} \glspl{gls:ion}. For \glspl{gls:mPote} more depolarized than \equilibria\reverse, \unit{\cur\sodium} is now outward. Above \equilibria\reverse, the amplitude of the outward \gls{Na} current progressively increases as the driving force for the exit of \gls{Na} \glspl{gls:ion} increases. 
 
-The linear \unit[per-mode = symbol]{\cur\sodium\per\V}relation is described by the equation \(\unit{\cur\sodium} = \unit{\con\sodium} \br{\unit{\V\membrane}-\unit{\equilibria\sodium}}\), where \unit{\V\membrane} is the test potential, \unit{\equilibria\sodium} is the reversal \gls{gls:Pote} of the \gls{Na} current, and \unit{\con\sodium} is the \gls{gls:contan} of a single \gls{Na} channel (unitary \gls{gls:contan}). The value of \unit{\con\sodium} is given by the slope of the linear \unit[per-mode = symbol]{\cur\sodium\per\V} curve. It has a constant value at any given \gls{gls:mPote}. This value varies between \qtyrange{5}{18}{\pico\second} depending on the preparation.
+The linear \unit[per-mode = symbol]{\cur\sodium\per\V}relation is described by the equation \(\unit{\cur\sodium} = \unit{\con\sodium} \br{\unit{\V\membrane}-\equilibria\sodium}\), where \unit{\V\membrane} is the test potential, \equilibria\sodium is the reversal \gls{gls:Pote} of the \gls{Na} current, and \unit{\con\sodium} is the \gls{gls:contan} of a single \gls{Na} channel (unitary \gls{gls:contan}). The value of \unit{\con\sodium} is given by the slope of the linear \unit[per-mode = symbol]{\cur\sodium\per\V} curve. It has a constant value at any given \gls{gls:mPote}. This value varies between \qtyrange{5}{18}{\pico\second} depending on the preparation.
 
 \begin{figure}[H]
     \centering
     \includegraphics[width=0.5\linewidth]{Pictures//Anakin/iNa-VNa.png}
     \caption{The single-channel current/voltage \br{\unit[per-mode = symbol]{\cur\sodium\per\volt}} relation is linear. }
-    \label{fig:enter-label}
+    \label{fig:NaVNa}
 \end{figure}
 The open probability of the voltage-gated \gls{Na} channel is voltage and time dependent. During cell recordings of \gls{Na} channels, it was observed that when the \gls{gls:mPote} is depolarized, the probability of the \gls{Na} channel being in the open state increases with \gls{gls:depol} to a maximal level. The higher is the depolarizing step, the higher is the probability of the \gls{Na} channel opening. It also varies with time during the depolarizing step: openings occur more frequently at the beginning of the step. It was observed  that after \qtyrange{4}{6}{\ms} the probability of the \gls{Na} channel being in the open state is very low, even with large depolarizing steps: the \gls{Na} channel in-activates in \qtyrange{4}{6}{\ms}.  The probability of the \gls{Na} channel being in the open state at time \(t=\qty{2}{\ms}\), for example, increases with the amplitude of the depolarizing step. To generalize, at \qty{-30}{\mV} the open probability is maximum, and the channels inactivate in \qty{4}{\ms}. 
 
@@ -279,7 +279,7 @@ The open probability of the voltage-gated \gls{Na} channel is voltage and time d
 
 The greater the quantity of \gls{Na} channels open from the depolarizing step, the smoother the total \gls{Na} current. The value of \(\unit{\cur\sodium}\) at each time \(t\) at a given \gls{gls:Pote} is: 
 \begin{equation}
-    \unit{\cur\sodium}=N p_{(t)} i_{Na}
+    \unit{\cur\sodium}=N p_{(t)} \unit{\uncur\sodium}
 \end{equation}
 where \(N\) is the number of \gls{Na} channels in the recorded \gls{gls:membrane} and p(t) is the open probability at time \(t\) of the \gls{Na} channel; it depends on the \gls{gls:mPote} and on the channel opening and inactivating rate constants. \unit{\cur\sodium} is the unitary \gls{Na} current and Np(t) is the number of \gls{Na} channels open at time \(t\). 
 
