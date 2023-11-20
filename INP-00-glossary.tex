@@ -422,56 +422,65 @@
     }
 
 \newglossaryentry{gls:kelvin}{
-        name = {Kelvin},
-        text = {kelvin},
-        %type = {unit},
-        symbol = {\unit{\kelvin}},
-        description = {the SI unit of temperature, with \qty{0}{\kelvin} mark at absolute 0},
-        see = {gls:celsius},
-        parent = {gls:unit}
-}
+    name = {Kelvin},
+    text = {kelvin},
+    %type = {unit},
+    symbol = {\unit{\kelvin}},
+    description = {the SI unit of temperature, with \qty{0}{\kelvin} mark at absolute 0},
+    see = {gls:celsius},
+    parent = {gls:unit}
+    }
 
 \newglossaryentry{gls:kg}{
-        name = {kilogram},
-        %type = {unit},
-        symbol = {\unit{\kilo\gram}},
-        description = {the SI unit of mass},
-        parent = {gls:unit},
-}
+    name = {kilogram},
+    %type = {unit},
+    symbol = {\unit{\kilo\gram}},
+    description = {the SI unit of mass},
+    parent = {gls:unit},
+    }
 
 \newglossaryentry{gls:meter}{
-        name = {meter},
-        %type = {unit},
-        symbol = {\unit{\meter}},
-        description = {the SI unit of length},
-        parent = {gls:unit},
-}
+    name = {meter},
+    %type = {unit},
+    symbol = {\unit{\meter}},
+    description = {the SI unit of length},
+    parent = {gls:unit},
+    }
 
 \newglossaryentry{gls:sec}{
-        name = {second},
-        %type = {unit},
-        symbol = {\unit{\second}},
-        description = {the SI unit of time},
-        parent = {gls:unit}
-}
+    name = {second},
+    %type = {unit},
+    symbol = {\unit{\second}},
+    description = {the SI unit of time},
+    parent = {gls:unit}
+    }
 
 \newglossaryentry{gls:amp}{
-        name = {ampere},
-        text = {Ampere},
-        %type = {unit},
-        symbol = {\unit{\ampere}},
-        description = {the SI unit of current},
-        parent = {gls:unit},
-}
+    name = {ampere},
+    text = {Ampere},
+    %type = {unit},
+    symbol = {\unit{\ampere}},
+    description = {the SI unit of current},
+    parent = {gls:unit},
+    }
 
+\newglossaryentry{gls:ohm}{
+    name = {Ohm},
+    text = {ohm},
+    %type = {unit},
+    symbol = {\unit{\ohm}},
+    description = {derived SI unit to denote strength of electrical resistance},
+    parent = {gls:unit},
+    }
+    
 \newglossaryentry{gls:volt}{
         name = {volt},
         text = {Volt},
         %type = {unit},
         symbol = {\unit{\volt}},
-        description = {standard unit used to measure how strongly an electrical current is sent around an electrical system},
+        description = {derived SI unit, for measuring how strongly an electrical current is sent around an electrical system},
         parent = {gls:unit},
-}
+    }
 
 \newglossaryentry{gls:celsius}{
         name = {Celsius},
@@ -479,7 +488,7 @@
         symbol = {\unit{\degreeCelsius}},
         description = {denoting a scale of temperature on which water freezes at $0^\circ$ and boils at $100^\circ$ under standard conditions},
         parent = {gls:unit},
-}
+    }
 
 \newglossaryentry{gls:coulomb}{
         name = {coulomb},
@@ -487,7 +496,7 @@
         symbol = {\unit{\coulomb}},
         description = {unit charge equivalent to the amount of current in a second},
         parent = {gls:unit},
-}
+    }
 
 
 %%%%%%%%% Potentials
@@ -502,7 +511,7 @@
         name   = {Reversal Potential},
         text   = {reversal potential},
         description = {the equilibrium point for passive diffusion of a given ion},
-        symbol = {\unit{\equilibria\reverse}},
+        symbol = {\unit{\equi\reverse}},
         see    = {gls:ePote},
         parent = {gls:Pote}
     }
@@ -511,7 +520,7 @@
         name   = {Equilibrium Potential},
         text   = {equilibrium potential},
         description = {the equilibrium of potential in a system},
-        symbol = {\unit{\equilibria}},
+        symbol = {\unit{\equi}},
         parent = {gls:Pote}
     }
 
@@ -585,6 +594,19 @@
     description = {approaches a polar state},
     parent = {gls:polar},
     }
+\newglossaryentry{gls:hypol}{
+    name = {Hyper-Polarization},
+    text = {hyper-polarization},
+    description = {approaches an extremely polar state},
+    parent = {gls:polar},
+    }
+
+\newglossaryentry{gls:attenuation}{
+    name = {Attenuation},
+    text = {attenuation},
+    description = {\nopostdesc},
+    }
+    
 % Dual entry is a custom command, just ask Anakin if you want to us it
 
 

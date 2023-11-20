@@ -77,7 +77,7 @@
 \RequirePackage{verbatim}   % For more text enviroment options
 
 
-\RequirePackage[labelfont={bf}]{caption} % For figure coloration
+\RequirePackage[labelfont={bf}, hypcap=false]{caption} % For figure coloration
 \RequirePackage{subcaption} % Subfigures
 
 \RequirePackage{multicol} % allows for merging multiple columns
