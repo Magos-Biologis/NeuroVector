@@ -10,6 +10,7 @@
 \usetikzlibrary{fadings}
 \usetikzlibrary{patterns}
 
+
 \begin{document}
 
     
@@ -156,7 +157,7 @@
     }
 
     % Creates the channels
-    \foreach \i/\RGB in {\Kx/green,\Nax/red
+    \foreach \RGB/\i in {green/\Kx,red/\Nax
                         %,\Clx/yellow
                         }{
            \node at (\i/1.2,0) [rectangle,
@@ -165,7 +166,7 @@
                             minimum height= 1.5 *\l cm,
                             minimum width = 2 *\w cm,
                             draw = black!80, 
-                            fill = white,
+                            fill = \RGB!03!white,
                             ] {};
     }
 

@@ -121,7 +121,7 @@
 \newglossaryentry{gls:myelin}{
         name = {Myelin Sheath},
         text = {myelin sheath},
-        description = {collection of Schwann cells that produce fatty lipid substances for increased conductivity},
+        description = {collection fatty lipid substance for increased conductivity of the axon, produced by Schwann cells},
         parent = {gls:neuron},
 }
 
@@ -184,10 +184,18 @@
 }
 
 \newglossaryentry{gls:gate}{
-        name = {Gate},
-        text = {gate},
-        description = {construct which blocks passage to unsuitable entities},
-}
+    name = {Gate},
+    text = {gate},
+    description = {construct which blocks passage to unsuitable entities},
+    }
+
+\newglossaryentry{gls:vgate}{
+    name = {Voltage Gate},
+    text = {voltage-gate},
+    description = {\nopostdesc},
+    parent = {gls:gate}
+    }
+
 
 \newglossaryentry{gls:bilipid}{
         name = {Lipid Bilayer},
@@ -638,4 +646,5 @@
 \newDualEntry[parent = {gls:diff}, text = {partial differential equation}, sort = {pa}][sort = {pa}, first = {partial differential equation}, firstplural = {partial differential equations}]{pde}{PDE}{Partial Differential}{a differential equation with respect to multiple variables}
 
 
-%\newacronym{lcm}{LCM}{Least Common Multiple}
+\newacronym{o}{O}{open}
+\newacronym{c}{C}{closed}

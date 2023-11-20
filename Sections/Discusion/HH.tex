@@ -11,30 +11,30 @@ The \gls{hh} model of Action Potential is a system of \gls{gls:nonlinear} differ
 
 Mathematically, the flow of current is represented as the change in voltage over time scaled by capacitance:
     \begin{align}
-        I_c &= C_m \ode{\unit{\V\membrane}} \\
+        I_c &= \capa\membrane \ode{\unit{\V\membrane}} \\
     \intertext{and the current through a given \gls{gls:ionChan} is the product of that channel's \gls{gls:cond} and the \gls{gls:rPote} for the specific ion}
         I_\bfm{ion} &= {g_\bfm{ion}}(\unit{\V\membrane}-\unit{\V\ion})  
     \end{align}
 \(\unit{\V\ion}\) is the \gls{gls:rPote} of the specific \gls{gls:ionChan}. Thus, for a cell with \gls{Na} and \gls{K} channels, the total current through the the membrane can be defined by:
 \begin{equation}
-     \unit{\cur}  =  I_c + \sum_{i = 1}^{p} I_i =  I_c + \sum_{i = 1}^{p} g_\bfm{ion} \cdot \br{\unit{\V\membrane}-\unit{\V\ion}} 
+     \unit{\curr}  =  I_c + \sum_{i = 1}^{p} I_i =  I_c + \sum_{i = 1}^{p} g_\bfm{ion} \cdot \br{\unit{\V\membrane}-\unit{\V\ion}} 
 \end{equation} 
 with \(I\) representing the total membrane current per unit area; 
 \begin{alignat}{5}
-    &\quad \unit{\cur} &&= \quad I_c \quad&&+ \quad I_\rmm{K} \quad&&+ \quad I_\rmm{Na} \quad&&+ \quad I_\rmm{L} \\ 
-    \implies &\quad \unit{\cur} &&= C_m \ode{\unit{\V\membrane}} &&+ {g}_\rmm{K}\br{\unit{\V\membrane} - V_\rmm{K}} &&+ {g}_\rmm{Na} \br{\unit{\V\membrane} - V_\rmm{Na}}  &&+ {g}_\rmm{L} \br{\unit{\V\membrane} - V_\rmm{L}} 
+    &\quad \unit{\curr} &&= \quad I_c \quad&&+ \quad I_\rmm{K} \quad&&+ \quad I_\rmm{Na} \quad&&+ \quad I_\rmm{L} \\ 
+    \implies &\quad \unit{\curr} &&= C\mm \ode{\unit{\V\membrane}} &&+ {g}_\rmm{K}\br{\unit{\V\membrane} - V_\rmm{K}} &&+ {g}_\rmm{Na} \br{\unit{\V\membrane} - V_\rmm{Na}}  &&+ {g}_\rmm{L} \br{\unit{\V\membrane} - V_\rmm{L}} 
 \end{alignat}
-Where \(C_m\) the membrane capacitance per unit area; and \({g}_\rmm{K}\), \(V_\rmm{K}\), along with  \({g}_\rmm{Na}\), \(V_\rmm{Na}\) make up the \gls{gls:cond} and \gls{gls:rPote} of \gls{K} and \gls{Na} respectively.
+Where \(C\mm\) the membrane capacitance per unit area; and \({g}_\rmm{K}\), \(V_\rmm{K}\), along with  \({g}_\rmm{Na}\), \(V_\rmm{Na}\) make up the \gls{gls:cond} and \gls{gls:rPote} of \gls{K} and \gls{Na} respectively.
 The directly time dependent element of this equation is \(\unit{\V\membrane}\), with \({g}_\rmm{Na}\), and \({g}_\rmm{K}\) are time dependant by virtue of explicit dependence on the membrane voltage \(\br{\unit{\V\membrane}}\). 
 
 
 
 Through long term experimentation, the duo of Hodgkin and Huxley divined a model built from the observations of smooth current change as a function of pores (or channels) that were either open or closed. By using a statistical approach, H\&H generated predictions for the probability of channels being open or closed at a given time in the process~\cite{HodHux1939}. H\&H presented the model as a set of four \glspl{ode} with respect to time.
 \begin{sysEquation}[HodHuxSys]
-    C_m \ode{\unit{\V\membrane}} &= I_m - \br{\bar{g}_\rmm{K} n^4 \br{\unit{\V\membrane} - V_\rmm{K}} + \bar{g}_\rmm{Na} m^3 h \br{\unit{\V\membrane} - V_\rmm{Na}}  + \bar{g}_\rmm{L} \br{\unit{\V\membrane} - V_\rmm{L}}} \\
-    \ode{n} &= \alpha_n \br{\unit{\V\membrane}} \br{1-n} - \beta_n \br{\unit{\V\membrane}} n \\
-    \ode{m} &= \alpha_m \br{\unit{\V\membrane}} \br{1-m} - \beta_m \br{\unit{\V\membrane}} m \\
-    \ode{h} &= \alpha_h \br{\unit{\V\membrane}} \br{1-h} - \beta_h \br{\unit{\V\membrane}} h 
+    C\mm \ode{\unit{\V\membrane}} &= I\mm - \br{\bar{g}_\rmm{K} n^4 \br{\unit{\V\membrane} - V_\rmm{K}} + \bar{g}_\rmm{Na} m^3 h \br{\unit{\V\membrane} - V_\rmm{Na}}  + \bar{g}_\rmm{L} \br{\unit{\V\membrane} - V_\rmm{L}}} \\
+    \ode{n} &= \alpha\nn \br{\unit{\V\membrane}} \br{1-n} - \beta\nn \br{\unit{\V\membrane}} n \\
+    \ode{m} &= \alpha\mm \br{\unit{\V\membrane}} \br{1-m} - \beta\mm \br{\unit{\V\membrane}} m \\
+    \ode{h} &= \alpha\hh \br{\unit{\V\membrane}} \br{1-h} - \beta\hh \br{\unit{\V\membrane}} h 
 \end{sysEquation}
 
 The `gating' variables \(m\) and \(h\), part \(n\) describe the time dependent kinetics of the voltage
@@ -50,24 +50,24 @@ The \gls{gls:ionChan} activation/inactivation\footnotemark~probabilities, denote
     \begin{align*}
     n &\implies \left\{
     \begin{aligned}
-        \alpha_n \br{\unit{\V\membrane}} &= 0.01 \, \cfrac{ 10 - V }{ \exp{ 10 - V } - 1} \\
-        \beta_n \br{\unit{\V\membrane}}  &= 0.125 \, \exp{-\cfrac{V}{80}} 
+        \alpha\nn \br{\unit{\V\membrane}} &= 0.01 \, \cfrac{ 10 - V }{ \exp{ 10 - V } - 1} \\
+        \beta\nn \br{\unit{\V\membrane}}  &= 0.125 \, \exp{-\cfrac{V}{80}} 
     \end{aligned} \right.
     \end{align*}
-    Where \(V = V_\rmm{rest} - \unit{\V\membrane}\) represents the polarization in \unit{\milli\volt}
+    Where \(\unit{\V} = \unit{\V_\rmm{rest}} - \unit{\V\membrane}\) represents the polarization in \unit{\milli\volt}
 \end{minipage}
 \hfill
 \begin{minipage}[c]{.45\textwidth}
     \begin{align*}
     m &\implies \left\{
     \begin{aligned}
-        \alpha_m \br{\unit{\V\membrane}} &= 0.1 \cfrac{ 25 - V }{\exp{\cfrac{25-V}{10}} - 1} \\
-        \beta_m \br{\unit{\V\membrane}}  &= 4 \, \exp{-\cfrac{V}{18}} 
+        \alpha\mm \br{\unit{\V\membrane}} &= 0.1 \cfrac{ 25 - V }{\exp{\cfrac{25-V}{10}} - 1} \\
+        \beta\mm \br{\unit{\V\membrane}}  &= 4 \, \exp{-\cfrac{V}{18}} 
     \end{aligned} \right. \\
     h &\implies \left\{
     \begin{aligned}
-        \alpha_h \br{\unit{\V\membrane}} &=  0.07 \, \exp{-\cfrac{V}{20}} \\
-        \beta_h \br{\unit{\V\membrane}}  &= { \cfrac{1}{\exp{\cfrac{30 - V}{10}} + 1}}
+        \alpha\hh \br{\unit{\V\membrane}} &=  0.07 \, \exp{-\cfrac{V}{20}} \\
+        \beta\hh \br{\unit{\V\membrane}}  &= { \cfrac{1}{\exp{\cfrac{30 - V}{10}} + 1}}
     \end{aligned} \right.
     \end{align*}
 \end{minipage}
@@ -85,33 +85,33 @@ In order to characterize the ion-channels, the equations can be fitted to voltag
                     p{0.55\textwidth}  @{}
                     m{0.15\textwidth}} \hline
         Parameters & Significations & Values \\\hline
-    \unit{\cur} & Membrane Current Density 0A/cm2 during space clamp & \\
-    \unit{\cap\membrane} & Membrane Capacitance & 1 µF/cm2\\
+    \unit{\curr} & Membrane Current Density 0A/cm2 during space clamp & \\
+    \unit{\capa\membrane} & Membrane Capacitance & 1 µF/cm2\\
     \unit{\V\membrane} & Membrane Potential & mV\\
     %t &time & ms\\
-    \unit{\maxcon\potassium} & maximal cond for \gls{K} & \qty{36}{m.mho/cm2} \\
-    \unit{\maxcon\sodium} & maximal cond for \gls{Na} &\qty{120}{m.mho/cm2} \\
-    \unit{\maxcon\leakage} & maximal cond for “leaking” ions & \qty{0.3}{\per\milli\ohm\per\square\cm} \\
+    \unit{\mcon\potassium} & maximal cond for \gls{K} & \qty{36}{m.mho/cm2} \\
+    \unit{\mcon\sodium} & maximal cond for \gls{Na} &\qty{120}{m.mho/cm2} \\
+    \unit{\mcon\leakage} & maximal cond for “leaking” ions & \qty{0.3}{\per\milli\ohm\per\square\cm} \\
     \unit{\V\potassium} & Resting Potential of \gls{K} & \qty{12}{mV} \\
     \unit{\V\sodium} & Resting potential for \gls{Na} & \qty{-115}{mV} \\
     \unit{\V\leakage} & Resting potential for “leaking” ions & \qty{-10.613}{mV} \\
     n & Proportion of particles in neuron involved with opening of \gls{K} gate & \\
     m & proportion of particles in neuron aﬀecting opening of \gls{Na} gate & \\
     h & proportion of particles outside of neuron aﬀecting closing of “2nd” \gls{Na} gate & \\
-    \unit{\alpha_n} & Voltage dependent rate for \gls{K} ions to enter the cell per ms & \\
-    \unit{\beta_n} & Voltage dependent rate for \gls{K} ions to exit the cell per ms & \\
-    \unit{\alpha_m} & Voltage dependent rate for \gls{Na} to enter the cell per ms via the “1st” gate & \\ 
-    \unit{\beta_m} & Voltage dependent rate for \gls{Na} to exit the cell per ms via the “1st” gate & \\
-    \unit{\alpha_h} & Voltage dependent rate for \gls{Na} to exit the cell per ms via the “2nd” gate & \\ 
-    \unit{\beta_h} & Voltage dependent rate for \gls{Na} to enter the cell per ms via the “2nd” gate &
+    \unit{\alpha\nn} & Voltage dependent rate for \gls{K} ions to enter the cell per ms & \\
+    \unit{\beta\nn} & Voltage dependent rate for \gls{K} ions to exit the cell per ms & \\
+    \unit{\alpha\mm} & Voltage dependent rate for \gls{Na} to enter the cell per ms via the “1st” gate & \\ 
+    \unit{\beta\mm} & Voltage dependent rate for \gls{Na} to exit the cell per ms via the “1st” gate & \\
+    \unit{\alpha\hh} & Voltage dependent rate for \gls{Na} to exit the cell per ms via the “2nd” gate & \\ 
+    \unit{\beta\hh} & Voltage dependent rate for \gls{Na} to enter the cell per ms via the “2nd” gate &
     \end{tabular}
 \end{table}
 
 \begin{comment}
     Breaking down the equation we find the following regions:
     \begin{equation*}
-        \unit{\cur} = 
-        \overbrace{C_m \ode{\unit{\V\membrane}}}^{\mathclap{\text{rate of change of voltage scaled by capacitance}}} + 
+        \unit{\curr} = 
+        \overbrace{C\mm \ode{\unit{\V\membrane}}}^{\mathclap{\text{rate of change of voltage scaled by capacitance}}} + 
         \bar{g}_\rmm{K} n^4 \br{\unit{\V\membrane} - V_\rmm{K}} + 
         \bar{g}_\rmm{Na} m^3 h \br{\unit{\V\membrane} - V_\rmm{Na}}  + 
         \bar{g}_\rmm{L} \br{\unit{\V\membrane} - V_\rmm{L}} 

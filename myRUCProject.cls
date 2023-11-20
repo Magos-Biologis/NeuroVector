@@ -7,7 +7,7 @@
 \RequirePackage{xkeyval}    % More useful macros
 \RequirePackage{xparse}     % More useful macros
 
-%\usepackage{iftex} % Allows for if Lua LaTeX commands
+\RequirePackage{iftex}      % Allows for if Lua LaTeX commands
 
 % ========================= Class Basis
 
@@ -56,15 +56,24 @@
 
 % ========================= Text Packages 
 
+
 % It's 2022. UTF-8 input for TeX. 
-\RequirePackage[utf8]{inputenc}
-%\RequirePackage{csquotes} % Babel wants it?
-%\RequirePackage{babel} 
+\iftutex
+	\RequirePackage[no-math]{fontspec}
+    \setsansfont{CMU Sans Serif}%{Arial}
+    \setmainfont{CMU Serif}%{Times New Roman}
+    \setmonofont{CMU Typewriter Text}%{Consolas}
+    \defaultfontfeatures{Ligatures={TeX}}
+	%\setmainfont{TeX Gyre Termes}
+	%\RequirePackage{unicode-math}
+	%\setmathfont{Stix Two Math}
+\else
+    \RequirePackage[utf8]{inputenc}
+    %\RequirePackage{newtx}
+    \RequirePackage[T2A,T1]{fontenc} % Best imported after fonts.
+\fi
 
-\RequirePackage[protrusion=true,expansion]{microtype}
-% Best imported after fonts.
-\RequirePackage[T1]{fontenc} % I believe this encodes fonts into your PDF.
-
+\RequirePackage{microtype}
 
 % ========================= Colors/Visuals/Figures Function
 
@@ -138,6 +147,12 @@
 
 
 \RequirePackage{myReferencePreamble}
+
+
+% ====================== microtype
+
+% For font pedantics
+\microtypesetup{activate={true,nocompatibility}}
 
 % ====================== Tweaks and settings ================================
 

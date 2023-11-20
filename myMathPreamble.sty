@@ -7,13 +7,13 @@
 \RequirePackage{xkeyval}    % More useful macros
 \RequirePackage{xparse}     % More useful macros
 
-%\usepackage{iftex} % Allows for if Lua LaTeX commands
+\RequirePackage{iftex}      % Allows for if {type}TeX commands
 
 % ========================= Package options
 
-%\DeclareOption*{%
-%    \PackageWarning{Math Preamble}{Unknown option ‘\CurrentOption’}%
-%}
+\DeclareOption{mathFont}{%
+}
+
 \ExecuteOptions{}
 \ProcessOptions\relax
 
@@ -23,8 +23,14 @@
 \RequirePackage{mathtools}  % includes amsmath, and increased math utility functions
 \RequirePackage[standard, amsmath]{ntheorem}  % Math Theorems
 
+\ifxetex % Math Fonts
+    \RequirePackage[MnSymbol]{mathspec}
+\else
+    \RequirePackage[cmsy]{MnSymbol} 
+    \DeclareMathAlphabet\mathbb{U}{msb}{m}{n}
+\fi
+
 \RequirePackage{cancel}  % Striking through text \cancel{x}
-\RequirePackage{MnSymbol}
 
 \RequirePackage{siunitx} % elegant SI units
 
@@ -151,19 +157,16 @@
 
 
 
+\DeclareMathSizes{10}{18}{12}{8}   % For size 10 text
+\DeclareMathSizes{11}{19}{13}{9}   % For size 11 text
+\DeclareMathSizes{12}{20}{14}{10}  % For size 12 text
+
 \addtolength{\jot}{0.75em} % Increases row padding between equations
 
 \abovedisplayskip       = 12pt
 \belowdisplayskip       = 12pt
 \abovedisplayshortskip  = 0pt
 \belowdisplayshortskip  = 7pt
-
-% SI units
-
-\DeclareMathAlphabet\mathbb{U}{msb}{m}{n}
-\DeclareMathSizes{10}{18}{12}{8}   % For size 10 text
-\DeclareMathSizes{11}{19}{13}{9}   % For size 11 text
-\DeclareMathSizes{12}{20}{14}{10}  % For size 12 text
 
 % SI units
 
