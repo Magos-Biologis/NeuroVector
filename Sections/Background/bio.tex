@@ -96,6 +96,33 @@ In physiological conditions, the concentration \gls{gls:grad} is maintained cons
 \end{figure}
 
 
+\subsection{Ionic currents}
+The passive diffusion of \glspl{gls:ion} through an open channel is a movement of charge through a resistance (resistance here is a measure of the difficulty of \glspl{gls:ion} moving through the channel pore). Movement of charges through a resistance is a current. Through a single channel the current is called `single-channel current' or `unitary current', \(\br{\ucur\ion}\). The amplitude of \(\ucur\ion\) is expressed in ampere \(\br{\unit{\ampere}}\) which are coulombs per seconds \(\br{\unit{\coulomb\per\second}}\). 
+
+In general, currents are expressed following ohm's law: \(\rmm{U}=\rmm{R}\curr\), where \(\curr\) is the current through a resistance \(\rmm{R}\) and \(\rmm{U}\) is the difference of \gls{gls:Pote} between the two ends of the resistance. 
+For currents carried by \glspl{gls:ion} (and not by electrons as in copper wires), \(\curr\) is called \(\curr\ion\), the current that passes through the resistance of the channel pore which has a resistance R \(\br{\res\ion}\). But what is \(\rmm{U}\) in biological systems? 
+\unit{U} is the force that makes \glspl{gls:ion} move in a particular direction; it is the electrochemical \gls{gls:grad} for the considered \gls{gls:ion} and is also called the driving force: \(\rmm{U}=(\unit{\V} - \equi\ion)\). According to ohm's law, the current \(\curr\ion\) through a single channel is derived from 
+\begin{equation}
+  \unit{\V} - \equi\ion = r\ion \cdot \curr\ion
+\end{equation}
+So:
+\begin{equation}
+  \curr\ion= \frac{1}{r\ion\br{\unit{\V} - \equi\ion}} = \ucon\ion(\unit{\V\membrane} - \equi\ion)
+\end{equation}
+\(\ucon\ion\) is the reciprocal of resistance; it is called the \textit{\gls{gls:contan}} of the channel, or unitary \gls{gls:contan}. It is a measure of the ease of flow of \glspl{gls:ion} (flow of current) through the channel pore. Whereas resistance is expressed in \gls{gls:ohm} \(\br{\unit{\ohm}}\), \gls{gls:contan} is expressed in siemens \(\br{\unit{\siemens}}\). By convention \(\curr\ion\) is negative when it represents an inward \gls{gls:flux} of positive charges (\glspl{gls:cation}) and \(\curr\ion\) is positive when it represents an outward \gls{gls:flux} of positive charges. It is generally of the order of pico-ampere \(\br{\qty{1}{\pico\ampere}=\qty{e-12}{\ampere}}\). At physiological concentrations, \(\ucon\ion\) varies between \(\qtyrange{10}{150}{\pico\siemens}\) dependent on channel type~\cite{Hammond2015ch4}.
+
+\(\curr\ion\) and \(\ucur\ion\) can be measured experimentally. The former is measured current from a patch of \gls{gls:membrane} where only one channel of a given type is present. \(\curr\ion\) is current measured from a whole \gls{gls:membrane} where \(N\) channels of the same type are present. The techniques mainly ised ofr measuring ionic currents in excitable cells are the current clamp and voltage clamp technique.
+
+\subsubsection{Current clamp}\label{sec:Cclamp}
+
+The current clamp mode is a technique for recording the membrane potential and its changes by injecting current into a cell through the recording electrode.  "Current clamp" implies that the current applied through the electrode is held at a constant value by the experimenter, while the membrane potential is free to vary, and the amplifier records whatever voltage the cell generates on its own or as a result of stimulation. This technique is useful for studying how a cell responds when electric current enters a cell~\cite{Hammond2015ch4}.
+
+\subsubsection{Voltage clamp technique}\label{sec:Vclamp}
+ 
+In contrast to the current clamp technique, in voltage clamp mode the cell potential is ``clamped'' at a chosen value while recording changes in ion currents. This allows to measure how much \textit{ionic current} flows through the cell's membrane at any given voltage. This is important because, as will be elaborated in the following sections, many of the ion channels in neuronal membrane are \gls{gls:vgate}[d] ion channels, which open only when the membrane voltage is within a certain range, and the voltage clamp technique allows for control of the variable determining the opening of those channels~\cite{Hammond2015ch4}.
+
+A variation of  voltage clamp technique is the patch clamp technique, which allows to isolate currents from patches of cell membrane or even individual ion channels (unitary currents \(\ucur\ion\))~\cite{Hammond2015ch4}.
+
 \subsection{Equilibrium Potential of a Given Ion}
 \begingroup
 \allowdisplaybreaks
@@ -158,65 +185,19 @@ the \gls{gls:ePote} of each \gls{gls:ion}follows as:
 
 \end{subequations}
 
-These equations can be interpreted such that when
-\gls{K} channels open in the \gls{gls:membrane}, the efflux of \gls{K} \glspl{gls:ion} will hyper-polarize the \gls{gls:membrane} until \(\unit{\V\membrane} = \equi\potassium \approx \qty{-97}{\mV}\), at which point the net \gls{gls:flux} of \gls{K} is null being that \gls{K} \glspl{gls:ion} have exactly the same \gls{gls:Pote} to move towards the \gls{gls:excell} space as the \gls{gls:incell} space. 
-The efflux of \gls{K} will be exactly compensated by the influx of \gls{K} and the \gls{gls:mPote} will stabilize at \(\equi\potassium\) for as long as the \gls{K} channels stay open. 
-Assuming only \gls{Na} channels are open, the \gls{gls:mPote} will move toward \(\unit{\V\membrane} = \qty{58}{\mV}\), the \gls{gls:Pote} at which the net \gls{gls:flux} of \gls{Na} is null. 
-Similarly, when \(\unit{\V\membrane} = \equi\chlorine \approx \qty{-59}{\mV}\), 
-%\gls{Cl} \glspl{gls:ion} have the tendency to move down their concentration \gls{gls:grad} than to move in the reverse direction according to \gls{gls:mPote}, 
-the net \gls{gls:flux} of \gls{Cl} is null. 
-By extension, should \(\unit{\V\membrane} \neq \equi\potassium\), the net \gls{gls:flux} of \gls{K} will no longer be null. 
-This holds true for all \glspl{gls:ion}: when \(\unit{\V\membrane} \neq \equi\ion\) there is a net \gls{gls:flux} of the \gls{gls:ion}~\cite{Hammond2015ch4}. The difference \(\br{\unit{\V\membrane} - \equi\ion}\) is called the electrochemical \gls{gls:grad}. It is the force that makes the \glspl{gls:ion} move through an open channel.
+% These equations can be interpreted such that when
+% \gls{K} channels open in the \gls{gls:membrane}, the efflux of \gls{K} \glspl{gls:ion} will hyper-polarize the \gls{gls:membrane} until \(\unit{\V\membrane} = \equi\potassium \approx \qty{-97}{\mV}\), at which point the net \gls{gls:flux} of \gls{K} is null being that \gls{K} \glspl{gls:ion} have exactly the same \gls{gls:Pote} to move towards the \gls{gls:excell} space as the \gls{gls:incell} space. 
+% The efflux of \gls{K} will be exactly compensated by the influx of \gls{K} and the \gls{gls:mPote} will stabilize at \(\equi\potassium\) for as long as the \gls{K} channels stay open. 
+% Assuming only \gls{Na} channels are open, the \gls{gls:mPote} will move toward \(\unit{\V\membrane} = \qty{58}{\mV}\), the \gls{gls:Pote} at which the net \gls{gls:flux} of \gls{Na} is null. 
+% Similarly, when \(\unit{\V\membrane} = \equi\chlorine \approx \qty{-59}{\mV}\), 
+% %\gls{Cl} \glspl{gls:ion} have the tendency to move down their concentration \gls{gls:grad} than to move in the reverse direction according to \gls{gls:mPote}, 
+% the net \gls{gls:flux} of \gls{Cl} is null. 
+% By extension, should \(\unit{\V\membrane} \neq \equi\potassium\), the net \gls{gls:flux} of \gls{K} will no longer be null. 
+% This holds true for all \glspl{gls:ion}: when \(\unit{\V\membrane} \neq \equi\ion\) there is a net \gls{gls:flux} of the \gls{gls:ion}~\cite{Hammond2015ch4}. The difference \(\br{\unit{\V\membrane} - \equi\ion}\) is called the electrochemical \gls{gls:grad}. It is the force that makes the \glspl{gls:ion} move through an open channel.
 
 \endgroup
 
-\subsection{Ionic currents}
-The passive diffusion of \glspl{gls:ion} through an open channel is a movement of charge through a resistance (resistance here is a measure of the difficulty of \glspl{gls:ion} moving through the channel pore). Movement of charges through a resistance is a current. Through a single channel the current is called `single-channel current' or `unitary current', \(\br{\ucur\ion}\). The amplitude of \(\ucur\ion\) is expressed in ampere \(\br{\unit{\ampere}}\) which are coulombs per seconds \(\br{\unit{\coulomb\per\second}}\). 
-
-In general, currents are expressed following ohm's law: U=RI, where \(\curr\) is the current through a resistance \(\rmm{R}\) and U is the difference of \gls{gls:Pote} between the two ends of the resistance. 
-For currents carried by \glspl{gls:ion} (and not by electrons as in copper wires), \(\curr\) is called \(\curr\ion\), the current that passes through the resistance of the channel pore which has a resistance R \(\br{\res\ion}\). But what is U in biological systems? 
-U is the force that makes \glspl{gls:ion} move in a particular direction; it is the electrochemical \gls{gls:grad} for the considered \gls{gls:ion} and is also called the driving force: \(U=(\unit{\V\membrane} - \equi\ion)\). According to ohm's law, the current \(\curr\ion\) through a single channel is derived from 
-\begin{equation}
-  \unit{\V\membrane} - \equi\ion = r_{ion} \cdot \curr\ion
-\end{equation}
-So:
-\begin{equation}
-  \curr\ion= \frac{1}{r_{ion}\br{\unit{\V\membrane} - \equi\ion}} = \ucon\ion(\unit{\V\membrane} - \equi\ion)
-\end{equation}
-\(\ucon\ion\) is the reciprocal of resistance; it is called the \textit{\gls{gls:contan}} of the channel, or unitary \gls{gls:contan}. It is a measure of the ease of flow of \glspl{gls:ion} (flow of current) through the channel pore. Whereas resistance is expressed in \gls{gls:ohm} \(\br{\unit{\ohm}}\), \gls{gls:contan} is expressed in siemens \(\br{\unit{\siemens}}\). By convention \(\curr\ion\) is negative when it represents an inward \gls{gls:flux} of positive charges (\glspl{gls:cation}) and \(\curr\ion\) is positive when it represents an outward \gls{gls:flux} of positive charges. It is generally of the order of pico-ampere \(\br{\qty{1}{\pico\ampere}=\qty{e-12}{\ampere}}\). At physiological concentrations, \(\ucon\ion\) varies between \(\qtyrange{10}{150}{\pico\siemens}\) dependent on channel type~\cite{}.
-
-In physiological conditions, however, several channels of the same type are open at the same time in the \gls{gls:neuron}[al] \gls{gls:membrane}. Suppose that only one type of channel is open in the \gls{gls:membrane}, for example \gls{Na} channels, the total current \(\curr\sodium\) crossing the \gls{gls:membrane} at time \(t\) is the sum of the unitary currents \(\ucur\sodium\) at time \(t\):
-\begin{equation}
-  \curr\sodium = N \, p_o \, \ucur\sodium
-\end{equation}
-where \(N\) is the \emph{number} of \gls{Na} channels present in the \gls{gls:membrane}; \(p_o\) is the \emph{probability} of \gls{Na} channels being open at time \(t\)
-%(\(N\,p_o\) is therefore the number of open \gls{Na}channels in the \gls{gls:membrane} at time \(t\))
-; and \(\ucur\sodium\) is the unitary \gls{Na} current. \newline
-More generally:
-\begin{equation}
-  \curr\ion= N \, p_o \, \ucur\ion
-\end{equation}
-By analogy, the total \gls{gls:contan} of the \gls{gls:membrane} for a particular \gls{gls:ion} is: 
-\begin{equation}
-  \unit{\cond\ion} = N \, p_o \, \ucon\ion
-\end{equation}
-and from \(\curr\ion= \ucon\ion \, \br{\unit{\V\membrane} - \equi\ion}\) above: 
-\begin{equation}\label{eq:ionCurrent}
-  \curr\ion= \unit{\cond\ion} \, \br{\unit{\V\membrane} - \equi\ion}
-\end{equation}
-\(\curr\ion\) and \(\ucur\ion\) can be measured experimentally. The former is measured current from a patch of \gls{gls:membrane} where only one channel of a given type is present. \(\curr\ion\) is current measured from a whole \gls{gls:membrane} where \(N\) channels of the same type are present. The techniques mainly ised ofr measuring ionic currents in excitable cells are the current clamp and voltage clamp technique.
-
-\subsubsection{Current clamp}\label{sec:Cclamp}
-
-The current clamp mode is a technique for recording the membrane potential and its changes by injecting current into a cell through the recording electrode.  "Current clamp" implies that the current applied through the electrode is held at a constant value by the experimenter, while the membrane potential is free to vary, and the amplifier records whatever voltage the cell generates on its own or as a result of stimulation. This technique is useful for studying how a cell responds when electric current enters a cell~\cite{Hammond2015ch4}.
-
-\subsubsection{Voltage clamp technique}\label{sec:Vclamp}
- 
-In contrast to the current clamp technique, in voltage clamp mode the cell potential is ``clamped'' at a chosen value while recording changes in ion currents. This allows to measure how much \textit{ionic current} flows through the cell's membrane at any given voltage. This is important because, as will be elaborated in the following sections, many of the ion channels in neuronal membrane are \gls{gls:vgate}[d] ion channels, which open only when the membrane voltage is within a certain range, and the voltage clamp technique allows for control of the variable determining the opening of those channels~\cite{Hammond2015ch4}.
-
-A variation of  voltage clamp technique is the patch clamp technique, which allows to isolate currents from patches of cell membrane or even individual ion channels (unitary currents \(\ucur\ion\))~\cite{Hammond2015ch4}.
 \section{Action Potential}
-
 Functionally all eukaryotic \glspl{gls:membrane} maintain a difference in voltage between the \gls{gls:excell} and \gls{gls:incell} space, this difference is called the `\gls{gls:mPote}'. The expected \gls{gls:mPote} in human cells is \glslink{gls:volt}{\qty{-70}{\milli\volt}}~\cite{}.
 \gls{ap} is the measure of the \gls{gls:Pote} that causes action.
 
@@ -252,11 +233,10 @@ Increasing the intensity of the stimulating current pulse does not increase the 
 \begin{figure}[H]
   \centering
   \includegraphics[width=0.5\linewidth]{Pictures//Anakin/AP.png}
-  \caption{The action potential spike, indicating the different phases.}
-  \label{fig:AP}
+  \caption{The action potential spike, indicating the different phases.}\label{fig:AP}
 \end{figure}
 
-\subsubsection{The depolarization phase of sodium-dependent action potential results from the transient entry of sodium ions through voltage gated sodium channels.}
+\subsubsection{Depolarization of the membrane potential}
 %\subsubsection{The \gls{gls:depol} phase of \gls{Na}[-dependent] \gls{ap} results from the transient entry of \gls{Na} \glspl{gls:ion} through \gls{gls:vgate}[d] \gls{Na} channels.}
 The threshold for initiation of \gls{Na}[-dependent] action \gls{gls:Pote} is due to \gls{gls:vgate}[d] \gls{Na} channels only opening in response to a \gls{gls:depol} of \qtyrange{-50}{-40}{\mV}, hence the classification `\gls{gls:vgate}[d]'. 
 
@@ -353,14 +333,14 @@ The amplitude of \gls{Na} current plotted against the holding \gls{gls:Pote}, sh
 \begin{figure}[H]
   \centering
   \includegraphics[width=0.5\linewidth]{Pictures//Anakin/activ-inactiv.png}
-  \caption{Activation (right curve) and inactivation (left curve) curves obtained from nine different experiments. The voltage protocols used are shown in insets. In the ordinates, I/Imax represents the ratio of the peak \gls{Na} current (I) recorded at the tested \gls{gls:Pote} of the abscissae and the maximal peak \gls{Na} current (Imax) recorded in this experiment. (From Chiu Sy, ritchie JM, bogart rb, Stagg d (1979) A quantitative description of \gls{gls:membrane} currents from a rabbit myelinated nerve. J. Physiol.292, 149–166) }
-  \label{fig:actinact}
+  %\caption{Activation (right curve) and inactivation (left curve) curves obtained from nine different experiments. The voltage protocols used are shown in insets. In the ordinates, I/Imax represents the ratio of the peak \gls{Na} current (I) recorded at the tested \gls{gls:Pote} of the abscissae and the maximal peak \gls{Na} current (Imax) recorded in this experiment. (From Chiu Sy, ritchie JM, bogart rb, Stagg d (1979) A quantitative description of \gls{gls:membrane} currents from a rabbit myelinated nerve. J. Physiol.292, 149–166) }\label{fig:actinact}
+  \caption{}\label{fig:actinact}
 \end{figure}
 
-\subsection{The repolarization phase of the sodium-dependent action potential results from sodium channel inactivation and partly from potassium channel activation}
+\subsection{Repolarization the membrane potential}
 %\subsection{The \gls{gls:repol} phase of the \gls{Na}[-dependent] \gls{ap} results from \gls{Na} channel inactivation and partly from \gls{K} channel activation}
 
-The \gls{gls:vgate}[d] channels that participate in \gls{gls:membrane} \gls{gls:repol} are so called `delayed rectifiers', which activate after a delay following the \gls{gls:membrane} \gls{gls:depol} and have a low inactivate rate~\cite{Hammond2015ch4}. The function of delayed rectifier channels is the transduction of \gls{gls:membrane} \gls{gls:depol} into an outward \gls{gls:flux} of \gls{K} \glspl{gls:ion}. 
+The \gls{gls:repol} phase of the \gls{Na}[-dependent] \gls{ap} results from \gls{Na} channel inactivation and partly from \gls{K} channel activation. The \gls{gls:vgate}[d] channels that participate in \gls{gls:membrane} \gls{gls:repol} are so called `delayed rectifiers', which activate after a delay following the \gls{gls:membrane} \gls{gls:depol} and have a low inactivate rate~\cite{Hammond2015ch4}. The function of delayed rectifier channels is the transduction of \gls{gls:membrane} \gls{gls:depol} into an outward \gls{gls:flux} of \gls{K} \glspl{gls:ion}. 
 
 % The gating behavior of the delayed rectifier channel is different from that of the \gls{Na} channel. Whereas all four voltage-sensitive domains in \gls{K} channels must be activated in order for pore opening to occur, \gls{Na} channel pore opening requires activation of only three voltage-sensitive domains. 
 % Thus, part of the difference in activation speed between \gls{Na} and \gls{K} channels may be due to the lesser number of voltage-sensitive domains required to move in \gls{Na} channels.
@@ -377,8 +357,8 @@ During \gls{gls:membrane} \gls{gls:depol} and \gls{gls:repol}, the \gls{Na} chan
 \begin{figure}[H]
     \centering
     \includegraphics[width=0.8\linewidth]{Pictures//Anakin/Kchannel.png}
-    \caption{Single \gls{K} channel openings in response to a depolarizing step. The activity of a single delayed rectifier channel expressed from rat brain is recorded in patch clamp (inside-out patch). A depolarizing step to \qty{0}{\mV} from a holding \gls{gls:Pote} of \qty{-60}{\mV}(a) evokes the opening of the channel (b). The elementary current is outward. The channel then closes briefly and reopens several times during the \gls{gls:depol}, as shown in the drawing (c) that interprets the current trace. Adapted from Stühmer W, Stocker M, Sakmann bet al. (1988) potassium channels expressed from rat brain cdNA have delayed rectifier properties. FEBS Lett.242, 199–206, with permission. }
-   \label{fig:Kchannel}
+    %\caption{Single \gls{K} channel openings in response to a depolarizing step. The activity of a single delayed rectifier channel expressed from rat brain is recorded in patch clamp (inside-out patch). A depolarizing step to \qty{0}{\mV} from a holding \gls{gls:Pote} of \qty{-60}{\mV}(a) evokes the opening of the channel (b). The elementary current is outward. The channel then closes briefly and reopens several times during the \gls{gls:depol}, as shown in the drawing (c) that interprets the current trace. Adapted from Stühmer W, Stocker M, Sakmann bet al. (1988) potassium channels expressed from rat brain cdNA have delayed rectifier properties. FEBS Lett.242, 199–206, with permission. }\label{fig:rangeThree}
+    \caption{}\label{fig:Kchannel}
  \end{figure}
 
 The \gls{K} channel has a constant unitary \gls{gls:contan} \(\br{\ucon\potassium}\). In \Cref{fig:rangeThree}a, unitary \gls{K} currents are shown responding to increasing \gls{gls:depol} of \qtyrange{-50}{20}{\mV} from the holding \gls{gls:Pote} of \qty{-80}{\mV}. 
@@ -391,17 +371,16 @@ When the mean amplitude of the unitary \gls{K} current is plotted versus \gls{gl
 \begin{figure}[H]
    \centering
    \includegraphics[width=0.8\textwidth]{Pictures//Anakin/I-V.K.png}
-   \caption{The single-channel current/voltage (\(\ucur\potassium\)/V) relation is linear.delayed rectifier \gls{K} channels from rat brain are expressed in a myoblast cell line. (a) The activity of a single channel is recorded in patch clamp (cell-attached patch). Unitary currents are recorded at different test \glspl{gls:Pote} (from \qty{-50}{\mV} to \qty{20}{\mV}) from a holding \gls{gls:Pote} at \qty{-80}{\mV}. Bottom trace is the voltage trace. (b)\(\ucur\potassium\)-V relation obtained by plotting the mean amplitude of \(\ucur\potassium\) at the different test \glspl{gls:Pote} tested. \(\ucur\potassium\) reverses at =\qty{-75}{\mV} and gK=14pS. Adapted from Koren G, liman er, logothetis deet al. (1990) Gating mechanism of a cloned potassium channel expressed in frog oocytes and mammalian cells. Neuron2, 39–51.}
-   \label{fig:rangeThree}
+   %\caption{The single-channel current/voltage (\(\ucur\potassium\)/V) relation is linear.delayed rectifier \gls{K} channels from rat brain are expressed in a myoblast cell line. (a) The activity of a single channel is recorded in patch clamp (cell-attached patch). Unitary currents are recorded at different test \glspl{gls:Pote} (from \qty{-50}{\mV} to \qty{20}{\mV}) from a holding \gls{gls:Pote} at \qty{-80}{\mV}. Bottom trace is the voltage trace. (b)\(\ucur\potassium\)-V relation obtained by plotting the mean amplitude of \(\ucur\potassium\) at the different test \glspl{gls:Pote} tested. \(\ucur\potassium\) reverses at =\qty{-75}{\mV} and gK=14pS. Adapted from Koren G, liman er, logothetis deet al. (1990) Gating mechanism of a cloned potassium channel expressed in frog oocytes and mammalian cells. Neuron2, 39–51.}\label{fig:rangeThree}
+   \caption{}\label{fig:rangeThree}
  \end{figure} 
 
 The macroscopic delayed rectifier \gls{K}current \(\br{\curr\potassium}\) has a delayed voltage dependence of activation and inactivates within tens of seconds. 
 %Whole cell currents start to activate at \glspl{gls:Pote} positive to \qty{-30}{\mV} and their amplitude is clearly voltage dependent. 
 %When unitary currents recorded from 70 successive depolarizing steps to \qty{0}{\mV} are averaged (Figure4.20b), the macroscopic outward current obtained has a slow time to peak \(\br{\qty{4}{\ms}}\) and lasts the entire depolarizing step. 
-The whole cell current amplitude at steady-state (same as \cref{eq:nasum}) % () 
-for a given \gls{gls:Pote} is
-\begin{equation}
-    \curr\potassium = N p_o \ucur\potassium
+The whole cell current amplitude at steady-state for a given \gls{gls:Pote} is:
+\begin{equation}\label{eq:ksum}
+    \curr\potassium = N p_o \ucur\potassium = p_o \sum^N_{n=1} \, \sbr{\ucur\potassium}_n 
 \end{equation}
 
 where \(N\) is the number of delayed rectifier channels in the \gls{gls:membrane} recorded, \(p_o\) the open probability at steady state and \(\ucur\potassium\) the elementary current. The number of open channels \(N\,p_o\) increases with \gls{gls:depol} (to a maximal value) and so does \(\curr\potassium\). 
@@ -411,18 +390,50 @@ The \(\curr\potassium/\unit{\V}\) relation shows that the whole cell current var
 \begin{figure}[H]
   \centering
   \includegraphics[width=0.4\linewidth]{Pictures//Anakin/IK-V.png}
-  \caption{Characteristics of the macroscopic delayed recti-fier \gls{K} current. The amplitude of the current at steady state is plotted against test \gls{gls:Pote}. The \gls{gls:Pote} threshold for its activation is \qty{-40}{\mV}. From Stühmer W, Stocker M, Sakmann bet al. (1988) potassium channels expressed from rat brain cdNA have delayed rectifier properties. FEBS Lett.242, 199–206. }
-  \label{fig:Kcurrent}
+  %\caption{Characteristics of the macroscopic delayed recti-fier \gls{K} current. The amplitude of the current at steady state is plotted against test \gls{gls:Pote}. The \gls{gls:Pote} threshold for its activation is \qty{-40}{\mV}. From Stühmer W, Stocker M, Sakmann bet al. (1988) potassium channels expressed from rat brain cdNA have delayed rectifier properties. FEBS Lett.242, 199–206. }\label{fig:Kcurrent}
+  \caption{}\label{fig:Kcurrent}
 \end{figure}
 
 To summerize, %owing to their delay of opening, 
 delayed rectifier channels begin to open when the \gls{gls:membrane} is has undergone \gls{gls:depol} by the entry of \gls{Na} \glspl{gls:ion} through open \gls{gls:vgate}[d] \gls{Na} channels. 
 Therefore, the exit of \gls{K} \glspl{gls:ion} does not occur at the same time as the entry of \gls{Na} \glspl{gls:ion}. This allows the \gls{gls:membrane} to first depolarize in response to the entry of \gls{Na} \glspl{gls:ion} and then to repolarize as a consequence of the exit of \gls{K} \glspl{gls:ion}.
 
- \begin{figure}[H]
-   \centering
-   \includegraphics[width=0.8\textwidth]{Pictures//Anakin/N.K.png}
-   \caption{Gating of \gls{Na} and \gls{K} channels during the \gls{Na}[-dependent] \gls{ap}.(a) Interpretation of the manner in which the conductances to \gls{Na} and \gls{K} contribute to the \gls{ap}. (b) State of the \gls{Na} and \gls{K} \gls{gls:vgate}[d] channels during the course of the \gls{ap}. O, channels open; I, channels inactivate; C, channels close or are closed. Trace (a) adapted from Hodgkin Al, Huxley AF (1952) A quantitative description of \gls{gls:membrane} current and its application to conduction and excitation in nerve. J. Physiol.117, 500–544.}
-   \label{fig:Knumber}
- \end{figure}
- \end{document}
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.8\textwidth]{Pictures//Anakin/N.K.png}
+    %\caption{Gating of \gls{Na} and \gls{K} channels during the \gls{Na}[-dependent] \gls{ap}.(a) Interpretation of the manner in which the conductances to \gls{Na} and \gls{K} contribute to the \gls{ap}. (b) State of the \gls{Na} and \gls{K} \gls{gls:vgate}[d] channels during the course of the \gls{ap}. O, channels open; I, channels inactivate; C, channels close or are closed. Trace (a) adapted from Hodgkin Al, Huxley AF (1952) A quantitative description of \gls{gls:membrane} current and its application to conduction and excitation in nerve. J. Physiol.117, 500–544.}\label{fig:Knumber}
+    \caption{}\label{fig:Knumber}
+\end{figure}
+
+
+
+\subsection{Application} 
+
+
+In physiological conditions, several channels of the same type are open at the same time in the \gls{gls:neuron}[al] \gls{gls:membrane}. 
+%Suppose that only one type of channel is open in the \gls{gls:membrane}, for example \gls{Na} channels, the total current \(\curr\sodium\) crossing the \gls{gls:membrane} at time \(t\) is the sum of the unitary currents \(\ucur\sodium\) at time \(t\):
+Recall that \Cref{eq:nasum,eq:ksum} gives the relationship of unitary currents to total current for their respective ions, using similarities one can restate the equations 
+%(\(N\,p_o\) is therefore the number of open \gls{Na}channels in the \gls{gls:membrane} at time \(t\))
+%; and \(\ucur\sodium\) is the unitary \gls{Na} current. \newline
+more generally as:
+\begin{equation}
+  \curr\ion= N \, p_o \, \ucur\ion
+\end{equation}
+By analogy, the total \gls{gls:contan} of the \gls{gls:membrane} for a particular \gls{gls:ion} is: 
+\begin{equation}
+  \unit{\cond\ion} = N \, p_o \, \ucon\ion
+\end{equation}
+and from \(\curr\ion= \ucon\ion \, \br{\unit{\V\membrane} - \equi\ion}\) above: 
+\begin{equation}\label{eq:ionCurrent}
+  \curr\ion= \unit{\cond\ion} \, \br{\unit{\V\membrane} - \equi\ion}
+\end{equation}
+
+
+
+
+
+
+
+
+\end{document}
+ 
