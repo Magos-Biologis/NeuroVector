@@ -19,9 +19,15 @@ There exists any number of limitations in the pursuit of this task, some inheren
 
 
 
+
+
+
+
+
+
 \section{Scale of model}
  Scaling neural models is a multidimensional challenge involving trade-offs between model complexity, computational efficiency, and the ability to provide meaningful insights into neural function.
- In scaling processes the complexity of a system will often change. In the description of neuronal dynamics  from single-neuron level to network some kind of middleground in complexity will have to be reached. To describe 
+ In scaling processes the complexity of a system will often change. In the description of neuronal dynamics  from single-neuron level to network some kind of middleground in complexity will have to be reached. To describe ...
  
  What layer of information is of interest to probe?
  A description of neuronal dynamics
@@ -74,7 +80,7 @@ When looking at the brain in abstract form it can be seen as a multi-dimensional
 channels on the neuronal membrane) or whose evolution happens on a much slower time scale relative to the evolution of the system variables ~\cite{STEFANESCU2012748}.
 
 
-Fundamentally, a \gls{gls:dynSystem} is a system that evolves over time. This system is dependent on fixed rules which govern the evolution of the system. Thus a \gls{gls:dynSystem} is the opposite of a static system, which, unlike \gls{gls:dynSystem}s, does not depend on the past inputs. A simple example of a \gls{gls:dynSystem} can be that of a pendulum swinging back and forth \cite{}. 
+Fundamentally, a \gls{gls:dynSystem} is a system that evolves over time.  This system is dependent on fixed rules which govern the evolution of the system. Thus a \gls{gls:dynSystem} is the opposite of a static system, which, unlike \gls{gls:dynSystem}s, does not depend on the past inputs. A simple example of a \gls{gls:dynSystem} can be that of a pendulum swinging back and forth \cite{}. 
 
 There are different types of \gls{gls:dynSystem}s. A system can be \gls{gls:deterministic} or \gls{gls:stochastic}, \gls{gls:discrete} or \gls{gls:continuous}, \gls{gls:linear} or \gls{gls:nonlinear}, and \gls{gls:autonomous} or \gls{gls:non-autonomous} \cite{}. 
 
@@ -112,7 +118,7 @@ Here's a simple set of differential equations to represent this system:
  %   P(k)  \sim  k^\gamma
 %\end{sysEquation}
 dxdt = alpha * (1 - x**2) - beta * y
-    dydt = gamma * x - delta * y
+dydt = gamma * x - delta * y
 
 %This is a simplified version of the FitzHugh-Nagumo model, commonly used to study excitable systems. Parameters α, β, γ, and 
 %δ control the behavior of the system.
@@ -198,7 +204,7 @@ When analysing seizures, bifurcation points helps to understand the mechanisms u
 
 Modeling brain processes can be advantages because of the difficulties  performing certain experiments and it is therefore possible to simulate certain scenarios without the need of conducting large scale exploratory experiments. Aspects like ethical barriers...
 
-The practical barriers to simulating brain processes are to do with the modeling framework of the particular question of interest together with the computational resources needed to run complex simulations. Fortunately Moore's Law are still holding and with the emergence of AI the modeling framework have been propelled foreword. Large-scale brain simulation projects, like the Human Brain Project\footnote{\url{https://www.humanbrainproject.eu/en/brain-simulation/}}, leverage AI and high-performance computing to simulate the behavior of billions of neurons and their connections.
+The practical barriers to simulating brain processes are to do with the modeling framework of the particular question of interest together with the computational resources needed to run complex simulations. Fortunately Moore's Law is still holding and with the emergence of AI the modeling framework have been propelled foreword. Large-scale brain simulation projects, like the Human Brain Project\footnote{\url{https://www.humanbrainproject.eu/en/brain-simulation/}}, leverage AI and high-performance computing to simulate the behavior of billions of neurons and their connections.
 
 \end{document}
 

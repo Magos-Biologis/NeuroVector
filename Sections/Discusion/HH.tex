@@ -17,7 +17,7 @@ Mathematically, the flow of current is represented as the change in voltage over
     \begin{equation}
        \capa \ode{\unit{\V}} = \curr\total \\
        \end{equation}
-       and recall that the current through a given \gls{gls:ionChan}, \cref{eq:ionCurrent}, is the product of that channel's \gls{gls:contan} and the \gls{gls:rPote} for the specific ion
+       and recall, \cref{eq:ionCurrent}, that the current through a given \gls{gls:ionChan} is the product of that channel's \gls{gls:contan} and the \gls{gls:rPote} for the specific ion
     \begin{equation}
         \curr\ion = {g_\bfm{ion}}(\unit{\V\membrane}-\unit{\V\ion})  
     \end{equation}
@@ -36,25 +36,25 @@ The directly time dependent element of this equation is \(\unit{\V\membrane}\), 
 Through long term experimentation, the duo of Hodgkin and Huxley divined a model built from the observations of smooth current change as a function of pores (or channels) that were either open or closed. By using a statistical approach, H\&H generated predictions for the probability of channels being open or closed at a given time in the process~\cite{HodHux1939}. 
 
 
-
-
 H\&H presented the model as a set of four \glspl{ode} with respect to time.
 \begin{sysEquation}[HodHuxSys]
-    C\mm \ode{\unit{\V\membrane}} &= \mathrlap{I\mm - \sbr{\mcon\potassium n^4 \br{\unit{\V\membrane} - \unit{\V\potassium}} + \mcon\sodium m^3 h \br{\unit{\V\membrane} - \unit{\V\sodium}}  + \mcon\leakage \br{\unit{\V\membrane} - V_\rmm{L}}}} &&  \\
-    \ode{n} &= \quad \frac{n_\infty\br{\unit{\V\membrane}}-n}{\tau\nn\br{\unit{\V\membrane}}} \quad &&=\alpha\nn \br{\unit{\V\membrane}} \br{1-n} - \beta\nn \br{\unit{\V\membrane}} n &&\\
-    \ode{m} &= \quad \frac{m_\infty\br{\unit{\V\membrane}}-m}{\tau\mm\br{\unit{\V\membrane}}} \quad &&=\alpha\mm \br{\unit{\V\membrane}} \br{1-m} - \beta\mm \br{\unit{\V\membrane}} m &&\\
-    \ode{h} &= \quad \frac{h_\infty\br{\unit{\V\membrane}}-h}{\tau\hh\br{\unit{\V\membrane}}} \quad &&=\alpha\hh \br{\unit{\V\membrane}} \br{1-h} - \beta\hh \br{\unit{\V\membrane}} h &&
+    C\mm \ode{\unit{\V\membrane}} &= \mathrlap{I\mm - \sbr{\mcon\potassium n^4 \br{\unit{\V\membrane} - \unit{\V\potassium}} + \mcon\sodium m^3 h \br{\unit{\V\membrane} - \unit{\V\sodium}}  + \mcon\leakage \br{\unit{\V\membrane} - V_\rmm{L}}}}  && \\
+    \ode{n} &=  \frac{n_\infty\br{\unit{\V\membrane}}-n}{\tau\nn\br{\unit{\V\membrane}}}  =\alpha\nn \br{\unit{\V\membrane}} \br{1-n} - \beta\nn \br{\unit{\V\membrane}} n \qquad&& \\
+    \ode{m} &=  \frac{m_\infty\br{\unit{\V\membrane}}-m}{\tau\mm\br{\unit{\V\membrane}}}  =\alpha\mm \br{\unit{\V\membrane}} \br{1-m} - \beta\mm \br{\unit{\V\membrane}} m \qquad&& \\
+    \ode{h} &=  \frac{h_\infty\br{\unit{\V\membrane}}-h}{\tau\hh\br{\unit{\V\membrane}}}  =\alpha\hh \br{\unit{\V\membrane}} \br{1-h} - \beta\hh \br{\unit{\V\membrane}} h \qquad &&
 \end{sysEquation}
 
 The `gating' variables \(m\) and \(h\), part \(n\) describe the time dependent kinetics of the voltage
-The \gls{gls:ionChan} activation/inactivation\footnotemark~probabilities, denoted by \(\alpha_p, \, \beta_p : \, \br{n,m,h} \in p\), are defined such that:
+The \gls{gls:ionChan} activation/inactivation\footnotemark~probabilities, denoted by \(\alpha_p, \, \beta_p : \, p \in \left\{n,m,h\right\}\), are defined such that:
 \begin{align}
     \alpha_p\br{\unit{\V\membrane}} &= p_\infty \br{\unit{\V\membrane}} / \tau_p \\
     \beta_p\br{\unit{\V\membrane}}  &= \br{1 - p_\infty \br{\unit{\V\membrane}}} / \tau_p 
 \end{align}
 \begin{minipage}[c]{.5\textwidth}
-    With \(p_\infty\) and its inverse \(1-p_\infty\) being the steady state values for activation and inactivation respectively~\cite{HodHux1952}. 
-    In the original paper by Hodgkin and Huxley, the relationships of \(\alpha_p, \text{ and }\, \beta_p\) were defined as:
+    With \(p_\infty\) and its complementary probability \(\br{1-p_\infty}\) being the steady state values for activation and inactivation respectively~\cite{HodHux1952}. 
+    In the original paper by Hodgkin and Huxley, the relationships of \(\alpha_p, \text{ and }\, \beta_p\) were defined
+    % for squid axons by hodgkin and huxely
+    as:
     \vfill
     \begin{align*}
     n &\implies \left\{
@@ -89,7 +89,7 @@ In order to characterize the ion-channels, the equations can be fitted to voltag
 
 \begin{table}[htb]
     \centering
-    \caption{Parameters of the \acrlong{hh} model}\label{tab:my_label}
+    \caption{Parameters of the \acrlong{hh} model determined from studies of squirts}\label{tab:my_label}
     \begin{tabular}{m{0.15\textwidth} @{}
                     p{0.55\textwidth}  @{}
                     m{0.15\textwidth}} \hline
