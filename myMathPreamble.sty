@@ -12,7 +12,10 @@
 % ========================= Package options
 
 \DeclareOption{mathFont}{%
-}
+    }
+
+\DeclareOption{unitSI}{%
+    }
 
 \ExecuteOptions{}
 \ProcessOptions\relax
@@ -27,7 +30,10 @@
     \RequirePackage[MnSymbol]{mathspec}
 \else
     \RequirePackage[cmsy]{MnSymbol} 
-    \DeclareMathAlphabet\mathbb{U}{msb}{m}{n}
+    \DeclareMathAlphabet{\mathbb}{U}{msb}{m}{n}
+    \DeclareMathAlphabet{\mathdutchcal}{U}{dutchcal}{m}{n}
+    %\SetMathAlphabet{\mathdutchcal}{bold}{U}{dutchcal}{b}{n}
+    %\DeclareMathAlphabet{\mathdutchbcal}{U}{dutchcal}{b}{n}
 \fi
 
 \RequirePackage{cancel}  % Striking through text \cancel{x}
@@ -36,7 +42,23 @@
 
 % ========================= Package Configuration
 
-%\def\start@align#1#2#3{%
+% Custom enviroment for making systems of equations built off amsmath align enviroment
+% \def\align@#1#2{%
+%     \inalign@true \intertext@ \Let@ \chardef\dspbrk@context\z@
+%     \ifingather@\else\displ@y@\fi
+%     \let\math@cr@@@\math@cr@@@align
+%     \ifxxat@\else \let\tag\tag@in@align \fi
+%     \let\label\label@in@display
+%     #1% set st@r
+%     \ifst@rred\else \global\@eqnswtrue \fi
+%     \measure@{#2}%
+%     \global\row@\z@
+%     \tabskip\eqnshift@
+%     \halign\bgroup
+%         \span\align@preamble\crcr
+%         #2%
+%     }
+% \def\start@align#1#2#3{%
 %    \let\xatlevel@#1% always \z@, \@ne, or \tw@
 %    \maxfields@#3\relax
 %    \ifnum\maxfields@>\m@ne
@@ -66,10 +88,10 @@
 %        \fi
 %    \fi
 %    \collect@body\next@
-%}
-%\newenvironment{align}{%
+%     }
+% \newenvironment{align}{%
 %    \start@align\@ne\st@rredfalse\m@ne
-%}{%
+%     }{%
 %    \math@cr \black@\totwidth@
 %    \egroup
 %    \ifingather@
@@ -81,7 +103,24 @@
 %        $$%
 %    \fi
 %    \ignorespacesafterend
-%}
+%     }
+% \newenvironment{align}{%
+%     \start@align\@ne\st@rredfalse\m@ne
+%     }{%
+%     \math@cr \black@\totwidth@
+%     \egroup
+%     \ifingather@
+%     \restorealignstate@
+%     \egroup
+%     \nonumber
+%     \ifnum0=‘{\fi\iffalse}\fi
+%     \else
+%     $$%
+%     \fi
+%     \ignorespacesafterend
+%     }
+
+
 
 % Redefine AMS math enviroments definitions + hooks
 \renewenvironment{subequations}{%
@@ -97,33 +136,6 @@
 }
 
 
-% Custom enviroment for making systems of equations built off amsmath align enviroment
-%\newenvironment{sysEquation}{%
-%    \refstepcounter{equation}%
-%    \protected@edef\theparentequation{\theequation}%
-%    \setcounter{parentequation}{\value{equation}}%
-%    \setcounter{equation}{0}%
-%    \def\theequation{\theparentequation-\Alph{equation}}%
-%    %
-%    \start@align\@ne\st@rredfalse\m@ne
-%    %
-%    \ignorespaces%
-%}{%
-%    \math@cr \black@\totwidth@
-%    \egroup
-%    \ifingather@
-%        \restorealignstate@
-%        \egroup
-%        \nonumber
-%        \ifnum0=‘{\fi\iffalse}\fi
-%    \else
-%        $$%
-%    \fi
-%    %
-%    \setcounter{equation}{\value{parentequation}}%
-%    \ignorespacesafterend%
-%}
-
 % xparse strat
 \ProvideDocumentEnvironment{sysEquation}{ O{\theequation} +b }{%
     \refstepcounter{equation}\label{eq:#1}%
@@ -132,6 +144,7 @@
     \setcounter{equation}{0}%
     \def\theequation{\theparentequation-\Alph{equation}}%
     %
+    %\start@align\z@\st@rredfalse
     \start@align\@ne\st@rredfalse\m@ne
     %
     \ignorespaces%
@@ -152,7 +165,6 @@
     \setcounter{equation}{\value{parentequation}}%
     \ignorespacesafterend%
     }
-
 
 
 

@@ -26,7 +26,7 @@ There exist many distinct types of \glspl{gls:neuron}, however, the underlying m
 \subsection{Organelles}
 \begin{enumerate}
 
-  \item \textbf{The Nucleus} is mainly found in the centre of the cell and is responsible for distinguishing between eukaryotic and prokaryotic cells - existing only in the first ones. It functions as the key factor in the cell's activities, it contains the cell's gentic information (DNA), and is where the DNA replication, transcription, and RNA processing all happen.
+  \item \textbf{The Nucleus} is mainly found in the centre of the cell and is responsible for distinguishing between eukaryotic and prokaryotic cells - existing only in the first ones. It functions as the key factor in the cell's activities, it contains the cell's genetic information (DNA), and is where the DNA replication, transcription, and RNA processing all happen.
   \item \textbf{The Ribosomes} exist both in eukaryotic and prokaryotic cells. By translating the genetic information from the RNA, they compose proteins and convert genetic code into chains of amino acids.
   \item \textbf{The Golgi-Apparatus}, an organelle mostly found in eukaryotic cells, transports, modifies, and packages proteins and lipids into vesicles destined for specific intracellular or extracellular locations.
   \item \textbf{The Endoplasmic Reticulum (ER)} is a cellular organelle that also plays a crutial role in protein and lipid synthesis. There are two types of ER; the rough and the smooth. Rough ER is composed of ribosommes, giving it its rough texture. In contrast, smooth ER gets its smooth surface because of the lack of ribosomes.
@@ -48,7 +48,7 @@ There exist a number of important features that are foundational to the speciali
 
 \section{The Resting Membrane Potential} 
 A fundamental component of cells is the \gls{gls:membrane}, composed of what is known as a `\gls{gls:bilipid}'.{}\footnote{Latin root word `bi' meaning two, translates to `lipid two-layer'} 
-A \gls{gls:bilipid} creates a strong electrical insulation, which confers it the property of `\gls{gls:capa}'~\cite{}.{}\footnote{the capability of an object to store electrical charge.}
+A \gls{gls:bilipid} creates a strong electrical insulation, which confers it the property of `\gls{gls:capa}'~\cite{}.{}\footnote{The capability of an object to store electrical charge.}
 In a \gls{gls:neuron}, the overall charge in the \gls{gls:incell} space is more negative relative to the \gls{gls:excell} space. This difference in charge at rest is known as the resting \gls{gls:mPote}, and it is essential for the \gls{gls:neuron}['s] ability to transmit electrical signals. 
 
 By convention, membrane potential - or voltage \(\br{\unit{\V\membrane}}\) is the difference between the electric potential of the internal and external faces of the membrane \(\br{\unit{\V\membrane}=\unit{\V\incell}-\unit{\V\excell}}\). In the absence of ongoing electrical activity, this negative potential is termed the resting membrane potential \(\br{V_{rest}}\). The usual resting \gls{gls:mPote} is found to be around \glslink{gls:volt}{\qty{-70}{millivolts\br{\milli\volt}}} in \glspl{gls:neuron}, however, it varies depending on the cell type and conditions~\cite{}. When the membrane potential is less negative than \(V_{rest}\), the membrane is considered to be depolarized. In contrast, when the membrane potential is more negative than \(V_{rest}\), the membrane is said to be \gls{gls:hypol} \cite{Hammond2015ch3}. 
@@ -63,9 +63,9 @@ Others are `\gls{gls:lig} gated', meaning that they can be switched between an o
 \vspace{1em}
 
 \begin{figure}[H]
-  \centering
-  \import{../../Pictures/Anakin}{LipidCircuit.tex}
-  \caption{The Hodgkin-Huxely circuit diagram overlaid with the relevant structures found in the \gls{gls:membrane}. \glssymbol{gls:excell} and \glssymbol{gls:incell} denote the \gls{gls:excell} space and the \gls{gls:incell} space respectively. \Gls{gls:capa} of the \gls{gls:membrane} \(\br{\capa\membrane}\) is given by the charge difference on either side of the \gls{gls:bilipid}. \Glspl{gls:ionChan} for \gls{Na} and \gls{K} are shown with the relevant variables, resistor type, and battery. Additional \glspl{gls:ionChan} and other leaked is represented as a lone resistor and battery outside of the \gls{gls:membrane} region. The \gls{K} \glspl{gls:ion} are shown in green, \gls{Na} are shown in red, and \gls{Cl} \glspl{gls:ion} in yellow; distributed in approximately relative concentrations on either side of the \gls{gls:membrane}. }\label{fig:MembraneCircut}
+    \centering
+    \import{../../Pictures/Anakin}{LipidCircuit.tex}
+    \caption{The Hodgkin-Huxely circuit diagram overlaid with the relevant structures found in the \gls{gls:membrane}. \glssymbol{gls:excell} and \glssymbol{gls:incell} denote the \gls{gls:excell} space and the \gls{gls:incell} space respectively. \Gls{gls:capa} of the \gls{gls:membrane} \(\br{\capa\membrane}\) is given by the charge difference on either side of the \gls{gls:bilipid}. \Glspl{gls:ionChan} for \gls{Na} and \gls{K} are shown with the relevant variables, resistor type, and battery. Additional \glspl{gls:ionChan} and other leaked is represented as a lone resistor and battery outside of the \gls{gls:membrane} region. The \gls{K} \glspl{gls:ion} are shown in green, \gls{Na} are shown in red, and \gls{Cl} \glspl{gls:ion} in yellow; distributed in approximately relative concentrations on either side of the \gls{gls:membrane}. }\label{fig:MembraneCircut}
 \end{figure}
 
 
@@ -106,12 +106,12 @@ For currents carried by \glspl{gls:ion} (and not by electrons as in copper wires
   \unit{\V} - \equi\ion = r\ion \cdot \curr\ion
 \end{equation}
 So:
-\begin{equation}
+\begin{equation}\label{eq:cur2con}
   \curr\ion= \frac{1}{r\ion\br{\unit{\V} - \equi\ion}} = \ucon\ion(\unit{\V\membrane} - \equi\ion)
 \end{equation}
 \(\ucon\ion\) is the reciprocal of resistance; it is called the \textit{\gls{gls:contan}} of the channel, or unitary \gls{gls:contan}. It is a measure of the ease of flow of \glspl{gls:ion} (flow of current) through the channel pore. Whereas resistance is expressed in \gls{gls:ohm} \(\br{\unit{\ohm}}\), \gls{gls:contan} is expressed in siemens \(\br{\unit{\siemens}}\). By convention \(\curr\ion\) is negative when it represents an inward \gls{gls:flux} of positive charges (\glspl{gls:cation}) and \(\curr\ion\) is positive when it represents an outward \gls{gls:flux} of positive charges. It is generally of the order of pico-ampere \(\br{\qty{1}{\pico\ampere}=\qty{e-12}{\ampere}}\). At physiological concentrations, \(\ucon\ion\) varies between \(\qtyrange{10}{150}{\pico\siemens}\) dependent on channel type~\cite{Hammond2015ch4}.
 
-\(\curr\ion\) and \(\ucur\ion\) can be measured experimentally. The former is measured current from a patch of \gls{gls:membrane} where only one channel of a given type is present. \(\curr\ion\) is current measured from a whole \gls{gls:membrane} where \(N\) channels of the same type are present. The techniques mainly ised ofr measuring ionic currents in excitable cells are the current clamp and voltage clamp technique.
+\(\curr\ion\) and \(\ucur\ion\) can be measured experimentally. The former is measured current from a patch of \gls{gls:membrane} where only one channel of a given type is present. \(\curr\ion\) is current measured from a whole \gls{gls:membrane} where \(N\) channels of the same type are present. The techniques mainly used for measuring ionic currents in excitable cells are the current clamp and voltage clamp techniques.
 
 \subsubsection{Current clamp}\label{sec:Cclamp}
 
@@ -127,9 +127,12 @@ A variation of  voltage clamp technique is the patch clamp technique, which allo
 \begingroup
 \allowdisplaybreaks
 All systems yearn for their \gls{gls:equil}, the fabled \textit{steady state}. This divine relation of the components in a system, one achieved, the system no longer needs to evolve, it has been perfected by entropy. 
-The value of the \gls{gls:mPote} is constantly fluctuating depending on the relative distribution of charged particles that cross the \gls{gls:membrane}. 
-When the direction of the \gls{gls:grad} is perfectly balanced at net zero, it is referred to as the `\gls{gls:ePote}' of the given \gls{gls:ion} \br{\equi\ion}, alternatively, as the `\gls{gls:rPote}' of the \gls{gls:ion} \(\equi\reverse\). 
+The value of the \gls{gls:mPote} is constantly fluctuating depending on the relative distribution of charged particles that cross the \gls{gls:membrane}. The relationship can be illustrated as the relative `work' \(\br{W}\) of concentrations, where  \(\br{W_c}\) represents the force moving against the electrical gradient done by the concentration gradient, and \(\br{W_e}\) is the force of the electrical gradient against concentration. The equilibrium exists at;
+\begin{equation}
+    W_e + W_c = 0
+\end{equation}
 %The \gls{gls:ePote} for a particular \gls{gls:ion} is the value of \(\unit{\V\membrane}\) for which the net \gls{gls:flux} of this \gls{gls:ion}\(\br{f_\bfm{net}}\) through an open channel is null: when \(\unit{\V\membrane} = \equi\ion\), \(f_\bfm{net} = \qty{0}{\mole\per\second}\).
+When the direction of the \gls{gls:grad} is perfectly balanced at net zero, it is referred to as the `\gls{gls:ePote}' of the given \gls{gls:ion} \br{\equi\ion}, alternatively, as the `\gls{gls:rPote}' of the \gls{gls:ion} \(\equi\reverse\). 
 The \(\equi\ion\) of the given \glspl{gls:ion} can be calculated using the \emph{Nernst} equation for equilibrium potential of an ion species:
 \begin{subequations}\label{eq:nernst}
 \begin{equation}
@@ -167,21 +170,29 @@ With minor adjustments to \cref{eq:derivedNerst}, the now derived form of \cref{
   \equi\ion = \cfrac{\clm{T}\unit{\per\K}}{ z } \, \cdot \, \ln \br{ \frac{ {\ionconc\excell} }{ {\ionconc\incell}} } \cdot \num{11.612515042}^{-1} \ \unit{\milli\volt} \tag{\ref*{eq:mVions}}
 \end{equation}
 
-Plugging the relative concentrations, measured in millimols \br{\unit{\milli\mol}}, of each \gls{gls:ion} into \cref{eq:mVions}, as well as choosing an arbitrary temperature, such as room temperature \(\approx\) \qty{20}{\degreeCelsius} \(\br{\sbr{\num{20} + \num{273.15}}\unit{\glssymbol{gls:kelvin}}}\),
-the \gls{gls:ePote} of each \gls{gls:ion}follows as:
+Plugging the relative concentrations, measured in millimols \br{\unit{\milli\mol}}, of each \gls{gls:ion} into \cref{eq:mVions}, as well as choosing an arbitrary temperature, such as human body temperature \(\approx\) \qty{37}{\degreeCelsius} \(\br{\sbr{\num{37} + \num{273.15}}\unit{\glssymbol{gls:kelvin}}}\),
+using the relevant \(\ionconc\),
+the \glspl{gls:ePote} follow:
 \begin{minipage}{.48\textwidth}
   \begin{align}
-    {\equi\sodium} &= \num{293.15}\ \ln \br{ \frac{140}{14} }\cdot \num{11.612515042}^{-1} = \qty{58.127185848}{\mV} \label{eq:Na}\\
-    {\equi\potassium}  &= \num{293.15}\ \ln \br{ \frac{3}{140} }\cdot \num{11.612515042}^{-1} = \qty{-97.014667339}{\mV} \label{eq:K}
+    {\equi\sodium} &= \num{310.15}\ \ln \br{ \frac{142}{15} }\cdot \num{11.612515042}^{-1} = \qty{60.034194963}{\mV} \label{eq:Na}\\
+    {\equi\potassium}  &= \num{310.15}\ \ln \br{ \frac{4}{150} }\cdot \num{11.612515042}^{-1} = \qty{-96.799817808}{\mV} \label{eq:K}
   \end{align}
 \end{minipage}
 ~
 \begin{minipage}{.48\textwidth}
   \begin{align}
-    {\equi\calcium}  &= \frac{293.15}{2}\ \ln \br{ \frac{1.5}{\num{e-4}} }\cdot \num{11.612515042}^{-1} = \qty{121.372216367}{\mV} \label{eq:Ca}\\
-    {\equi\chlorine}  &= \num{-293.15}\ \ln \br{ \frac{146}{14} }\cdot \num{11.612515042}^{-1} = \qty{-59.186543354}{\mV} \label{eq:Cl}
+    {\equi\chlorine}  &= \num{-310.15}\ \ln \br{ \frac{120}{\num{5}} }\cdot \num{11.612515042}^{-1} = \qty{-90.840043187}{\mV} \label{eq:Cl}\\
+    {\equi\calcium}  &= \frac{310.15}{2}\ \ln \br{ \frac{1}{\num{e-4}} }\cdot \num{11.612515042}^{-1} = \qty{122.996054517}{\mV} \label{eq:Ca}
   \end{align}
 \end{minipage}
+
+% 293.15
+
+% 58.127185848 
+% -97.014667339
+% 121.372216367
+% -59.186543354
 
 \end{subequations}
 
@@ -195,9 +206,12 @@ the \gls{gls:ePote} of each \gls{gls:ion}follows as:
 % By extension, should \(\unit{\V\membrane} \neq \equi\potassium\), the net \gls{gls:flux} of \gls{K} will no longer be null. 
 % This holds true for all \glspl{gls:ion}: when \(\unit{\V\membrane} \neq \equi\ion\) there is a net \gls{gls:flux} of the \gls{gls:ion}~\cite{Hammond2015ch4}. The difference \(\br{\unit{\V\membrane} - \equi\ion}\) is called the electrochemical \gls{gls:grad}. It is the force that makes the \glspl{gls:ion} move through an open channel.
 
+
+%The membrane potential never gets as high as vNa, therefore sodium will ﬂow into the cell whenever sodium channels are open. 
+
 \endgroup
 
-\section{Action Potential}
+\section{Action Potential}\label{sec:ap}
 Functionally all eukaryotic \glspl{gls:membrane} maintain a difference in voltage between the \gls{gls:excell} and \gls{gls:incell} space, this difference is called the `\gls{gls:mPote}'. The expected \gls{gls:mPote} in human cells is \glslink{gls:volt}{\qty{-70}{\milli\volt}}~\cite{}.
 \gls{ap} is the measure of the \gls{gls:Pote} that causes action.
 
@@ -416,23 +430,16 @@ Recall that \Cref{eq:nasum,eq:ksum} gives the relationship of unitary currents t
 %(\(N\,p_o\) is therefore the number of open \gls{Na}channels in the \gls{gls:membrane} at time \(t\))
 %; and \(\ucur\sodium\) is the unitary \gls{Na} current. \newline
 more generally as:
-\begin{equation}
-  \curr\ion= N \, p_o \, \ucur\ion
-\end{equation}
-By analogy, the total \gls{gls:contan} of the \gls{gls:membrane} for a particular \gls{gls:ion} is: 
-\begin{equation}
-  \unit{\cond\ion} = N \, p_o \, \ucon\ion
-\end{equation}
-and from \(\curr\ion= \ucon\ion \, \br{\unit{\V\membrane} - \equi\ion}\) above: 
-\begin{equation}\label{eq:ionCurrent}
-  \curr\ion= \unit{\cond\ion} \, \br{\unit{\V\membrane} - \equi\ion}
-\end{equation}
+\begin{align}
+  \curr\ion&= N \, p_o \, \ucur\ion \label{eq:curgen}\\
+\intertext{By analogy, the total \gls{gls:contan} of the \gls{gls:membrane} for a particular \gls{gls:ion} is: }
+  \unit{\cond\ion} &= N \, p_o \, \ucon\ion \label{eq:congen}
+\intertext{substituting \cref{eq:congen,eq:curgen} into \cref{eq:cur2con} gives us: }
+  \curr\ion &= \unit{\cond\ion} \, \br{\unit{\V} - \equi\ion}\label{eq:ionCurrent}
+\end{align}
 
-
-
-
-
-
+Mr\&Mr hodg-hux did more shit
+active/inactive parameters
 
 
 \end{document}

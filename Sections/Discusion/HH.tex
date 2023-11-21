@@ -14,29 +14,36 @@
 The \gls{hh} model of \gls{ap} is a system of \gls{gls:nonlinear} differentiable equations with four state variables with respect to time, \(\unit{\V\membrane}\br{t}, \ n\br{t}, \ m\br{t}, \ h\br{t}\)~\cite{HodHux1952}. The model is built from approximating the characteristics of excitable cells, such as neurons, to a circuit-like construct \cref{fig:MembraneCircut}. 
 
 Mathematically, the flow of current is represented as the change in voltage over time scaled by capacitance:
-    \begin{align}
-        I_c &= \capa\membrane \ode{\unit{\V\membrane}} \\
-    \intertext{and recall that the current through a given \gls{gls:ionChan}, \cref{eq:ionCurrent}, is the product of that channel's \gls{gls:contan} and the \gls{gls:rPote} for the specific ion}
-        I_\bfm{ion} &= {g_\bfm{ion}}(\unit{\V\membrane}-\unit{\V\ion})  
-    \end{align}
-\(\unit{\V\ion}\) is the \gls{gls:rPote} of the specific \gls{gls:ionChan}. Thus, for a cell with \gls{Na} and \gls{K} channels, the total current through the the membrane can be defined by:
+    \begin{equation}
+       \capa \ode{\unit{\V}} = \curr\total \\
+       \end{equation}
+       and recall that the current through a given \gls{gls:ionChan}, \cref{eq:ionCurrent}, is the product of that channel's \gls{gls:contan} and the \gls{gls:rPote} for the specific ion
+    \begin{equation}
+        \curr\ion = {g_\bfm{ion}}(\unit{\V\membrane}-\unit{\V\ion})  
+    \end{equation}
+where \(\unit{\V\ion} = \equi\ion = \equi\reverse\). Thus, for a cell with \gls{Na} and \gls{K} channels, the total current through the the membrane can be defined by:
 \begin{equation}
-     \unit{\curr}  =  I_c + \sum_{i = 1}^{p} I_i =  I_c + \sum_{i = 1}^{p} g_\bfm{ion} \cdot \br{\unit{\V\membrane}-\unit{\V\ion}} 
+     \curr\total  =  \sum\ion^{i} I_i = \sum\ion^{i} \sbr{\cond_i \br{\unit{\V\membrane}-\unit{\V_i}}} 
 \end{equation} 
 with \(I\) representing the total membrane current per unit area; 
 \begin{alignat}{5}
-    &\quad \unit{\curr} &&= \quad I_c \quad&&+ \quad I_\rmm{K} \quad&&+ \quad I_\rmm{Na} \quad&&+ \quad I_\rmm{L} \\ 
-    \implies &\quad \unit{\curr} &&= C\mm \ode{\unit{\V\membrane}} &&+ {g}_\rmm{K}\br{\unit{\V\membrane} - V_\rmm{K}} &&+ {g}_\rmm{Na} \br{\unit{\V\membrane} - V_\rmm{Na}}  &&+ {g}_\rmm{L} \br{\unit{\V\membrane} - V_\rmm{L}} 
+    &\quad \curr\total &&= \quad \curr\potassium \quad&&+ \quad \curr\potassium \quad&&+ \quad \curr\leakage \\ 
+    \implies &\quad C\membrane \ode{\unit{\V\membrane}} &&=  \cond\potassium\br{\unit{\V\membrane} - \unit{\V\potassium}} &&+ \cond\sodium \br{\unit{\V\membrane} - \unit{\V\sodium}}  &&+ \cond\leakage \br{\unit{\V\membrane} - V_\rmm{L}} 
 \end{alignat}
-Where \(C\mm\) the membrane capacitance per unit area; and \({g}_\rmm{K}\), \(V_\rmm{K}\), along with  \({g}_\rmm{Na}\), \(V_\rmm{Na}\) make up the \gls{gls:cond} and \gls{gls:rPote} of \gls{K} and \gls{Na} respectively.
-The directly time dependent element of this equation is \(\unit{\V\membrane}\), with \({g}_\rmm{Na}\), and \({g}_\rmm{K}\) are time dependant by virtue of explicit dependence on the membrane voltage \(\br{\unit{\V\membrane}}\). 
+Where \(C\membrane\) the membrane capacitance per unit area; and \(\cond\potassium\), \(\unit{\V\potassium}\), along with  \(\cond\sodium\), \(\unit{\V\sodium}\) make up the \gls{gls:cond} and \gls{gls:rPote} of \gls{K} and \gls{Na} respectively.
+The directly time dependent element of this equation is \(\unit{\V\membrane}\), with \(\cond\sodium\), and \(\cond\potassium\) dependent on both \(\br{\unit{\V\membrane}}\), and as described in \cref{sec:ap}, dependent on time as a consequence of \gls{gls:ionChan}.
 
-Through long term experimentation, the duo of Hodgkin and Huxley divined a model built from the observations of smooth current change as a function of pores (or channels) that were either open or closed. By using a statistical approach, H\&H generated predictions for the probability of channels being open or closed at a given time in the process~\cite{HodHux1939}. H\&H presented the model as a set of four \glspl{ode} with respect to time.
+Through long term experimentation, the duo of Hodgkin and Huxley divined a model built from the observations of smooth current change as a function of pores (or channels) that were either open or closed. By using a statistical approach, H\&H generated predictions for the probability of channels being open or closed at a given time in the process~\cite{HodHux1939}. 
+
+
+
+
+H\&H presented the model as a set of four \glspl{ode} with respect to time.
 \begin{sysEquation}[HodHuxSys]
-    C\mm \ode{\unit{\V\membrane}} &= I\mm - \br{\bar{g}_\rmm{K} n^4 \br{\unit{\V\membrane} - V_\rmm{K}} + \bar{g}_\rmm{Na} m^3 h \br{\unit{\V\membrane} - V_\rmm{Na}}  + \bar{g}_\rmm{L} \br{\unit{\V\membrane} - V_\rmm{L}}} \\
-    \ode{n} &= \alpha\nn \br{\unit{\V\membrane}} \br{1-n} - \beta\nn \br{\unit{\V\membrane}} n \\
-    \ode{m} &= \alpha\mm \br{\unit{\V\membrane}} \br{1-m} - \beta\mm \br{\unit{\V\membrane}} m \\
-    \ode{h} &= \alpha\hh \br{\unit{\V\membrane}} \br{1-h} - \beta\hh \br{\unit{\V\membrane}} h 
+    C\mm \ode{\unit{\V\membrane}} &= \mathrlap{I\mm - \sbr{\mcon\potassium n^4 \br{\unit{\V\membrane} - \unit{\V\potassium}} + \mcon\sodium m^3 h \br{\unit{\V\membrane} - \unit{\V\sodium}}  + \mcon\leakage \br{\unit{\V\membrane} - V_\rmm{L}}}} &&  \\
+    \ode{n} &= \quad \frac{n_\infty\br{\unit{\V\membrane}}-n}{\tau\nn\br{\unit{\V\membrane}}} \quad &&=\alpha\nn \br{\unit{\V\membrane}} \br{1-n} - \beta\nn \br{\unit{\V\membrane}} n &&\\
+    \ode{m} &= \quad \frac{m_\infty\br{\unit{\V\membrane}}-m}{\tau\mm\br{\unit{\V\membrane}}} \quad &&=\alpha\mm \br{\unit{\V\membrane}} \br{1-m} - \beta\mm \br{\unit{\V\membrane}} m &&\\
+    \ode{h} &= \quad \frac{h_\infty\br{\unit{\V\membrane}}-h}{\tau\hh\br{\unit{\V\membrane}}} \quad &&=\alpha\hh \br{\unit{\V\membrane}} \br{1-h} - \beta\hh \br{\unit{\V\membrane}} h &&
 \end{sysEquation}
 
 The `gating' variables \(m\) and \(h\), part \(n\) describe the time dependent kinetics of the voltage
@@ -87,7 +94,7 @@ In order to characterize the ion-channels, the equations can be fitted to voltag
                     p{0.55\textwidth}  @{}
                     m{0.15\textwidth}} \hline
         Parameters & Significations & Values \\\hline
-    \unit{\curr} & Membrane Current Density 0A/cm2 during space clamp & \\
+    \(\curr\) & Membrane Current Density 0A/cm2 during space clamp & \\
     \unit{\capa\membrane} & Membrane Capacitance & 1 µF/cm2\\
     \unit{\V\membrane} & Membrane Potential & mV\\
     %t &time & ms\\
@@ -112,11 +119,11 @@ In order to characterize the ion-channels, the equations can be fitted to voltag
 \begin{comment}
     Breaking down the equation we find the following regions:
     \begin{equation*}
-        \unit{\curr} = 
+        \curr = 
         \overbrace{C\mm \ode{\unit{\V\membrane}}}^{\mathclap{\text{rate of change of voltage scaled by capacitance}}} + 
-        \bar{g}_\rmm{K} n^4 \br{\unit{\V\membrane} - V_\rmm{K}} + 
-        \bar{g}_\rmm{Na} m^3 h \br{\unit{\V\membrane} - V_\rmm{Na}}  + 
-        \bar{g}_\rmm{L} \br{\unit{\V\membrane} - V_\rmm{L}} 
+        \mcon\potassium n^4 \br{\unit{\V\membrane} - \unit{\V\potassium}} + 
+        \mcon\sodium m^3 h \br{\unit{\V\membrane} - \unit{\V\sodium}}  + 
+        \mcon\leakage \br{\unit{\V\membrane} - V_\rmm{L}} 
     \end{equation*}
 
 
