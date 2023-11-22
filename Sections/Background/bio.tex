@@ -30,7 +30,7 @@ A cell is the basic unit of life, a collection of matter with the ability to per
 \begin{enumerate}
 
     \item \textbf{The Nucleus} is mainly found in the centre of the cell and is responsible for distinguishing between eukaryotic and prokaryotic cells - existing only in the first ones. It functions as the key factor in the cell's activities, it contains most of the cell's genetic information (DNA), and is where the DNA replication, transcription, and RNA processing all happen \cite{organelleDef}.
-    \item \textbf{The Golgi-Apparatus}, an organelle mostly found in eukaryotic cells, transports, modifies, and packages proteins and lipids into vesicles destined for specific intracellular or extracellular locations \cite{organelleDef}.
+    \item \textbf{The Golgi-Apparatus}, an organelle mostly found in eukaryotic cells, transports, modifies, and packages proteins and lipids into vesicles destined for specific intracellular or extracellular locations \cite{organelleDef}. 
     \item \textbf{The Ribosomes} exist both in eukaryotic and prokaryotic cells. By translating the genetic information from the RNA, they compose proteins and convert genetic code into chains of amino acids. Most ribosomes are found in the endoplasmic reticulum \cite{organelleDef}.
     \item \textbf{The Endoplasmic Reticulum (ER)} is a cellular organelle that also plays a crutial role in protein and lipid synthesis. There are two types of ER; the rough and the smooth. Rough ER is composed of ribosommes, giving it its rough texture, and makes proteins. In contrast, smooth ER gets its smooth surface because of the lack of ribosomes and is the part of the ER that makes lipids \cite{organelleDef}.
     \item \textbf{The Mitochondria} are commonly known as the powerhouse of the cell. They are the cell's main source of energy, which they achieve with respiration; the process where glucose and oxygen turn into carbon dioxide and water, releasing energy. Mitochondia also have their own DNA and ribosomes, explaining why not all the genetic information is found in the nucleus \cite{organelleDef}.
@@ -73,7 +73,7 @@ Others are `\gls{gls:lig} gated', meaning that they can be switched between an o
 \end{figure}
 
 
-\subsection{Ions Passively Diffuse Down Their Electrochemical Gradient}
+\subsection{Ions Passively Diffuse Downstream of Their Electrochemical Gradient}
 The direction of the passive diffusion of \glspl{gls:ion} through an open channel depends on both the concentration \gls{gls:grad} of the \gls{gls:ion} and the \gls{gls:mPote}. The resultant of these two forces is called the electrochemical \gls{gls:grad}.
 
 For instance, when the \gls{gls:mPote} is null \(\br{\unit{\V\membrane}=\qty{0}{\mV}}\), there is no difference of \gls{gls:Pote} between the two faces of the \gls{gls:membrane}, so the concentration \gls{gls:grad} will be the only factor determining the direction of diffusion for specific \glspl{gls:ion} \cref{sfig:dirA}. Since the concentrations of \gls{Na}, \gls{Ca} and \gls{Cl} in the \gls{gls:excell} fluid are higher than in the \gls{gls:incell} medium, these \glspl{gls:ion} will diffuse passively towards the \gls{gls:incell} space (when \gls{Na}, \gls{Ca} or \gls{Cl} permeable channels are open) as a result of their concentration \gls{gls:grad}. In contrast, since \gls{K} is a lot more abundant in the intracellular \gls{gls:media}, it will move from the \gls{gls:incell} \gls{gls:media} to the \gls{gls:excell} one when \gls{K} permeable channels are open. 
@@ -364,7 +364,6 @@ The \gls{gls:repol} phase of the \gls{Na}[-dependent] \gls{ap} results from \gls
 % Thus, part of the difference in activation speed between \gls{Na} and \gls{K} channels may be due to the lesser number of voltage-sensitive domains required to move in \gls{Na} channels.
 
 The mean open time, \(\tau_o\), measured in the clamped patch is \qty{4.6}{\ms}. While the mean closed time, \(\tau_c\), is \qty{1.5}{\ms}, illustrated by \Cref{fig:Kchannel}. As seen in the figure, during a \gls{gls:depol} to \qty{0}{\mV} the delayed rectifier channels spend a greater time in the open state, compared to the closed state: at \qty{0}{\mV} the average probability of channels being open is relatively high \(\br{p_o = 0.76}\)~\cite{Hammond2015ch4}.
-
 % In order to test whether the delayed rectifier channels show some inactivation, long-lasting recordings are performed. 
 % Though no significant inactivation is apparent during test pulses in the range of seconds, during long test \glspl{gls:depol} (in the range of minutes) the channel shows steady-state inactivation at positive holding \glspl{gls:Pote} (not shown). 
 % Therefore, in the range of seconds, the inactivation of the delayed rectifier channel can be omitted: the channel fluctuates between the closed and open states:
@@ -379,19 +378,19 @@ During \gls{gls:membrane} \gls{gls:depol} and \gls{gls:repol}, the \gls{Na} chan
     \caption{}\label{fig:Kchannel}
  \end{figure}
 
-The \gls{K} channel has a constant unitary \gls{gls:contan} \(\br{\ucon\potassium}\). In \Cref{fig:rangeThree}a, unitary \gls{K} currents are shown responding to increasing \gls{gls:depol} of \qtyrange{-50}{20}{\mV} from the holding \gls{gls:Pote} of \qty{-80}{\mV}. 
-It can be observed that both the amplitude of \(\ucur\potassium\) and the time spent by the channel in the open state increase with \gls{gls:depol}. 
-
+The \gls{K} channel has a constant unitary \gls{gls:contan} \(\br{\ucon\potassium}\)~\cite{Hammond2015ch4}. 
+%In \Cref{fig:rangeThree}a, unitary \gls{K} currents are shown responding to increasing \gls{gls:depol} of \qtyrange{-50}{20}{\mV} from the holding \gls{gls:Pote} of \qty{-80}{\mV}. 
+%It can be observed that both the amplitude of \(\ucur\potassium\) and the time spent by the channel in the open state increase with \gls{gls:depol}. 
 When the mean amplitude of the unitary \gls{K} current is plotted versus \gls{gls:membrane} test potential, a linear \(\ucur\potassium/\unit{\V}\) relation is obtained. This linear \(\ucur\potassium/\unit{\V}\) relation (between \qtyrange{-50}{20}{\mV}) is described by the equation \(\ucur\potassium = \ucon\potassium(\unit{\V\membrane}-\equi\potassium)\), where \unit{\V\membrane} is the \gls{gls:mPote}, \(\equi\potassium\) is the \gls{gls:rPote} of the \gls{K} current, and \(\ucon\potassium\) is the \gls{gls:contan} of the single delayed rectifier \gls{K} channel, which defines the unitary \gls{gls:contan}. 
 
 %Linear back-extrapolation gives a \gls{gls:rPote} value around \qtyrange{-90}{-80}{\mV}, a value close to \(\equi\potassium\) calculated from the Nernst equation. This means that from \qty{-80}{\mV} to more depolarized \glspl{gls:Pote}, which correspond to the physiological conditions, the \gls{K} current is outward. For more \gls{gls:hypol} \glspl{gls:Pote}, the \gls{K} current is inward. The value of \(\ucon\potassium\) is given by the slope of the linear \(\ucur\potassium/V\)curve. It has a constant value at any given \gls{gls:mPote}. This value varies from \qtyrange{10}{15}{\pico\siemens} depending on the preparation. 
 
-\begin{figure}[H]
-   \centering
-   \includegraphics[width=0.8\textwidth]{Pictures//Anakin/I-V.K.png}
-   %\caption{The single-channel current/voltage (\(\ucur\potassium\)/V) relation is linear.delayed rectifier \gls{K} channels from rat brain are expressed in a myoblast cell line. (a) The activity of a single channel is recorded in patch clamp (cell-attached patch). Unitary currents are recorded at different test \glspl{gls:Pote} (from \qty{-50}{\mV} to \qty{20}{\mV}) from a holding \gls{gls:Pote} at \qty{-80}{\mV}. Bottom trace is the voltage trace. (b)\(\ucur\potassium\)-V relation obtained by plotting the mean amplitude of \(\ucur\potassium\) at the different test \glspl{gls:Pote} tested. \(\ucur\potassium\) reverses at =\qty{-75}{\mV} and gK=14pS. Adapted from Koren G, liman er, logothetis deet al. (1990) Gating mechanism of a cloned potassium channel expressed in frog oocytes and mammalian cells. Neuron2, 39–51.}\label{fig:rangeThree}
-   \caption{}\label{fig:rangeThree}
- \end{figure} 
+% \begin{figure}[H]
+%     \centering
+%     \includegraphics[width=0.8\textwidth]{Pictures//Anakin/I-V.K.png}
+%     %\caption{The single-channel current/voltage (\(\ucur\potassium\)/V) relation is linear.delayed rectifier \gls{K} channels from rat brain are expressed in a myoblast cell line. (a) The activity of a single channel is recorded in patch clamp (cell-attached patch). Unitary currents are recorded at different test \glspl{gls:Pote} (from \qty{-50}{\mV} to \qty{20}{\mV}) from a holding \gls{gls:Pote} at \qty{-80}{\mV}. Bottom trace is the voltage trace. (b)\(\ucur\potassium\)-V relation obtained by plotting the mean amplitude of \(\ucur\potassium\) at the different test \glspl{gls:Pote} tested. \(\ucur\potassium\) reverses at =\qty{-75}{\mV} and gK=14pS. Adapted from Koren G, liman er, logothetis deet al. (1990) Gating mechanism of a cloned potassium channel expressed in frog oocytes and mammalian cells. Neuron2, 39–51.}\label{fig:rangeThree}
+%     \caption{}\label{fig:rangeThree}
+% \end{figure} 
 
 The macroscopic delayed rectifier \gls{K}current \(\br{\curr\potassium}\) has a delayed voltage dependence of activation and inactivates within tens of seconds. 
 %Whole cell currents start to activate at \glspl{gls:Pote} positive to \qty{-30}{\mV} and their amplitude is clearly voltage dependent. 
@@ -403,19 +402,17 @@ The whole cell current amplitude at steady-state for a given \gls{gls:Pote} is:
 
 where \(N\) is the number of delayed rectifier channels in the \gls{gls:membrane} recorded, \(p_o\) the open probability at steady state and \(\ucur\potassium\) the elementary current. The number of open channels \(N\,p_o\) increases with \gls{gls:depol} (to a maximal value) and so does \(\curr\potassium\). 
 
-The \(\curr\potassium/\unit{\V}\) relation shows that the whole cell current varies linearly with voltage from a threshold \gls{gls:Pote} which, for those conditions, is around \qty{-40}{\mV}. When the \gls{gls:membrane} is more \gls{gls:hypol} than the \gls{gls:tPote}, very few channels are open and \(\curr\potassium\) is equal to zero. For \glspl{gls:mPote} more depolarized than the \gls{gls:tPote}, \(\curr\potassium\) depends on \(p_o\) and the driving force state (V-EK) which augments with \gls{gls:depol}. once \(p_o\) is maximal, \(\curr\potassium\) augments linearly with \gls{gls:depol} since it depends only on the driving force. 
-
+The \(\curr\potassium/\unit{\V}\) relation shows that the whole cell current varies linearly with voltage from a threshold \gls{gls:Pote} which, for those conditions, is around \qty{-40}{\mV}. When the \gls{gls:membrane} is more \gls{gls:hypol} than the \gls{gls:tPote}, very few channels are open and \(\curr\potassium\) is equal to zero. For \glspl{gls:mPote} more depolarized than the \gls{gls:tPote}, \(\curr\potassium\) depends on \(p_o\) and the driving force state \(\unit{\V} - \equi\potassium\) which augments with \gls{gls:depol}. Once \(p_o\) is maximal, \(\curr\potassium\) augments linearly with \gls{gls:depol} since it depends only on the driving force. 
 \begin{figure}[H]
-  \centering
-  \includegraphics[width=0.4\linewidth]{Pictures//Anakin/IK-V.png}
-  %\caption{Characteristics of the macroscopic delayed recti-fier \gls{K} current. The amplitude of the current at steady state is plotted against test \gls{gls:Pote}. The \gls{gls:Pote} threshold for its activation is \qty{-40}{\mV}. From Stühmer W, Stocker M, Sakmann bet al. (1988) potassium channels expressed from rat brain cdNA have delayed rectifier properties. FEBS Lett.242, 199–206. }\label{fig:Kcurrent}
-  \caption{}\label{fig:Kcurrent}
+    \centering
+    \includegraphics[width=0.4\linewidth]{Pictures//Anakin/IK-V.png}
+    %\caption{Characteristics of the macroscopic delayed recti-fier \gls{K} current. The amplitude of the current at steady state is plotted against test \gls{gls:Pote}. The \gls{gls:Pote} threshold for its activation is \qty{-40}{\mV}. From Stühmer W, Stocker M, Sakmann bet al. (1988) potassium channels expressed from rat brain cdNA have delayed rectifier properties. FEBS Lett.242, 199–206. }\label{fig:Kcurrent}
+    \caption{}\label{fig:Kcurrent}
 \end{figure}
 
-To summerize, %owing to their delay of opening, 
+To summarize, %owing to their delay of opening, 
 delayed rectifier channels begin to open when the \gls{gls:membrane} is has undergone \gls{gls:depol} by the entry of \gls{Na} \glspl{gls:ion} through open \gls{gls:vgate}[d] \gls{Na} channels. 
 Therefore, the exit of \gls{K} \glspl{gls:ion} does not occur at the same time as the entry of \gls{Na} \glspl{gls:ion}. This allows the \gls{gls:membrane} to first depolarize in response to the entry of \gls{Na} \glspl{gls:ion} and then to repolarize as a consequence of the exit of \gls{K} \glspl{gls:ion}.
-
 \begin{figure}[H]
     \centering
     \includegraphics[width=0.8\textwidth]{Pictures//Anakin/N.K.png}
