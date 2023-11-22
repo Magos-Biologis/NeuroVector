@@ -15,23 +15,13 @@ The construction of a model requires equations complex enough to accurately desc
 There exists any number of limitations in the pursuit of this task, some inherent to the system, others inherent to our modern construction of mathematics.
 \footnotetext{If man could be crossed with the cat, it would improve man, but it would deteriorate the cat.-`\textit{Mark Twain}'.}
 
-
-
-
-
-
-
-
-
-
-
 \section{Scale of model}
  Scaling neural models is a multidimensional challenge involving trade-offs between model complexity, computational efficiency, and the ability to provide meaningful insights into neural function.
- In scaling processes the complexity of a system will often change. In the description of neuronal dynamics  from single-neuron level to network some kind of middleground in complexity will have to be reached. To describe ...
+ In scaling processes the complexity of a system will often change. In the description of neuronal dynamics  from single-neuron level to a network level some kind of middle-ground in complexity will have to be reached. To describe ...
  
  What layer of information is of interest to probe?
- A description of neuronal dynamics
- As can be seen in figure \ref{fig:scale} the information that is available is different depending on what scale you are operating at.
+ A description of neuronal dynamics.
+ As can be seen in figure \ref{fig:scale}, the information that is available is different depending on what scale you are operating at.
  
  \begin{figure}[H]
     \centering
@@ -39,7 +29,20 @@ There exists any number of limitations in the pursuit of this task, some inheren
     \caption{Level of description, ~\cite{Burger2017}.}
     \label{fig:scale}
 \end{figure}
- 
+
+Microscopic, mesoscopic and macroscopic models represent three distinct approaches to describing the behavior of systems at varying scales. For better understanding, we're going to analyze all of them respectively. The main distinction between those scales of models is the size of the date they describe.
+
+\begin{enumerate}
+
+  \item \textbf{Microscopic} models
+
+  \item \textbf{Mesoscopic} models
+
+  \item \textbf{Macroscopic} models
+
+
+\end{enumerate}
+
 
 \subsection{Mathematical scaling}
 
@@ -52,13 +55,7 @@ cf. appendix\cref{fig:sum_spike_neuro} on the summary of different spiking scena
 
 For neural networks scaling up involves increasing the number of neurons interacting and to capture the realism the number of parameters will have to increase as well.
 
-
-
-
-
-
 ....
-
 
 \begin{figure}[H]
     \centering
@@ -67,13 +64,10 @@ For neural networks scaling up involves increasing the number of neurons interac
     \label{fig:computational_properties}
 \end{figure}
 
-
 Should be transferred to glossary section. What are:
 - regimes (e.g. quiet regime)
 - voltage traces
 - 
-
-
 
 \section{Dynamic System Fundamentals}
 When looking at the brain in abstract form it can be seen as a multi-dimensional \gls{gls:dynSystem} governed by an independent set of system variables, such as neuronal membrane potentials, which change in time based on a set of \gls{gls:deterministic} equations with system parameters that either do not change in time (e.g. maximal \gls{gls:cond} of the ion
@@ -152,9 +146,6 @@ to simulate a complex network this can quickly amount to an insurmountable task 
 % A Two-Dimensional Reduction of the Classical Hodgkin-Huxley Model --> SEE "An Introduction to Modeling Neuron Dynamics", (978-3-319-51171-9), page 73 in our litterature folder.
 
 
-
-
-
 \subsection*{Modeling Neuronal Networks}
 A complex system can be described by a network or a graph with complex topology, whose nodes are the elements of the system and whose edges represent the interactions among them. `One significant recent discovery in the field of complex networks is the observation that a number of large-scale and complex networks are scale-free, that is, their connectivity distributions have the
 power-law form'~\cite{wang2002synchronization}.
@@ -190,12 +181,8 @@ Notes:
 ...
 
 
-
 When analysing seizures, bifurcation points helps to understand the mechanisms underlying the transition from normal brain activity to a seizure state. The change in parameter can be factors like synaptic strength, excitability of neurons, or network connectivity 
 ~\cite{gerstner2014neuronal}. 
-
-
-
 
 
     
