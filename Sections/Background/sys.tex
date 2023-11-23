@@ -17,7 +17,7 @@ There exists any number of limitations in the pursuit of this task, some inheren
 
 \section{Scale of model}
  Scaling neural models is a multidimensional challenge involving trade-offs between model complexity, computational efficiency, and the ability to provide meaningful insights into neural function.
- In scaling processes the complexity of a system will often change. In the description of neuronal dynamics some single-neuron models are highly detailed and incorporate sub-cellular organelles such as mitochondria or take into account the morphology of the dendritic and axonal tree ~\cite{santhakumar2005role, tejada2014combined}.
+ In scaling processes the complexity of a system will often change. In the description of neuronal dynamics some single-neuron models are highly detailed and incorporate sub-cellular organelles such as mitochondria or take into account the morphology of the dendritic and axonal tree ~\cite{Santhakumar2005, Tejada2014}.
 The simplest mathematical representation of a neuron is that of the point neuron model e.g. the leaky integrate-and-fire (LIF) model, here many of the detailed biophysical and morphological features have been striped.
  
  When describing a network level some kind of middle-ground in complexity will have to be reached. To describe ...
@@ -33,19 +33,19 @@ The simplest mathematical representation of a neuron is that of the point neuron
     \label{fig:scale}
 \end{figure}
 
-Microscopic, mesoscopic and macroscopic models represent three distinct approaches to describing the behavior of systems at varying scales. For better understanding, we're going to analyze all of them respectively. The main distinctions between those scales of models are the size of the phenomena they describe, the details and the level of abstraction they provide ~\cite{Scales}. 
+Microscopic, mesoscopic and macroscopic models represent three distinct approaches to describing the behavior of systems at varying scales. For better understanding, we're going to analyze all of them respectively. The main distinctions between those scales of models are the size of the phenomena they describe, the details and the level of abstraction they provide ~\cite{Lachowicz2011}. 
 
 \begin{enumerate}
 
-  \item \textbf{Microscopic} models deal with the smallest amount of phenomena, meaning that they focus on individual components and their interactions, e.g. interactions between particles. They are the most detailed among the three but also the least abstract ~\cite{Scales}.
+  \item \textbf{Microscopic} models deal with the smallest amount of phenomena, meaning that they focus on individual components and their interactions, e.g. interactions between particles. They are the most detailed among the three but also the least abstract ~\cite{Lachowicz2011}.
 
-  \item \textbf{Mesoscopic} models fall second on the variety of phenomena they operate with. Not only the scale of phenomena, but also the details they include and their level of abstraction come between the other two types of models; meaning more than macroscopic but less than microscopic models ~\cite{Scales}.
+  \item \textbf{Mesoscopic} models fall second on the variety of phenomena they operate with. Not only the scale of phenomena, but also the details they include and their level of abstraction come between the other two types of models; meaning more than macroscopic but less than microscopic models ~\cite{Lachowicz2011}.
 
-  \item \textbf{Macroscopic} models operate with the largest amount of phenomena, also being the most abstract ones. Opposite to microscopic models, macroscopic models observe the system as a whole, not focusing on the individual components. Some examples may be sets of ordinary differential equations or systems of fluid dynamics, economics and physics ~\cite{Scales}.
+  \item \textbf{Macroscopic} models operate with the largest amount of phenomena, also being the most abstract ones. Opposite to microscopic models, macroscopic models observe the system as a whole, not focusing on the individual components. Some examples may be sets of ordinary differential equations or systems of fluid dynamics, economics and physics ~\cite{Lachowicz2011}.
 
 \end{enumerate}
 
-The choice between microscopic, macroscopic, or mesoscopic models depends on the specific objectives of the research. Microscopic models are ideal for capturing more details at an individual level, macroscopic models offer a global perspective, ideal for understanding large-scale systems, and mesoscopic models offer an in-between approach, counting them suitable for phenomena at intermediate scales \cite{Scales}.
+The choice between microscopic, macroscopic, or mesoscopic models depends on the specific objectives of the research. Microscopic models are ideal for capturing more details at an individual level, macroscopic models offer a global perspective, ideal for understanding large-scale systems, and mesoscopic models offer an in-between approach, counting them suitable for phenomena at intermediate scales \cite{Lachowicz2011}.
 
 \subsection{Mathematical scaling}
 
@@ -63,7 +63,7 @@ For neural networks scaling up involves increasing the number of neurons interac
 \begin{figure}[H]
     \centering
     \includegraphics[width = 0.75\textwidth]{Pictures/Kenni/properties_spiking_bursting_models_all.png}
-    \caption{“\# of FLOPS” is an approximate number of floating point operations (addition, multiplication, etc.) needed to simulate the model during a 1 ms time span. Each empty square indicates the property that the model should exhibit if the parameters are chosen appropriately, ~\cite{izhikevich2004model}.}
+    \caption{“\# of FLOPS” is an approximate number of floating point operations (addition, multiplication, etc.) needed to simulate the model during a 1 ms time span. Each empty square indicates the property that the model should exhibit if the parameters are chosen appropriately, ~\cite{Izhikevich2004}.}
     \label{fig:computational_properties}
 \end{figure}
 
@@ -74,7 +74,7 @@ Should be transferred to glossary section. What are:
 
 \section{Dynamic System Fundamentals}
 When looking at the brain in abstract form it can be seen as a multi-dimensional \gls{gls:dynSystem} governed by an independent set of system variables, such as neuronal membrane potentials, which change in time based on a set of \gls{gls:deterministic} equations with system parameters that either do not change in time (e.g. maximal \gls{gls:cond} of the ion
-channels on the neuronal membrane) or whose evolution happens on a much slower time scale relative to the evolution of the system variables ~\cite{STEFANESCU2012748}.
+channels on the neuronal membrane) or whose evolution happens on a much slower time scale relative to the evolution of the system variables ~\cite{Stefanescu2012}.
 
 
 Fundamentally, a \gls{gls:dynSystem} is a system that evolves over time.  This system is dependent on fixed rules which govern the evolution of the system. Thus a \gls{gls:dynSystem} is the opposite of a static system, which, unlike \gls{gls:dynSystem}s, does not depend on the past inputs. A simple example of a \gls{gls:dynSystem} can be that of a pendulum swinging back and forth \cite{}. 
@@ -130,7 +130,7 @@ dydt = gamma * x - delta * y
 Notes:
 - Time delays can be the source of instabilities and bifurcations in \gls{gls:dynSystem}s and are frequently observed in biological systems such as neural networks.
 - with qualitative change in the dynamical behavior of the system we mean 
-- The bifurcation constitutes a 'dividing event' and is associated with modifications to the system parameters such as membrane capacitance and ion channel parameters etc. ~\cite{STEFANESCU2012748}.
+- The bifurcation constitutes a 'dividing event' and is associated with modifications to the system parameters such as membrane capacitance and ion channel parameters etc. ~\cite{Stefanescu2012}.
 - The reduced, two dimensional Hodgkin-Huxley model constitutes what is called a relaxation oscillator. Oscillator because solutions oscillate, there is a limit cycle. 
 %Relaxation is because \v at first gradually rises, while \n falls,
 “building up tension” as it were, then all of the sudden the tension is “released”
@@ -151,12 +151,12 @@ to simulate a complex network this can quickly amount to an insurmountable task 
 
 \subsection*{Modeling Neuronal Networks}
 A complex system can be described by a network or a graph with complex topology, whose nodes are the elements of the system and whose edges represent the interactions among them. `One significant recent discovery in the field of complex networks is the observation that a number of large-scale and complex networks are scale-free, that is, their connectivity distributions have the
-power-law form'~\cite{wang2002synchronization}.
+power-law form'~\cite{Wang2002}.
 
 % ...
 
 Self-organized criticality has been proposed as a framework to understand various phenomena in nature ranging from earthquakes, forest fires to neuronal activity in the brain.
-Avalanche Dynamics: In self-organized critical systems, events or disturbances can lead to cascading effects, causing a series of interconnected events or "avalanches." The size distribution of these avalanches often follows a power-law distribution ~\cite{beggs2004neuronal, plenz2007organizing}.
+Avalanche Dynamics: In self-organized critical systems, events or disturbances can lead to cascading effects, causing a series of interconnected events or "avalanches." The size distribution of these avalanches often follows a power-law distribution ~\cite{Beggs2004, Plenz2007}.
 
 % ...
 
@@ -185,7 +185,7 @@ Notes:
 
 
 When analysing seizures, bifurcation points helps to understand the mechanisms underlying the transition from normal brain activity to a seizure state. The change in parameter can be factors like synaptic strength, excitability of neurons, or network connectivity 
-~\cite{gerstner2014neuronal}. 
+~\cite{Gerster2020}. 
 
 
     
