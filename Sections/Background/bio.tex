@@ -74,14 +74,25 @@ Others are `\gls{gls:lig} gated', meaning that they can be switched between an o
 
 
 \subsection{Ions Passively Diffuse Downstream of Their Electrochemical Gradient}
-The direction of the passive diffusion of \glspl{gls:ion} through an open channel depends on both the concentration \gls{gls:grad} of the \gls{gls:ion} and the \gls{gls:mPote}. The resultant of these two forces is called the electrochemical \gls{gls:grad}.
 
-For instance, when the \gls{gls:mPote} is null \(\br{\unit{\V\membrane}=\qty{0}{\mV}}\), there is no difference of \gls{gls:Pote} between the two faces of the \gls{gls:membrane}, so the concentration \gls{gls:grad} will be the only factor determining the direction of diffusion for specific \glspl{gls:ion} \cref{sfig:dirA}. Since the concentrations of \gls{Na}, \gls{Ca} and \gls{Cl} in the \gls{gls:excell} fluid are higher than in the \gls{gls:incell} medium, these \glspl{gls:ion} will diffuse passively towards the \gls{gls:incell} space (when \gls{Na}, \gls{Ca} or \gls{Cl} permeable channels are open) as a result of their concentration \gls{gls:grad}. In contrast, since \gls{K} is a lot more abundant in the intracellular \gls{gls:media}, it will move from the \gls{gls:incell} \gls{gls:media} to the \gls{gls:excell} one when \gls{K} permeable channels are open. 
+% Passive vs facilitated diffusion
+
+The direction of the passive diffusion of \glspl{gls:ion} through an open channel depends on both the concentration \gls{gls:grad} of the \gls{gls:ion} and the \gls{gls:mPote}. The resultant of these two forces is called the electrochemical \gls{gls:grad}.
+\begin{align}
+    J_m + D\ode{c} =& 0\\
+    J_e + \sigma\ode{E} =& 0\\
+    \implies \br{J_m + J_e} + \br{D\ode{c} + \sigma\ode{E}} =& 0
+\end{align}
+
+
+
+For instance, when the \gls{gls:mPote} is null \(\br{\unit{\V\membrane}=\qty{0}{\mV}}\), there is no difference of \gls{gls:Pote} between the two faces of the \gls{gls:membrane}, so the concentration \gls{gls:grad} will be the only factor determining the direction of diffusion for specific \glspl{gls:ion} \cref{sfig:dirA}. 
+Since the concentrations of \gls{Na}, \gls{Ca} and \gls{Cl} in the \gls{gls:excell} fluid are higher, on average, than in the \gls{gls:incell} medium, these \glspl{gls:ion} will diffuse passively towards the \gls{gls:incell} space,\footnote{via \gls{Na}, \gls{Ca} or \gls{Cl} permeable ion channels}~as a result of their concentration \gls{gls:grad}. In contrast, since \gls{K} is a lot more abundant in the intracellular \gls{gls:media}, it will move from the \gls{gls:incell} \gls{gls:media} to the \gls{gls:excell} one when \gls{K} permeable channels are open. 
 
 If we suppose that there is the same concentration of each \gls{gls:ion} in the \gls{gls:excell} and \gls{gls:incell} \glspl{gls:media}, i.e there is no concentration \gls{gls:grad} for any \glspl{gls:ion}, \glspl{gls:ion} will diffuse according to \gls{gls:mPote} only: positive ions (cations) will move towards negative potential, negative ions (anions) will move towards postive \gls{gls:Pote}. At a \gls{gls:mPote} \(\unit{\V\membrane}=\qty{-30}{\mV}\) \cref{sfig:dirB}, positively charged \glspl{gls:ion}, the \glspl{gls:cation} \gls{Na}, \gls{Ca} and \gls{K}, will move from the \gls{gls:excell} \gls{gls:media} to the \gls{gls:incell} one according to \gls{gls:mPote}. In contrast, \glspl{gls:anion} (\gls{Cl}) will move from the \gls{gls:incell} \gls{gls:media} to the \gls{gls:excell} one. 
 
 %In physiological conditions, both the concentration \gls{gls:grad} and \gls{gls:mPote} determine the direction and amplitude of \gls{gls:ion} diffusion through an open channel.
-In physiological conditions, the concentration \gls{gls:grad} is maintained constant for each \gls{gls:ion}, so the direction and amplitude of diffusion mainly varies with \gls{gls:mPote}. When comparing \Cref{sfig:dirA,sfig:dirB} it appears that the concentration \gls{gls:grad} and the \gls{gls:mPote} (at \(\qty{-30}{\mV}\)) drive \gls{Na} and \gls{Ca} \glspl{gls:ion} in the same direction, toward the \gls{gls:incell} \gls{gls:media}, whereas the direction that \gls{K} and \gls{Cl} ions are driven is reversed . The resultant of these two forces, concentration and \gls{gls:Pote} \glspl{gls:grad}, is the electrochemical \gls{gls:grad}. To know how to express the electrochemical \gls{gls:grad}, the \gls{gls:ePote} must first be explained.
+In physiological conditions, the concentration \gls{gls:grad} is maintained constant for each \gls{gls:ion}, so the direction and amplitude of diffusion mainly varies with \gls{gls:mPote}. When comparing \Cref{sfig:dirA,sfig:dirB} it appears that the concentration \gls{gls:grad} and the \gls{gls:mPote} (at \(\qty{-30}{\mV}\)) drive \gls{Na} and \gls{Ca} \glspl{gls:ion} in the same direction, toward the \gls{gls:incell} \gls{gls:media}, whereas the direction that \gls{K} and \gls{Cl} ions are driven is reversed . The resultant of these two potentials, concentration and \gls{gls:Pote} \glspl{gls:grad}, is the electrochemical \gls{gls:grad}. To know how to express the electrochemical \gls{gls:grad}, the \gls{gls:ePote} must first be explained.
  
 \begin{figure}[H]
     \nextfloat
@@ -101,11 +112,12 @@ In physiological conditions, the concentration \gls{gls:grad} is maintained cons
 
 
 \subsection{Ionic currents}
-The passive diffusion of \glspl{gls:ion} through an open channel is a movement of charge through a resistance (resistance here is a measure of the difficulty of \glspl{gls:ion} moving through the channel pore). Movement of charges through a resistance is a current. Through a single channel the current is called `single-channel current' or `unitary current', \(\br{\ucur\ion}\). The amplitude of \(\ucur\ion\) is expressed in ampere \(\br{\unit{\ampere}}\) which are coulombs per seconds \(\br{\unit{\coulomb\per\second}}\). 
+The passive diffusion of \glspl{gls:ion} through an open channel implies a movement of charge through a resistance. Current comes from the movement of charge.
+When focusing on a single channel, the current is called `single-channel current' or `unitary current', \(\br{\ucur\ion}\). The amplitude of \(\ucur\ion\) is expressed in ampere \(\br{\unit{\ampere}}\) which are coulombs per seconds \(\br{\unit{\coulomb\per\second}}\). 
 
-In general, currents are expressed following ohm's law: \(\rmm{U}=\rmm{R}\curr\), where \(\curr\) is the current through a resistance \(\rmm{R}\) and \(\rmm{U}\) is the difference of \gls{gls:Pote} between the two ends of the resistance. 
-For currents carried by \glspl{gls:ion} (and not by electrons as in copper wires), \(\curr\) is called \(\curr\ion\), the current that passes through the resistance of the channel pore which has a resistance R \(\br{\res\ion}\). But what is \(\rmm{U}\) in biological systems? 
-\unit{U} is the force that makes \glspl{gls:ion} move in a particular direction; it is the electrochemical \gls{gls:grad} for the considered \gls{gls:ion} and is also called the driving force: \(\rmm{U}=(\unit{\V} - \equi\ion)\). According to ohm's law, the current \(\curr\ion\) through a single channel is derived from 
+In general, currents are expressed following ohm's law: \(\rmm{U}=\rmm{Z}\curr\), where \(\curr\) is the current through a resistance \(\rmm{Z}\) and \(\rmm{U}\) is the difference of \gls{gls:Pote} between the two ends of the resistance. 
+For currents created by \gls{gls:ion}[ic] charge (and not by electrons as in copper wires), \(\curr\) is labeled \(\curr\ion\), the current that passes through the resistance of the channel pore which has a resistance \(\rmm{R}\) \(\br{\res\ion}\). But what is \(\rmm{U}\) in biological systems? 
+\unit{U} is the electrical potential, directing the \glspl{gls:ion} along a particular axis; it is the electrochemical \gls{gls:grad} for the considered \gls{gls:ion} and is also called the driving potential: \(\rmm{U}=(\unit{\V} - \equi\ion)\). According to ohm's law, the current \(\curr\ion\) through a single channel is derived from 
 \begin{equation}
   \unit{\V} - \equi\ion = r\ion \cdot \curr\ion
 \end{equation}
@@ -113,7 +125,10 @@ So:
 \begin{equation}\label{eq:cur2con}
   \curr\ion= \frac{1}{r\ion\br{\unit{\V} - \equi\ion}} = \ucon\ion(\unit{\V\membrane} - \equi\ion)
 \end{equation}
-\(\ucon\ion\) is the reciprocal of resistance; it is called the \textit{\gls{gls:contan}} of the channel, or unitary \gls{gls:contan}. It is a measure of the ease of flow of \glspl{gls:ion} (flow of current) through the channel pore. Whereas resistance is expressed in \gls{gls:ohm} \(\br{\unit{\ohm}}\), \gls{gls:contan} is expressed in siemens \(\br{\unit{\siemens}}\). By convention \(\curr\ion\) is negative when it represents an inward \gls{gls:flux} of positive charges (\glspl{gls:cation}) and \(\curr\ion\) is positive when it represents an outward \gls{gls:flux} of positive charges. It is generally of the order of pico-ampere \(\br{\qty{1}{\pico\ampere}=\qty{e-12}{\ampere}}\). At physiological concentrations, \(\ucon\ion\) varies between \(\qtyrange{10}{150}{\pico\siemens}\) dependent on channel type~\cite{Hammond2015ch4}.
+\(\ucon\ion\) The measure of the \glspl{gls:ion} through a single channel, is called the unitary \gls{gls:contan} \(\br{\ucon\ion}\) which is the real part of \gls{gls:admit}. 
+The reciprocal of resistance; it is called the \textit{\gls{gls:admit}}.
+While resistance is expressed in \gls{gls:ohm} \(\br{\unit{\ohm}}\), \gls{gls:admit} is expressed in siemens \(\br{\unit{\siemens}}\). 
+By convention \(\curr\ion\) is negative when it represents an inward \gls{gls:flux} of positive charges (\glspl{gls:cation}) and \(\curr\ion\) is positive when it represents an outward \gls{gls:flux} of positive charges. It is generally of the order of pico-ampere \(\br{\qty{1}{\pico\ampere}=\qty{e-12}{\ampere}}\). At physiological concentrations, \(\ucon\ion\) varies between \(\qtyrange{10}{150}{\pico\siemens}\) dependent on channel type~\cite{Hammond2015ch4}.
 
 \(\curr\ion\) and \(\ucur\ion\) can be measured experimentally. The former is measured current from a patch of \gls{gls:membrane} where only one channel of a given type is present. \(\curr\ion\) is current measured from a whole \gls{gls:membrane} where \(N\) channels of the same type are present. The techniques mainly used for measuring ionic currents in excitable cells are the current clamp and voltage clamp techniques.
 
@@ -131,7 +146,7 @@ A variation of  voltage clamp technique is the patch clamp technique, which allo
 \begingroup
 \allowdisplaybreaks
 All systems yearn for their \gls{gls:equil}, the fabled \textit{steady state}. This divine relation of the components in a system, one achieved, the system no longer needs to evolve, it has been perfected by entropy. 
-The value of the \gls{gls:mPote} is constantly fluctuating depending on the relative distribution of charged particles that cross the \gls{gls:membrane}. The relationship can be illustrated as the relative `work' \(\br{W}\) of concentrations, where  \(\br{W_c}\) represents the force moving against the electrical gradient done by the concentration gradient, and \(\br{W_e}\) is the force of the electrical gradient against concentration. The equilibrium exists at;
+The value of the \gls{gls:mPote} is constantly fluctuating depending on the relative distribution of charged particles that cross the \gls{gls:membrane}. The relationship can be illustrated as the relative `work' \(\br{W}\) of concentrations, where  \(\br{W_c}\) represents the potential moving against the electrical gradient done by the concentration gradient, and \(\br{W_e}\) is the potential of the electrical gradient against concentration. The equilibrium exists at;
 \begin{equation}
     W_e + W_c = 0
 \end{equation}
@@ -275,10 +290,10 @@ The \unit[per-mode = symbol]{\ucur\sodium\per\V} relation is obtained by plottin
 When the activity of a single \gls{Na} channel is recorded at different test \glspl{gls:Pote}, it was observed that the amplitude of the inward unitary current \(\br{\ucur\sodium}\) diminishes proportionately with the state of \gls{gls:membrane} \gls{gls:depol}~\cite{Hammond2015ch4}. 
 The critical point of the current/voltage relation is the \gls{gls:mPote} for which the current is zero; i.e. the \gls{gls:rPote} of the current \(\br{\equi\reverse}\). 
 Because exclusively \gls{Na} \glspl{gls:ion} flow through \gls{Na} channels, the \gls{gls:rPote} is equal to \(\equi\sodium\). 
-From \qty{-50}{\mV} to \(\equi\reverse\), \(\ucur\sodium\) is inward and its amplitude decreases. This results from the decrease of the \gls{Na} driving force \(\br{\unit{\V\membrane}-\equi\sodium}\) as the \gls{gls:membrane} approaches the \gls{gls:rPote} for \gls{Na} \glspl{gls:ion}. 
-For \glspl{gls:membrane} \gls{gls:depol} greater than \(\equi\reverse\), \(\ucur\sodium\) is now outward. Above \(\equi\reverse\), the amplitude of the outward \gls{Na} current progressively increases as the driving force for the exit of \gls{Na} \glspl{gls:ion} increases. 
+From \qty{-50}{\mV} to \(\equi\reverse\), \(\ucur\sodium\) is inward and its amplitude decreases. This results from the decrease of the \gls{Na} driving potential \(\br{\unit{\V\membrane}-\equi\sodium}\) as the \gls{gls:membrane} approaches the \gls{gls:rPote} for \gls{Na} \glspl{gls:ion}. 
+For \glspl{gls:membrane} \gls{gls:depol} greater than \(\equi\reverse\), \(\ucur\sodium\) is now outward. Above \(\equi\reverse\), the amplitude of the outward \gls{Na} current progressively increases as the driving potential for the exit of \gls{Na} \glspl{gls:ion} increases. 
 
-The relation \unit[per-mode = symbol]{\ucur\sodium\per\V} is \gls{gls:linear}[ly] described by the equation \(\ucur\sodium = \ucon\sodium \br{\unit{\V\membrane}-\equi\sodium}\), where \unit{\V\membrane} is the test potential, \(\equi\sodium\) is the \gls{gls:rPote} of the \gls{Na} current, and \(\ucon\sodium\) is the \gls{gls:contan} of a single \gls{Na} channel (unitary \gls{gls:contan}). The value of \(\ucon\sodium\) is given by the slope of the linear \unit[per-mode = symbol]{\ucur\sodium\per\V} curve. It has a constant value at any given \gls{gls:mPote}. This value varies between \qtyrange{5}{18}{\pico\siemens} depending on the preparation.
+The relation \unit[per-mode = symbol]{\ucur\sodium\per\V} is \gls{gls:linear}[ly] described by the equation \(\ucur\sodium = \ucon\sodium \br{\unit{\V\membrane}-\equi\sodium}\), where \unit{\V\membrane} is the test potential, \(\equi\sodium\) is the \gls{gls:rPote} of the \gls{Na} current, and \(\ucon\sodium\) is the \gls{gls:admit} of a single \gls{Na} channel (unitary \gls{gls:admit}). The value of \(\ucon\sodium\) is given by the slope of the linear \unit[per-mode = symbol]{\ucur\sodium\per\V} curve. It has a constant value at any given \gls{gls:mPote}. This value varies between \qtyrange{5}{18}{\pico\siemens} depending on the preparation.
 
 \begin{figure}[H]
   \centering
@@ -326,7 +341,7 @@ Subsequently, the relation of the macroscopic \gls{Na} current \(\curr\sodium\) 
   \caption{The \(\curr\sodium/\unit{\V}\) relation has a bell shape. (From Chiu Sy, ritchie JM, bogart rb, Stagg d (1979) A quantitative description of \gls{gls:membrane} currents from a rabbit myelinated nerve. J. Physiol.292, 149–166)}\label{fig:IVdist}
 \end{figure}
  
-For small steps, the peak amplitude of current is small, \(\br{\qty{0.2}{\nano\ampere}}\), and has a low peaking rate \(\br{\qty{1}{\milli\second}}\)~\cite{Hammond2015ch4}. At these \glspl{gls:Pote}, the \gls{Na} driving force is strong but the \gls{Na} channels have a low probability of opening. Therefore, \(\curr\sodium\) is small since it represents the current through a small number of open \gls{Na} channels. 
+For small steps, the peak amplitude of current is small, \(\br{\qty{0.2}{\nano\ampere}}\), and has a low peaking rate \(\br{\qty{1}{\milli\second}}\)~\cite{Hammond2015ch4}. At these \glspl{gls:Pote}, the \gls{Na} driving potential is strong but the \gls{Na} channels have a low probability of opening. Therefore, \(\curr\sodium\) is small since it represents the current through a small number of open \gls{Na} channels. 
 
 As the depolarizing steps increase in amplitude (\qtyrange{-42}{-35}{\mV}), the amplitude of \(\curr\sodium\) increases to a maximum \(\br{\qty{-3}{\nA}}\) and the time to peak decreases to a minimum \(\br{\qty{0.2}{\ms}}\)~\cite{Hammond2015ch4}. 
 Larger \glspl{gls:depol} increase probability of \gls{Na} channels being in the open state and shorten the opening delay. 
@@ -339,7 +354,8 @@ The \gls{gls:rPote} of \(\curr\sodium\) is the same as that of \(\ucur\sodium\),
 
 \subsubsection{Activation and inactivation curves}
 The `activation rate' is the rate at which macroscopic current flows in response to a \gls{gls:depol} step. 
-The \gls{Na} current is recorded in voltage clamp mode~\cite{Hammond2015ch4}.\footnote{see \Cref{sec:Vclamp}}~Depolarizing steps from \qtyrange{-70}{20}{\mV} are applied from a holding \gls{gls:Pote} of \qty{-80}{\mV}. When the ratio of the peak current at each test \gls{gls:Pote} is compared against the maximal peak current \(\br{\curr\sodium/\curr\sodium{\,}_{max}}\); the activation curve of \(\curr\sodium\) can be visualized \cref{fig:actinact}. 
+The \gls{Na} current is recorded in voltage clamp mode~\cite{Hammond2015ch4}.
+\footnote{see \Cref{sec:Vclamp}}~Depolarizing steps from \qtyrange{-70}{20}{\mV} are applied from a holding \gls{gls:Pote} of \qty{-80}{\mV}. When the ratio of the peak current at each test \gls{gls:Pote} is compared against the maximal peak current \(\br{\curr\sodium/\curr\sodium{\,}_{max}}\); the activation curve of \(\curr\sodium\) can be visualized \cref{fig:actinact}. 
 %The distribution is fitted, unsurprisingly, by a sigmoidal curve consistent with logistic growth. 
 %In this preparation, the ceiling of \gls{Na} channel activation was measured at \qty{-60}{\mV}. Yet, already at \qty{-40}{\mV}, \(\curr\sodium\) reaches a peak, \(\curr\sodium/\curr\sodium{\,}_{max} = 1\). 
 This steepness of activation is characteristic of \gls{gls:vgate}[d] \gls{Na} channels. 
@@ -378,10 +394,10 @@ During \gls{gls:membrane} \gls{gls:depol} and \gls{gls:repol}, the \gls{Na} chan
     \caption{}\label{fig:Kchannel}
  \end{figure}
 
-The \gls{K} channel has a constant unitary \gls{gls:contan} \(\br{\ucon\potassium}\)~\cite{Hammond2015ch4}. 
+The \gls{K} channel has a constant unitary \gls{gls:admit} \(\br{\ucon\potassium}\)~\cite{Hammond2015ch4}. 
 %In \Cref{fig:rangeThree}a, unitary \gls{K} currents are shown responding to increasing \gls{gls:depol} of \qtyrange{-50}{20}{\mV} from the holding \gls{gls:Pote} of \qty{-80}{\mV}. 
 %It can be observed that both the amplitude of \(\ucur\potassium\) and the time spent by the channel in the open state increase with \gls{gls:depol}. 
-When the mean amplitude of the unitary \gls{K} current is plotted versus \gls{gls:membrane} test potential, a linear \(\ucur\potassium/\unit{\V}\) relation is obtained. This linear \(\ucur\potassium/\unit{\V}\) relation (between \qtyrange{-50}{20}{\mV}) is described by the equation \(\ucur\potassium = \ucon\potassium(\unit{\V\membrane}-\equi\potassium)\), where \unit{\V\membrane} is the \gls{gls:mPote}, \(\equi\potassium\) is the \gls{gls:rPote} of the \gls{K} current, and \(\ucon\potassium\) is the \gls{gls:contan} of the single delayed rectifier \gls{K} channel, which defines the unitary \gls{gls:contan}. 
+When the mean amplitude of the unitary \gls{K} current is plotted versus \gls{gls:membrane} test potential, a linear \(\ucur\potassium/\unit{\V}\) relation is obtained. This linear \(\ucur\potassium/\unit{\V}\) relation (between \qtyrange{-50}{20}{\mV}) is described by the equation \(\ucur\potassium = \ucon\potassium(\unit{\V\membrane}-\equi\potassium)\), where \unit{\V\membrane} is the \gls{gls:mPote}, \(\equi\potassium\) is the \gls{gls:rPote} of the \gls{K} current, and \(\ucon\potassium\) is the \gls{gls:admit} of the single delayed rectifier \gls{K} channel, which defines the unitary \gls{gls:admit}. 
 
 %Linear back-extrapolation gives a \gls{gls:rPote} value around \qtyrange{-90}{-80}{\mV}, a value close to \(\equi\potassium\) calculated from the Nernst equation. This means that from \qty{-80}{\mV} to more depolarized \glspl{gls:Pote}, which correspond to the physiological conditions, the \gls{K} current is outward. For more \gls{gls:hypol} \glspl{gls:Pote}, the \gls{K} current is inward. The value of \(\ucon\potassium\) is given by the slope of the linear \(\ucur\potassium/V\)curve. It has a constant value at any given \gls{gls:mPote}. This value varies from \qtyrange{10}{15}{\pico\siemens} depending on the preparation. 
 
@@ -402,7 +418,7 @@ The whole cell current amplitude at steady-state for a given \gls{gls:Pote} is:
 
 where \(N\) is the number of delayed rectifier channels in the \gls{gls:membrane} recorded, \(p_o\) the open probability at steady state and \(\ucur\potassium\) the elementary current. The number of open channels \(N\,p_o\) increases with \gls{gls:depol} (to a maximal value) and so does \(\curr\potassium\). 
 
-The \(\curr\potassium/\unit{\V}\) relation shows that the whole cell current varies linearly with voltage from a threshold \gls{gls:Pote} which, for those conditions, is around \qty{-40}{\mV}. When the \gls{gls:membrane} is more \gls{gls:hypol} than the \gls{gls:tPote}, very few channels are open and \(\curr\potassium\) is equal to zero. For \glspl{gls:mPote} more depolarized than the \gls{gls:tPote}, \(\curr\potassium\) depends on \(p_o\) and the driving force state \(\unit{\V} - \equi\potassium\) which augments with \gls{gls:depol}. Once \(p_o\) is maximal, \(\curr\potassium\) augments linearly with \gls{gls:depol} since it depends only on the driving force. 
+The \(\curr\potassium/\unit{\V}\) relation shows that the whole cell current varies linearly with voltage from a threshold \gls{gls:Pote} which, for those conditions, is around \qty{-40}{\mV}. When the \gls{gls:membrane} is more \gls{gls:hypol} than the \gls{gls:tPote}, very few channels are open and \(\curr\potassium\) is equal to zero. For \glspl{gls:mPote} more depolarized than the \gls{gls:tPote}, \(\curr\potassium\) depends on \(p_o\) and the driving potential state \(\unit{\V} - \equi\potassium\) which augments with \gls{gls:depol}. Once \(p_o\) is maximal, \(\curr\potassium\) augments linearly with \gls{gls:depol} since it depends only on the driving potential. 
 \begin{figure}[H]
     \centering
     \includegraphics[width=0.4\linewidth]{Pictures//Anakin/IK-V.png}
@@ -433,9 +449,9 @@ Recall that \Cref{eq:nasum,eq:ksum} gives the relationship of unitary currents t
 more generally as:
 \begin{align}
   \curr\ion&= N \, p_o \, \ucur\ion \label{eq:curgen}\\
-\intertext{By analogy, the total \gls{gls:contan} of the \gls{gls:membrane} for a particular \gls{gls:ion} is: }
+\intertext{By analogy, the total \gls{gls:admit} of the \gls{gls:membrane} for a particular \gls{gls:ion} is: }
   \unit{\cond\ion} &= N \, p_o \, \ucon\ion \label{eq:congen}
-\intertext{substituting \cref{eq:congen,eq:curgen} into \cref{eq:cur2con} gives us: }
+\intertext{substituting \cref{eq:congen,eq:curgen} into \cref{eq:cur2con} gives us:}
   \curr\ion &= \unit{\cond\ion} \, \br{\unit{\V} - \equi\ion}\label{eq:ionCurrent}
 \end{align}
 

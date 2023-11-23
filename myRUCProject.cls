@@ -168,7 +168,7 @@
 \newcommand{\blue}{\color{blue!80!black}}
 
 
-\renewcommand{\thefootnote}{\fnsymbol{footnote}}
+\renewcommand{\thefootnote}{\arabic{footnote}}
 
 
 \DeclareCaptionFont{red}{\red}

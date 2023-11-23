@@ -7,8 +7,6 @@
     
 \begin{document}
 
-
-
 The Chay Model, developed by T.R. Chay in 1958, is a mathematical model designed to capture the dynamic behavior of excitable cells. Based on the Hodgkin-Huxley model, it offers a set of differential equations describing the changes in membrane potential (V), the probability of opening the voltage-sensitive \gls{K} channel (n), and the dynamics of the intracellular concentration of \gls{Ca} ions (C) over time. The model includes crucial elements such as voltage-gated ion channels, steady-state variables, and capacitive variables, providing a comprehensive description of the mechanisms related to cellular excitability. This model is uaseful in computational neuroscience and, due to its three-dimensionality, presents a more realistic portrayal of the dynamic processes within excitable cells compared to other known models that are two-dimensional. One representation of the Chay model is provided below \cite{Chay1985}. \\
 \begin{align}
     \ode{V} &= g_\mathrm{I}  m^3_\infty h_\infty \br{V_\mathrm{I} - V} + g_\mathrm{K, V} n^4 \br{V_\mathrm{K} - V} + g_\mathrm{K, C}  \frac{C}{1+C}\br{V_\mathrm{K} - V} + g_\mathrm{L} \br{V_m - V} \\
