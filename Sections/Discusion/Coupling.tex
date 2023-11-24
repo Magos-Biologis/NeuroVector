@@ -33,7 +33,7 @@ When deciding to couple neurons it is important to understand what to expect as 
 
 \textbf{Class I:} Neurons that can be stimulated to fire at arbitrarily low frequency due to saddle-node bifurcations
 
-\textbf{Class II:} Only typically start firing at high frequencies.
+\textbf{Class II:} Only typically start firing at high frequencies. Hodgkin-Huxely
 
 Rose and Hindmarsh (1989) demonstrated that many effects of the $I_A$ current could be 
 approximated by making the equation for the recovery variable R quadratic.The 
@@ -72,9 +72,9 @@ The Fickian diffusion law takes the form:
 \end{equation}
 approaching our neuronal arrangment under the same assumption;
 \begin{align}
+    \pde{t}{N_0} &= \br{\pde{t}{N_1}+\pde{t}{N_2}}\,N_0 + \eta_0\pde{x}{N_0}[2] \\
     \pde{t}{N_1} &= \curr_1\,N_1 + \eta_1\pde{x}{N_1}[2] \\
-    \pde{t}{N_2} &= \curr_1\,N_2 + \eta_2\pde{x}{N_2}[2] \\
-    \pde{t}{N_0} &= \br{\pde{t}{N_1}+\pde{t}{N_2}}\,N_0 + \eta_0\pde{x}{N_0}[2] 
+    \pde{t}{N_2} &= \curr_1\,N_2 + \eta_2\pde{x}{N_2}[2] 
 \end{align}
 applying a moving frame of going left to right, in the form of \(z=x-s\,t\) to our system;
 \begin{align}
@@ -88,17 +88,26 @@ making substitutions to reduce the order of the functions;
     \ode[z]{\Phi_1} = \ode[z]{\varphi_1}[2] &\implies \Phi_1 = \ode[z]{\varphi_1} &
     \ode[z]{\Phi_2} = \ode[z]{\varphi_2}[2] &\implies \Phi_2 = \ode[z]{\varphi_2}\\
     \ode[z]{\varphi_0}[2] &= s\,\br{\cfrac{\br{\Phi_1+\Phi_2}\varphi_0 - \,\Phi_0}{\eta_0}} &
-    \ode[z]{\varphi_1}[2] &= -\cfrac{\curr_1 \varphi_0 + s \,\Phi_1}{\eta_1} &
-    \ode[z]{\varphi_2}[2] &= -\cfrac{\curr_2 \varphi_0 + s \,\Phi_2}{\eta_2} 
+    \ode[z]{\varphi_1}[2] &= -\cfrac{\curr_1 \varphi_1 + s \,\Phi_1}{\eta_1} &
+    \ode[z]{\varphi_2}[2] &= -\cfrac{\curr_2 \varphi_2 + s \,\Phi_2}{\eta_2} 
 \end{align*}
-more substitutions;
+more substitutions lead to a system of \glspl{ode};
 \begin{align}
     \ode[z]{\varphi_0} &= {\Phi_0}\br{-s}^{-1} \\
     \ode[z]{\varphi_1} &= {\Phi_1}\br{-s}^{-1} \\
     \ode[z]{\varphi_2} &= {\Phi_2}\br{-s}^{-1} \\
     \ode[z]{\Phi_0} &= s\,\br{\cfrac{\br{\Phi_1+\Phi_2}\varphi_0 - \,\Phi_0}{\eta_0}} \\
-    \ode[z]{\Phi_1} &= -\cfrac{\curr_1 \varphi_0 + s \,\Phi_1}{\eta_1}\\
-    \ode[z]{\Phi_2} &= -\cfrac{\curr_2 \varphi_0 + s \,\Phi_2}{\eta_2}
+    \ode[z]{\Phi_1} &= -\cfrac{\curr_1 \varphi_1 + s \,\Phi_1}{\eta_1}\\
+    \ode[z]{\Phi_2} &= -\cfrac{\curr_2 \varphi_2 + s \,\Phi_2}{\eta_2}
 \end{align}
+
+Fixed points (?) 
+
+the trivial, \(\br{\varphi_0,\varphi_1,\varphi_2,\Phi_0,\Phi_1,\Phi_2} = (0,0,0,0,0,0)\)
+\begin{align*}
+\br{\varphi_0,\varphi_1,\varphi_2,\Phi_0,\Phi_1,\Phi_2} &= \br{1,\frac{-1}{\curr_1},\frac{1}{\curr_2},0,\frac{1}{s},\frac{-1}{s}}\\
+\br{\varphi_0,\varphi_1,\varphi_2,\Phi_0,\Phi_1,\Phi_2} &= (0,0,0,0,0,0)\\
+\br{\varphi_0,\varphi_1,\varphi_2,\Phi_0,\Phi_1,\Phi_2} &= (0,0,0,0,0,0)
+\end{align*}
 
 \end{document}
