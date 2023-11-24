@@ -15,27 +15,55 @@
 
 
 \begin{document}
-\begin{tikzpicture}[black!80]
+\begin{tikzpicture}[black!80, line width = 1pt]
     \pgfmathsetnewmacro{\bb}{3}
-    \useasboundingbox[clip] (-\bb,-\bb) rectangle (\bb,\bb);
+    \useasboundingbox[clip] (-\bb*2,-\bb) rectangle (\bb*2,\bb*0.6);
 
 
     \coordinate (O) at (0,0);
 
-    \draw[help lines, opacity = 0.1] (-4,-4) grid (4,4);
+    %\draw[help lines, opacity = 0.1] (-4,-4) grid (4,4);
 
-    \begin{scope}[on grid]
+    \begin{scope}[on grid, xshift = -5.2cm]
         
-        \node (O) at (0,0) [circle, draw, fill = white] {$\Sigma$};
+        \node (O) at (0,0) [circle, draw, fill = white] {$N_0$};
               
-        \foreach \node in {1, 2, 3, 4}{
-            \node (I\node) [left = of O]  {$\node$};
-        }
-        
-    
+        \node (N1) [circle, draw, fill = white, above right=1.5 of O.south east] {$N_1$};
+        \node (N2) [circle, draw, fill = white, below right=1.5 of O.north east] {$N_2$};
+
+        \draw[->] (O) |- (N1);
+        \draw[->] (O) |- (N2);
+
+
+        \node (notation1) [below right = of O, yshift = -1cm ] {$\left\langle 1,2 \right\rangle$};
     \end{scope}
         
+    \begin{scope}[on grid, xshift = +5.2cm]
+        
+        \node (O) at (0,0) [circle, draw, fill = white] {$N_0$};
+              
+        \node (N1) [circle, draw, fill = white, above left=1.5 of O.south west] {$N_1$};
+        \node (N2) [circle, draw, fill = white, below left=1.5 of O.north west] {$N_2$};
 
+        \draw[->] (N1) -| (O);
+        \draw[->] (N2) -| (O);
+
+        \node (notation1) [below left = of O, yshift = -1cm ] {$\left\langle 2,1 \right\rangle$};
+    \end{scope}
+
+    
+    \begin{scope}[on grid]
+        
+        \node (O) at (0,0) [circle, draw, fill = white] {$N_1$};
+              
+        \node (N1) [circle, draw, fill = white, left=2 of O] {$N_0$};
+        \node (N2) [circle, draw, fill = white, right=2 of O] {$N_2$};
+
+        \draw[->] (N1) -- (O);
+        \draw[->] (O) -- (N2);
+        
+        \node (notation1) [below = of O, yshift = -1cm ] {$\left\langle 1,1,1 \right\rangle$};
+    \end{scope}
     
     
     

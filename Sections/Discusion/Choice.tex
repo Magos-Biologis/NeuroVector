@@ -33,12 +33,12 @@ There are also many adaptations of the integrate and fire model. Of the ones des
 The spiking model made by Eugene M. Izhikevich is a two-dimensional model that requires 13 operations per millisecond \cite{Izhikevich2004}. It is similar to the Hodgkin-Huxley model in a biological sense, however, it is capable of modelling thousands of neurons \cite{Muni2022}. 
 
 \subsubsection*{Morris-Lecar}
-The Morris-Lecar model is, like the FitzHugh-Nagumo model, also a two-dimensional model derived from the Hodgkin-Huxley model \cite{Baladron2012}. However, it requires many more floating point operations to use, namely 600 per millisecond. Unlike the FitzHugh-Nagumo model, it is biophysically relevant \cite{Izhikevich2004}. For this reason, it might seem strange that the group chose to use the FitzHugh-Nagumo model instead of this model, but the FitzHugh-Nagumo model was chosen since it is a simpler model. However, if the group had more time, this model would be at the top of the list of models to investigate. 
+The Morris-Lecar model is, like the FitzHugh-Nagumo model, also a two-dimensional model derived from the Hodgkin-Huxley model \cite{Baladron2012}. However, it requires many more floating point operations to use, namely 600 per millisecond. Unlike the FitzHugh-Nagumo model, it is biophysically relevant \cite{Izhikevich2004}. For this reason, it might seem strange that the group chose to use the FitzHugh-Nagumo model instead of this model, but the FitzHugh-Nagumo model was chosen since it is a simpler model. However, if the group had more time, this model would be at the top of the list of models to investigate. In \cite{kasatkin2015transient} they showed that it is possible to model 100 neurons using the Morris-Lecar model.
 
 % How many neurons can it model?
 
 \subsubsection*{Hindmarch-Rose}
-The Hindmarch-Rose model is three-dimensional, but it only requires 120 operations per millisecond. It is also not biophysically relevant \cite{Izhikevich2004}.
+The Hindmarch-Rose model is three-dimensional, but it only requires 120 operations per millisecond. Like most of the models, it is also not biophysically relevant \cite{Izhikevich2004}.
 
 % How many neurons can it model?
 
@@ -65,7 +65,7 @@ Hodgkin-Huxley& Yes& 1200& 4& Tens\\
 \begin{tabular}[c]{@{}l@{}}Standard integrate\\ and fire\end{tabular}& No& 5& 1& Thousands\\
 \begin{tabular}[c]{@{}l@{}}Integrate and fire\\ adaptations\end{tabular} & No& 7-13& 1-2& Thousands\\
 Izhikevich& No& 13& 2&Thousands\\
-Moris-Lecar& Yes& 600& 2&\\
+Morris-Lecar& Yes& 600& 2&Hundred\\
 Hindmarch-Rose& No& 120& 3&\\
 Wilson& No& 180& 4&\\ \hline
 \end{tabular}

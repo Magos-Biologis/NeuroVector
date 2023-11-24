@@ -121,6 +121,19 @@
 %     }
 
 
+% \renewenvironment{cases}{%
+%     \matrix@check\cases\env@cases
+%     }{%
+%     \endarray\right.%
+%     }
+% \def\env@cases{%
+%     \let\@ifnextchar\new@ifnextchar
+%     \left\lbrace
+%     \def\arraystretch{1.2}%
+%     \array{@{}l@{\quad}l@{}}%
+%     }
+
+
 
 % Redefine AMS math enviroments definitions + hooks
 \renewenvironment{subequations}{%
@@ -222,7 +235,7 @@
         }
     }
     
-\NewDocumentCommand{\rfrac}{ m m }{{}^{#1}\!/_{#2}}
+\NewDocumentCommand{\rfrac}{ m m }{{}^{{\displaystyle#1}}\!/_{{\displaystyle#2}}}
 
 %\DeclareMathOperator{\argmax}{arg\,max}
 

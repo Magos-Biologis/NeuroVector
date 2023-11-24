@@ -10,23 +10,29 @@
 The attempt to find an equation which can accurately describe the behavior of a chosen system is one of the most fundamental aspects of mathematics.
 
 A model is a series of mathematical equations capable of replicating the behavior of a system. A role of these models, known as dynamic systems, is to bring light in the gaps of understanding and explain the underlying mechanisms behind some function. 
-The construction of a model requires equations complex enough to accurately describe the dynamics of interest yet, preferably, simple enough so that mathematical tools exist to analyze the equations\footnotemark. 
-\footnotetext{The best model of a cat is a cat. Preferably the same cat\footnotemark.-`\textit{Philosophy of Science, 1945, Arturo Rosenblueth \br*{1900-1970}}'}
+The construction of a model requires equations complex enough to accurately describe the dynamics of interest yet, preferably, simple enough so that mathematical tools exist to analyze the equations.\footnote{The best model of a cat is a cat. Preferably the same cat\footnotemark.-`\textit{Philosophy of Science, 1945, Arturo Rosenblueth \br*{1900-1970}}'}~
 There exists any number of limitations in the pursuit of this task, some inherent to the system, others inherent to our modern construction of mathematics.
 \footnotetext{If man could be crossed with the cat, it would improve man, but it would deteriorate the cat.-`\textit{Mark Twain}'.}
 
 \section{Scale of model}
- Scaling neural models is a multidimensional challenge involving trade-offs between model complexity, computational efficiency, and the ability to provide meaningful insights into neural function.
- In scaling processes the complexity of a system will often change. In the description of neuronal dynamics some single-neuron models are highly detailed and incorporate sub-cellular organelles such as mitochondria or take into account the morphology of the dendritic and axonal tree ~\cite{Santhakumar2005, Tejada2014}.
-The simplest mathematical representation of a neuron is that of the point neuron model e.g. the leaky integrate-and-fire (LIF) model, here many of the detailed biophysical and morphological features have been striped.
- 
- When describing a network level some kind of middle-ground in complexity will have to be reached. To describe ...
- 
- What layer of information is of interest of probing?
- A description of neuronal dynamics.
- As can be seen in figure \ref{fig:scale}, the information that is available is different depending on what scale you are operating at.
- 
- \begin{figure}[H]
+Scaling neural models is a multidimensional challenge involving trade-offs between model complexity, computational efficiency, and the ability to provide meaningful insights into neural function.
+In scaling processes, the complexity of a system will often change. In the description of neuronal dynamics, some single-neuron models are highly detailed and incorporate sub-cellular organelles such as mitochondria or take into account the morphology of the dendritic and axonal tree ~\cite{Santhakumar2005, Tejada2014}.
+The simplest mathematical representation of a neuron is that of the point neuron model e.g. the integrate-and-fire (IF) model, here many of the detailed biophysical and morphological features have been stripped. The model is typically described by a single ODE with simple variables and parameters, biophysically meaningfulness being low cf. figure~\ref{fig:computational_properties}.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width = 0.75\textwidth]{Pictures/Kenni/properties_spiking_bursting_models_all.png}
+    \caption{“\# of FLOPS” is an approximate number of floating point operations (addition, multiplication, etc.) needed to simulate the model during a 1 ms time span. Each empty square indicates the property that the model should exhibit if the parameters are chosen appropriately" ~\cite{Izhikevich2004}.}
+    \label{fig:computational_properties}
+\end{figure}
+
+When describing a network level model some kind of middle ground in complexity will have to be reached. The network model include many cells interacting with each other 
+
+What layer of information is of interest of probing?
+A description of neuronal dynamics.
+As can be seen in figure \ref{fig:scale}, the information that is available is different depending on what scale you are operating at.
+
+\begin{figure}[H]
     \centering
     \includegraphics[width = 0.75\textwidth]{Pictures/Kenni/Level of description.png}
     \caption{Level of description, ~\cite{Burger2017}.}
@@ -37,11 +43,11 @@ Microscopic, mesoscopic and macroscopic models represent three distinct approach
 
 \begin{enumerate}
 
-  \item \textbf{Microscopic} models deal with the smallest amount of phenomena, meaning that they focus on individual components and their interactions, e.g. interactions between particles. They are the most detailed among the three but also the least abstract ~\cite{Lachowicz2011}.
-
-  \item \textbf{Mesoscopic} models fall second on the variety of phenomena they operate with. Not only the scale of phenomena, but also the details they include and their level of abstraction come between the other two types of models; meaning more than macroscopic but less than microscopic models ~\cite{Lachowicz2011}.
-
-  \item \textbf{Macroscopic} models operate with the largest amount of phenomena, also being the most abstract ones. Opposite to microscopic models, macroscopic models observe the system as a whole, not focusing on the individual components. Some examples may be sets of ordinary differential equations or systems of fluid dynamics, economics and physics ~\cite{Lachowicz2011}.
+    \item \textbf{Microscopic} models deal with the smallest amount of phenomena, meaning that they focus on individual components and their interactions, e.g. interactions between particles. They are the most detailed among the three but also the least abstract ~\cite{Lachowicz2011}.
+    
+    \item \textbf{Mesoscopic} models fall second on the variety of phenomena they operate with. Not only the scale of phenomena, but also the details they include and their level of abstraction come between the other two types of models; meaning more than macroscopic but less than microscopic models ~\cite{Lachowicz2011}.
+    
+    \item \textbf{Macroscopic} models operate with the largest amount of phenomena, also being the most abstract ones. Opposite to microscopic models, macroscopic models observe the system as a whole, not focusing on the individual components. Some examples may be sets of ordinary differential equations or systems of fluid dynamics, economics and physics ~\cite{Lachowicz2011}.
 
 \end{enumerate}
 
@@ -49,28 +55,21 @@ The choice between microscopic, macroscopic, or mesoscopic models depends on the
 
 \subsection{Mathematical scaling}
 
- 
- 
- figure\ref{fig:computational_properties} the 
+% Figure \ref{fig:computational_properties} the 
 
-cf. appendix\cref{fig:sum_spike_neuro} on the summary of different spiking scenarios.
+%cf. \cref{fig:sum_spike_neuro} on the summary of different spiking scenarios.
 
 
 For neural networks scaling up involves increasing the number of neurons interacting and to capture the realism the number of parameters will have to increase as well.
 
-....
+...
 
-\begin{figure}[H]
-    \centering
-    \includegraphics[width = 0.75\textwidth]{Pictures/Kenni/properties_spiking_bursting_models_all.png}
-    \caption{“\# of FLOPS” is an approximate number of floating point operations (addition, multiplication, etc.) needed to simulate the model during a 1 ms time span. Each empty square indicates the property that the model should exhibit if the parameters are chosen appropriately, ~\cite{Izhikevich2004}.}
-    \label{fig:computational_properties}
-\end{figure}
 
-Should be transferred to glossary section. What are:
-- regimes (e.g. quiet regime)
-- voltage traces
-- 
+
+%Should be transferred to glossary section. What are:
+%- regimes (e.g. quiet regime)
+%- voltage traces
+%- 
 
 \section{Dynamic System Fundamentals}
 When looking at the brain in abstract form it can be seen as a multi-dimensional \gls{gls:dynSystem} governed by an independent set of system variables, such as neuronal membrane potentials, which change in time based on a set of \gls{gls:deterministic} equations with system parameters that either do not change in time (e.g. maximal \gls{gls:cond} of the ion
@@ -105,9 +104,9 @@ When analysing differential equations \textit{phase space} analysis is an import
 Bifurcations constitutes critical points where the stability of a system changes, leading to abrupt transitions in the system's behavior. As will be shown these transitions can provide insights into the onset of seizures and their characteristics [link to network analysis section]
 
 
-Let's consider a simple two-variable system where the variables represent the activity of excitatory and inhibitory neurons. A phase plane for such a system could help visualize the dynamics.
+Let us consider a simple two-variable system where the variables represent the activity of excitatory and inhibitory neurons. A phase plane for such a system could help visualize the dynamics.
 
-Here's a simple set of differential equations to represent this system:
+Here is a simple set of differential equations to represent this system:
 %\(P(k)  \sim  k^\gamma\)
 
 

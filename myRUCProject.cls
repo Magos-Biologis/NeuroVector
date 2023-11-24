@@ -28,6 +28,9 @@
         }
     }
 
+\DeclareOption{doubleColumn}{%
+    \RequirePackage{multicol} % allows for merging multiple columns
+    }
 
 % ========================= User Options
 
@@ -35,6 +38,7 @@
 \DeclareOption{RaggedRight}{%
     \PassOptionsToPackage{document}{ragged2e}
     }
+
 
 \DeclareOption{printGloss}{%
     \PassOptionsToPackage{\CurrentOption}{myReferencePreamble}
@@ -89,7 +93,6 @@
 \RequirePackage[labelfont={bf}, hypcap=false]{caption} % For figure coloration
 \RequirePackage{subcaption} % Subfigures
 
-\RequirePackage{multicol} % allows for merging multiple columns
 % \RequirePackage{array} % used for easy access in working memory
 \RequirePackage[outline]{contour} % Glow around text
     
@@ -168,7 +171,7 @@
 \newcommand{\blue}{\color{blue!80!black}}
 
 
-\renewcommand{\thefootnote}{\arabic{footnote}}
+%\renewcommand{\thefootnote}{\arabic{footnote}}
 
 
 \DeclareCaptionFont{red}{\red}

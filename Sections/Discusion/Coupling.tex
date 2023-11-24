@@ -5,28 +5,100 @@
     \import{../../}{INP-00-glossary}
     }{}
     
+\usepackage[subpreambles = true]{standalone}
+\usepackage{myTikz}
+
 \begin{document}
 
 
+\section{Notation}
 
 
-To couple things (2, 1) 
+Coupling is the foundation of neuronal dynamics, without coupling, the complex networks of the brain could never exist. There exists a vast and near endless number of possible combinations, therefore, the authors of this paper have developed some notation to better get across the ideas in play.
+As the investigations will center around inter-neuron dynamics, this notation will be limited to only the direct application of neuronal dynamics within the paper.
 
-
-
-Coupling is the foundation of neuronal dynamics, without coupling, the complex networks of the brain could never exist. There exist a vast an near endless number of possible combinations, therefore, the authors of this paper have developed some notation to better get across the ideas in play.
-
-\subsection{Notation}
-
-\begin{figure}
+Illustrated in \Cref{fig:notation}, notation will be defined as; \(\langle origin(s), \, reciever(s)\rangle\)
+\begin{figure}[h]
     \centering
     \import{../../Pictures/Anakin}{Notation.tex}
     \caption{Caption}\label{fig:notation}
 \end{figure}
 
 
+\section{Coupling}
+
+To couple things (2, 1).
+
+When deciding to couple neurons it is important to understand what to expect as to better the verify the results obtained. In terms of behaviour, neurons can be classified as:
+
+\textbf{Class I:} Neurons that can be stimulated to fire at arbitrarily low frequency due to saddle-node bifurcations
+
+\textbf{Class II:} Only typically start firing at high frequencies.
+
+Rose and Hindmarsh (1989) demonstrated that many effects of the $I_A$ current could be 
+approximated by making the equation for the recovery variable R quadratic.The 
+equations are to provide a good approximation to the action potentials produce by the human neocortial neurons \cite{Bible1998}: %page 147
+
+\begin{sysEquation}
+    \ode{V} &= -(17.81 + 47.58 + 33.8 V^2)(V-0.48) -26R(V +0.95) + I \\
+    \ode{R} &=  \frac{1}{\tau_R}(-R +1.29V + 0.79 + 0.33(V +0.38)^2)
+\end{sysEquation}
+
+\indent Where C is not written explicitly. Moreover, synaptic coupling can be expressed as \cite{3Neurons} \cite{Bible1998}:
+
+\begin{sysEquation}
+    \ode{f} &= \frac{1}{\tau_R} ( -f + H_{step}(V_{pre} - \Omega))\\
+    \ode{g} &= \frac{1}{\tau_{syn}} ( -f + g)
+\end{sysEquation}
+
+\indent Where $H_{step}$ is the Heaviside step function, g will be the synaptic conductance and $\tau_{syn} $ the synaptic conductance time constant.
+
+This can be applied to a chain of 3 neurons \cite{3Neurons} but the case of more than one neuron connected to others has yet to be studied and that is what this section shall address.
 
 
 
+\section{Meth}
+
+Approaching this system as a diffusion of action potential through 1-dimensional paths, we choose the \(\langle 2,\,1 \rangle\) configuration.
+\begin{figure}
+    \centering
+    \import{../../Pictures/Anakin}{2-1-con.tex}
+    \caption{Caption}\label{fig:2-1-con}
+\end{figure}
+
+The Fickian diffusion law takes the form:
+\begin{equation}
+    \pde{t}{f} = D\,\pde{x}{f}[2]
+\end{equation}
+approaching our neuronal arrangment under the same assumption;
+\begin{align}
+    \pde{t}{N_1} &= \curr_1\,N_1 + \eta_1\pde{x}{N_1}[2] \\
+    \pde{t}{N_2} &= \curr_1\,N_2 + \eta_2\pde{x}{N_2}[2] \\
+    \pde{t}{N_0} &= \br{\pde{t}{N_1}+\pde{t}{N_2}}\,N_0 + \eta_0\pde{x}{N_0}[2] 
+\end{align}
+applying a moving frame of going left to right, in the form of \(z=x-s\,t\) to our system;
+\begin{align}
+    \varphi_0\br{z} &= N_0\br{t,\,x} &&\implies& -s\,\ode[z]{\varphi_0} &= -s\,\br{\ode[z]{\varphi_1}+\ode[z]{\varphi_2}}\,\varphi_0 + \eta_0\ode[z]{\varphi_0}[2] \\
+    \varphi_1\br{z} &= N_1\br{t,\,x} &&\implies& -s\,\ode[z]{\varphi_1} &= \curr_1\,\varphi_1 + \eta_1\ode[z]{\varphi_1}[2] \\
+    \varphi_2\br{z} &= N_2\br{t,\,x} &&\implies& -s\,\ode[z]{\varphi_1} &= \curr_2\,\varphi_1 + \eta_1\ode[z]{\varphi_1}[2] 
+\end{align}
+making substitutions to reduce the order of the functions;
+\begin{align*}
+    \ode[z]{\Phi_0} = \ode[z]{\varphi_0}[2] &\implies \Phi_0 = \ode[z]{\varphi_0} &
+    \ode[z]{\Phi_1} = \ode[z]{\varphi_1}[2] &\implies \Phi_1 = \ode[z]{\varphi_1} &
+    \ode[z]{\Phi_2} = \ode[z]{\varphi_2}[2] &\implies \Phi_2 = \ode[z]{\varphi_2}\\
+    \ode[z]{\varphi_0}[2] &= s\,\br{\cfrac{\br{\Phi_1+\Phi_2}\varphi_0 - \,\Phi_0}{\eta_0}} &
+    \ode[z]{\varphi_1}[2] &= -\cfrac{\curr_1 \varphi_0 + s \,\Phi_1}{\eta_1} &
+    \ode[z]{\varphi_2}[2] &= -\cfrac{\curr_2 \varphi_0 + s \,\Phi_2}{\eta_2} 
+\end{align*}
+more substitutions;
+\begin{align}
+    \ode[z]{\varphi_0} &= {\Phi_0}\br{-s}^{-1} \\
+    \ode[z]{\varphi_1} &= {\Phi_1}\br{-s}^{-1} \\
+    \ode[z]{\varphi_2} &= {\Phi_2}\br{-s}^{-1} \\
+    \ode[z]{\Phi_0} &= s\,\br{\cfrac{\br{\Phi_1+\Phi_2}\varphi_0 - \,\Phi_0}{\eta_0}} \\
+    \ode[z]{\Phi_1} &= -\cfrac{\curr_1 \varphi_0 + s \,\Phi_1}{\eta_1}\\
+    \ode[z]{\Phi_2} &= -\cfrac{\curr_2 \varphi_0 + s \,\Phi_2}{\eta_2}
+\end{align}
 
 \end{document}
