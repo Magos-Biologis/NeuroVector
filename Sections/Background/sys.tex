@@ -26,11 +26,7 @@ The simplest mathematical representation of a neuron is that of the point neuron
     \label{fig:computational_properties}
 \end{figure}
 
-When describing a network level model some kind of middle ground in complexity will have to be reached. The network model include many cells interacting with each other a
-
-What layer of information is of interest of probing?
-A description of neuronal dynamics.
-As can be seen in figure \ref{fig:scale}, the information that is available is different depending on what scale you are operating at.
+When describing a network level model some kind of middle ground in complexity will have to be reached. The network model include many neuronal cells interacting with each other and the interconnection is fundamental in understanding how information flows through the network. In the construction of networks, high-dimensional models are involved. This makes the analysis used in low-dimensional systems, such as the  FritzHugh-Nagumo or HH models, impossible to recreate with today's computer technology cf. figure~\ref{fig:computational_properties} and observe the number of floating point operations per second (\# FLOPS). The aforementioned middle ground will consist of reducing the number of variables, e.g. describing the activity of a large group of neurons using averaged values like mean-field models thereby reducing the number of variables to facilitate a bifurcation analysis and in that way find critical points where the stability of a system changes, leading to abrupt transitions in the system's behavior. These transitions can provide insights into the onset of seizures and their characteristics ~\cite{Burger2017}.
 
 \begin{figure}[H]
     \centering
@@ -55,12 +51,13 @@ The choice between microscopic, macroscopic, or mesoscopic models depends on the
 
 \subsection{Mathematical scaling}
 
+For neural networks scaling up involves increasing the number of neurons interacting and to capture the realism the number of parameters will have to increase as well.
 % Figure \ref{fig:computational_properties} the 
 
 %cf. \cref{fig:sum_spike_neuro} on the summary of different spiking scenarios.
 
 
-For neural networks scaling up involves increasing the number of neurons interacting and to capture the realism the number of parameters will have to increase as well.
+
 
 ...
 
@@ -101,99 +98,98 @@ Lastly, there is the difference between an \gls{gls:autonomous} system, which is
 
 When analysing differential equations \textit{phase space} analysis is an important concept and tool. Phase space is the space spanned by the system's variables and the trajectories it contain are those variables traversing time. When a neuron transitions from rest to firing a qualitative change in the dynamical behavior of the system will occur. A qualitative change can be associated with phenomena such as \textit{bifurcations}, \textit{phase transitions}, emergence of (new) \textit{attractors}, or shifts in stability. 
 
-Bifurcations constitutes critical points where the stability of a system changes, leading to abrupt transitions in the system's behavior. As will be shown these transitions can provide insights into the onset of seizures and their characteristics [link to network analysis section]
+% % Bifurcations constitutes critical points where the stability of a system changes, leading to abrupt transitions in the system's behavior. As will be shown these transitions can provide insights into the onset of seizures and their characteristics [link to network analysis section]
 
 
-Let us consider a simple two-variable system where the variables represent the activity of excitatory and inhibitory neurons. A phase plane for such a system could help visualize the dynamics.
+% Let us consider a simple two-variable system where the variables represent the activity of excitatory and inhibitory neurons. A phase plane for such a system could help visualize the dynamics.
 
-Here is a simple set of differential equations to represent this system:
+% Here is a simple set of differential equations to represent this system:
 %\(P(k)  \sim  k^\gamma\)
 
 
 %\begin{sysEquation}\label{eq:Power-law}
  %   P(k)  \sim  k^\gamma
 %\end{sysEquation}
-dxdt = alpha * (1 - x**2) - beta * y
-dydt = gamma * x - delta * y
+% dxdt = alpha * (1 - x**2) - beta * y
+% dydt = gamma * x - delta * y
 
 %This is a simplified version of the FitzHugh-Nagumo model, commonly used to study excitable systems. Parameters α, β, γ, and 
 %δ control the behavior of the system.
 
-\begin{figure}[H]
-    \centering
-    \includegraphics[width = 0.75\textwidth]{Pictures/Kenni/FitzHugh-Nagumo Phase Plane.png}
-    \caption{Caption}
-    \label{fig:Phase_Plane}
-\end{figure}
+% \begin{figure}[H]
+%     \centering
+%     \includegraphics[width = 0.75\textwidth]{Pictures/Kenni/FitzHugh-Nagumo Phase Plane.png}
+%     \caption{Caption}
+%     \label{fig:Phase_Plane}
+% \end{figure}
 
-Notes:
-- Time delays can be the source of instabilities and bifurcations in \gls{gls:dynSystem}s and are frequently observed in biological systems such as neural networks.
-- with qualitative change in the dynamical behavior of the system we mean 
-- The bifurcation constitutes a 'dividing event' and is associated with modifications to the system parameters such as membrane capacitance and ion channel parameters etc. ~\cite{Stefanescu2012}.
-- The reduced, two dimensional Hodgkin-Huxley model constitutes what is called a relaxation oscillator. Oscillator because solutions oscillate, there is a limit cycle. 
-%Relaxation is because \v at first gradually rises, while \n falls,
-“building up tension” as it were, then all of the sudden the tension is “released”
-when the trajectory shoots over from the left branch of the v-nullcline to its right
-branch. See example 
+% Notes:
+% - Time delays can be the source of instabilities and bifurcations in \gls{gls:dynSystem}s and are frequently observed in biological systems such as neural networks.
+% - with qualitative change in the dynamical behavior of the system we mean 
+% - The bifurcation constitutes a 'dividing event' and is associated with modifications to the system parameters such as membrane capacitance and ion channel parameters etc. ~\cite{Stefanescu2012}.
+% - The reduced, two dimensional Hodgkin-Huxley model constitutes what is called a relaxation oscillator. Oscillator because solutions oscillate, there is a limit cycle. 
+% %Relaxation is because \v at first gradually rises, while \n falls,
+% “building up tension” as it were, then all of the sudden the tension is “released”
+% when the trajectory shoots over from the left branch of the v-nullcline to its right
+% branch. See example 
 
 
-Bifurcations are critical points where the stability of a system changes, leading to abrupt transitions in the system's behavior. These transitions can provide insights into the onset of seizures and their characteristics.
-Identifying bifurcation points in neural systems helps to understand the mechanisms underlying the transition from normal brain activity to a seizure state.
 
-\subsubsection{Dimensionality reduction}
-A neuron model, such as the \gls{hh} model, uses a system of four differential equations
-to simulate a complex network this can quickly amount to an insurmountable task with contemporary computer technology...
+
+% \subsubsection{Dimensionality reduction}
+% A neuron model, such as the \gls{hh} model, uses a system of four differential equations
+% to simulate a complex network this can quickly amount to an insurmountable task with contemporary computer technology...
 % perhaps a note or two about what is actually needed in terms of computational operations and why a reduction in complexity is relevant??
 
 % A Two-Dimensional Reduction of the Classical Hodgkin-Huxley Model --> SEE "An Introduction to Modeling Neuron Dynamics", (978-3-319-51171-9), page 73 in our litterature folder.
 
 
-\subsection*{Modeling Neuronal Networks}
-A complex system can be described by a network or a graph with complex topology, whose nodes are the elements of the system and whose edges represent the interactions among them. `One significant recent discovery in the field of complex networks is the observation that a number of large-scale and complex networks are scale-free, that is, their connectivity distributions have the
-power-law form'~\cite{Wang2002}.
+% \subsection*{Modeling Neuronal Networks}
+% A complex system can be described by a network or a graph with complex topology, whose nodes are the elements of the system and whose edges represent the interactions among them. `One significant recent discovery in the field of complex networks is the observation that a number of large-scale and complex networks are scale-free, that is, their connectivity distributions have the
+% power-law form'~\cite{Wang2002}.
 
-% ...
+% % ...
 
-Self-organized criticality has been proposed as a framework to understand various phenomena in nature ranging from earthquakes, forest fires to neuronal activity in the brain.
-Avalanche Dynamics: In self-organized critical systems, events or disturbances can lead to cascading effects, causing a series of interconnected events or "avalanches." The size distribution of these avalanches often follows a power-law distribution ~\cite{Beggs2004, Plenz2007}.
+% Self-organized criticality has been proposed as a framework to understand various phenomena in nature ranging from earthquakes, forest fires to neuronal activity in the brain.
+% Avalanche Dynamics: In self-organized critical systems, events or disturbances can lead to cascading effects, causing a series of interconnected events or "avalanches." The size distribution of these avalanches often follows a power-law distribution ~\cite{Beggs2004, Plenz2007}.
 
-% ...
+% % ...
 
-The power-law form in connectivity distributions refers to a specific mathematical relationship that characterizes the distribution of connections or links among elements in a network. In a power-law distribution, the probability of a node having k connections (degree) is proportional to k raised to the power of a negative exponent.
+% The power-law form in connectivity distributions refers to a specific mathematical relationship that characterizes the distribution of connections or links among elements in a network. In a power-law distribution, the probability of a node having k connections (degree) is proportional to k raised to the power of a negative exponent.
 
-Mathematically, the power-law distribution is often expressed as:
-\(P(k)  \sim  k^\gamma\)
-\begin{equation}\label{eq:Power-law}
-    P(k)  \sim  k^\gamma
-\end{equation}
+% Mathematically, the power-law distribution is often expressed as:
+% \(P(k)  \sim  k^\gamma\)
+% \begin{equation}\label{eq:Power-law}
+%     P(k)  \sim  k^\gamma
+% \end{equation}
 
-$P(k)$ is the probability that a node has $k$ connections.
-$\gamma$ is the exponent characterizing the power-law distribution.
+% $P(k)$ is the probability that a node has $k$ connections.
+% $\gamma$ is the exponent characterizing the power-law distribution.
 
 
-from the article : "FitzHugh-Nagumo oscillators on complex networks mimic epileptic-seizure-related synchronization phenomena":
+% from the article : "FitzHugh-Nagumo oscillators on complex networks mimic epileptic-seizure-related synchronization phenomena":
 
 % We study patterns of partial synchronization in a network of FitzHugh-Nagumo oscillators with empirical structural connectivity measured in human subjects. We report the spontaneous occurrence of synchronization phenomena that closely resemble the ones seen during epileptic seizures in humans. In order to obtain deeper insights into the interplay between dynamics and network topology, we perform long-term simulations of oscillatory dynamics on different
 % paradigmatic network structures: random networks, regular nonlocally coupled ring networks, ring networks with fractal connectivities, and small-world networks with various rewiring probability. Among these networks, a smallworld network with intermediate rewiring probability best mimics the findings achieved with the simulations using the empirical structural connectivity. For the other network topologies, either no spontaneously occurring epileptic-seizurerelated synchronization phenomena can be observed in the simulated dynamics, or the overall degree of synchronization
 %remains high throughout the simulation. This indicates that a topology with some balance between regularity and randomness favors the self-initiation and self-termination of episodes of seizure-like strong synchronization.
 
-Notes:
-- a smallworld network
-- 
-...
+% Notes:
+% - a smallworld network
+% - 
+% ...
 
 
-When analysing seizures, bifurcation points helps to understand the mechanisms underlying the transition from normal brain activity to a seizure state. The change in parameter can be factors like synaptic strength, excitability of neurons, or network connectivity 
-~\cite{Gerster2020}. 
+% When analysing seizures, bifurcation points helps to understand the mechanisms underlying the transition from normal brain activity to a seizure state. The change in parameter can be factors like synaptic strength, excitability of neurons, or network connectivity 
+% ~\cite{Gerster2020}. 
 
 
     
-\subsubsection{Network connectivity and topology}
+% \subsubsection{Network connectivity and topology}
 
 
-Modeling brain processes can be advantages because of the difficulties  performing certain experiments and it is therefore possible to simulate certain scenarios without the need of conducting large scale exploratory experiments. Aspects like ethical barriers...
+% Modeling brain processes can be advantages because of the difficulties  performing certain experiments and it is therefore possible to simulate certain scenarios without the need of conducting large scale exploratory experiments. Aspects like ethical barriers...
 
-The practical barriers to simulating brain processes are to do with the modeling framework of the particular question of interest together with the computational resources needed to run complex simulations. Fortunately Moore's Law is still holding and with the emergence of AI the modeling framework have been propelled foreword. Large-scale brain simulation projects, like the Human Brain Project\footnote{\url{https://www.humanbrainproject.eu/en/brain-simulation/}}, leverage AI and high-performance computing to simulate the behavior of billions of neurons and their connections.
+% The practical barriers to simulating brain processes are to do with the modeling framework of the particular question of interest together with the computational resources needed to run complex simulations. Fortunately Moore's Law is still holding and with the emergence of AI the modeling framework have been propelled foreword. Large-scale brain simulation projects, like the Human Brain Project\footnote{\url{https://www.humanbrainproject.eu/en/brain-simulation/}}, leverage AI and high-performance computing to simulate the behavior of billions of neurons and their connections.
 
 \end{document}
 
