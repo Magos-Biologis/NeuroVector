@@ -159,36 +159,36 @@
 
 % =========================== Tikz Decos =================================
 
-\pgfdeclaredecoration{Snake}{initial}%
-{%
-    \state{initial}[%switch if less than=+.625\pgfdecorationsegmentlength to final,
-        width=0.\pgfdecorationsegmentlength,
-        next state=down]{
-        \pgfpathmoveto{ \pgfqpoint{0pt} {\pgfdecorationsegmentamplitude}}
-    }
-    \state{down}[switch if less than=+0.625\pgfdecorationsegmentlength~to end down,
-        width=+0.5\pgfdecorationsegmentlength,
-        next state=up]{
-        \pgfpathcosine{\pgfqpoint{0.25\pgfdecorationsegmentlength}{-1\pgfdecorationsegmentamplitude}}
-        \pgfpathsine{\pgfqpoint{0.25\pgfdecorationsegmentlength}{-1\pgfdecorationsegmentamplitude}}
-    }
-    \state{up}[switch if less than=+0.625\pgfdecorationsegmentlength~to end up,
-        width=+0.5\pgfdecorationsegmentlength,
-        next state=down]{
-        \pgfpathcosine{\pgfqpoint{0.25\pgfdecorationsegmentlength}{\pgfdecorationsegmentamplitude}}
-        \pgfpathsine{\pgfqpoint{0.25\pgfdecorationsegmentlength}{\pgfdecorationsegmentamplitude}}
-    }
-    \state{end down}[width=0\pgfdecorationsegmentlength,
-        next state=final]{
-        \pgfpathcosine{\pgfqpoint{0.25\pgfdecorationsegmentlength}{-1\pgfdecorationsegmentamplitude}}
-        \pgfpathsine{\pgfqpoint{0.25\pgfdecorationsegmentlength}{-1\pgfdecorationsegmentamplitude}}
-    }
-    \state{end up}[width=0\pgfdecorationsegmentlength,
-        next state=final]{
-        \pgfpathcosine{\pgfqpoint{0.25\pgfdecorationsegmentlength}{\pgfdecorationsegmentamplitude}}
-        \pgfpathsine{\pgfqpoint{0.25\pgfdecorationsegmentlength}{\pgfdecorationsegmentamplitude}}
-    }
-}
+% \pgfdeclaredecoration{Snake}{initial}%
+% {%
+%     \state{initial}[%switch if less than=+.625\pgfdecorationsegmentlength to final,
+%         width=0.\pgfdecorationsegmentlength,
+%         next state=down]{
+%         \pgfpathmoveto{ \pgfqpoint{0pt} {\pgfdecorationsegmentamplitude}}
+%     }
+%     \state{down}[switch if less than=+0.625\pgfdecorationsegmentlength~to end down,
+%         width=+0.5\pgfdecorationsegmentlength,
+%         next state=up]{
+%         \pgfpathcosine{\pgfqpoint{0.25\pgfdecorationsegmentlength}{-1\pgfdecorationsegmentamplitude}}
+%         \pgfpathsine{\pgfqpoint{0.25\pgfdecorationsegmentlength}{-1\pgfdecorationsegmentamplitude}}
+%     }
+%     \state{up}[switch if less than=+0.625\pgfdecorationsegmentlength~to end up,
+%         width=+0.5\pgfdecorationsegmentlength,
+%         next state=down]{
+%         \pgfpathcosine{\pgfqpoint{0.25\pgfdecorationsegmentlength}{\pgfdecorationsegmentamplitude}}
+%         \pgfpathsine{\pgfqpoint{0.25\pgfdecorationsegmentlength}{\pgfdecorationsegmentamplitude}}
+%     }
+%     \state{end down}[width=0\pgfdecorationsegmentlength,
+%         next state=final]{
+%         \pgfpathcosine{\pgfqpoint{0.25\pgfdecorationsegmentlength}{-1\pgfdecorationsegmentamplitude}}
+%         \pgfpathsine{\pgfqpoint{0.25\pgfdecorationsegmentlength}{-1\pgfdecorationsegmentamplitude}}
+%     }
+%     \state{end up}[width=0\pgfdecorationsegmentlength,
+%         next state=final]{
+%         \pgfpathcosine{\pgfqpoint{0.25\pgfdecorationsegmentlength}{\pgfdecorationsegmentamplitude}}
+%         \pgfpathsine{\pgfqpoint{0.25\pgfdecorationsegmentlength}{\pgfdecorationsegmentamplitude}}
+%     }
+% }
 
 
 \tikzset{
