@@ -7,7 +7,6 @@
 \usepackage{todonotes}
 
 \usepackage[subpreambles=true]{standalone} % Allows for independent subfile constructions
-
 \usepackage{myTikz}
 
 % ============================ Important Files
@@ -22,63 +21,63 @@
 
 %==========================================================
 
-\begin{comment}
-    Quick ref for package commands
+% \begin{comment}
+%     Quick ref for package commands
     
-    Cleverref
-    \cref[⟨options⟩]{⟨reference label⟩}
-    \Cref[⟨options⟩]{⟨reference label⟩}
-    The [options] is not necessary for general usage the \cref command will detect the environment that the label was made in and create the corresponding reference in the text
-    Using \Cref produces the same result but in a  more 'official' style, like fig. 1 vs Figure 1
+%     Cleverref
+%     \cref[⟨options⟩]{⟨reference label⟩}
+%     \Cref[⟨options⟩]{⟨reference label⟩}
+%     The [options] is not necessary for general usage the \cref command will detect the environment that the label was made in and create the corresponding reference in the text
+%     Using \Cref produces the same result but in a  more 'official' style, like fig. 1 vs Figure 1
     
-    Examples of usage;
-    \cref{eq:lmao}
-    \Cref{fig:penishehe}
+%     Examples of usage;
+%     \cref{eq:lmao}
+%     \Cref{fig:penishehe}
     
-    SiUnitx 
-    Any general value with a unit uses the command for both the number and the unit together:
-    \qty[⟨options⟩]{⟨number⟩}{⟨unit⟩}
-    units are simple to input just use \⟨unit abbreviation⟩
+%     SiUnitx 
+%     Any general value with a unit uses the command for both the number and the unit together:
+%     \qty[⟨options⟩]{⟨number⟩}{⟨unit⟩}
+%     units are simple to input just use \⟨unit abbreviation⟩
     
-    One can break up the numbers from the units by using
-    \num[⟨options⟩]{⟨number⟩}
-    \unit[⟨options⟩]{⟨unit⟩}
+%     One can break up the numbers from the units by using
+%     \num[⟨options⟩]{⟨number⟩}
+%     \unit[⟨options⟩]{⟨unit⟩}
     
-    Additionally, angels can be defined with
-    \ang[⟨options⟩]{⟨angle⟩}
+%     Additionally, angels can be defined with
+%     \ang[⟨options⟩]{⟨angle⟩}
     
-    Examples of usage;
-    \qty{.23e7}{\candela} 
-    \qty[mode = text]{1.23}{J.mol^{-1}.K^{-1}}
-    \qty[per-mode = symbol]{1.99}{\per\kilogram}
-    \qty[per-mode = symbol]{1.99}{\per\kg}
-    \qty[per-mode = fraction]{1,345}{\coulomb\per\mole}
+%     Examples of usage;
+%     \qty{.23e7}{\candela} 
+%     \qty[mode = text]{1.23}{J.mol^{-1}.K^{-1}}
+%     \qty[per-mode = symbol]{1.99}{\per\kilogram}
+%     \qty[per-mode = symbol]{1.99}{\per\kg}
+%     \qty[per-mode = fraction]{1,345}{\coulomb\per\mole}
 
-    \qtyrange[⟨options⟩]{⟨number1⟩}{⟨number2⟩}{⟨unit⟩}
+%     \qtyrange[⟨options⟩]{⟨number1⟩}{⟨number2⟩}{⟨unit⟩}
 
-    \qtylist[⟨options⟩]{⟨number1⟩;⟨number2⟩;...}{⟨unit⟩}
+%     \qtylist[⟨options⟩]{⟨number1⟩;⟨number2⟩;...}{⟨unit⟩}
     
-    Glossaries package
-    \gls[<options>]{<label>} 
-    \glspl[<options>]{<label>} 
-    This command prints the term associated with <label> passed as its argument. If the hyperref package was loaded before glossaries it will also be hyperlinked to the entry in glossary.
+%     Glossaries package
+%     \gls[<options>]{<label>} 
+%     \glspl[<options>]{<label>} 
+%     This command prints the term associated with <label> passed as its argument. If the hyperref package was loaded before glossaries it will also be hyperlinked to the entry in glossary.
     
-    The pl addition prints the plural of the defined term, other than that it behaves in the same way as gls.
-    \Gls[<options>]{<label>} 
-    \Glspl[<options>]{<label>} 
+%     The pl addition prints the plural of the defined term, other than that it behaves in the same way as gls.
+%     \Gls[<options>]{<label>} 
+%     \Glspl[<options>]{<label>} 
     
-    These commands are the same as the first two, just that it will print the word capitalized
-    \glssymbol[<options>]{<label>} 
+%     These commands are the same as the first two, just that it will print the word capitalized
+%     \glssymbol[<options>]{<label>} 
     
 
     
-    General Latex commands
-    for citing papers
-    \cite[⟨options⟩]{⟨citation key⟩}
-    for making footnotes
-    \footnote[⟨options⟩]{⟨text⟩}
+%     General Latex commands
+%     for citing papers
+%     \cite[⟨options⟩]{⟨citationkey⟩}
+%     for making footnotes
+%     \footnote[⟨options⟩]{⟨text⟩}
     
-\end{comment}
+% \end{comment}
 
 %==========================================================
 
