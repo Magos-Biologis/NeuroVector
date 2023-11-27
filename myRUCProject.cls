@@ -84,6 +84,7 @@
 \RequirePackage[table, dvipsnames]{xcolor} % allows for more exciting colors
 \RequirePackage{graphicx}       % supplement for the built-in graphics package
 \RequirePackage{adjustbox}      % additional supplement for box adjustments
+\RequirePackage{float}          % Allows for adjustments of floats
     
 
 \RequirePackage{listings}   % For source code with syntax highlighting
