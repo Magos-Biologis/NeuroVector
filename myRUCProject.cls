@@ -9,6 +9,24 @@
 
 \RequirePackage{iftex}      % Allows for if Lua LaTeX commands
 
+
+% ========================= Class tags
+
+\newif\iftag@Bibble@
+\newif\iftag@Glossel@
+
+% ========================= User Options
+
+
+\DeclareOption{printBibble}{% enables bibliography via boolean flag
+    \tag@Bibble@true
+    }
+    
+\DeclareOption{printGloss}{% enables glossary via boolean flag
+    \tag@Glossel@true
+    }
+
+    
 % ========================= Class Basis
 
 
@@ -32,17 +50,12 @@
     \RequirePackage{multicol} % allows for merging multiple columns
     }
 
-% ========================= User Options
-
-
 \DeclareOption{RaggedRight}{%
     \PassOptionsToPackage{document}{ragged2e}
     }
 
 
-\DeclareOption{printGloss}{%
-    \PassOptionsToPackage{\CurrentOption}{myReferencePreamble}
-    }
+
 
 % ========================= no more Options
 
@@ -163,7 +176,7 @@
 \AtBeginEnvironment{table}{%
     \rowcolors{1}{white}{gray!30} % Table row coloration
     \setlength{\arrayrulewidth}{1pt} % Table line widths
-    \setlength{\tabcolsep}{3pt} % Table padding horizontally
+    \setlength{\tabcolsep}{5pt} % Table padding horizontally
     \renewcommand{\arraystretch}{1.5} % Table padding vertically
     \sisetup{per-mode = symbol}
     }
@@ -200,7 +213,7 @@
 \fancyhf{}
 \fancyhead[LO]{\leftmark}
 \fancyhead[RO]{Modeling Project}
-\fancyfoot[CO]{[\thepage]}
+\fancyfoot[CO]{[\thepage{} of \pageref{LastPage}]}
 \renewcommand{\headrulewidth}{2pt}
 \renewcommand{\footrulewidth}{1pt}
 \renewcommand{\footnoterule}{\vfill\kern -3pt \hrule width \textwidth \kern 2.6pt}
@@ -212,6 +225,7 @@
 \emergencystretch=10pt  % Gives more whitespace
 \hyphenpenalty=10000    % Removes hyphanation
 \exhyphenpenalty=100    % Allows for existing hyphans to stay
+
 
 
 % ======================== Custom Headers ================================

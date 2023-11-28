@@ -10,15 +10,19 @@
 
 % ============================ Options =======================================
 
-% \ExecuteOptions{roman}
 
-\DeclareOption{printGloss}{
-    \AtEndDocument{
-        \printbibliography[heading=bibintoc, title={References}]
+\newif\iftag@Bibble@
+\newif\iftag@Glossel@
 
-        \printglossary
+
+\DeclareOption{printBibble}{
+    \tag@Bibble@true
     }
-}
+    
+\DeclareOption{printGloss}{
+    \tag@Glossel@true
+    }
+
 
 % =============== Pre-defined types
 
@@ -28,8 +32,8 @@
     \newglossary*{unit}{Units}[glsunittype]
     \AtEndDocument{
         \printglossary[type = unit]
+        }
     }
-}
 
 
 \DeclareOption{printMath}{
@@ -38,8 +42,8 @@
     \newglossary*{math}{Math}[glsmathtype]
     \AtEndDocument{
         \printglossary[type = math]
+        }
     }
-}
 
 %\DeclareOption*{%
 %    \PackageWarning{References}{You're so stupid for thinking that `\CurrentOption' is possible}%
@@ -80,7 +84,7 @@
     citecolor=[rgb]{0,0.65,0},  %
     pdfdisplaydoctitle = true,  % Displaying the title instead of the filename
     pdfpagemode=FullScreen,     % Opens the pdf in fullscreen
-}
+    }
 
 % Custom cleveref setups
     \crefdefaultlabelformat{#2\ensuremath{\left( \text{\textup{#1}} \right)}#3}
@@ -114,22 +118,33 @@
 
 
 % Uses xparse to create dual command
-\DeclareDocumentCommand{\newDualEntry}{ O{} O{} m m m m } {
+\DeclareDocumentCommand{\newDualEntry}{ O{} O{} m m m m }{%
     \newglossaryentry{gls:#3}{%
         name={#5},%
         text={#5\glsadd{#3}},%
         description={#6},%
         #1 %
-}
+        }
     \makeglossaries
         \newacronym[%
         see={[See glossary entry;]{gls:#3}}, %
         #2 %
-        ]{#3}{#4}{#5\glsadd{gls:#3}}
-}
+        ]{#3}{#4}{#5\glsadd{gls:#3}
+        }
+    }
 
 
+\iftag@Bibble@
+    \AtEndDocument{
+        \printbibliography[heading=bibintoc, title={References}]
+        }
+    \fi
 
+\iftag@Glossel@
+    \AtEndDocument{
+        \printglossary
+        }
+    \fi
 %\newDualEntry[<glossaryoptions>][<acronymoptions>]{<key>}{<short>}{<long>}{<description>}
 
 %\newDualEntry{OWD} % label

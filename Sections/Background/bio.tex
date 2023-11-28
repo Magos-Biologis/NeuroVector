@@ -9,53 +9,68 @@
 \usepackage{myTikz}
 
 
+
+
 \begin{document}
 
-
-\begin{figure}[H]
-  \centering
-  \import{../../Pictures/Anakin}{Neuron.tex}
-  \caption{A simplified representation of a \gls{gls:neuron}[al] cell, with labels for each of the important features. (1) the \gls{gls:soma} of the cell; (2) a \gls{gls:dendrite}; (3) the \gls{gls:axon}; (4) the \gls{gls:ax-hill}; (5) the \gls{gls:ax-terminal}.}\label{fig:Neuron}
-\end{figure}
-
-The human body is composed of a vast number of cells and complex interactions, how could anyone ever expect these meaty lumps we call `\textit{\glspl{gls:person}}' to coordinate properly without an equally complex system for the transfer of information? 
+A cell is the basic unit of life, a collection of matter with the ability to perform all the processes necessary for life, including reproducing itself.
+A multi-cellular organism, like humans, is composed of a number of independent cells maintained by complex interactions. How could anyone ever expect these meaty lumps we call `\textit{\glspl{gls:person}}' to coordinate properly without an equally complex system for the transfer of information? 
 \Glspl{gls:neuron} are information highways made manifest in multi-cellular organisms. 
 There exist many distinct types of \glspl{gls:neuron}, however, the underlying mechanisms of function stay the same.
+%some of the most important ones are listed below:
+Of whether they be common skin cells or neuronal, those relevant to this project include the specialized form that neuronal cells have, as well as the ion channels and pumps that allow for the propagation of \gls{ap}, discussed in \Cref{sec:ap}.
+%the structures of neuronal cells, and the 
+% \subsection{Organelles}
 
-\section{Cellular Structures}
-\subsection{Organelles}
 
-A cell is the basic unit of life, a collection of matter with the ability to perform all the processes necessary for life, including reproducing itself. Surrounded by a membrane, cells consist of various organelles; some of the most important ones are listed below:
 
-\begin{enumerate}
+%\section{Relevant Cellular Structures}
 
-    \item \textbf{The Nucleus} is mainly found in the centre of the cell and is responsible for distinguishing between eukaryotic and prokaryotic cells - existing only in the first ones. It functions as the key factor in the cell's activities, it contains most of the cell's genetic information (DNA), and is where the DNA replication, transcription, and RNA processing all happen \cite{organelleDef}.
-    \item \textbf{The Golgi-Apparatus}, an organelle mostly found in eukaryotic cells, transports, modifies, and packages proteins and lipids into vesicles destined for specific intracellular or extracellular locations \cite{organelleDef}. 
-    \item \textbf{The Ribosomes} exist both in eukaryotic and prokaryotic cells. By translating the genetic information from the RNA, they compose proteins and convert genetic code into chains of amino acids. Most ribosomes are found in the endoplasmic reticulum \cite{organelleDef}.
-    \item \textbf{The Endoplasmic Reticulum (ER)} is a cellular organelle that also plays a crutial role in protein and lipid synthesis. There are two types of ER; the rough and the smooth. Rough ER is composed of ribosommes, giving it its rough texture, and makes proteins. In contrast, smooth ER gets its smooth surface because of the lack of ribosomes and is the part of the ER that makes lipids \cite{organelleDef}.
-    \item \textbf{The Mitochondria} are commonly known as the powerhouse of the cell. They are the cell's main source of energy, which they achieve with respiration; the process where glucose and oxygen turn into carbon dioxide and water, releasing energy. Mitochondia also have their own DNA and ribosomes, explaining why not all the genetic information is found in the nucleus \cite{organelleDef}.
-    \item \textbf{The Lysosome} is where the proteins that are not needed anymore end up. It is covered by a membrane and consists of digestive enzymes. Their role is to break down cell parts, like mitochondria, and eliminate invading viruses and bacteria \cite{lysosomeDef}.
+
+
+% \begin{enumerate}
+
+%     \item \textbf{The Nucleus} is mainly found in the centre of the cell and is responsible for distinguishing between eukaryotic and prokaryotic cells - existing only in the first ones. It functions as the key factor in the cell's activities, it contains most of the cell's genetic information (DNA), and is where the DNA replication, transcription, and RNA processing all happen \cite{organelleDef}.
+%     \item \textbf{The Golgi-Apparatus}, an organelle mostly found in eukaryotic cells, transports, modifies, and packages proteins and lipids into vesicles destined for specific intracellular or extracellular locations \cite{organelleDef}. 
+%     \item \textbf{The Ribosomes} exist both in eukaryotic and prokaryotic cells. By translating the genetic information from the RNA, they compose proteins and convert genetic code into chains of amino acids. Most ribosomes are found in the endoplasmic reticulum \cite{organelleDef}.
+%     \item \textbf{The Endoplasmic Reticulum (ER)} is a cellular organelle that also plays a crutial role in protein and lipid synthesis. There are two types of ER; the rough and the smooth. Rough ER is composed of ribosommes, giving it its rough texture, and makes proteins. In contrast, smooth ER gets its smooth surface because of the lack of ribosomes and is the part of the ER that makes lipids \cite{organelleDef}.
+%     \item \textbf{The Mitochondria} are commonly known as the powerhouse of the cell. They are the cell's main source of energy, which they achieve with respiration; the process where glucose and oxygen turn into carbon dioxide and water, releasing energy. Mitochondia also have their own DNA and ribosomes, explaining why not all the genetic information is found in the nucleus \cite{organelleDef}.
+%     \item \textbf{The Lysosome} is where the proteins that are not needed anymore end up. It is covered by a membrane and consists of digestive enzymes. Their role is to break down cell parts, like mitochondria, and eliminate invading viruses and bacteria \cite{lysosomeDef}.
   
-\end{enumerate}
+% \end{enumerate}
 
-\subsection{Specialized Neuronal Structures}
+\section{Specialized Neuronal Structures}
 There exist a number of important features that are foundational to the specialized functions found in the \glspl{gls:neuron};
+
+\begin{figure}[H]
+    \centering
+    \import{../../Pictures/Anakin}{Neuron.tex}
+    \caption{A simplified representation of a \gls{gls:neuron}[al] cell, with labels for each of the important features. (1) the \gls{gls:soma} of the cell; (2) a \gls{gls:dendrite}; (3) the \gls{gls:axon}; (4) the \gls{gls:ax-hill}; (5) the \gls{gls:ax-terminal}.}\label{fig:Neuron}
+\end{figure}
+
 \begin{enumerate}
-  \item \glslink{gls:soma}{\textbf{The soma}} is the main body of the \gls{gls:neuron}. It is the space in which the nucleus resides, and by extension where protein production occurs. The nucleus can range from \qtyrange{3}{18}{\um} in diameter.
+  \item \glslink{gls:soma}{\textbf{The soma}} is the main body of the \gls{gls:neuron}. It is the space in which the nucleus resides, and by extension where protein production occurs. The nucleus can range from \qtyrange{3}{18}{\um} in diameter \cite{}.
   \item \glslink{gls:dendrite}{\textbf{The dendrites}} of a \gls{gls:neuron} are extensions of the \gls{gls:membrane} with many branches. This overall shape and structure are metaphorically referred to as a `\textit{\gls{gls:denTree}}'.\footnotemark~This is where the majority of \gls{gls:neuron} inputs are received, and carried by the `dendritic spine' down to the \gls{gls:soma}~\cite{}. \footnotetext{Greek root word `\textit{dendron}' meaning tree, translates to `tree tree'.}
-  \item \glslink{gls:axon}{\textbf{The axon}} is a finer tendril that can extend tens, if not tens of thousands of times, the diameter of the \gls{gls:soma} in length. The \gls{gls:axon} primarily carries nerve signals away from the \gls{gls:soma} and carries some types of information back to it. Most \glspl{gls:neuron} have only one \gls{gls:axon}, but this \gls{gls:axon} will be able to undergo significant branching, enabling communication with many target cells. 
+  \item \glslink{gls:axon}{\textbf{The axon}} is a finer tendril that can extend tens, if not tens of thousands of times, the diameter of the \gls{gls:soma} in length. The \gls{gls:axon} primarily carries nerve signals away from the \gls{gls:soma} and carries some types of information back to it. Most \glspl{gls:neuron} have only one \gls{gls:axon}, but this \gls{gls:axon} will be able to undergo significant branching, enabling communication with many target cells \cite{}. 
   \item \glslink{gls:ax-hill}{\textbf{The axon hill-lock}} is the part of the \gls{gls:axon} where it emerges from the \gls{gls:soma}. The region contains the greatest density of voltage-dependent sodium channels. This makes it the most easily excited part of the \gls{gls:neuron}~\cite{}. 
-  \item \glslink{gls:ax-terminal}{\textbf{The axon terminal}} is found at the terminus of the \gls{gls:axon} and contains synapses. 
+  \item \glslink{gls:ax-terminal}{\textbf{The axon terminal}} is found at the terminus of the \gls{gls:axon} and contains synapses \cite{}. 
   \item \glslink{gls:myelin}{\textbf{The myelin sheathe}} is a lipid and protein comprised substance excreted from Schwann cells that `sheathes' the \gls{gls:axon}, creating additional insulation for \gls{gls:capa}~\cite{}.
 \end{enumerate}
 
 
+
+\begin{figure}[H]
+  \centering
+  \import{../../Pictures/Anakin}{Channels.tex}
+  \caption{ $\langle \text{temp} \rangle$ }\label{fig:Channels}
+\end{figure}
+
 \section{The Resting Membrane Potential} 
 A fundamental component of cells is the \gls{gls:membrane}, composed of what is known as a `\gls{gls:bilipid}'.{}\footnote{Latin root word `bi' meaning two, translates to `lipid two-layer'} 
 A \gls{gls:bilipid} creates a strong electrical insulation, which confers it the property of `\gls{gls:capa}'~\cite{}.{}\footnote{The capability of an object to store electrical charge.}
-In a \gls{gls:neuron}, the overall charge in the \gls{gls:incell} space is more negative relative to the \gls{gls:excell} space. This difference in charge at rest is known as the resting \gls{gls:mPote}, and it is essential for the \gls{gls:neuron}['s] ability to transmit electrical signals. 
+In a \gls{gls:neuron}, the overall charge in the \gls{gls:incell} space is more negative relative to the \gls{gls:excell} space. This difference in charge at rest is known as the resting \gls{gls:mPote}, and it is essential for the \gls{gls:neuron}['s] ability to transmit electrical signals \cite{}. 
 
-By convention, membrane potential - or voltage \(\br{\unit{\V\membrane}}\) is the difference between the electric potential of the internal and external faces of the membrane \(\br{\unit{\V\membrane}=\unit{\V\incell}-\unit{\V\excell}}\). In the absence of ongoing electrical activity, this negative potential is termed the resting membrane potential \(\br{V_{rest}}\). The usual resting \gls{gls:mPote} is found to be around \glslink{gls:volt}{\qty{-70}{millivolts\br{\milli\volt}}} in \glspl{gls:neuron}, however, it varies depending on the cell type and conditions~\cite{}. When the membrane potential is less negative than \(V_{rest}\), the membrane is considered to be depolarized. In contrast, when the membrane potential is more negative than \(V_{rest}\), the membrane is said to be \gls{gls:hypol} \cite{Hammond2015ch3}. 
+By convention, membrane potential - \(\br{\unit{\V\membrane}}\) is the difference between the electric potential of the internal and external faces of the membrane \(\br{\unit{\V\membrane}=\unit{\V\incell}-\unit{\V\excell}}\). In the absence of ongoing electrical activity, this negative potential is termed the resting membrane potential \(\br{V_{rest}}\). The usual resting \gls{gls:mPote} is found to be around \glslink{gls:volt}{\qty{-70}{millivolts\br{\milli\volt}}} in \glspl{gls:neuron}, however, it varies depending on the cell type and conditions~\cite{}. When the membrane potential is less negative than \(V_{rest}\), the membrane is considered to be depolarized. In contrast, when the membrane potential is more negative than \(V_{rest}\), the membrane is said to be \gls{gls:hypol} \cite{Hammond2015ch3}. 
 
 The \glspl{gls:ion} found to be involved in the \gls{gls:mPote} include \gls{Na}, \gls{K}, \gls{Cl}, and, to a limited degree, \gls{Ca}. 
 In the \gls{gls:excell} space the concentrations of \gls{Na} and \gls{Cl} are kept much higher than in the cytoplasm of the \gls{gls:incell} space, whereas \gls{K} is found in much higher concentrations in the cytoplasm compared to the \gls{gls:excell} space. During rest, their concentration \glspl{gls:grad} are actively regulated and maintained at constant values by `\glspl{gls:ionPump}', that chemically transport \glspl{gls:ion} across the \gls{gls:membrane}~\cite{}. However, the main contributors to the negative potential of the intracellular side of the memrane are the anions of the intracellular fluid, which are organic molecules such as negatively charged amino acids, proteins, nucleic acids, phosphates, etc., which have a large molecular weight and cannot cross the lipid membrane and thus do not participate directly in electrical signaling in neurons\cite{Hammond2015ch3}. 
@@ -73,11 +88,11 @@ Others are `\gls{gls:lig} gated', meaning that they can be switched between an o
 \end{figure}
 
 
-\subsection{Ions Passively Diffuse Downstream of Their Electrochemical Gradient}
+\subsection{Ions Diffuse Downstream of Their Electrochemical Gradient}
 
 % Passive vs facilitated diffusion
 
-The direction of the passive diffusion of \glspl{gls:ion} through an open channel depends on both the concentration \gls{gls:grad} of the \gls{gls:ion} and the \gls{gls:mPote}. The resultant of these two forces is called the electrochemical \gls{gls:grad}.
+The direction of the diffusion of \glspl{gls:ion} through an open channel depends on both the concentration \gls{gls:grad} of the \gls{gls:ion} and the \gls{gls:mPote}. The resultant of these two forces is called the electrochemical \gls{gls:grad}.
 \begin{align}
     J_m + D\ode{c} =& 0\\
     J_e + \sigma\ode{E} =& 0\\
@@ -89,59 +104,28 @@ The direction of the passive diffusion of \glspl{gls:ion} through an open channe
 For instance, when the \gls{gls:mPote} is null \(\br{\unit{\V\membrane}=\qty{0}{\mV}}\), there is no difference of \gls{gls:Pote} between the two faces of the \gls{gls:membrane}, so the concentration \gls{gls:grad} will be the only factor determining the direction of diffusion for specific \glspl{gls:ion} \cref{sfig:dirA}. 
 Since the concentrations of \gls{Na}, \gls{Ca} and \gls{Cl} in the \gls{gls:excell} fluid are higher, on average, than in the \gls{gls:incell} medium, these \glspl{gls:ion} will diffuse passively towards the \gls{gls:incell} space,\footnote{via \gls{Na}, \gls{Ca} or \gls{Cl} permeable ion channels}~as a result of their concentration \gls{gls:grad}. In contrast, since \gls{K} is a lot more abundant in the intracellular \gls{gls:media}, it will move from the \gls{gls:incell} \gls{gls:media} to the \gls{gls:excell} one when \gls{K} permeable channels are open. 
 
-If we suppose that there is the same concentration of each \gls{gls:ion} in the \gls{gls:excell} and \gls{gls:incell} \glspl{gls:media}, i.e there is no concentration \gls{gls:grad} for any \glspl{gls:ion}, \glspl{gls:ion} will diffuse according to \gls{gls:mPote} only: positive ions (cations) will move towards negative potential, negative ions (anions) will move towards postive \gls{gls:Pote}. At a \gls{gls:mPote} \(\unit{\V\membrane}=\qty{-30}{\mV}\) \cref{sfig:dirB}, positively charged \glspl{gls:ion}, the \glspl{gls:cation} \gls{Na}, \gls{Ca} and \gls{K}, will move from the \gls{gls:excell} \gls{gls:media} to the \gls{gls:incell} one according to \gls{gls:mPote}. In contrast, \glspl{gls:anion} (\gls{Cl}) will move from the \gls{gls:incell} \gls{gls:media} to the \gls{gls:excell} one. 
+If we suppose that there is the same concentration of each \gls{gls:ion} in the \gls{gls:excell} and \gls{gls:incell} \glspl{gls:media}, i.e there is no concentration \gls{gls:grad} for any \glspl{gls:ion}, \glspl{gls:ion} will diffuse according to \gls{gls:mPote} only: positive ions (cations) will move towards negative potential, negative ions (anions) will move towards postive \gls{gls:Pote}. At a \gls{gls:mPote} \(\unit{\V\membrane}=\qty{-30}{\mV}\), positively charged \glspl{gls:ion}, the \glspl{gls:cation} \gls{Na}, \gls{Ca} and \gls{K}, will move from the \gls{gls:excell} \gls{gls:media} to the \gls{gls:incell} one according to \gls{gls:mPote}. In contrast, \glspl{gls:anion} (\gls{Cl}) will move from the \gls{gls:incell} \gls{gls:media} to the \gls{gls:excell} one. 
 
 %In physiological conditions, both the concentration \gls{gls:grad} and \gls{gls:mPote} determine the direction and amplitude of \gls{gls:ion} diffusion through an open channel.
-In physiological conditions, the concentration \gls{gls:grad} is maintained constant for each \gls{gls:ion}, so the direction and amplitude of diffusion mainly varies with \gls{gls:mPote}. When comparing \Cref{sfig:dirA,sfig:dirB} it appears that the concentration \gls{gls:grad} and the \gls{gls:mPote} (at \(\qty{-30}{\mV}\)) drive \gls{Na} and \gls{Ca} \glspl{gls:ion} in the same direction, toward the \gls{gls:incell} \gls{gls:media}, whereas the direction that \gls{K} and \gls{Cl} ions are driven is reversed . The resultant of these two potentials, concentration and \gls{gls:Pote} \glspl{gls:grad}, is the electrochemical \gls{gls:grad}. To know how to express the electrochemical \gls{gls:grad}, the \gls{gls:ePote} must first be explained.
+In physiological conditions, the concentration \gls{gls:grad} is maintained constant for each \gls{gls:ion}, so the direction and amplitude of diffusion mainly varies with \gls{gls:mPote}. 
+%When comparing \Cref{sfig:dirA,sfig:dirB} it appears that the concentration \gls{gls:grad} and the \gls{gls:mPote} (at \(\qty{-30}{\mV}\)) drive \gls{Na} and \gls{Ca} \glspl{gls:ion} in the same direction, toward the \gls{gls:incell} \gls{gls:media}, whereas the direction that \gls{K} and \gls{Cl} ions are driven is reversed . 
+The resultant of these two potentials, concentration and \gls{gls:Pote} \glspl{gls:grad}, is the electrochemical \gls{gls:grad}. To know how to express the electrochemical \gls{gls:grad}, the \gls{gls:ePote} must first be explained.
  
-\begin{figure}[H]
-    \nextfloat
-  \begin{subfigure}[t]{0.45\textwidth}
-    \centering
-    \caption{}\label{sfig:dirA}
-    \includegraphics[height=6cm]{Pictures/Anakin/c.grad.png}
-  \end{subfigure}
-  \hfill
-  \begin{subfigure}[t]{0.45\textwidth}
-    \centering
-    \caption{}\label{sfig:dirB}
-    \includegraphics[height=6cm]{Pictures/Anakin/el.grad.png}
-  \end{subfigure}
-    \caption{Passive diffusion of \glspl{gls:ion}. Passive diffusion of \glspl{gls:ion} according \labelcref{sfig:dirA} their concentration \gls{gls:grad} only, or \labelcref{sfig:dirB} to \gls{gls:membrane} \gls{gls:Pote} (electrical \gls{gls:grad}) only \(\br{\unit{\V\membrane} = \qty{-30}{\mV}}\). From \cite{Hammond2015ch3}}\label{fig:direction} 
-\end{figure}
-
-
-\subsection{Ionic currents}
-The passive diffusion of \glspl{gls:ion} through an open channel implies a movement of charge through a resistance. Current comes from the movement of charge.
-When focusing on a single channel, the current is called `single-channel current' or `unitary current', \(\br{\ucur\ion}\). The amplitude of \(\ucur\ion\) is expressed in ampere \(\br{\unit{\ampere}}\) which are coulombs per seconds \(\br{\unit{\coulomb\per\second}}\). 
-
-In general, currents are expressed following ohm's law: \(\rmm{U}=\rmm{Z}\curr\), where \(\curr\) is the current through a resistance \(\rmm{Z}\) and \(\rmm{U}\) is the difference of \gls{gls:Pote} between the two ends of the resistance. 
-For currents created by \gls{gls:ion}[ic] charge (and not by electrons as in copper wires), \(\curr\) is labeled \(\curr\ion\), the current that passes through the resistance of the channel pore which has a resistance \(\rmm{R}\) \(\br{\res\ion}\). But what is \(\rmm{U}\) in biological systems? 
-\unit{U} is the electrical potential, directing the \glspl{gls:ion} along a particular axis; it is the electrochemical \gls{gls:grad} for the considered \gls{gls:ion} and is also called the driving potential: \(\rmm{U}=(\unit{\V} - \equi\ion)\). According to ohm's law, the current \(\curr\ion\) through a single channel is derived from 
-\begin{equation}
-  \unit{\V} - \equi\ion = r\ion \cdot \curr\ion
-\end{equation}
-So:
-\begin{equation}\label{eq:cur2con}
-  \curr\ion= \frac{1}{r\ion\br{\unit{\V} - \equi\ion}} = \ucon\ion(\unit{\V\membrane} - \equi\ion)
-\end{equation}
-\(\ucon\ion\) The measure of the \glspl{gls:ion} through a single channel, is called the unitary \gls{gls:contan} \(\br{\ucon\ion}\) which is the real part of \gls{gls:admit}. 
-The reciprocal of resistance; it is called the \textit{\gls{gls:admit}}.
-While resistance is expressed in \gls{gls:ohm} \(\br{\unit{\ohm}}\), \gls{gls:admit} is expressed in siemens \(\br{\unit{\siemens}}\). 
-By convention \(\curr\ion\) is negative when it represents an inward \gls{gls:flux} of positive charges (\glspl{gls:cation}) and \(\curr\ion\) is positive when it represents an outward \gls{gls:flux} of positive charges. It is generally of the order of pico-ampere \(\br{\qty{1}{\pico\ampere}=\qty{e-12}{\ampere}}\). At physiological concentrations, \(\ucon\ion\) varies between \(\qtyrange{10}{150}{\pico\siemens}\) dependent on channel type~\cite{Hammond2015ch4}.
-
-\(\curr\ion\) and \(\ucur\ion\) can be measured experimentally. The former is measured current from a patch of \gls{gls:membrane} where only one channel of a given type is present. \(\curr\ion\) is current measured from a whole \gls{gls:membrane} where \(N\) channels of the same type are present. The techniques mainly used for measuring ionic currents in excitable cells are the current clamp and voltage clamp techniques.
-
-\subsubsection{Current clamp}\label{sec:Cclamp}
-
-The current clamp mode is a technique for recording the membrane potential and its changes by injecting current into a cell through the recording electrode.  "Current clamp" implies that the current applied through the electrode is held at a constant value by the experimenter, while the membrane potential is free to vary, and the amplifier records whatever voltage the cell generates on its own or as a result of stimulation. This technique is useful for studying how a cell responds when electric current enters a cell~\cite{Hammond2015ch4}.
-
-\subsubsection{Voltage clamp technique}\label{sec:Vclamp}
- 
-In contrast to the current clamp technique, in voltage clamp mode the cell potential is ``clamped'' at a chosen value while recording changes in ion currents. This allows to measure how much \textit{ionic current} flows through the cell's membrane at any given voltage. This is important because, as will be elaborated in the following sections, many of the ion channels in neuronal membrane are \gls{gls:vgate}[d] ion channels, which open only when the membrane voltage is within a certain range, and the voltage clamp technique allows for control of the variable determining the opening of those channels~\cite{Hammond2015ch4}.
-
-A variation of  voltage clamp technique is the patch clamp technique, which allows to isolate currents from patches of cell membrane or even individual ion channels (unitary currents \(\ucur\ion\))~\cite{Hammond2015ch4}.
-
+% \begin{figure}[H]
+%     \nextfloat
+%   \begin{subfigure}[t]{0.45\textwidth}
+%     \centering
+%     \caption{}\label{sfig:dirA}
+%     \includegraphics[height=6cm]{Pictures/Anakin/c.grad.png}
+%   \end{subfigure}
+%   \hfill
+%   \begin{subfigure}[t]{0.45\textwidth}
+%     \centering
+%     \caption{}\label{sfig:dirB}
+%     \includegraphics[height=6cm]{Pictures/Anakin/el.grad.png}
+%   \end{subfigure}
+%     \caption{Passive diffusion of \glspl{gls:ion}. Passive diffusion of \glspl{gls:ion} according \labelcref{sfig:dirA} their concentration \gls{gls:grad} only, or \labelcref{sfig:dirB} to \gls{gls:membrane} \gls{gls:Pote} (electrical \gls{gls:grad}) only \(\br{\unit{\V\membrane} = \qty{-30}{\mV}}\). From \cite{Hammond2015ch3}.}\label{fig:direction} 
+% \end{figure}
 \subsection{Equilibrium Potential of a Given Ion}
 \begingroup
 \allowdisplaybreaks
@@ -174,7 +158,7 @@ As most of these terms are constants, it is simple to reduce the equation down i
     %\intertext{at this point we're only left with base SI units, so we need to be a little silly, the unit of magnetic \gls{gls:flux} is defined \(\unit{\weber} = \unit{\kilo\gram\square\meter\per\square\second\per\ampere}\), implying through substitution \(\unit{\kilo\gram\square\meter\per\cubic\second\per\ampere} = \unit{\weber\per\second} \):}
     %\equi\ion &= \frac{ \clm{T}\unit{\per\K} }{ z\, \cdot \, \num{11612.515042118}} \cdot \br{\unit{\weber\per\second}} \cdot \,\ln \br{ \frac{ {\ionconc\excell} }{ {\ionconc\incell}} } \\
     %
-    \intertext{a unit describing the rate of change of magnetic charge per second, which is equivalent to a Volt, \(\unit{\weber\per\second} = \unit{\volt} = \unit{\kilo\gram\square\meter\per\cubic\second\per\ampere} \), the combination of units found through deconstruction is the literal base unit definition of a volt:}
+    \intertext{a unit which is equivalent to a Volt, \( \unit{\volt} = \unit{\kilo\gram\square\meter\per\cubic\second\per\ampere} \), the combination of units found through deconstruction is the literal base unit definition of a volt:}
     \equi\ion &= \frac{ \clm{T}\unit{\per\K} }{ z\, \cdot \, \num{11612.515042118}} \cdot \unit{\volt} \cdot \ln \br{ \frac{ {\ionconc\excell} }{ {\ionconc\incell}} }\label{eq:derivedNerst}
     %\equi\ion &= \cfrac{ \(t\) \cdot \,\ln \br{ \cfrac{\ionconc\excell }{ \ionconc\incell} } }{ z\, \cdot \, \num{11612.515042118}} \cdot \unit{\volt} \cdot \qty{1000}{\milli\volt\per\volt} \\
     %\equi\ion &= \cfrac{ \(t\) \cdot \,\ln \br{ \cfrac{\ionconc\excell }{ \ionconc\incell} } }{ z\, \cdot \, 1 \, 160} \ \unit{\milli\volt}
@@ -189,7 +173,7 @@ With minor adjustments to \cref{eq:derivedNerst}, the now derived form of \cref{
   \equi\ion = \cfrac{\clm{T}\unit{\per\K}}{ z } \, \cdot \, \ln \br{ \frac{ {\ionconc\excell} }{ {\ionconc\incell}} } \cdot \num{11.612515042}^{-1} \ \unit{\milli\volt} \tag{\ref*{eq:mVions}}
 \end{equation}
 
-Plugging the relative concentrations, measured in millimols \br{\unit{\milli\mol}}, of each \gls{gls:ion} into \cref{eq:mVions}, as well as choosing an arbitrary temperature, such as human body temperature \(\approx\) \qty{37}{\degreeCelsius} \(\br{\sbr{\num{37} + \num{273.15}}\unit{\glssymbol{gls:kelvin}}}\),
+Plugging the relative concentrations, measured in millimoles \br{\unit{\milli\mol}}, of each \gls{gls:ion} into \cref{eq:mVions}, as well as choosing an arbitrary temperature, such as human body temperature \(\approx\) \qty{37}{\degreeCelsius} \(\br{\sbr{\num{37} + \num{273.15}}\unit{\glssymbol{gls:kelvin}}}\),
 using the relevant \(\ionconc\),
 the \glspl{gls:ePote} follow:
 \begin{minipage}{.48\textwidth}
@@ -215,23 +199,51 @@ the \glspl{gls:ePote} follow:
 
 \end{subequations}
 
-% These equations can be interpreted such that when
-% \gls{K} channels open in the \gls{gls:membrane}, the efflux of \gls{K} \glspl{gls:ion} will hyper-polarize the \gls{gls:membrane} until \(\unit{\V\membrane} = \equi\potassium \approx \qty{-97}{\mV}\), at which point the net \gls{gls:flux} of \gls{K} is null being that \gls{K} \glspl{gls:ion} have exactly the same \gls{gls:Pote} to move towards the \gls{gls:excell} space as the \gls{gls:incell} space. 
-% The efflux of \gls{K} will be exactly compensated by the influx of \gls{K} and the \gls{gls:mPote} will stabilize at \(\equi\potassium\) for as long as the \gls{K} channels stay open. 
-% Assuming only \gls{Na} channels are open, the \gls{gls:mPote} will move toward \(\unit{\V\membrane} = \qty{58}{\mV}\), the \gls{gls:Pote} at which the net \gls{gls:flux} of \gls{Na} is null. 
-% Similarly, when \(\unit{\V\membrane} = \equi\chlorine \approx \qty{-59}{\mV}\), 
-% %\gls{Cl} \glspl{gls:ion} have the tendency to move down their concentration \gls{gls:grad} than to move in the reverse direction according to \gls{gls:mPote}, 
-% the net \gls{gls:flux} of \gls{Cl} is null. 
-% By extension, should \(\unit{\V\membrane} \neq \equi\potassium\), the net \gls{gls:flux} of \gls{K} will no longer be null. 
-% This holds true for all \glspl{gls:ion}: when \(\unit{\V\membrane} \neq \equi\ion\) there is a net \gls{gls:flux} of the \gls{gls:ion}~\cite{Hammond2015ch4}. The difference \(\br{\unit{\V\membrane} - \equi\ion}\) is called the electrochemical \gls{gls:grad}. It is the force that makes the \glspl{gls:ion} move through an open channel.
-
-
-%The membrane potential never gets as high as vNa, therefore sodium will ﬂow into the cell whenever sodium channels are open. 
-
 \endgroup
 
+
+
+\subsection{Ionic currents}
+The passive diffusion of \glspl{gls:ion} through an open channel implies a movement of charge through a resistance. Current comes from the movement of charge.
+When focusing on a single channel, the current is called `single-channel current' or `unitary current', \(\br{\ucur\ion}\). The amplitude of \(\ucur\ion\) is expressed in ampere \(\br{\unit{\ampere}}\) which are coulombs per seconds \(\br{\unit{\coulomb\per\second}}\). 
+
+In general, currents are expressed following Ohm's law: \(\rmm{U}=\rmm{Z}\curr\), where \(\curr\) is the current through a resistance \(\rmm{Z}\) and \(\rmm{U}\) is the difference of \gls{gls:Pote} between the two ends of the resistance. 
+For currents created by \gls{gls:ion}[ic] charge (and not by electrons as in copper wires), \(\curr\) is labeled \(\curr\ion\), the current that passes through the resistance of the channel pore which has a resistance \(\rmm{R}\) \(\br{\res\ion}\). 
+%
+But what is \(\rmm{U}\) in biological systems? 
+%
+\unit{U} is the electrical potential, directing the \glspl{gls:ion} along a particular axis; it is the electrochemical \gls{gls:grad} for the considered \gls{gls:ion} and is also called the driving potential: \(\rmm{U}=(\unit{\V} - \equi\ion)\). According to ohm's law, the current \(\curr\ion\) through a single channel is derived from 
+\begin{equation}
+  \unit{\V} - \equi\ion = r\ion \cdot \curr\ion
+\end{equation}
+So:
+\begin{equation}\label{eq:cur2con}
+  \curr\ion= \frac{1}{r\ion\br{\unit{\V} - \equi\ion}} = \ucon\ion(\unit{\V\membrane} - \equi\ion)
+\end{equation}
+\(\ucon\ion\) The measure of the \glspl{gls:ion} through a single channel, is called the unitary \gls{gls:contan} \(\br{\ucon\ion}\) which is the real part of \gls{gls:admit}. 
+The reciprocal of resistance; it is called the \textit{\gls{gls:admit}}.
+While resistance is expressed in \gls{gls:ohm} \(\br{\unit{\ohm}}\), \gls{gls:admit} is expressed in siemens \(\br{\unit{\siemens}}\).\footnote{\Gls{gls:admit} can also be expressed in `mho' whih is inverse ohm, \(\unit{\ohm}^{-1} = \unit{\mho}\)}~
+By convention \(\curr\ion\) is negative when it represents an inward \gls{gls:flux} of positive charges (\glspl{gls:cation}) and \(\curr\ion\) is positive when it represents an outward \gls{gls:flux} of positive charges. It is generally of the order of pico-ampere \(\br{\qty{1}{\pico\ampere}=\qty{e-12}{\ampere}}\). At physiological concentrations, \(\ucon\ion\) varies between \(\qtyrange{10}{150}{\pico\siemens}\) dependent on channel type~\cite{Hammond2015ch4}.
+
+\(\curr\ion\) and \(\ucur\ion\) can be measured experimentally. The former is measured current from a patch of \gls{gls:membrane} where only one channel of a given type is present. \(\curr\ion\) is current measured from a whole \gls{gls:membrane} where \(N\) channels of the same type are present. The techniques mainly used for measuring ionic currents in excitable cells are the current clamp and voltage clamp techniques.
+
+\subsubsection{Current clamp}\label{sec:Cclamp}
+
+The current clamp mode is a technique for recording the membrane potential and its changes by injecting current into a cell through the recording electrode.  "Current clamp" implies that the current applied through the electrode is held at a constant value for the experiment, while the membrane potential is free to vary~\cite{Hammond2015ch4}. The amplifier records whatever voltage the cell generates on its own or as a result of stimulation. 
+This technique is useful for studying how a cell responds when electric current enters a cell~\cite{Hammond2015ch4}.
+
+\subsubsection{Voltage clamp technique}\label{sec:Vclamp}
+ 
+In contrast to the current clamp technique, in voltage clamp mode the cell potential is `clamped' at a chosen value while recording changes in ion currents~\cite{Hammond2015ch4}. 
+This allows to measure how much \textit{ionic current} is flowing through the cell's membrane at any given voltage. 
+This is important because, as will be elaborated in \Cref{sec:depol}, many of the ion channels in neuronal membrane are \gls{gls:vgate}[d] ion channels, which open only when the membrane voltage is within a certain range, and the voltage clamp technique allows for control of the variable determining the opening of those channels~\cite{Hammond2015ch4}.
+
+A variation of  voltage clamp technique is the patch clamp technique, which allows to isolate currents from patches of cell membrane or even individual ion channels~\cite{Hammond2015ch4}.%(unitary currents \(\ucur\ion\))
+
 \section{Action Potential}\label{sec:ap}
-Functionally all eukaryotic \glspl{gls:membrane} maintain a difference in voltage between the \gls{gls:excell} and \gls{gls:incell} space, this difference is called the `\gls{gls:mPote}'. The expected \gls{gls:mPote} in human cells is \glslink{gls:volt}{\qty{-70}{\milli\volt}}~\cite{}.
+This \glspl{gls:membrane} is maintained, to varying degrees, in all cellular organisms. 
+%\gls{gls:excell} and \gls{gls:incell} space, this difference is called the `\gls{gls:mPote}'. 
+The expected \gls{gls:mPote} in human cells is \glslink{gls:volt}{\qty{-70}{\milli\volt}}~\cite{Hammond2015ch4}.
 \gls{ap} is the measure of the \gls{gls:Pote} that causes action.
 
 An \gls{ap} occurs when the \gls{gls:Pote} of an excitable cell's \gls{gls:membrane} rapidly rises and falls. This \gls{gls:depol} then causes adjacent regions to similarly `depolarize', creating a chain reaction in the form of a `wavelet'.
@@ -239,11 +251,6 @@ The voltage fluctuations take the form of a rapid upward spike followed by a rap
 
 %``All-or-none'' principle
 
-\begin{figure}[H]
-  \centering
-  \import{../../Pictures/Anakin}{Channels.tex}
-  \caption{ $\langle \text{temp} \rangle$ }\label{fig:Channels}
-\end{figure}
 
 \begin{comment}
   Each excitable patch of \gls{gls:membrane} has two important levels of \gls{gls:mPote}: the resting potential, which is the value the \gls{gls:mPote} maintains as long as nothing perturbs the cell, and a higher value called the \gls{gls:tPote}. At the axon hillock of a typical \gls{gls:neuron}, the resting \gls{gls:Pote} is around –70 millivolts (mV) and the threshold \gls{gls:Pote} is around –55 mV. Synaptic inputs to a \gls{gls:neuron} cause the \gls{gls:membrane} to depolarize or hyperpolarize; that is, they cause the \gls{gls:mPote} to rise or fall. \glspl{ap} are triggered when enough \gls{gls:depol} accumulates to bring the \gls{gls:mPote} up to threshold. When an \gls{ap} is triggered, the \gls{gls:mPote} abruptly shoots upward and then equally abruptly shoots back downward, often ending below the resting level, where it remains for some period of time. The shape of the \gls{ap} is stereotyped; this means that the rise and fall usually have approximately the same amplitude and time course for all \glspl{ap} in a given cell. (Exceptions are discussed later in the article). In most \glspl{gls:neuron}, the entire process takes place in about a thousandth of a second. Many types of \glspl{gls:neuron} emit \glspl{ap} constantly at rates of up to 10–100 per second. However, some types are much quieter, and may go for minutes or longer without emitting any \glspl{ap}.
@@ -259,35 +266,36 @@ The voltage fluctuations take the form of a rapid upward spike followed by a rap
 The \gls{ap} is a sudden and rapid \gls{gls:depol} of the \gls{gls:membrane} as a result of positive inward \gls{gls:flux} of current through the \gls{gls:axon}. In \gls{gls:neuron}[al] \glspl{gls:soma} and \glspl{gls:axon}, these currents are most commonly propogated by \gls{Na} \glspl{gls:cation}.{}\footnote{A positively charged \gls{gls:ion}, no relation to \textit{Felis Catus}}
 
 The \gls{gls:ion}[ic] basis for \gls{gls:neuron}[al] excitation was first described in the giant squid axon by Hodgkin \& Huxley \br{1952} using the voltage clamp technique~\cite{HodHux1952}. They observed a key phenomenon, that the \gls{ap} is underlied by two separate voltage-dependent currents: an early transient inward \gls{Na} current which depolarizes the \gls{gls:membrane}, and a delayed outward \gls{K} current largely responsible for \gls{gls:repol}. 
-The resulting voltage waveform takes the shape of a rapid upward spike followed by a rapid inactivation that hyperpolarizes the \gls{gls:membrane} before returning to the resting \gls{gls:mPote} \Cref{fig:AP}.
+The resulting voltage waveform takes the shape of a rapid upward spike followed by a rapid inactivation that hyperpolarizes the \gls{gls:membrane} before returning to the resting \gls{gls:mPote} (see \Cref{fig:AP}) \cite{}.
 
 Up to a threshold level of \gls{gls:membrane} \gls{gls:depol} (called the \gls{gls:tPote}), only passive ohmic response can be recorded, when the \gls{gls:membrane} is depolarized just above the threshold, an \gls{ap} is evoked. 
-Increasing the intensity of the stimulating current pulse does not increase the amplitude of the \gls{ap}, the \gls{ap} is all or none. 
+Increasing the intensity of the stimulating current pulse does not increase the amplitude of the \gls{ap}, the \gls{ap} is all or none \cite{}. 
 \begin{figure}[H]
   \centering
   \includegraphics[width=0.5\linewidth]{Pictures//Anakin/AP.png}
   \caption{The action potential spike, indicating the different phases.}\label{fig:AP}
 \end{figure}
 
-\subsubsection{Depolarization of the membrane potential}
+
+\subsubsection{Depolarization of the membrane potential}\label{sec:depol}
 %\subsubsection{The \gls{gls:depol} phase of \gls{Na}[-dependent] \gls{ap} results from the transient entry of \gls{Na} \glspl{gls:ion} through \gls{gls:vgate}[d] \gls{Na} channels.}
-The threshold for initiation of \gls{Na}[-dependent] action \gls{gls:Pote} is due to \gls{gls:vgate}[d] \gls{Na} channels only opening in response to a \gls{gls:depol} of \qtyrange{-50}{-40}{\mV}, hence the classification `\gls{gls:vgate}[d]'. 
+The threshold for initiation of \gls{Na}[-dependent] action \gls{gls:Pote} is due to \gls{gls:vgate}[d] \gls{Na} channels only opening in response to a \gls{gls:depol} of \qtyrange{-50}{-40}{\mV}, hence the classification `\gls{gls:vgate}[d]' \cite{}. 
 
 In response to \gls{gls:depol} passing the \gls{gls:tPote}, closed \gls{Na} channels of the axon segment begin to open. The \gls{gls:flux} of \gls{Na} \glspl{gls:ion} through the open \gls{Na} channels depolarize the \gls{gls:membrane} more, triggering the opening of additional \gls{Na} channels. 
 Consequentially, the \gls{gls:flux} of \gls{Na} \glspl{gls:ion} increases, causing further \gls{gls:depol} of the \gls{gls:membrane}, cascading until all \gls{Na} channels in the segment have opened. 
-This coincides with the \gls{gls:depol} phase reaching its peak. 
+This coincides with the \gls{gls:depol} phase reaching its peak \cite{}. 
 
 {}\gls{Na} channels are opened by \gls{gls:depol} and once opened, they reinforce the \gls{gls:membrane} \gls{gls:depol} and therefore their own activation: a self-maintained process,\footnotemark~which is why the \gls{Na}[-dependent] \gls{ap} is all or none.\footnotetext{Also commonly refered to as a `positive feedback cycle'.}
 Once initiated, the \gls{ap} propagates along an axon without decaying in amplitude, at rates ranging between \qtyrange{1}{100}{\meter\per\s}. 
 This propagation proceeds without \gls{gls:attenuation} due to the density of \gls{gls:vgate}[d] \gls{Na} channels remains constant along the axon; as well due to the presence of insulating \glspl{gls:myelin}. 
 Once the channels become inactive, they may not reopen, ensuring that \gls{ap} only propagates forward. 
 %originaltextend
-The time during which the \gls{Na} channel stays open is the mean open time, denoted \(\tau_o\).\footnote{The letter  `o', not the number `0'}
+The time during which the \gls{Na} channel stays open is the mean open time, denoted \(\tau_o\) \cite{}.\footnote{The letter  `o', not the number `0'}
 %The functional significance of this value is the following: during a time equal to \(\tau_o\) the channel has a high probability of staying open. 
 
-The \unit[per-mode = symbol]{\ucur\sodium\per\V} relation is obtained by plotting the amplitude of the unitary current \(\br{\ucur\sodium}\) versus \gls{gls:mPote} \(\br{\unit{\V\membrane}}\). This relation is linear between \qtyrange{-50}{0}{\mV}. For \glspl{gls:mPote} \gls{gls:hypol} beyond \qty{-50}{\mV}, \(\ucur\sodium\) will have close to no value. As illustrated by \cref{eq:Na}, the \gls{Na} channel has a reduced strength of gradient, drastically lowering probability of opening.\footnote{Quantitative data for \glspl{gls:mPote} more depolarized than \qty{0}{\mV} is, \emph{bizarrely}, lacking.}
+The \unit[per-mode = symbol]{\ucur\sodium\per\V} relation is obtained by plotting the amplitude of the unitary current \(\br{\ucur\sodium}\) versus \gls{gls:mPote} \(\br{\unit{\V\membrane}}\). This relation is linear between \qtyrange{-50}{0}{\mV}. For \glspl{gls:mPote} \gls{gls:hypol} beyond \qty{-50}{\mV}, \(\ucur\sodium\) will have close to no value. As illustrated by \cref{eq:Na}, the \gls{Na} channel has a reduced strength of gradient, drastically lowering the probability of opening \cite{}.\footnote{Quantitative data for \glspl{gls:mPote} more depolarized than \qty{0}{\mV} is, \emph{bizarrely}, lacking.}
 
-When the activity of a single \gls{Na} channel is recorded at different test \glspl{gls:Pote}, it was observed that the amplitude of the inward unitary current \(\br{\ucur\sodium}\) diminishes proportionately with the state of \gls{gls:membrane} \gls{gls:depol}~\cite{Hammond2015ch4}. 
+%When the activity of a single \gls{Na} channel is recorded at different test \glspl{gls:Pote}, it was observed that the amplitude of the inward unitary current \(\br{\ucur\sodium}\) diminishes proportionately with the state of \gls{gls:membrane} \gls{gls:depol}~\cite{Hammond2015ch4}. 
 The critical point of the current/voltage relation is the \gls{gls:mPote} for which the current is zero; i.e. the \gls{gls:rPote} of the current \(\br{\equi\reverse}\). 
 Because exclusively \gls{Na} \glspl{gls:ion} flow through \gls{Na} channels, the \gls{gls:rPote} is equal to \(\equi\sodium\). 
 From \qty{-50}{\mV} to \(\equi\reverse\), \(\ucur\sodium\) is inward and its amplitude decreases. This results from the decrease of the \gls{Na} driving potential \(\br{\unit{\V\membrane}-\equi\sodium}\) as the \gls{gls:membrane} approaches the \gls{gls:rPote} for \gls{Na} \glspl{gls:ion}. 
@@ -295,12 +303,12 @@ For \glspl{gls:membrane} \gls{gls:depol} greater than \(\equi\reverse\), \(\ucur
 
 The relation \unit[per-mode = symbol]{\ucur\sodium\per\V} is \gls{gls:linear}[ly] described by the equation \(\ucur\sodium = \ucon\sodium \br{\unit{\V\membrane}-\equi\sodium}\), where \unit{\V\membrane} is the test potential, \(\equi\sodium\) is the \gls{gls:rPote} of the \gls{Na} current, and \(\ucon\sodium\) is the \gls{gls:admit} of a single \gls{Na} channel (unitary \gls{gls:admit}). The value of \(\ucon\sodium\) is given by the slope of the linear \unit[per-mode = symbol]{\ucur\sodium\per\V} curve. It has a constant value at any given \gls{gls:mPote}. This value varies between \qtyrange{5}{18}{\pico\siemens} depending on the preparation.
 
-\begin{figure}[H]
-  \centering
-  \includegraphics[width=0.5\linewidth]{Pictures//Anakin/iNa-VNa.png}
-  \caption{The single-channel current/voltage \br{\unit[per-mode = symbol]{\ucur\sodium\per\volt}} relation is linear. Adapted from Stühmer W, Methfessel C, Sakmann bet al. (1987) patch clamp characterization of sodium channels expressed from rat brain cdNA. Eur. Biophys. J.14, 131–13 }
-  \label{fig:NaVNa}
-\end{figure}
+% \begin{figure}[H]
+%   \centering
+%   \includegraphics[width=0.5\linewidth]{Pictures//Anakin/iNa-VNa.png}
+%   \caption{The single-channel current/voltage \br{\unit[per-mode = symbol]{\ucur\sodium\per\volt}} relation is linear. Adapted from Stühmer W, Methfessel C, Sakmann bet al. (1987) patch clamp characterization of sodium channels expressed from rat brain cdNA. Eur. Biophys. J.14, 131–13 }
+%   \label{fig:NaVNa}
+% \end{figure}
 
 The probability of \gls{gls:vgate}[d] \gls{Na} channels opening is dependent on voltage and time. 
 During cell recordings of \gls{Na} channels, observations showing that when the \gls{gls:mPote} depolarizes, the probability of the \gls{Na} channel being in the open state increases proportional to \gls{gls:depol} until reaching a maximal level~\cite{Hammond2015ch4}. 
@@ -338,7 +346,7 @@ Subsequently, the relation of the macroscopic \gls{Na} current \(\curr\sodium\) 
 \begin{figure}[H]
   \centering
   \includegraphics[width=0.5\textwidth]{Pictures//Anakin/I-V.bell.png}
-  \caption{The \(\curr\sodium/\unit{\V}\) relation has a bell shape. (From Chiu Sy, ritchie JM, bogart rb, Stagg d (1979) A quantitative description of \gls{gls:membrane} currents from a rabbit myelinated nerve. J. Physiol.292, 149–166)}\label{fig:IVdist}
+  \caption{The \(\curr\sodium/\unit{\V}\) relation has a bell shape. (From Chiu Sy, ritchie JM, bogart rb, Stagg d (1979) A quantitative description of \gls{gls:membrane} currents from a rabbit myelinated nerve J. Physiol.292, 149–166)}\label{fig:IVdist.}
 \end{figure}
  
 For small steps, the peak amplitude of current is small, \(\br{\qty{0.2}{\nano\ampere}}\), and has a low peaking rate \(\br{\qty{1}{\milli\second}}\)~\cite{Hammond2015ch4}. At these \glspl{gls:Pote}, the \gls{Na} driving potential is strong but the \gls{Na} channels have a low probability of opening. Therefore, \(\curr\sodium\) is small since it represents the current through a small number of open \gls{Na} channels. 
@@ -350,92 +358,7 @@ Therefore, though the amplitude of \(\ucur\sodium\) decreases by \qtyrange{-63}{
 After the peak, the amplitude of \(\curr\sodium\) decreases to zero, past the peak the probability of opening is no longer enough to compensate for the decrease of \(\ucur\sodium\). 
 The \gls{gls:rPote} of \(\curr\sodium\) is the same as that of \(\ucur\sodium\), depending only on the \gls{gls:excell} and \gls{gls:incell} concentrations of \gls{Na} \glspl{gls:ion}.
 
-%\(\curr\sodium\) changes polarity for \unit{\V\membrane} more depolarized than Erev: it is now an outward current whose amplitude increases with the \gls{gls:depol} 
-
-\subsubsection{Activation and inactivation curves}
-The `activation rate' is the rate at which macroscopic current flows in response to a \gls{gls:depol} step. 
-The \gls{Na} current is recorded in voltage clamp mode~\cite{Hammond2015ch4}.
-\footnote{see \Cref{sec:Vclamp}}~Depolarizing steps from \qtyrange{-70}{20}{\mV} are applied from a holding \gls{gls:Pote} of \qty{-80}{\mV}. When the ratio of the peak current at each test \gls{gls:Pote} is compared against the maximal peak current \(\br{\curr\sodium/\curr\sodium{\,}_{max}}\); the activation curve of \(\curr\sodium\) can be visualized \cref{fig:actinact}. 
-%The distribution is fitted, unsurprisingly, by a sigmoidal curve consistent with logistic growth. 
-%In this preparation, the ceiling of \gls{Na} channel activation was measured at \qty{-60}{\mV}. Yet, already at \qty{-40}{\mV}, \(\curr\sodium\) reaches a peak, \(\curr\sodium/\curr\sodium{\,}_{max} = 1\). 
-This steepness of activation is characteristic of \gls{gls:vgate}[d] \gls{Na} channels. 
-
-An `inactivation rate', comes as a result of a current decaying during a maintained \gls{gls:depol}. 
-%To study inactivation, the \gls{gls:membrane} is held at varying \glspl{gls:Pote} and a fixed \gls{gls:depol} value is applied where \(\curr\sodium\) is maximal (\qty{0}{\mV}, for example). 
-The amplitude of \gls{Na} current plotted against the holding \gls{gls:Pote}, shows that \(\curr\sodium\) begins to inactivate at \qty{-90}{\mV} and is fully inactivated at \qty{-50}{\mV}~\cite{Hammond2015ch4}. 
-%Taking account that the resting \gls{gls:mPote} in this preparation is around \qty{-80}{\mV}, some of the \gls{Na} channels are already inactivated at rest. 
-\begin{figure}[H]
-  \centering
-  \includegraphics[width=0.5\linewidth]{Pictures//Anakin/activ-inactiv.png}
-  %\caption{Activation (right curve) and inactivation (left curve) curves obtained from nine different experiments. The voltage protocols used are shown in insets. In the ordinates, I/Imax represents the ratio of the peak \gls{Na} current (I) recorded at the tested \gls{gls:Pote} of the abscissae and the maximal peak \gls{Na} current (Imax) recorded in this experiment. (From Chiu Sy, ritchie JM, bogart rb, Stagg d (1979) A quantitative description of \gls{gls:membrane} currents from a rabbit myelinated nerve. J. Physiol.292, 149–166) }\label{fig:actinact}
-  \caption{}\label{fig:actinact}
-\end{figure}
-
-\subsection{Repolarization the membrane potential}
-%\subsection{The \gls{gls:repol} phase of the \gls{Na}[-dependent] \gls{ap} results from \gls{Na} channel inactivation and partly from \gls{K} channel activation}
-
-The \gls{gls:repol} phase of the \gls{Na}[-dependent] \gls{ap} results from \gls{Na} channel inactivation and partly from \gls{K} channel activation. The \gls{gls:vgate}[d] channels that participate in \gls{gls:membrane} \gls{gls:repol} are so called `delayed rectifiers', which activate after a delay following the \gls{gls:membrane} \gls{gls:depol} and have a low inactivate rate~\cite{Hammond2015ch4}. The function of delayed rectifier channels is the transduction of \gls{gls:membrane} \gls{gls:depol} into an outward \gls{gls:flux} of \gls{K} \glspl{gls:ion}. 
-
-% The gating behavior of the delayed rectifier channel is different from that of the \gls{Na} channel. Whereas all four voltage-sensitive domains in \gls{K} channels must be activated in order for pore opening to occur, \gls{Na} channel pore opening requires activation of only three voltage-sensitive domains. 
-% Thus, part of the difference in activation speed between \gls{Na} and \gls{K} channels may be due to the lesser number of voltage-sensitive domains required to move in \gls{Na} channels.
-
-The mean open time, \(\tau_o\), measured in the clamped patch is \qty{4.6}{\ms}. While the mean closed time, \(\tau_c\), is \qty{1.5}{\ms}, illustrated by \Cref{fig:Kchannel}. As seen in the figure, during a \gls{gls:depol} to \qty{0}{\mV} the delayed rectifier channels spend a greater time in the open state, compared to the closed state: at \qty{0}{\mV} the average probability of channels being open is relatively high \(\br{p_o = 0.76}\)~\cite{Hammond2015ch4}.
-% In order to test whether the delayed rectifier channels show some inactivation, long-lasting recordings are performed. 
-% Though no significant inactivation is apparent during test pulses in the range of seconds, during long test \glspl{gls:depol} (in the range of minutes) the channel shows steady-state inactivation at positive holding \glspl{gls:Pote} (not shown). 
-% Therefore, in the range of seconds, the inactivation of the delayed rectifier channel can be omitted: the channel fluctuates between the closed and open states:
-% \[C\rightleftharpoons O\]
-% The transition from the closed (C) state to the open (O) state is triggered by \gls{gls:membrane} \gls{gls:depol} with a delay. 
-Delayed rectifiers activate over the range of milliseconds. By contrast, the \gls{Na} channels activate in a range of sub-milliseconds. 
-During \gls{gls:membrane} \gls{gls:depol} and \gls{gls:repol}, the \gls{Na} channels will frequently transition between \gls{o} and \gls{c} states. 
-\begin{figure}[H]
-    \centering
-    \includegraphics[width=0.8\linewidth]{Pictures//Anakin/Kchannel.png}
-    %\caption{Single \gls{K} channel openings in response to a depolarizing step. The activity of a single delayed rectifier channel expressed from rat brain is recorded in patch clamp (inside-out patch). A depolarizing step to \qty{0}{\mV} from a holding \gls{gls:Pote} of \qty{-60}{\mV}(a) evokes the opening of the channel (b). The elementary current is outward. The channel then closes briefly and reopens several times during the \gls{gls:depol}, as shown in the drawing (c) that interprets the current trace. Adapted from Stühmer W, Stocker M, Sakmann bet al. (1988) potassium channels expressed from rat brain cdNA have delayed rectifier properties. FEBS Lett.242, 199–206, with permission. }\label{fig:rangeThree}
-    \caption{}\label{fig:Kchannel}
- \end{figure}
-
-The \gls{K} channel has a constant unitary \gls{gls:admit} \(\br{\ucon\potassium}\)~\cite{Hammond2015ch4}. 
-%In \Cref{fig:rangeThree}a, unitary \gls{K} currents are shown responding to increasing \gls{gls:depol} of \qtyrange{-50}{20}{\mV} from the holding \gls{gls:Pote} of \qty{-80}{\mV}. 
-%It can be observed that both the amplitude of \(\ucur\potassium\) and the time spent by the channel in the open state increase with \gls{gls:depol}. 
-When the mean amplitude of the unitary \gls{K} current is plotted versus \gls{gls:membrane} test potential, a linear \(\ucur\potassium/\unit{\V}\) relation is obtained. This linear \(\ucur\potassium/\unit{\V}\) relation (between \qtyrange{-50}{20}{\mV}) is described by the equation \(\ucur\potassium = \ucon\potassium(\unit{\V\membrane}-\equi\potassium)\), where \unit{\V\membrane} is the \gls{gls:mPote}, \(\equi\potassium\) is the \gls{gls:rPote} of the \gls{K} current, and \(\ucon\potassium\) is the \gls{gls:admit} of the single delayed rectifier \gls{K} channel, which defines the unitary \gls{gls:admit}. 
-
-%Linear back-extrapolation gives a \gls{gls:rPote} value around \qtyrange{-90}{-80}{\mV}, a value close to \(\equi\potassium\) calculated from the Nernst equation. This means that from \qty{-80}{\mV} to more depolarized \glspl{gls:Pote}, which correspond to the physiological conditions, the \gls{K} current is outward. For more \gls{gls:hypol} \glspl{gls:Pote}, the \gls{K} current is inward. The value of \(\ucon\potassium\) is given by the slope of the linear \(\ucur\potassium/V\)curve. It has a constant value at any given \gls{gls:mPote}. This value varies from \qtyrange{10}{15}{\pico\siemens} depending on the preparation. 
-
-% \begin{figure}[H]
-%     \centering
-%     \includegraphics[width=0.8\textwidth]{Pictures//Anakin/I-V.K.png}
-%     %\caption{The single-channel current/voltage (\(\ucur\potassium\)/V) relation is linear.delayed rectifier \gls{K} channels from rat brain are expressed in a myoblast cell line. (a) The activity of a single channel is recorded in patch clamp (cell-attached patch). Unitary currents are recorded at different test \glspl{gls:Pote} (from \qty{-50}{\mV} to \qty{20}{\mV}) from a holding \gls{gls:Pote} at \qty{-80}{\mV}. Bottom trace is the voltage trace. (b)\(\ucur\potassium\)-V relation obtained by plotting the mean amplitude of \(\ucur\potassium\) at the different test \glspl{gls:Pote} tested. \(\ucur\potassium\) reverses at =\qty{-75}{\mV} and gK=14pS. Adapted from Koren G, liman er, logothetis deet al. (1990) Gating mechanism of a cloned potassium channel expressed in frog oocytes and mammalian cells. Neuron2, 39–51.}\label{fig:rangeThree}
-%     \caption{}\label{fig:rangeThree}
-% \end{figure} 
-
-The macroscopic delayed rectifier \gls{K}current \(\br{\curr\potassium}\) has a delayed voltage dependence of activation and inactivates within tens of seconds. 
-%Whole cell currents start to activate at \glspl{gls:Pote} positive to \qty{-30}{\mV} and their amplitude is clearly voltage dependent. 
-%When unitary currents recorded from 70 successive depolarizing steps to \qty{0}{\mV} are averaged (Figure4.20b), the macroscopic outward current obtained has a slow time to peak \(\br{\qty{4}{\ms}}\) and lasts the entire depolarizing step. 
-The whole cell current amplitude at steady-state for a given \gls{gls:Pote} is:
-\begin{equation}\label{eq:ksum}
-    \curr\potassium = N p_o \ucur\potassium = p_o \sum^N_{n=1} \, \sbr{\ucur\potassium}_n 
-\end{equation}
-
-where \(N\) is the number of delayed rectifier channels in the \gls{gls:membrane} recorded, \(p_o\) the open probability at steady state and \(\ucur\potassium\) the elementary current. The number of open channels \(N\,p_o\) increases with \gls{gls:depol} (to a maximal value) and so does \(\curr\potassium\). 
-
-The \(\curr\potassium/\unit{\V}\) relation shows that the whole cell current varies linearly with voltage from a threshold \gls{gls:Pote} which, for those conditions, is around \qty{-40}{\mV}. When the \gls{gls:membrane} is more \gls{gls:hypol} than the \gls{gls:tPote}, very few channels are open and \(\curr\potassium\) is equal to zero. For \glspl{gls:mPote} more depolarized than the \gls{gls:tPote}, \(\curr\potassium\) depends on \(p_o\) and the driving potential state \(\unit{\V} - \equi\potassium\) which augments with \gls{gls:depol}. Once \(p_o\) is maximal, \(\curr\potassium\) augments linearly with \gls{gls:depol} since it depends only on the driving potential. 
-\begin{figure}[H]
-    \centering
-    \includegraphics[width=0.4\linewidth]{Pictures//Anakin/IK-V.png}
-    %\caption{Characteristics of the macroscopic delayed recti-fier \gls{K} current. The amplitude of the current at steady state is plotted against test \gls{gls:Pote}. The \gls{gls:Pote} threshold for its activation is \qty{-40}{\mV}. From Stühmer W, Stocker M, Sakmann bet al. (1988) potassium channels expressed from rat brain cdNA have delayed rectifier properties. FEBS Lett.242, 199–206. }\label{fig:Kcurrent}
-    \caption{}\label{fig:Kcurrent}
-\end{figure}
-
-To summarize, %owing to their delay of opening, 
-delayed rectifier channels begin to open when the \gls{gls:membrane} is has undergone \gls{gls:depol} by the entry of \gls{Na} \glspl{gls:ion} through open \gls{gls:vgate}[d] \gls{Na} channels. 
-Therefore, the exit of \gls{K} \glspl{gls:ion} does not occur at the same time as the entry of \gls{Na} \glspl{gls:ion}. This allows the \gls{gls:membrane} to first depolarize in response to the entry of \gls{Na} \glspl{gls:ion} and then to repolarize as a consequence of the exit of \gls{K} \glspl{gls:ion}.
-\begin{figure}[H]
-    \centering
-    \includegraphics[width=0.8\textwidth]{Pictures//Anakin/N.K.png}
-    %\caption{Gating of \gls{Na} and \gls{K} channels during the \gls{Na}[-dependent] \gls{ap}.(a) Interpretation of the manner in which the conductances to \gls{Na} and \gls{K} contribute to the \gls{ap}. (b) State of the \gls{Na} and \gls{K} \gls{gls:vgate}[d] channels during the course of the \gls{ap}. O, channels open; I, channels inactivate; C, channels close or are closed. Trace (a) adapted from Hodgkin Al, Huxley AF (1952) A quantitative description of \gls{gls:membrane} current and its application to conduction and excitation in nerve. J. Physiol.117, 500–544.}\label{fig:Knumber}
-    \caption{}\label{fig:Knumber}
-\end{figure}
-
+\(\curr\sodium\) changes polarity for \unit{\V\membrane} more depolarized than Erev: it is now an outward current whose amplitude increases with the \gls{gls:depol} 
 
 
 \subsection{Application} 
@@ -455,9 +378,100 @@ more generally as:
   \curr\ion &= \unit{\cond\ion} \, \br{\unit{\V} - \equi\ion}\label{eq:ionCurrent}
 \end{align}
 
-Mr\&Mr hodg-hux did more shit
+% Mr\&Mr hodg-hux did more shit
 active/inactive parameters
 
 
 \end{document}
+
+
+% \subsubsection{Activation and inactivation curves}
+% The `activation rate' is the rate at which macroscopic current flows in response to a \gls{gls:depol} step. 
+% The \gls{Na} current is recorded in voltage clamp mode~\cite{Hammond2015ch4}.
+% \footnote{See \Cref{sec:Vclamp}}~Depolarizing steps from \qtyrange{-70}{20}{\mV} are applied from a holding \gls{gls:Pote} of \qty{-80}{\mV}. When the ratio of the peak current at each test \gls{gls:Pote} is compared against the maximal peak current \(\br{\curr\sodium/\curr\sodium{\,}_{max}}\); the activation curve of \(\curr\sodium\) can be visualized \cref{fig:actinact}. 
+% %The distribution is fitted, unsurprisingly, by a sigmoidal curve consistent with logistic growth. 
+% %In this preparation, the ceiling of \gls{Na} channel activation was measured at \qty{-60}{\mV}. Yet, already at \qty{-40}{\mV}, \(\curr\sodium\) reaches a peak, \(\curr\sodium/\curr\sodium{\,}_{max} = 1\). 
+% This steepness of activation is characteristic of \gls{gls:vgate}[d] \gls{Na} channels. 
+
+% An `inactivation rate', comes as a result of a current decaying during a maintained \gls{gls:depol}. 
+% %To study inactivation, the \gls{gls:membrane} is held at varying \glspl{gls:Pote} and a fixed \gls{gls:depol} value is applied where \(\curr\sodium\) is maximal (\qty{0}{\mV}, for example). 
+% The amplitude of \gls{Na} current plotted against the holding \gls{gls:Pote}, shows that \(\curr\sodium\) begins to inactivate at \qty{-90}{\mV} and is fully inactivated at \qty{-50}{\mV}~\cite{Hammond2015ch4}. 
+% %Taking account that the resting \gls{gls:mPote} in this preparation is around \qty{-80}{\mV}, some of the \gls{Na} channels are already inactivated at rest. 
+% \begin{figure}[H]
+%   \centering
+%   \includegraphics[width=0.5\linewidth]{Pictures//Anakin/activ-inactiv.png}
+%   %\caption{Activation (right curve) and inactivation (left curve) curves obtained from nine different experiments. The voltage protocols used are shown in insets. In the ordinates, I/Imax represents the ratio of the peak \gls{Na} current (I) recorded at the tested \gls{gls:Pote} of the abscissae and the maximal peak \gls{Na} current (Imax) recorded in this experiment. (From Chiu Sy, ritchie JM, bogart rb, Stagg d (1979) A quantitative description of \gls{gls:membrane} currents from a rabbit myelinated nerve. J. Physiol.292, 149–166) }\label{fig:actinact}
+%   \caption{}\label{fig:actinact}
+% \end{figure}
+
+
+
+% \subsection{Repolarization the membrane potential}
+% %\subsection{The \gls{gls:repol} phase of the \gls{Na}[-dependent] \gls{ap} results from \gls{Na} channel inactivation and partly from \gls{K} channel activation}
+
+% The \gls{gls:repol} phase of the \gls{Na}[-dependent] \gls{ap} results from \gls{Na} channel inactivation and partly from \gls{K} channel activation. The \gls{gls:vgate}[d] channels that participate in \gls{gls:membrane} \gls{gls:repol} are so called `delayed rectifiers', which activate after a delay following the \gls{gls:membrane} \gls{gls:depol} and have a low inactivate rate~\cite{Hammond2015ch4}. The function of delayed rectifier channels is the transduction of \gls{gls:membrane} \gls{gls:depol} into an outward \gls{gls:flux} of \gls{K} \glspl{gls:ion}. 
+
+% % The gating behavior of the delayed rectifier channel is different from that of the \gls{Na} channel. Whereas all four voltage-sensitive domains in \gls{K} channels must be activated in order for pore opening to occur, \gls{Na} channel pore opening requires activation of only three voltage-sensitive domains. 
+% % Thus, part of the difference in activation speed between \gls{Na} and \gls{K} channels may be due to the lesser number of voltage-sensitive domains required to move in \gls{Na} channels.
+
+% The mean open time, \(\tau_o\), measured in the clamped patch is \qty{4.6}{\ms}. While the mean closed time, \(\tau_c\), is \qty{1.5}{\ms}, illustrated by \Cref{fig:Kchannel}. As seen in the figure, during a \gls{gls:depol} to \qty{0}{\mV} the delayed rectifier channels spend a greater time in the open state, compared to the closed state: at \qty{0}{\mV} the average probability of channels being open is relatively high \(\br{p_o = 0.76}\)~\cite{Hammond2015ch4}.
+% % In order to test whether the delayed rectifier channels show some inactivation, long-lasting recordings are performed. 
+% % Though no significant inactivation is apparent during test pulses in the range of seconds, during long test \glspl{gls:depol} (in the range of minutes) the channel shows steady-state inactivation at positive holding \glspl{gls:Pote} (not shown). 
+% % Therefore, in the range of seconds, the inactivation of the delayed rectifier channel can be omitted: the channel fluctuates between the closed and open states:
+% % \[C\rightleftharpoons O\]
+% % The transition from the closed (C) state to the open (O) state is triggered by \gls{gls:membrane} \gls{gls:depol} with a delay. 
+% Delayed rectifiers activate over the range of milliseconds. By contrast, the \gls{Na} channels activate in a range of sub-milliseconds. 
+% During \gls{gls:membrane} \gls{gls:depol} and \gls{gls:repol}, the \gls{Na} channels will frequently transition between \gls{o} and \gls{c} states. 
+% \begin{figure}[H]
+%     \centering
+%     \includegraphics[width=0.8\linewidth]{Pictures//Anakin/Kchannel.png}
+%     %\caption{Single \gls{K} channel openings in response to a depolarizing step. The activity of a single delayed rectifier channel expressed from rat brain is recorded in patch clamp (inside-out patch). A depolarizing step to \qty{0}{\mV} from a holding \gls{gls:Pote} of \qty{-60}{\mV}(a) evokes the opening of the channel (b). The elementary current is outward. The channel then closes briefly and reopens several times during the \gls{gls:depol}, as shown in the drawing (c) that interprets the current trace. Adapted from Stühmer W, Stocker M, Sakmann bet al. (1988) potassium channels expressed from rat brain cdNA have delayed rectifier properties. FEBS Lett.242, 199–206, with permission. }\label{fig:rangeThree}
+%     \caption{}\label{fig:Kchannel}
+%  \end{figure}
+
+% The \gls{K} channel has a constant unitary \gls{gls:admit} \(\br{\ucon\potassium}\)~\cite{Hammond2015ch4}. 
+% %In \Cref{fig:rangeThree}a, unitary \gls{K} currents are shown responding to increasing \gls{gls:depol} of \qtyrange{-50}{20}{\mV} from the holding \gls{gls:Pote} of \qty{-80}{\mV}. 
+% %It can be observed that both the amplitude of \(\ucur\potassium\) and the time spent by the channel in the open state increase with \gls{gls:depol}. 
+% When the mean amplitude of the unitary \gls{K} current is plotted versus \gls{gls:membrane} test potential, a linear \(\ucur\potassium/\unit{\V}\) relation is obtained. This linear \(\ucur\potassium/\unit{\V}\) relation (between \qtyrange{-50}{20}{\mV}) is described by the equation \(\ucur\potassium = \ucon\potassium(\unit{\V\membrane}-\equi\potassium)\), where \unit{\V\membrane} is the \gls{gls:mPote}, \(\equi\potassium\) is the \gls{gls:rPote} of the \gls{K} current, and \(\ucon\potassium\) is the \gls{gls:admit} of the single delayed rectifier \gls{K} channel, which defines the unitary \gls{gls:admit}. 
+
+%Linear back-extrapolation gives a \gls{gls:rPote} value around \qtyrange{-90}{-80}{\mV}, a value close to \(\equi\potassium\) calculated from the Nernst equation. This means that from \qty{-80}{\mV} to more depolarized \glspl{gls:Pote}, which correspond to the physiological conditions, the \gls{K} current is outward. For more \gls{gls:hypol} \glspl{gls:Pote}, the \gls{K} current is inward. The value of \(\ucon\potassium\) is given by the slope of the linear \(\ucur\potassium/V\)curve. It has a constant value at any given \gls{gls:mPote}. This value varies from \qtyrange{10}{15}{\pico\siemens} depending on the preparation. 
+
+% \begin{figure}[H]
+%     \centering
+%     \includegraphics[width=0.8\textwidth]{Pictures//Anakin/I-V.K.png}
+%     %\caption{The single-channel current/voltage (\(\ucur\potassium\)/V) relation is linear.delayed rectifier \gls{K} channels from rat brain are expressed in a myoblast cell line. (a) The activity of a single channel is recorded in patch clamp (cell-attached patch). Unitary currents are recorded at different test \glspl{gls:Pote} (from \qty{-50}{\mV} to \qty{20}{\mV}) from a holding \gls{gls:Pote} at \qty{-80}{\mV}. Bottom trace is the voltage trace. (b)\(\ucur\potassium\)-V relation obtained by plotting the mean amplitude of \(\ucur\potassium\) at the different test \glspl{gls:Pote} tested. \(\ucur\potassium\) reverses at =\qty{-75}{\mV} and gK=14pS. Adapted from Koren G, liman er, logothetis deet al. (1990) Gating mechanism of a cloned potassium channel expressed in frog oocytes and mammalian cells. Neuron2, 39–51.}\label{fig:rangeThree}
+%     \caption{}\label{fig:rangeThree}
+% \end{figure} 
+
+% The macroscopic delayed rectifier \gls{K}current \(\br{\curr\potassium}\) has a delayed voltage dependence of activation and inactivates within tens of seconds. 
+% %Whole cell currents start to activate at \glspl{gls:Pote} positive to \qty{-30}{\mV} and their amplitude is clearly voltage dependent. 
+% %When unitary currents recorded from 70 successive depolarizing steps to \qty{0}{\mV} are averaged (Figure4.20b), the macroscopic outward current obtained has a slow time to peak \(\br{\qty{4}{\ms}}\) and lasts the entire depolarizing step. 
+% The whole cell current amplitude at steady-state for a given \gls{gls:Pote} is:
+
+% \begin{equation}\label{eq:ksum}
+%     \curr\potassium = N p_o \ucur\potassium = p_o \sum^N_{n=1} \, \sbr{\ucur\potassium}_n 
+% \end{equation}
+
+% where \(N\) is the number of delayed rectifier channels in the \gls{gls:membrane} recorded, \(p_o\) the open probability at steady state and \(\ucur\potassium\) the elementary current. The number of open channels \(N\,p_o\) increases with \gls{gls:depol} (to a maximal value) and so does \(\curr\potassium\). 
+
+% The \(\curr\potassium/\unit{\V}\) relation shows that the whole cell current varies linearly with voltage from a threshold \gls{gls:Pote} which, for those conditions, is around \qty{-40}{\mV}. When the \gls{gls:membrane} is more \gls{gls:hypol} than the \gls{gls:tPote}, very few channels are open and \(\curr\potassium\) is equal to zero. For \glspl{gls:mPote} more depolarized than the \gls{gls:tPote}, \(\curr\potassium\) depends on \(p_o\) and the driving potential state \(\unit{\V} - \equi\potassium\) which augments with \gls{gls:depol}. Once \(p_o\) is maximal, \(\curr\potassium\) augments linearly with \gls{gls:depol} since it depends only on the driving potential. 
+% \begin{figure}[H]
+%     \centering
+%     \includegraphics[width=0.4\linewidth]{Pictures//Anakin/IK-V.png}
+%     %\caption{Characteristics of the macroscopic delayed recti-fier \gls{K} current. The amplitude of the current at steady state is plotted against test \gls{gls:Pote}. The \gls{gls:Pote} threshold for its activation is \qty{-40}{\mV}. From Stühmer W, Stocker M, Sakmann bet al. (1988) potassium channels expressed from rat brain cdNA have delayed rectifier properties. FEBS Lett.242, 199–206. }\label{fig:Kcurrent}
+%     \caption{}\label{fig:Kcurrent}
+% \end{figure}
+
+% To summarize, %owing to their delay of opening, 
+% delayed rectifier channels begin to open when the \gls{gls:membrane} is has undergone \gls{gls:depol} by the entry of \gls{Na} \glspl{gls:ion} through open \gls{gls:vgate}[d] \gls{Na} channels. 
+% Therefore, the exit of \gls{K} \glspl{gls:ion} does not occur at the same time as the entry of \gls{Na} \glspl{gls:ion}. This allows the \gls{gls:membrane} to first depolarize in response to the entry of \gls{Na} \glspl{gls:ion} and then to repolarize as a consequence of the exit of \gls{K} \glspl{gls:ion}.
+% \begin{figure}[H]
+%     \centering
+%     \includegraphics[width=0.8\textwidth]{Pictures//Anakin/N.K.png}
+%     %\caption{Gating of \gls{Na} and \gls{K} channels during the \gls{Na}[-dependent] \gls{ap}.(a) Interpretation of the manner in which the conductances to \gls{Na} and \gls{K} contribute to the \gls{ap}. (b) State of the \gls{Na} and \gls{K} \gls{gls:vgate}[d] channels during the course of the \gls{ap}. O, channels open; I, channels inactivate; C, channels close or are closed. Trace (a) adapted from Hodgkin Al, Huxley AF (1952) A quantitative description of \gls{gls:membrane} current and its application to conduction and excitation in nerve. J. Physiol.117, 500–544.}\label{fig:Knumber}
+%     \caption{}\label{fig:Knumber}
+% \end{figure}
+
+
+
  
