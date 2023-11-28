@@ -1,4 +1,4 @@
-\documentclass[printGloss]{myRUCProject}
+\documentclass[printGloss, printBibble]{myRUCProject}
 
 % ========================= Preamble Packages ================================
 
@@ -92,10 +92,16 @@
 \pagenumbering{roman}
 
 %\maketitle
+
 \import{./}{mainTitle.tex}
-\tableofcontents
+
+
+{%
+\setlength{\parskip}{0.5ex} % Paragraph seperation
+\tableofcontents%
 
 \printacronyms%
+}
 
 %\listoffigures \newpage
 
@@ -121,17 +127,17 @@
 
 \import{Sections/}{background.tex}
 
-\newpage
+% \newpage
 
-\import{Sections/}{method.tex}
+% \import{Sections/}{method.tex}
 
 
 %HAVE A SECTION WHERE WE TALK ABOUT SIMULATIONS. PYTHON-> APPROACHABLE, MUCH IN THE USE, MANY MATERIALS, WELL DOCUMENTED. 
 %PRESENTATION: WE MAKE GRAPHS, TABLES, PHASE-PLANES, HOW TO MAKE SIMULATIONS(EULER METHOD, OR SOLVE THINGS). REVIEW ALEX COMMENTS!
 
-\newpage
-%\chapter{Results}
-\chapter{Result Summary}
+% \newpage
+% \chapter{Results}
+% \chapter{Result Summary}
 
 
 \newpage
