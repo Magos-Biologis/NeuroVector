@@ -65,7 +65,6 @@
 
 % Execute `default' options
 \ExecuteOptions{}
-
 % Process given options
 \ProcessOptions\relax
 
@@ -107,31 +106,20 @@
 \RequirePackage[labelfont={bf}, hypcap=false]{caption} % For figure coloration
 \RequirePackage{subcaption} % Subfigures
 
+
 % \RequirePackage{array} % used for easy access in working memory
 \RequirePackage[outline]{contour} % Glow around text
-    
+
 % ========================= Format margins, headers and footers
 
 \RequirePackage{datetime} % for generating dates and time
-\RequirePackage{lastpage} %
+\RequirePackage{lastpage} % Pretty much exclusively used for page labeling
 
-\RequirePackage[%
-    a4paper, centering,%
-    vscale = 0.80, hscale = 0.75,%
-    %total = {170mm,250mm},
-    ]{geometry} % Page margins
-
-\RequirePackage{fancyhdr} % for generating dates and time
-
-% Paragraph formatting
-
-\RequirePackage{enumitem} % for list formatting
-\RequirePackage{indentfirst}
+\RequirePackage{enumitem}   % for list formatting
+\RequirePackage{indentfirst} % Corrects formatting inconsistancy
 
 \RequirePackage{setspace} % Line spacing
 \RequirePackage{ragged2e} % Text Justifier
-
-
 
 % ======================== Class Bibliography Options =====================
 
@@ -152,7 +140,6 @@
     \glsdisablehyper
     \setacronymstyle{long-sc-short}
     }
-
 
 \AtEndOfClass{% for number rounding
     \sisetup{drop-zero-decimal=true, round-mode=places, round-precision=2}
@@ -188,6 +175,32 @@
 %\renewcommand{\thefootnote}{\arabic{footnote}}
 
 
+
+\renewcommand{\footnoterule}{\vfill\kern -3pt \hrule width \textwidth \kern 2.6pt}
+    
+\justifying
+
+\tolerance=9999         % Gives more whitespace
+\emergencystretch=10pt  % Gives more whitespace
+\hyphenpenalty=10000    % Removes hyphanation
+\exhyphenpenalty=100    % Allows for existing hyphans to stay
+
+
+
+% ===================== Page Styles
+
+\RequirePackage[%
+    a4paper, centering,%
+    vscale = 0.80, hscale = 0.75,%
+    %total = {170mm,250mm},
+    ]{geometry} % Page margins
+
+\RequirePackage{fancyhdr} % Allows for easy fancy page layouts
+\RequirePackage{titlesec} % Allows for easy editing of of headers
+
+
+
+
 \DeclareCaptionFont{red}{\red}
 \DeclareCaptionFont{blue}{\blue}
 \DeclareCaptionFont{black}{\color{black}}
@@ -207,30 +220,37 @@
 \setlength{\parindent}{2em} % Paragraph indents
 \setlength{\parskip}{2ex} % Paragraph seperation
 \setlength{\marginparwidth}{2cm}
+
 \setlength{\headheight}{14pt}
 
 \pagestyle{fancy}
-\fancyhf{}
-\fancyhead[LO]{\leftmark}
-\fancyhead[RO]{Modeling Project}
-\fancyfoot[CO]{[\thepage{} of \pageref{LastPage}]}
-\renewcommand{\headrulewidth}{2pt}
-\renewcommand{\footrulewidth}{1pt}
-\renewcommand{\footnoterule}{\vfill\kern -3pt \hrule width \textwidth \kern 2.6pt}
-\fancyhfoffset{0pt}
-    
-\justifying
+\fancyhf{} % Resetting formatting
+\fancyhead[L]{\nouppercase{\leftmark}}
+\fancyhead[R]{Modeling Project}
+\fancyfoot[C]{$\left[\thepage\text{ of }\pageref{LastPage}\right]$}
+\renewcommand{\headrulewidth}{0.4pt}
+\renewcommand{\footrulewidth}{0.4pt}
 
-\tolerance=9999         % Gives more whitespace
-\emergencystretch=10pt  % Gives more whitespace
-\hyphenpenalty=10000    % Removes hyphanation
-\exhyphenpenalty=100    % Allows for existing hyphans to stay
+
+\fancypagestyle{plain}{\fancyhead{}\renewcommand{\headrule}{}}
+
+% \fancypagestyle{toc}{%
+%     \fancyhf{}%
+%     \renewcommand{\headrulewidth}{0.0pt}
+%     \renewcommand{\footrulewidth}{0.0pt}
+%     \fancyhead[R]{\thepage}%
+%     \fancyfoot[C]{$\left[\thepage\right]$}
+%     }
+
+
+\fancyhfoffset{0pt}
+
+
 
 
 
 % ======================== Custom Headers ================================
 
-\RequirePackage{titlesec} % Allows for easy editing of of headers
 % \titleformat{<command>}[<shape>]{<format>}{<label>}{<sep>}{<before-code>}[<after-code>]
 % \titlespacing{<command>}{<left>}{<before-sep>}{<after-sep>}
 
