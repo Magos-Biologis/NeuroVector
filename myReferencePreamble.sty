@@ -11,16 +11,16 @@
 % ============================ Options =======================================
 
 
-\newif\iftag@Bibble@
-\newif\iftag@Glossel@
+\newif\iftagBibble@
+\newif\iftagGlossel@
 
 
 \DeclareOption{printBibble}{
-    \tag@Bibble@true
+    \tagBibble@true
     }
     
 \DeclareOption{printGloss}{
-    \tag@Glossel@true
+    \tagGlossel@true
     }
 
 
@@ -134,13 +134,13 @@
     }
 
 
-\iftag@Bibble@
+\iftagBibble@
     \AtEndDocument{
         \printbibliography[heading=bibintoc, title={References}]
         }
     \fi
 
-\iftag@Glossel@
+\iftagGlossel@
     \AtEndDocument{
         \printglossary
         }

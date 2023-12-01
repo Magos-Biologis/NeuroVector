@@ -17,16 +17,16 @@ There exists any number of limitations in the pursuit of this task, some inheren
 \section{Scale of model}
 Scaling neural models is a multidimensional challenge involving trade-offs between model complexity, computational efficiency, and the ability to provide meaningful insights into neural function.
 In scaling processes, the complexity of a system will often change. In the description of neuronal dynamics, some single-neuron models are highly detailed and incorporate sub-cellular organelles such as mitochondria or take into account the morphology of the dendritic and axonal tree ~\cite{Santhakumar2005, Tejada2014}.
-The simplest mathematical representation of a neuron is that of the point neuron model e.g. the integrate-and-fire (IF) model, here many of the detailed biophysical and morphological features have been stripped. The model is typically described by a single ODE with simple variables and parameters, biophysically meaningfulness being low ~\Cref{fig:computational_properties}.
+% The simplest mathematical representation of a neuron is that of the point neuron model e.g. the integrate-and-fire (IF) model, here many of the detailed biophysical and morphological features have been stripped. The model is typically described by a single ODE with simple variables and parameters, biophysically meaningfulness being low ~\Cref{fig:computational_properties}.
 
-\begin{figure}[H]
-    \centering
-    \includegraphics[width = 0.75\textwidth]{Pictures/Kenni/properties_spiking_bursting_models_all.png}
-    \caption{“\# of FLOPS” is an approximate number of floating point operations (addition, multiplication, etc.) needed to simulate the model during a 1 ms time span. Each empty square indicates the property that the model should exhibit if the parameters are chosen appropriately" ~\cite{Izhikevich2004}.}
-    \label{fig:computational_properties}
-\end{figure}
+% \begin{figure}[H]
+%     \centering
+%     \includegraphics[width = 0.75\textwidth]{Pictures/Kenni/properties_spiking_bursting_models_all.png}
+%     \caption{“\# of FLOPS” is an approximate number of floating point operations (addition, multiplication, etc.) needed to simulate the model during a 1 ms time span. Each empty square indicates the property that the model should exhibit if the parameters are chosen appropriately" ~\cite{Izhikevich2004}.}
+%     \label{fig:computational_properties}
+% \end{figure}
 
-When describing a network level model some kind of middle ground in complexity will have to be reached. The network model include many neuronal cells interacting with each other and the interconnection is fundamental in understanding how information flows through the network. In the construction of networks, high-dimensional models are involved. This makes the analysis used in low-dimensional systems, such as the  FritzHugh-Nagumo or HH models, impossible to recreate with today's computer technology cf. figure~\ref{fig:computational_properties} and observe the number of floating point operations per second (\# FLOPS). The aforementioned middle ground will consist of reducing the number of variables, e.g. describing the activity of a large group of neurons using averaged values like mean-field models thereby reducing the number of variables to facilitate a bifurcation analysis and in that way find critical points where the stability of a system changes, leading to abrupt transitions in the system's behavior. These transitions can provide insights into the onset of seizures and their characteristics ~\cite{Burger2017}.
+% When describing a network level model some kind of middle ground in complexity will have to be reached. The network model include many neuronal cells interacting with each other and the interconnection is fundamental in understanding how information flows through the network. In the construction of networks, high-dimensional models are involved. This makes the analysis used in low-dimensional systems, such as the  FritzHugh-Nagumo or HH models, impossible to recreate with today's computer technology cf. figure~\ref{fig:computational_properties} and observe the number of floating point operations per second (\# FLOPS). The aforementioned middle ground will consist of reducing the number of variables, e.g. describing the activity of a large group of neurons using averaged values like mean-field models thereby reducing the number of variables to facilitate a bifurcation analysis and in that way find critical points where the stability of a system changes, leading to abrupt transitions in the system's behavior. These transitions can provide insights into the onset of seizures and their characteristics ~\cite{Burger2017}.
 
 % \begin{figure}[H]
 %     \centering

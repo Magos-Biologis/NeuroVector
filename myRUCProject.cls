@@ -12,18 +12,18 @@
 
 % ========================= Class tags
 
-\newif\iftag@Bibble@
-\newif\iftag@Glossel@
+\newif\iftagBibble@
+\newif\iftagGlossel@
 
 % ========================= User Options
 
 
 \DeclareOption{printBibble}{% enables bibliography via boolean flag
-    \tag@Bibble@true
+    \tagBibble@true
     }
     
 \DeclareOption{printGloss}{% enables glossary via boolean flag
-    \tag@Glossel@true
+    \tagGlossel@true
     }
 
     
@@ -141,14 +141,14 @@
     \setacronymstyle{long-sc-short}
     }
 
-\AtEndOfClass{% for number rounding
-    \sisetup{drop-zero-decimal=true, round-mode=places, round-precision=2}
-    }
 
 % ======================== Custom Packages ================================
 
 \RequirePackage{myMathPreamble}
 
+
+\sisetup{drop-zero-decimal=true, round-mode=places, round-precision=2}
+    
 
 \RequirePackage{myReferencePreamble}
 
@@ -227,7 +227,13 @@
 \fancyhf{} % Resetting formatting
 \fancyhead[L]{\nouppercase{\leftmark}}
 \fancyhead[R]{Modeling Project}
-\fancyfoot[C]{$\left[\thepage\text{ of }\pageref{LastPage}\right]$}
+
+
+% \if
+% \fancyfoot[C]{$\left[\thepage\text{ of }\pageref{LastPage}\right]$}
+\fancyfoot[C]{$\left[\thepage\right]$}
+
+
 \renewcommand{\headrulewidth}{0.4pt}
 \renewcommand{\footrulewidth}{0.4pt}
 
@@ -242,11 +248,7 @@
 %     \fancyfoot[C]{$\left[\thepage\right]$}
 %     }
 
-
 \fancyhfoffset{0pt}
-
-
-
 
 
 % ======================== Custom Headers ================================
