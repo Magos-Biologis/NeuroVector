@@ -34,6 +34,7 @@
     \PassOptionsToClass{\CurrentOption}{report}
     \PassOptionsToPackage{\CurrentOption}{graphicx}
     }
+    
 
 \DeclareOption{a4}{%
     \PassOptionsToClass{a4paper}{report}
@@ -47,7 +48,8 @@
     }
 
 \DeclareOption{doubleColumn}{%
-    \RequirePackage{multicol} % allows for merging multiple columns
+    %\RequirePackage{multicol} % allows for merging multiple columns
+    \PassOptionsToClass{twocolumn}{report}
     }
 
 \DeclareOption{RaggedRight}{%
