@@ -30,7 +30,7 @@ The integrate and fire model is one of the most used models for neurons. Since i
 There are also many adaptations of the integrate and fire model. Of the ones described in \cite{Izhikevich2004}, they require only up to 13 operations per millisecond to work and are one-to-two-dimensional. They are therefore still good at modelling thousands of neurons. However, since they are so simple, none of the integrate and fire models are biophysically relevant.
 
 \subsubsection*{Izhikevich}
-The spiking model made by Eugene M. Izhikevich is a two-dimensional model that requires 13 operations per millisecond \cite{Izhikevich2004}. It is similar to the Hodgkin-Huxley model in a biological sense, however, it is capable of modelling thousands of neurons \cite{Muni2022}. 
+The spiking model made by Eugene M. Izhikevich is a two-dimensional model that requires 13 operations per millisecond \cite{Izhikevich2004}. It is similar to the Hodgkin-Huxley model in a biological sense, however, it is capable of modelling thousands of neurons \cite{Muni2022}. It is not biophysically relevant \cite{Izhikevich2004}.
 
 \subsubsection*{Morris-Lecar}
 The Morris-Lecar model is, like the FitzHugh-Nagumo model, also a two-dimensional model derived from the Hodgkin-Huxley model \cite{Baladron2012}. However, it requires many more floating point operations to use, namely 600 per millisecond. Unlike the FitzHugh-Nagumo model, it is biophysically relevant \cite{Izhikevich2004}. For this reason, it might seem strange that the group chose to use the FitzHugh-Nagumo model instead of this model, but the FitzHugh-Nagumo model was chosen since it is a simpler model. However, if the group had more time, this model would be at the top of the list of models to investigate. In \cite{kasatkin2015transient} they showed that it is possible to model 100 neurons using the Morris-Lecar model.
@@ -51,7 +51,7 @@ The last model that this project will present is the Wilson model. This is like 
 
 
 
-\begin{table}[h]
+\begin{table}[ht]
 \centering
 \caption{Table of the different models used and considered for this project.}
 \label{tab:modelsChoice}
