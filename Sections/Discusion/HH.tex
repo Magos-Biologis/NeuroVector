@@ -32,7 +32,7 @@ The directly time dependent element of this equation is \(\unit{\V\membrane}\), 
 Through long term experimentation, the duo of Hodgkin and Huxley divined a model built from the observations of smooth current change as a function of pores (or channels) that were either open or closed. By using a statistical approach, HH generated predictions for the probability of channels being open or closed at a given time in the process~\cite{HodHux1939}. 
 
 
-H\&H presented the model as a set of four \glspl{ode} with respect to time.
+H\&H presented the model as a set of four inter-dependent \glspl{ode} with respect to time.
 \begin{sysEquation}[HodHuxSys]
     C\mch \ode{\unit{\V\membrane}} &= \mathrlap{I\mch - \sbr{\mcon\potassium n^4 \br{\unit{\V\membrane} - \unit{\V\potassium}} + \mcon\sodium m^3 h \br{\unit{\V\membrane} - \unit{\V\sodium}}  + \mcon\leakage \br{\unit{\V\membrane} - V_\rmm{L}}}}  && \\
     \ode{n} &=  \frac{n_\infty\br{\unit{\V\membrane}}-n}{\tau\nch\br{\unit{\V\membrane}}}  =\alpha\nch \br{\unit{\V\membrane}} \br{1-n} - \beta\nch \br{\unit{\V\membrane}} n \qquad&& \\

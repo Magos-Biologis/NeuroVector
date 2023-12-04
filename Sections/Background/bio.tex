@@ -3,7 +3,10 @@
 \IfStandalone{%
   \import{../../}{customCommands}
   \import{../../}{INP-00-glossary}
+    \usepackage[disable]{todonotes}
   }{}
+
+  
 
 \usepackage[subpreambles = true]{standalone}
 \usepackage{myTikz}
@@ -57,25 +60,24 @@ There exist a number of important features that are foundational to the speciali
   \item \glslink{gls:myelin}{\textbf{The myelin sheathe}} is a lipid and protein comprised substance excreted from Schwann cells that `sheathes' the \gls{gls:axon}, creating additional insulation for \gls{gls:capa}~\cite{}.
 \end{enumerate}
 
-
-
 \begin{figure}[H]
   \centering
   \import{../../Pictures/Anakin}{Channels.tex}
-  \caption{ $\langle \text{temp} \rangle$ }\label{fig:Channels}
+  \caption{ $\langle \text{temp, will become channels/pumps} \rangle$ }\label{fig:Channels}
 \end{figure}
+
 
 \section{The Resting Membrane Potential} 
 A fundamental component of cells is the \gls{gls:membrane}, composed of what is known as a `\gls{gls:bilipid}'.{}\footnote{Latin root word `bi' meaning two, translates to `lipid two-layer'} 
-A \gls{gls:bilipid} creates a strong electrical insulation, which confers it the property of `\gls{gls:capa}'~\cite{Hammond2015ch3,Hammond2015ch4}.{}\footnote{The capability of an object to store electrical charge.}
+A \gls{gls:bilipid} creates a strong electrical insulation, which confers\todo{We need to remember to elaborate} it the property of `\gls{gls:capa}'~\cite{Hammond2015ch3,Hammond2015ch4}.{}\footnote{The capability of an object to store electrical charge.}
 In a \gls{gls:neuron}, the overall charge in the \gls{gls:incell} space is more negative relative to the \gls{gls:excell} space. This difference in charge at rest is known as the resting \gls{gls:mPote}, and it is essential for the \gls{gls:neuron}['s] ability to transmit electrical signals \cite{Hammond2015ch3,Hammond2015ch4}. 
 
-By convention, membrane potential - \(\br{\unit{\V\membrane}}\) is the difference between the electric potential of the internal and external faces of the membrane \(\br{\unit{\V\membrane}=\unit{\V\incell}-\unit{\V\excell}}\). In the absence of ongoing electrical activity, this negative potential is termed the resting membrane potential \(\br{V_{rest}}\). The usual resting \gls{gls:mPote} is found to be around \glslink{gls:volt}{\qty{-70}{millivolts\br{\milli\volt}}} in \glspl{gls:neuron}, however, it varies depending on the cell type and conditions~\cite{Hammond2015ch3,Hammond2015ch4}. When the membrane potential is less negative than \(V_{rest}\), the membrane is considered to be depolarized. In contrast, when the membrane potential is more negative than \(V_{rest}\), the membrane is said to be \gls{gls:hypol} \cite{Hammond2015ch3}. 
+By convention, membrane potential - \(\br{\unit{\V\membrane}}\) is the difference between the electric potential of the internal and external faces of the membrane \(\br{\unit{\V\membrane}=\unit{\V\incell}-\unit{\V\excell}}\). In the absence of ongoing electrical activity, this negative potential is termed the resting membrane potential \(\br{\unit{V_{rest}}}\). The usual resting \gls{gls:mPote} is found to be around \glslink{gls:volt}{\qty{-70}{millivolts\br{\milli\volt}}} in \glspl{gls:neuron}, however, it varies depending on the cell type and conditions~\cite{Hammond2015ch3,Hammond2015ch4}. When the membrane potential is less negative than \(V_{rest}\), the membrane is considered to be depolarized. In contrast, when the membrane potential is more negative than \(V_{rest}\), the membrane is said to be \gls{gls:hypol} \cite{Hammond2015ch3}. 
 
-The \glspl{gls:ion} found to be involved in the \gls{gls:mPote} include \gls{Na}, \gls{K}, \gls{Cl}, and, to a limited degree, \gls{Ca}. 
+The \glspl{gls:ion} primarily involved in the \gls{gls:mPote} include \gls{Na}, \gls{K}, \gls{Cl}, and, to a limited degree, \gls{Ca}. 
 In the \gls{gls:excell} space the concentrations of \gls{Na} and \gls{Cl} are kept much higher than in the cytoplasm of the \gls{gls:incell} space, whereas \gls{K} is found in much higher concentrations in the cytoplasm compared to the \gls{gls:excell} space. 
 During rest, their concentration \glspl{gls:grad} are actively regulated and maintained at constant values by `\glspl{gls:ionPump}' chemically transporting \glspl{gls:ion} across the \gls{gls:membrane}~\cite{Hammond2015ch3,Hammond2015ch4}. 
-However, the main contributors to the negative potential of the intracellular side of the memrane are the anions of the intracellular fluid, which are organic molecules such as negatively charged amino acids, proteins, nucleic acids, phosphates, etc., which have a large molecular weight and cannot cross the lipid membrane and thus do not participate directly in electrical signaling in neurons\cite{Hammond2015ch3}. 
+However, the main contributors to the negative potential of the intracellular side of the \gls{gls:membrane} are the anions of the intracellular fluid, which are organic molecules such as negatively charged amino acids, proteins, nucleic acids, phosphates, etc., which have a large molecular weight and cannot cross the lipid membrane and thus do not participate directly in electrical signaling in neurons\cite{Hammond2015ch3}. 
 
 
 An important structure embedded in the \gls{gls:bilipid} includes `\glspl{gls:ionChan}' which permit electrically charged \glspl{gls:ion} to diffuse across the \gls{gls:membrane} \gls{gls:grad}. \Glspl{gls:ionChan} are only permeable to a specific \gls{gls:ion}~\cite{}. Some \glspl{gls:ionChan} are \gls{gls:vgate}[d], meaning that they can be switched between open and closed states by altering the voltage across the \gls{gls:membrane}. 
@@ -103,8 +105,9 @@ The direction of the diffusion of \glspl{gls:ion} through an open channel depend
 
 
 
-For instance, when the \gls{gls:mPote} is null \(\br{\unit{\V\membrane}=\qty{0}{\mV}}\), there is no difference of \gls{gls:Pote} between the two faces of the \gls{gls:membrane}, so the concentration \gls{gls:grad} will be the only factor determining the direction of diffusion for specific \glspl{gls:ion} \cref{sfig:dirA}. 
-Since the concentrations of \gls{Na}, \gls{Ca} and \gls{Cl} in the \gls{gls:excell} fluid are higher, on average, than in the \gls{gls:incell} medium, these \glspl{gls:ion} will diffuse passively towards the \gls{gls:incell} space,\footnote{via \gls{Na}, \gls{Ca} or \gls{Cl} permeable ion channels}~as a result of their concentration \gls{gls:grad}. In contrast, since \gls{K} is a lot more abundant in the intracellular \gls{gls:media}, it will move from the \gls{gls:incell} \gls{gls:media} to the \gls{gls:excell} one when \gls{K} permeable channels are open. 
+For instance, when the \gls{gls:mPote} is null \(\br{\unit{\V\membrane}=\qty{0}{\mV}}\), there is no difference of \gls{gls:Pote} between the two faces of the \gls{gls:membrane}, so the concentration \gls{gls:grad} will be the only factor determining the direction of diffusion for specific \glspl{gls:ion} \cref{sfig:dirA}\todo{Figure?}. 
+Since the concentrations of \gls{Na}, \gls{Ca} and \gls{Cl} in the \gls{gls:excell} fluid are higher, on average, than in the \gls{gls:incell} medium, these \glspl{gls:ion} will diffuse passively towards the \gls{gls:incell} space,\footnote{via \gls{Na}, \gls{Ca} or \gls{Cl} permeable ion channels}~as a result of their concentration \gls{gls:grad}. 
+In contrast, since \gls{K} is a lot more abundant in the intracellular \gls{gls:media}, it will move from the \gls{gls:incell} \gls{gls:media} to the \gls{gls:excell} one when \gls{K} permeable channels are open. 
 
 If we suppose that there is the same concentration of each \gls{gls:ion} in the \gls{gls:excell} and \gls{gls:incell} \glspl{gls:media}, i.e there is no concentration \gls{gls:grad} for any \glspl{gls:ion}, \glspl{gls:ion} will diffuse according to \gls{gls:mPote} only: positive ions (cations) will move towards negative potential, negative ions (anions) will move towards postive \gls{gls:Pote}. At a \gls{gls:mPote} \(\unit{\V\membrane}=\qty{-30}{\mV}\), positively charged \glspl{gls:ion}, the \glspl{gls:cation} \gls{Na}, \gls{Ca} and \gls{K}, will move from the \gls{gls:excell} \gls{gls:media} to the \gls{gls:incell} one according to \gls{gls:mPote}. In contrast, \glspl{gls:anion} (\gls{Cl}) will move from the \gls{gls:incell} \gls{gls:media} to the \gls{gls:excell} one. 
 
@@ -145,32 +148,24 @@ The \(\equi\ion\) of the given \glspl{gls:ion} can be calculated using the \emph
 \end{equation}
 
 Where \(\clm{R}\) is the ideal gas constant \br{\qty{8.314}{\cubic\meter\pascal\per\kelvin\per\mol}}; \(\clm{T}\) is the temperature in \gls{gls:kelvin} \(\br{ x\,\unit{\glssymbol{gls:celsius}} \cong {273.15} + x\,\unit{\kelvin}}\); \(\clm{F}\) is the Faraday constant \br{\qty{96500}{\coulomb\per\mole}}; \(z\) is the valence of the \gls{gls:ion}; and \(\ionconc\) is the concentration of the given \gls{gls:ion} in the \gls{gls:excell} \( \br{ \clm{E} } \) or \gls{gls:incell} \( \br{\clm{I}}\) \gls{gls:media}. 
-As most of these terms are constants, it is simple to reduce the equation down in dimensional complexity:
-\begin{align} 
-    \equi\ion &= \br{\frac{ \qty{8.314}{\cubic\meter\pascal\per\mol\per\kelvin} \, \cdot \, \clm{T}}{ z\, \cdot \, \qty{96500}{\coulomb\per\mole} }} \,\ln \br{ \frac{ {\ionconc\excell} }{ {\ionconc\incell}} } \\
-    %\equi\ion &= \br{\frac{ {8.314} \cdot \(t\) \cdot \unit{\cubic\meter\pascal} \,\cancel{\unit{\per\mol}}\,\cancel{\unit{\per\kelvin\kelvin}} }{ z\, \cdot \, \qty{96500}{\coulomb} \,\cancel{\unit{\per\mol}}}} \,\ln \br{ \frac{ {\ionconc\excell} }{ {\ionconc\incell}} } \\
-    %
-    %\equi\ion &= \br{\frac{ {8.314} \, \cdot \, \(t\) \, \unit{\cubic\meter\pascal} }{ z\, \cdot \, \qty{96500}{\coulomb}} } \,\ln \br{ \frac{ {\ionconc\excell} }{ {\ionconc\incell}} } \\
-    %
-    \intertext{dividing and rearranging the terms:}
-    \equi\ion &= \br{\frac{ \clm{T}\unit{\per\K} \, \unit{\cubic\meter\pascal} }{ z\, \cdot \, \qty{11612.515042118}{\coulomb} } } \cdot \,\ln \br{ \frac{ {\ionconc\excell} }{ {\ionconc\incell}} } \\
-    %
-    \intertext{converting the unit of pressure, pascal \br{\unit{\pascal}} to the base units representing mass over an area over time \br{\unit{\kilo\gram\per\meter\per\square\second}}, as well converting the unit for charge, a \gls{gls:coulomb} \br{\unit{\coulomb}}, to the base units denoting the quantity of current in a second, \br{\unit{\ampere\second}}, gives the substitution:}
-    \equi\ion &= \br{\frac{ \clm{T}\unit{\per\K} \, \unit{\cubic\meter\kilo\gram\per\meter\per\square\second} }{ z\, \cdot \, \qty{11612.515042118}{\ampere\second} } } \cdot \,\ln \br{ \frac{ {\ionconc\excell} }{ {\ionconc\incell}} } \\
-    %\intertext{at this point we're only left with base SI units, so we need to be a little silly, the unit of magnetic \gls{gls:flux} is defined \(\unit{\weber} = \unit{\kilo\gram\square\meter\per\square\second\per\ampere}\), implying through substitution \(\unit{\kilo\gram\square\meter\per\cubic\second\per\ampere} = \unit{\weber\per\second} \):}
-    %\equi\ion &= \frac{ \clm{T}\unit{\per\K} }{ z\, \cdot \, \num{11612.515042118}} \cdot \br{\unit{\weber\per\second}} \cdot \,\ln \br{ \frac{ {\ionconc\excell} }{ {\ionconc\incell}} } \\
-    %
-    \intertext{a unit which is equivalent to a Volt, \( \unit{\volt} = \unit{\kilo\gram\square\meter\per\cubic\second\per\ampere} \), the combination of units found through deconstruction is the literal base unit definition of a volt:}
-    \equi\ion &= \frac{ \clm{T}\unit{\per\K} }{ z\, \cdot \, \num{11612.515042118}} \cdot \unit{\volt} \cdot \ln \br{ \frac{ {\ionconc\excell} }{ {\ionconc\incell}} }\label{eq:derivedNerst}
-    %\equi\ion &= \cfrac{ \(t\) \cdot \,\ln \br{ \cfrac{\ionconc\excell }{ \ionconc\incell} } }{ z\, \cdot \, \num{11612.515042118}} \cdot \unit{\volt} \cdot \qty{1000}{\milli\volt\per\volt} \\
-    %\equi\ion &= \cfrac{ \(t\) \cdot \,\ln \br{ \cfrac{\ionconc\excell }{ \ionconc\incell} } }{ z\, \cdot \, 1 \, 160} \ \unit{\milli\volt}
-\end{align}
+% As most of these terms are constants, it is simple to reduce the equation down in dimensional complexity:
+% \begin{align} 
+%     \equi\ion &= \br{\frac{ \qty{8.314}{\cubic\meter\pascal\per\mol\per\kelvin} \, \cdot \, \clm{T}}{ z\, \cdot \, \qty{96500}{\coulomb\per\mole} }} \,\ln \br{ \frac{ {\ionconc\excell} }{ {\ionconc\incell}} } \\
+%     \intertext{dividing and rearranging the terms:}
+%     \equi\ion &= \br{\frac{ \clm{T}\unit{\per\K} \, \unit{\cubic\meter\pascal} }{ z\, \cdot \, \qty{11612.515042118}{\coulomb} } } \cdot \,\ln \br{ \frac{ {\ionconc\excell} }{ {\ionconc\incell}} } \\
+%     %
+%     \intertext{converting the unit of pressure, pascal \br{\unit{\pascal}} to the base units representing mass over an area over time \br{\unit{\kilo\gram\per\meter\per\square\second}}, as well converting the unit for charge, a \gls{gls:coulomb} \br{\unit{\coulomb}}, to the base units denoting the quantity of current in a second, \br{\unit{\ampere\second}}, gives the substitution:}
+%     \equi\ion &= \br{\frac{ \clm{T}\unit{\per\K} \, \unit{\cubic\meter\kilo\gram\per\meter\per\square\second} }{ z\, \cdot \, \qty{11612.515042118}{\ampere\second} } } \cdot \,\ln \br{ \frac{ {\ionconc\excell} }{ {\ionconc\incell}} } \\
+%     \intertext{a unit which is equivalent to a Volt, \( \unit{\volt} = \unit{\kilo\gram\square\meter\per\cubic\second\per\ampere} \), the combination of units found through deconstruction is the literal base unit definition of a volt:}
+%     \equi\ion &= \frac{ \clm{T}\unit{\per\K} }{ z\, \cdot \, \num{11612.515042118}} \cdot \unit{\volt} \cdot \ln \br{ \frac{ {\ionconc\excell} }{ {\ionconc\incell}} }\label{eq:derivedNerst}
+% \end{align}
 %{Volume Concentration \per\kelvin\per\mol}
 %{\kilo\gram\metre^2\second^{-2}\kelvin\per\mol}
 \end{subequations}
 
 \begin{subequations}\label{eq:mVions}
-With minor adjustments to \cref{eq:derivedNerst}, the now derived form of \cref{eq:nernst}, one is able to get
+With minor adjustments to \cref{eq:nernst}, % the now derived form of \cref{eq:nernst}, 
+one is able to derive;
 \begin{equation}
   \equi\ion = \cfrac{\clm{T}\unit{\per\K}}{ z } \, \cdot \, \ln \br{ \frac{ {\ionconc\excell} }{ {\ionconc\incell}} } \cdot \num{11.612515042}^{-1} \ \unit{\milli\volt} \tag{\ref*{eq:mVions}}
 \end{equation}
@@ -224,19 +219,22 @@ So:
 \end{equation}
 \(\ucon\ion\) The measure of the \glspl{gls:ion} through a single channel, is called the unitary \gls{gls:contan} \(\br{\ucon\ion}\) which is the real part of \gls{gls:admit}. 
 The reciprocal of resistance; it is called the \textit{\gls{gls:admit}}.
-While resistance is expressed in \gls{gls:ohm} \(\br{\unit{\ohm}}\), \gls{gls:admit} is expressed in siemens \(\br{\unit{\siemens}}\).\footnote{\Gls{gls:admit} can also be expressed in `mho' whih is inverse ohm, \(\unit{\ohm}^{-1} = \unit{\mho}\)}~
+While resistance is expressed in \gls{gls:ohm} \(\br{\unit{\ohm}}\), \gls{gls:admit} is expressed in siemens \(\br{\unit{\siemens}}\).\footnote{\Gls{gls:admit} can also be expressed in `mho' which is inverse ohm, \(\unit{\ohm}^{-1} = \unit{\mho}\)}~
 By convention \(\curr\ion\) is negative when it represents an inward \gls{gls:flux} of positive charges (\glspl{gls:cation}) and \(\curr\ion\) is positive when it represents an outward \gls{gls:flux} of positive charges. It is generally of the order of pico-ampere \(\br{\qty{1}{\pico\ampere}=\qty{e-12}{\ampere}}\). At physiological concentrations, \(\ucon\ion\) varies between \(\qtyrange{10}{150}{\pico\siemens}\) dependent on channel type~\cite{Hammond2015ch4}.
 
-\(\curr\ion\) and \(\ucur\ion\) can be measured experimentally. The former is measured current from a patch of \gls{gls:membrane} where only one channel of a given type is present. \(\curr\ion\) is current measured from a whole \gls{gls:membrane} where \(N\) channels of the same type are present. The techniques mainly used for measuring ionic currents in excitable cells are the current clamp and voltage clamp techniques.
+\(\curr\ion\) and \(\ucur\ion\) can be measured experimentally. 
+The former is measured current from a patch of \gls{gls:membrane} where only one channel of a given type is present. 
+{}\(\curr\ion\) is current measured from a whole \gls{gls:membrane} where \(N\) channels of the same type are present. The techniques mainly used for measuring ionic currents in excitable cells are the current clamp and voltage clamp techniques.
 
 \subsubsection{Current clamp}\label{sec:Cclamp}
 
-The current clamp mode is a technique for recording the membrane potential and its changes by injecting current into a cell through the recording electrode.  "Current clamp" implies that the current applied through the electrode is held at a constant value for the experiment, while the membrane potential is free to vary~\cite{Hammond2015ch4}. The amplifier records whatever voltage the cell generates on its own or as a result of stimulation. 
+Current clamping\todo{appendix?} is a technique for recording the membrane potential and how that potential changes by injecting current into a cell through the recording electrode.  
+`Current clamp' implies that the current applied through the electrode is held at a constant value for the experiment, while the membrane potential is free to vary~\cite{Hammond2015ch4}. The amplifier records whatever voltage the cell generates on its own or as a result of stimulation. 
 This technique is useful for studying how a cell responds when electric current enters a cell~\cite{Hammond2015ch4}.
 
 \subsubsection{Voltage clamp technique}\label{sec:Vclamp}
  
-In contrast to the current clamp technique, in voltage clamp mode the cell potential is `clamped' at a chosen value while recording changes in ion currents~\cite{Hammond2015ch4}. 
+In contrast to the current clamp technique, in voltage clamp\todo{appendix?} mode the cell potential is `clamped' at a chosen value while recording changes in ion currents~\cite{Hammond2015ch4}. 
 This allows to measure how much \textit{ionic current} is flowing through the cell's membrane at any given voltage. 
 This is important because, as will be elaborated in \Cref{sec:depol}, many of the ion channels in neuronal membrane are \gls{gls:vgate}[d] ion channels, which open only when the membrane voltage is within a certain range, and the voltage clamp technique allows for control of the variable determining the opening of those channels~\cite{Hammond2015ch4}.
 
@@ -267,10 +265,10 @@ The voltage fluctuations take the form of a rapid upward spike followed by a rap
 %original text
 The \gls{ap} is a sudden and rapid \gls{gls:depol} of the \gls{gls:membrane} as a result of positive inward \gls{gls:flux} of current through the \gls{gls:axon}. In \gls{gls:neuron}[al] \glspl{gls:soma} and \glspl{gls:axon}, these currents are most commonly propogated by \gls{Na} \glspl{gls:cation}.{}\footnote{A positively charged \gls{gls:ion}, no relation to \textit{Felis Catus}}
 
-The \gls{gls:ion}[ic] basis for \gls{gls:neuron}[al] excitation was first described in the giant squid axon by Hodgkin \& Huxley \br{1952} using the voltage clamp technique~\cite{HodHux1952}. They observed a key phenomenon, that the \gls{ap} is underlied by two separate voltage-dependent currents: an early transient inward \gls{Na} current which depolarizes the \gls{gls:membrane}, and a delayed outward \gls{K} current largely responsible for \gls{gls:repol}. 
-The resulting voltage waveform takes the shape of a rapid upward spike followed by a rapid inactivation that hyperpolarizes the \gls{gls:membrane} before returning to the resting \gls{gls:mPote} (see \Cref{fig:AP}) \cite{}.
+The \gls{gls:ion}[ic] basis for \gls{gls:neuron}[al] excitation was first described in the giant squid axon by Hodgkin \& Huxley \br{1952} using the voltage clamp technique~\cite{HodHux1952}.\footnote{\cref{sec:Vclamp}}{} They observed a key phenomenon, that the \gls{ap} is underlied by two separate voltage-dependent currents: an early transient inward \gls{Na} current which depolarizes the \gls{gls:membrane}, and a delayed outward \gls{K} current largely responsible for \gls{gls:repol}. 
+The resulting voltage waveform takes the shape of a rapid upward spike followed by a rapid inactivation that hyperpolarizes the \gls{gls:membrane} before returning to the resting \gls{gls:mPote} \cref{fig:AP} \cite{}.
 
-Up to a threshold level of \gls{gls:membrane} \gls{gls:depol} (called the \gls{gls:tPote}), only passive ohmic response can be recorded, when the \gls{gls:membrane} is depolarized just above the threshold, an \gls{ap} is evoked. 
+Up to a threshold level of \gls{gls:membrane} \gls{gls:depol} (called the \gls{gls:tPote}), only passive ohmic response can be recorded, when the \gls{gls:membrane} is depolarized just above the threshold, an \gls{ap} is evoked. \todo{Include section about number of subunits in squid channels}
 Increasing the intensity of the stimulating current pulse does not increase the amplitude of the \gls{ap}, the \gls{ap} is all or none \cite{}. 
 \begin{figure}[H]
   \centering
@@ -283,7 +281,7 @@ Increasing the intensity of the stimulating current pulse does not increase the 
 %\subsubsection{The \gls{gls:depol} phase of \gls{Na}[-dependent] \gls{ap} results from the transient entry of \gls{Na} \glspl{gls:ion} through \gls{gls:vgate}[d] \gls{Na} channels.}
 The threshold for initiation of \gls{Na}[-dependent] action \gls{gls:Pote} is due to \gls{gls:vgate}[d] \gls{Na} channels only opening in response to a \gls{gls:depol} of \qtyrange{-50}{-40}{\mV}, hence the classification `\gls{gls:vgate}[d]' \cite{}. 
 
-In response to \gls{gls:depol} passing the \gls{gls:tPote}, closed \gls{Na} channels of the axon segment begin to open. The \gls{gls:flux} of \gls{Na} \glspl{gls:ion} through the open \gls{Na} channels depolarize the \gls{gls:membrane} more, triggering the opening of additional \gls{Na} channels. 
+In response to \gls{gls:depol} passing the \gls{gls:tPote}, closed \gls{Na} channels of the axon segment\todo{Need to elaborate that model only represents discrete segments of the axon} begin to open. The \gls{gls:flux} of \gls{Na} \glspl{gls:ion} through the open \gls{Na} channels depolarize the \gls{gls:membrane} more, triggering the opening of additional \gls{Na} channels. 
 Consequentially, the \gls{gls:flux} of \gls{Na} \glspl{gls:ion} increases, causing further \gls{gls:depol} of the \gls{gls:membrane}, cascading until all \gls{Na} channels in the segment have opened. 
 This coincides with the \gls{gls:depol} phase reaching its peak \cite{}. 
 
@@ -340,6 +338,9 @@ The value of \(\curr\sodium\) at each time \(t\) at a given \gls{gls:Pote} is:
 \begin{equation}\label{eq:nasum}
   \curr\sodium = p_t \, N \, \ucur\sodium = p_t \sum^N_{n=1} \, \sbr{\ucur\sodium}_n 
 \end{equation}
+% \begin{equation}\label{eq:ksum}
+%     \curr\potassium = N p_o \ucur\potassium = p_o \sum^N_{n=1} \, \sbr{\ucur\potassium}_n 
+% \end{equation}
 with \(N\) as the total number of \gls{Na} channels in the \gls{gls:membrane} being recorderd and \(p_t\) is the opening probability at time \(t\). 
 %\(\ucur\sodium\) is the unitary \gls{Na} current.
 %of the \gls{Na} channel; it depends on the \gls{gls:mPote} and on the channel opening and inactivating rate constants. 
@@ -364,11 +365,9 @@ The \gls{gls:rPote} of \(\curr\sodium\) is the same as that of \(\ucur\sodium\),
 
 
 \subsection{Application} 
-
-
 In physiological conditions, several channels of the same type are open at the same time in the \gls{gls:neuron}[al] \gls{gls:membrane}. 
 %Suppose that only one type of channel is open in the \gls{gls:membrane}, for example \gls{Na} channels, the total current \(\curr\sodium\) crossing the \gls{gls:membrane} at time \(t\) is the sum of the unitary currents \(\ucur\sodium\) at time \(t\):
-Recall that \Cref{eq:nasum,eq:ksum} gives the relationship of unitary currents to total current for their respective ions, using similarities one can restate the equations 
+Recall that \cref{eq:nasum,eq:ksum} gives the relationship of unitary currents to total current for their respective ions, using similarities one can restate the equations 
 %(\(N\,p_o\) is therefore the number of open \gls{Na}channels in the \gls{gls:membrane} at time \(t\))
 %; and \(\ucur\sodium\) is the unitary \gls{Na} current. \newline
 more generally as:
@@ -450,9 +449,6 @@ active/inactive parameters
 % %When unitary currents recorded from 70 successive depolarizing steps to \qty{0}{\mV} are averaged (Figure4.20b), the macroscopic outward current obtained has a slow time to peak \(\br{\qty{4}{\ms}}\) and lasts the entire depolarizing step. 
 % The whole cell current amplitude at steady-state for a given \gls{gls:Pote} is:
 
-% \begin{equation}\label{eq:ksum}
-%     \curr\potassium = N p_o \ucur\potassium = p_o \sum^N_{n=1} \, \sbr{\ucur\potassium}_n 
-% \end{equation}
 
 % where \(N\) is the number of delayed rectifier channels in the \gls{gls:membrane} recorded, \(p_o\) the open probability at steady state and \(\ucur\potassium\) the elementary current. The number of open channels \(N\,p_o\) increases with \gls{gls:depol} (to a maximal value) and so does \(\curr\potassium\). 
 
