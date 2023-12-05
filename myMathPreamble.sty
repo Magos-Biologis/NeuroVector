@@ -9,9 +9,16 @@
 
 \RequirePackage{iftex}      % Allows for if {type}TeX commands
 
+% ========================= Class tags
+
+% \newif\ifRUCtype@Project@
+% \newif\ifRUCtype@Assignment@
+
+\newif\iftagAxiom@
+
+\newif\iftagBase@
+
 % ========================= Package options
-
-
 
 \DeclareOption{mathFont}{%
     }
@@ -19,8 +26,10 @@
 \DeclareOption{unitSI}{%
     }
 
+\DeclareOption{gibAxioms}{%
+    \tagAxiom@true
+    }
 
-\newif\iftagBase@
 
 \DeclareOption{clsOverride}{%
     }
@@ -36,16 +45,13 @@
 
 \ifxetex % Math Fonts
     \RequirePackage[MnSymbol]{mathspec}
-\else
-    \RequirePackage[cmsy]{MnSymbol} 
-    \DeclareMathAlphabet{\mathbb}{U}{msb}{m}{n}
-    \DeclareMathAlphabet{\mathdutchcal}{U}{dutchcal}{m}{n}
-    %\SetMathAlphabet{\mathdutchcal}{bold}{U}{dutchcal}{b}{n}
-    %\DeclareMathAlphabet{\mathdutchbcal}{U}{dutchcal}{b}{n}
-\fi
+    \else
+        % \RequirePackage[csmy]{MnSymbol} 
+        \RequirePackage[normalweight=auto,boldweight=Bold,largedelims=false]{fdsymbol} 
+    \fi
+
 
 \RequirePackage{cancel}  % Striking through text \cancel{x}
-
 \RequirePackage{siunitx} % elegant SI units
 
 % ========================= Package Configuration
@@ -143,13 +149,14 @@
 
 
 
+
 % Redefine AMS math enviroments definitions + hooks
 \renewenvironment{subequations}{%
     \refstepcounter{equation}%
     \protected@edef\theparentequation{\theequation}%
     \setcounter{parentequation}{\value{equation}}%
     \setcounter{equation}{0}%
-    \def\theequation{\ensuremath{\theparentequation{}_\mathrm{\,\roman{equation}}}}%
+    \def\theequation{\theparentequation\ensuremath{_\mathrm{\,\roman{equation}}\,}}%
     \ignorespaces%
 }{%
     \setcounter{equation}{\value{parentequation}}%
@@ -188,11 +195,13 @@
     }
 
 
+\ifRUCtype@Project@
+    \else
+        \DeclareMathSizes{10}{18}{12}{8}   % For size 10 text
+        \DeclareMathSizes{11}{19}{13}{9}   % For size 11 text
+        \DeclareMathSizes{12}{20}{14}{10}  % For size 12 text
+    \fi
 
-
-\DeclareMathSizes{10}{18}{12}{8}   % For size 10 text
-\DeclareMathSizes{11}{19}{13}{9}   % For size 11 text
-\DeclareMathSizes{12}{20}{14}{10}  % For size 12 text
 
 \addtolength{\jot}{0.75em} % Increases row padding between equations
 
@@ -210,8 +219,13 @@
 
 \robustify\dots
 \sisetup{input-digits = 0123456789\dots}%
+
+\ifRUCtype@Project@
+    \sisetup{drop-zero-decimal=true, round-mode=places, round-precision=2}
+    \fi
     
 % ========================= Mathy Commands ===============================
+
 
 \NewDocumentCommand{\br}{ s m }{%
     \IfBooleanTF {#1}{%
@@ -228,6 +242,7 @@
         }%
     } % [.]
 
+
 \ProvideDocumentCommand{\ode}{ s O{t} m O{} }{%
     \IfBooleanTF {#1}{%
         \frac{\mathrm{d}^{#4}}{\mathrm{d}\displaystyle#2^{#4}}\displaystyle#3
@@ -242,6 +257,7 @@
         \frac{\partial^{#4}\displaystyle#3}{\partial\displaystyle#2^{#4}}
         }
     }
+
     
 \NewDocumentCommand{\rfrac}{ m m }{{}^{{\displaystyle#1}}\!/_{{\displaystyle#2}}}
 
@@ -253,11 +269,12 @@
 \renewcommand{\implies}{\Rightarrow}
 \renewcommand{\impliedby}{\Leftarrow}
 
-\newcommand{\rmm}[1]{\mathrm{#1}}
-\newcommand{\bfm}[1]{\mathbf{#1}}
-\newcommand{\itm}[1]{\mathit{#1}}
 \newcommand{\clm}[1]{\mathcal{#1}}
 \newcommand{\fkm}[1]{\mathfrak{#1}}
+\newcommand{\itm}[1]{\mathit{#1}}
+\newcommand{\bfm}[1]{\mathbf{#1}}
+\newcommand{\bbm}[1]{\mathbb{#1}}
+\newcommand{\rmm}[1]{\mathrm{#1}}
 
 \newcommand{\surform}[2]{\ensuremath{\left< #1~:~#2 \right>}}
 
@@ -284,6 +301,7 @@
 
 
 % Custom Fields ======================================================
+
 %\newtheorem{axiom}{Axiom}
 %\IfFileExists{Zeambles/MathPreme.sty}{
 %    \crefformat{axiom}{Axiom~#2#1#3}

@@ -12,6 +12,12 @@
 
 % ========================= Class tags
 
+
+\newif\ifRUCtype@Project@
+    \RUCtype@Project@true
+
+\newif\iftagFontFuckery@
+
 \newif\iftagBibble@
 \newif\iftagGlossel@
 
@@ -40,6 +46,10 @@
     \PassOptionsToClass{a4paper}{report}
     \PassOptionsToPackage{a4paper}{geometry}
     }
+    
+\DeclareOption{11pt}{%
+    \PassOptionsToClass{11pt}{report}
+    }
 
 \DeclareOption{noindent}{%
     \AtBeginDocument{%
@@ -57,8 +67,6 @@
     }
 
 
-
-
 % ========================= no more Options
 
 \DeclareOption*{%
@@ -66,13 +74,15 @@
 }
 
 % Execute `default' options
-\ExecuteOptions{}
+\ExecuteOptions{11pt, a4}
 % Process given options
 \ProcessOptions\relax
 
-\LoadClass[a4paper, 11pt]{report}
+\LoadClass{report}
 
 % ========================= Text Packages 
+
+
 
 
 % It's 2022. UTF-8 input for TeX. 
@@ -85,13 +95,17 @@
 	%\setmainfont{TeX Gyre Termes}
 	%\RequirePackage{unicode-math}
 	%\setmathfont{Stix Two Math}
-\else
-    \RequirePackage[utf8]{inputenc}
-    %\RequirePackage{newtx}
-    \RequirePackage[T2A,T1]{fontenc} % Best imported after fonts.
-\fi
+    \else
+        \RequirePackage[utf8]{inputenc}
+        %
+        \RequirePackage{mathpazo}
+        \RequirePackage{crimson}        
+        %
+        \RequirePackage[T1]{fontenc} % Best imported after fonts. or something
+        %
+        \RequirePackage[final]{microtype}
+    \fi
 
-\RequirePackage{microtype}
 
 % ========================= Colors/Visuals/Figures Function
 
@@ -109,19 +123,18 @@
 \RequirePackage{subcaption} % Subfigures
 
 
-% \RequirePackage{array} % used for easy access in working memory
 \RequirePackage[outline]{contour} % Glow around text
 
 % ========================= Format margins, headers and footers
 
 \RequirePackage{datetime} % for generating dates and time
-\RequirePackage{lastpage} % Pretty much exclusively used for page labeling
+% \RequirePackage{lastpage} % Pretty much exclusively used for page labeling
 
-\RequirePackage{enumitem}   % for list formatting
+\RequirePackage{enumitem}    % for list formatting
 \RequirePackage{indentfirst} % Corrects formatting inconsistancy
 
 \RequirePackage{setspace} % Line spacing
-\RequirePackage{ragged2e} % Text Justifier
+% \RequirePackage{ragged2e} % Text Justifier
 
 % ======================== Class Bibliography Options =====================
 
@@ -148,17 +161,74 @@
 
 \RequirePackage{myMathPreamble}
 
-
-\sisetup{drop-zero-decimal=true, round-mode=places, round-precision=2}
-    
-
 \RequirePackage{myReferencePreamble}
 
+% ====================== Font config
 
-% ====================== microtype
 
-% For font pedantics
-\microtypesetup{activate={true,nocompatibility}}
+
+% \let\oldnormalfont\normalfont
+% \def\normalfont{\oldnormalfont\mdseries}
+
+
+
+
+% \renewcommand{\normalsize}{\fontsize{10pt}{12pt}\selectfont}
+
+\DeclareMathSizes{10}{18}{12}{8}   % For size 10 text
+\DeclareMathSizes{11}{19}{13}{9}   % For size 11 text
+\DeclareMathSizes{12}{20}{14}{10}  % For size 12 text
+
+
+
+
+% ======== Microtype
+\microtypesetup{%
+    activate={true,nocompatibility},%
+    tracking=true,%
+    kerning=true,%
+    spacing=true,%
+    factor=1100,%
+    stretch=10,%
+    shrink=10}
+% activate={true,nocompatibility} - activate protrusion and expansion
+% final - enable microtype; use "draft" to disable
+% tracking=true, kerning=true, spacing=true - activate these techniques
+% factor=1100 - add 10% to the protrusion amount (default is 1000)
+% stretch=10, shrink=10 - reduce stretchability/shrinkability (default is 20/20)
+
+\microtypecontext{spacing=nonfrench}
+
+\SetProtrusion{encoding={*}, family={*}, series={*}, size={6,7}}{%
+              1={ ,750},%
+              2={ ,500},%
+              3={ ,500},%
+              4={ ,500},%
+              5={ ,500},%
+              6={ ,500},%
+              7={ ,600},%
+              8={ ,500},%
+              9={ ,500},%
+              0={ ,500}}
+
+\SetExtraKerning[unit=space] % Needs kerning = true
+    {encoding={*}, family={*}, series={*}, size={footnotesize,small,normalsize}}{%
+    \textendash={400,400}, % en-dash, add more space around it
+    "28={ ,150}, % left bracket, add space from right
+    "29={150, }, % right bracket, add space from left
+    \textquotedblleft={ ,150}, % left quotation mark, space from right
+    \textquotedblright={150, }, % right quotation mark, space from left
+    \textquoteleft={ ,150}, % left quotation mark, space from right
+    \textquoteright={150, }, % right quotation mark, space from left
+    } %
+     
+\SetExtraKerning[unit=space] % For titles
+   {encoding={*}, family={qhv}, series={b}, size={large,Large}}
+   {1={-200,-200}, \textendash={400,400}}
+
+    
+\SetTracking{encoding={*}, shape=sc}{40} % Fucks with small caps
+
 
 % ====================== Tweaks and settings ================================
 
@@ -180,7 +250,7 @@
 
 \renewcommand{\footnoterule}{\vfill\kern -3pt \hrule width \textwidth \kern 2.6pt}
     
-\justifying
+% \justifying
 
 \tolerance=9999         % Gives more whitespace
 \emergencystretch=10pt  % Gives more whitespace
@@ -260,7 +330,7 @@
 
 \titleformat{\chapter} % command
     [block] % shape
-    {\bfseries\huge} % format
+    {\bfseries\huge\usefont{T1}{cmr}{bx}{n}\selectfont} % format
     {\thechapter} % label
     {0.5ex} % sep
     {\bfseries\fontsize{14}{12} \huge\centering} % before-code
@@ -273,8 +343,8 @@
 
 
 \titleformat{\section}% command
-    [block] % shape
-    {\bfseries\Large} % format
+    [hang] % shape
+    {\bfseries\Large\usefont{T1}{qhv}{b}{n}\selectfont} % format
     {\thesection} % label
     {0.3em} % sep
     {\bfseries\fontsize{14}{12} \selectfont} % before-code
@@ -287,9 +357,9 @@
 
 
 \titleformat{\subsection}
-    [block]
-    {\bfseries\large}
-    {\thesubsection\hspace{1em}-}
+    [hang]
+    {\bfseries\large\usefont{T1}{qhv}{b}{n}\selectfont}
+    {\thesubsection\hspace{1em}\textemdash}
     {1em}
     {}
     

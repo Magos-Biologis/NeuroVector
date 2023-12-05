@@ -2,12 +2,20 @@
 
 % ========================= Preamble Packages ================================
 
-% Margin and Notes 
-\usepackage{marginnote}
-\usepackage{todonotes}
-
 \usepackage[subpreambles=true]{standalone} % Allows for independent subfile constructions
 \usepackage{myTikz}
+
+% Margin and Notes 
+\usepackage{marginnote}
+\usepackage[colorinlistoftodos]{todonotes}
+
+
+\providecommand\anakintodo[2][]{\todo[author=Anakin, size=\scriptsize, color=black, textcolor=White, #1]{#2}}
+\providecommand\alextodo[2][]{\todo[author=Alex, size=\scriptsize, color=Turquoise, #1]{#2}}
+\providecommand\svetlanatodo[2][]{\todo[author=Svetlana, size=\scriptsize, color=White!95!black, #1]{#2}}
+\providecommand\kennitodo[2][]{\todo[author=Kenni, size=\scriptsize, color=green, #1]{#2}}
+\providecommand\helenatodo[2][]{\todo[author=Helena, size=\scriptsize, color=Purple, #1]{#2}}
+\providecommand\konstantinatodo[2][]{\todo[author=Konstantina, size=\scriptsize, color=red, #1]{#2}}
 
 % ============================ Important Files
 
@@ -21,63 +29,61 @@
 
 %==========================================================
 
-% \begin{comment}
-%     Quick ref for package commands
-    
-%     Cleverref
-%     \cref[⟨options⟩]{⟨reference label⟩}
-%     \Cref[⟨options⟩]{⟨reference label⟩}
-%     The [options] is not necessary for general usage the \cref command will detect the environment that the label was made in and create the corresponding reference in the text
-%     Using \Cref produces the same result but in a  more 'official' style, like fig. 1 vs Figure 1
-    
-%     Examples of usage;
-%     \cref{eq:lmao}
-%     \Cref{fig:penishehe}
-    
-%     SiUnitx 
-%     Any general value with a unit uses the command for both the number and the unit together:
-%     \qty[⟨options⟩]{⟨number⟩}{⟨unit⟩}
-%     units are simple to input just use \⟨unit abbreviation⟩
-    
-%     One can break up the numbers from the units by using
-%     \num[⟨options⟩]{⟨number⟩}
-%     \unit[⟨options⟩]{⟨unit⟩}
-    
-%     Additionally, angels can be defined with
-%     \ang[⟨options⟩]{⟨angle⟩}
-    
-%     Examples of usage;
-%     \qty{.23e7}{\candela} 
-%     \qty[mode = text]{1.23}{J.mol^{-1}.K^{-1}}
-%     \qty[per-mode = symbol]{1.99}{\per\kilogram}
-%     \qty[per-mode = symbol]{1.99}{\per\kg}
-%     \qty[per-mode = fraction]{1,345}{\coulomb\per\mole}
+% Quick ref for package commands
 
-%     \qtyrange[⟨options⟩]{⟨number1⟩}{⟨number2⟩}{⟨unit⟩}
+% Cleverref
+% \cref[⟨options⟩]{⟨reference label⟩}
+% \Cref[⟨options⟩]{⟨reference label⟩}
+% The [options] is not necessary for general usage the \cref command will detect the environment that the label was made in and create the corresponding reference in the text
+% Using \Cref produces the same result but in a  more 'official' style, like fig. 1 vs Figure 1
 
-%     \qtylist[⟨options⟩]{⟨number1⟩;⟨number2⟩;...}{⟨unit⟩}
-    
-%     Glossaries package
-%     \gls[<options>]{<label>} 
-%     \glspl[<options>]{<label>} 
-%     This command prints the term associated with <label> passed as its argument. If the hyperref package was loaded before glossaries it will also be hyperlinked to the entry in glossary.
-    
-%     The pl addition prints the plural of the defined term, other than that it behaves in the same way as gls.
-%     \Gls[<options>]{<label>} 
-%     \Glspl[<options>]{<label>} 
-    
-%     These commands are the same as the first two, just that it will print the word capitalized
-%     \glssymbol[<options>]{<label>} 
-    
+% Examples of usage;
+% \cref{eq:lmao}
+% \Cref{fig:penishehe}
 
+% SiUnitx 
+% Any general value with a unit uses the command for both the number and the unit together:
+% \qty[⟨options⟩]{⟨number⟩}{⟨unit⟩}
+% units are simple to input just use \⟨unit abbreviation⟩
+
+% One can break up the numbers from the units by using
+% \num[⟨options⟩]{⟨number⟩}
+% \unit[⟨options⟩]{⟨unit⟩}
+
+% Additionally, angels can be defined with
+% \ang[⟨options⟩]{⟨angle⟩}
+
+% Examples of usage;
+% \qty{.23e7}{\candela} 
+% \qty[mode = text]{1.23}{J.mol^{-1}.K^{-1}}
+% \qty[per-mode = symbol]{1.99}{\per\kilogram}
+% \qty[per-mode = symbol]{1.99}{\per\kg}
+% \qty[per-mode = fraction]{1,345}{\coulomb\per\mole}
+
+% \qtyrange[⟨options⟩]{⟨number1⟩}{⟨number2⟩}{⟨unit⟩}
+
+% \qtylist[⟨options⟩]{⟨number1⟩;⟨number2⟩;...}{⟨unit⟩}
+
+% Glossaries package
+% \gls[<options>]{<label>} 
+% \glspl[<options>]{<label>} 
+% This command prints the term associated with <label> passed as its argument. If the hyperref package was loaded before glossaries it will also be hyperlinked to the entry in glossary.
+
+% The pl addition prints the plural of the defined term, other than that it behaves in the same way as gls.
+% \Gls[<options>]{<label>} 
+% \Glspl[<options>]{<label>} 
+
+% These commands are the same as the first two, just that it will print the word capitalized
+% \glssymbol[<options>]{<label>} 
+
+
+
+% General Latex commands
+% for citing papers
+% \cite[⟨options⟩]{⟨citationkey⟩}
+% for making footnotes
+% \footnote[⟨options⟩]{⟨text⟩}
     
-%     General Latex commands
-%     for citing papers
-%     \cite[⟨options⟩]{⟨citationkey⟩}
-%     for making footnotes
-%     \footnote[⟨options⟩]{⟨text⟩}
-    
-% \end{comment}
 
 %==========================================================
 
@@ -101,6 +107,8 @@
 \tableofcontents%
 
 \printacronyms%
+
+\listoftodos
 }
 
 %\listoffigures \newpage

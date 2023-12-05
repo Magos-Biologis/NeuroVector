@@ -1,15 +1,14 @@
 %\documentclass[../../Orator]{subfiles}
 \documentclass[class={myRUCProject}, crop=false]{standalone}
-\IfStandalone{%
-  \import{../../}{customCommands}
-  \import{../../}{INP-00-glossary}
-    \usepackage[disable]{todonotes}
-  }{}
-
-  
 
 \usepackage[subpreambles = true]{standalone}
 \usepackage{myTikz}
+
+\IfStandalone{%
+    \usepackage[disable]{todonotes}
+    \import{../../}{customCommands}
+    \import{../../}{INP-00-glossary}
+    }{}
 
 
 
@@ -52,12 +51,12 @@ Of whether they be common skin cells or neuronal, those relevant to this project
 
 There exist a number of important features that are foundational to the specialized functions found in the \glspl{gls:neuron};\vspace{-2em}
 \begin{enumerate}
-  \item \glslink{gls:soma}{\textbf{The soma}} is the main body of the \gls{gls:neuron}. It is the space in which the nucleus resides, and by extension where protein production occurs. The nucleus can range from \qtyrange{3}{18}{\um} in diameter \cite{}.
-  \item \glslink{gls:dendrite}{\textbf{The dendrites}} of a \gls{gls:neuron} are extensions of the \gls{gls:membrane} with many branches. This overall shape and structure are metaphorically referred to as a `\textit{\gls{gls:denTree}}'.\footnotemark~This is where the majority of \gls{gls:neuron} inputs are received, and carried by the `dendritic spine' down to the \gls{gls:soma}~\cite{}. \footnotetext{Greek root word `\textit{dendron}' meaning tree, translates to `tree tree'.}
-  \item \glslink{gls:axon}{\textbf{The axon}} is a finer tendril that can extend tens, if not tens of thousands of times, the diameter of the \gls{gls:soma} in length. The \gls{gls:axon} primarily carries nerve signals away from the \gls{gls:soma} and carries some types of information back to it. Most \glspl{gls:neuron} have only one \gls{gls:axon}, but this \gls{gls:axon} will be able to undergo significant branching, enabling communication with many target cells \cite{}. 
-  \item \glslink{gls:ax-hill}{\textbf{The axon hill-lock}} is the part of the \gls{gls:axon} where it emerges from the \gls{gls:soma}. The region contains the greatest density of voltage-dependent sodium channels. This makes it the most easily excited part of the \gls{gls:neuron}~\cite{}. 
-  \item \glslink{gls:ax-terminal}{\textbf{The axon terminal}} is found at the terminus of the \gls{gls:axon} and contains synapses \cite{}. 
-  \item \glslink{gls:myelin}{\textbf{The myelin sheathe}} is a lipid and protein comprised substance excreted from Schwann cells that `sheathes' the \gls{gls:axon}, creating additional insulation for \gls{gls:capa}~\cite{}.
+  \item \glslink{gls:soma}{\textbf{The soma}} is the main body of the \gls{gls:neuron}. It is the space in which the nucleus resides, and by extension where protein production occurs. The nucleus can range from \qtyrange{3}{18}{\um} in diameter \cite{Hammond2015ch3,Hammond2015ch4}.
+  \item \glslink{gls:dendrite}{\textbf{The dendrites}} of a \gls{gls:neuron} are extensions of the \gls{gls:membrane} with many branches. This overall shape and structure are metaphorically referred to as a `\textit{\gls{gls:denTree}}'.\footnotemark~This is where the majority of \gls{gls:neuron} inputs are received, and carried by the `dendritic spine' down to the \gls{gls:soma}~\cite{Hammond2015ch3,Hammond2015ch4}. \footnotetext{Greek root word `\textit{dendron}' meaning tree, translates to `tree tree'.}
+  \item \glslink{gls:axon}{\textbf{The axon}} is a finer tendril that can extend tens, if not tens of thousands of times, the diameter of the \gls{gls:soma} in length. The \gls{gls:axon} primarily carries nerve signals away from the \gls{gls:soma} and carries some types of information back to it. Most \glspl{gls:neuron} have only one \gls{gls:axon}, but this \gls{gls:axon} will be able to undergo significant branching, enabling communication with many target cells \cite{Hammond2015ch3,Hammond2015ch4}. 
+  \item \glslink{gls:ax-hill}{\textbf{The axon hill-lock}} is the part of the \gls{gls:axon} where it emerges from the \gls{gls:soma}. The region contains the greatest density of voltage-dependent sodium channels. This makes it the most easily excited part of the \gls{gls:neuron}~\cite{Hammond2015ch3,Hammond2015ch4}. 
+  \item \glslink{gls:ax-terminal}{\textbf{The axon terminal}} is found at the terminus of the \gls{gls:axon} and contains synapses \cite{Hammond2015ch3,Hammond2015ch4}. 
+  \item \glslink{gls:myelin}{\textbf{The myelin sheathe}} is a lipid and protein comprised substance excreted from Schwann cells that `sheathes' the \gls{gls:axon}, creating additional insulation for \gls{gls:capa}~\cite{Hammond2015ch4}.
 \end{enumerate}
 
 \begin{figure}[H]
@@ -69,7 +68,7 @@ There exist a number of important features that are foundational to the speciali
 
 \section{The Resting Membrane Potential} 
 A fundamental component of cells is the \gls{gls:membrane}, composed of what is known as a `\gls{gls:bilipid}'.{}\footnote{Latin root word `bi' meaning two, translates to `lipid two-layer'} 
-A \gls{gls:bilipid} creates a strong electrical insulation, which confers\todo{We need to remember to elaborate} it the property of `\gls{gls:capa}'~\cite{Hammond2015ch3,Hammond2015ch4}.{}\footnote{The capability of an object to store electrical charge.}
+A \gls{gls:bilipid} creates a strong electrical insulation, which confers\anakintodo{We need to remember to elaborate} it the property of `\gls{gls:capa}'~\cite{Hammond2015ch3,Hammond2015ch4}.{}\footnote{The capability of an object to store electrical charge.}
 In a \gls{gls:neuron}, the overall charge in the \gls{gls:incell} space is more negative relative to the \gls{gls:excell} space. This difference in charge at rest is known as the resting \gls{gls:mPote}, and it is essential for the \gls{gls:neuron}['s] ability to transmit electrical signals \cite{Hammond2015ch3,Hammond2015ch4}. 
 
 By convention, membrane potential - \(\br{\unit{\V\membrane}}\) is the difference between the electric potential of the internal and external faces of the membrane \(\br{\unit{\V\membrane}=\unit{\V\incell}-\unit{\V\excell}}\). In the absence of ongoing electrical activity, this negative potential is termed the resting membrane potential \(\br{\unit{V_{rest}}}\). The usual resting \gls{gls:mPote} is found to be around \glslink{gls:volt}{\qty{-70}{millivolts\br{\milli\volt}}} in \glspl{gls:neuron}, however, it varies depending on the cell type and conditions~\cite{Hammond2015ch3,Hammond2015ch4}. When the membrane potential is less negative than \(V_{rest}\), the membrane is considered to be depolarized. In contrast, when the membrane potential is more negative than \(V_{rest}\), the membrane is said to be \gls{gls:hypol} \cite{Hammond2015ch3}. 
@@ -80,7 +79,7 @@ During rest, their concentration \glspl{gls:grad} are actively regulated and mai
 However, the main contributors to the negative potential of the intracellular side of the \gls{gls:membrane} are the anions of the intracellular fluid, which are organic molecules such as negatively charged amino acids, proteins, nucleic acids, phosphates, etc., which have a large molecular weight and cannot cross the lipid membrane and thus do not participate directly in electrical signaling in neurons\cite{Hammond2015ch3}. 
 
 
-An important structure embedded in the \gls{gls:bilipid} includes `\glspl{gls:ionChan}' which permit electrically charged \glspl{gls:ion} to diffuse across the \gls{gls:membrane} \gls{gls:grad}. \Glspl{gls:ionChan} are only permeable to a specific \gls{gls:ion}~\cite{}. Some \glspl{gls:ionChan} are \gls{gls:vgate}[d], meaning that they can be switched between open and closed states by altering the voltage across the \gls{gls:membrane}. 
+An important structure embedded in the \gls{gls:bilipid} includes `\glspl{gls:ionChan}' which permit electrically charged \glspl{gls:ion} to diffuse across the \gls{gls:membrane} \gls{gls:grad}. \Glspl{gls:ionChan} are only permeable to a specific \gls{gls:ion}~\cite{Hammond2015ch4}. Some \glspl{gls:ionChan} are \gls{gls:vgate}[d], meaning that they can be switched between open and closed states by altering the voltage across the \gls{gls:membrane}. 
 Others are `\gls{gls:lig} gated', meaning that they can be switched between an open and a closed state by interacting with \glspl{gls:lig} that travel through the \gls{gls:excell} fluid. 
 
 \vspace{1em}
@@ -105,7 +104,7 @@ The direction of the diffusion of \glspl{gls:ion} through an open channel depend
 
 
 
-For instance, when the \gls{gls:mPote} is null \(\br{\unit{\V\membrane}=\qty{0}{\mV}}\), there is no difference of \gls{gls:Pote} between the two faces of the \gls{gls:membrane}, so the concentration \gls{gls:grad} will be the only factor determining the direction of diffusion for specific \glspl{gls:ion} \cref{sfig:dirA}\todo{Figure?}. 
+For instance, when the \gls{gls:mPote} is null \(\br{\unit{\V\membrane}=\qty{0}{\mV}}\), there is no difference of \gls{gls:Pote} between the two faces of the \gls{gls:membrane}, so the concentration \gls{gls:grad} will be the only factor determining the direction of diffusion for specific \glspl{gls:ion} \cref{sfig:dirA}\anakintodo{Figure?}. 
 Since the concentrations of \gls{Na}, \gls{Ca} and \gls{Cl} in the \gls{gls:excell} fluid are higher, on average, than in the \gls{gls:incell} medium, these \glspl{gls:ion} will diffuse passively towards the \gls{gls:incell} space,\footnote{via \gls{Na}, \gls{Ca} or \gls{Cl} permeable ion channels}~as a result of their concentration \gls{gls:grad}. 
 In contrast, since \gls{K} is a lot more abundant in the intracellular \gls{gls:media}, it will move from the \gls{gls:incell} \gls{gls:media} to the \gls{gls:excell} one when \gls{K} permeable channels are open. 
 
@@ -173,6 +172,7 @@ one is able to derive;
 Plugging the relative concentrations, measured in millimoles \br{\unit{\milli\mol}}, of each \gls{gls:ion} into \cref{eq:mVions}, as well as choosing an arbitrary temperature, such as human body temperature \(\approx\) \qty{37}{\degreeCelsius} \(\br{\sbr{\num{37} + \num{273.15}}\unit{\glssymbol{gls:kelvin}}}\),
 using the relevant \(\ionconc\),
 the \glspl{gls:ePote} follow:
+
 \begin{minipage}{.48\textwidth}
   \begin{align}
     {\equi\sodium} &= \num{310.15}\ \ln \br{ \frac{142}{15} }\cdot \num{11.612515042}^{-1} = \qty{60.034194963}{\mV} \label{eq:Na}\\
@@ -223,18 +223,18 @@ While resistance is expressed in \gls{gls:ohm} \(\br{\unit{\ohm}}\), \gls{gls:ad
 By convention \(\curr\ion\) is negative when it represents an inward \gls{gls:flux} of positive charges (\glspl{gls:cation}) and \(\curr\ion\) is positive when it represents an outward \gls{gls:flux} of positive charges. It is generally of the order of pico-ampere \(\br{\qty{1}{\pico\ampere}=\qty{e-12}{\ampere}}\). At physiological concentrations, \(\ucon\ion\) varies between \(\qtyrange{10}{150}{\pico\siemens}\) dependent on channel type~\cite{Hammond2015ch4}.
 
 \(\curr\ion\) and \(\ucur\ion\) can be measured experimentally. 
-The former is measured current from a patch of \gls{gls:membrane} where only one channel of a given type is present. 
+The former is measured current from a patch of \gls{gls:membrane} where only one channel of a given type is present.\alextodo{Does everyone understand this?}
 {}\(\curr\ion\) is current measured from a whole \gls{gls:membrane} where \(N\) channels of the same type are present. The techniques mainly used for measuring ionic currents in excitable cells are the current clamp and voltage clamp techniques.
 
-\subsubsection{Current clamp}\label{sec:Cclamp}
+\subsubsection{Current clamp}\label{sec:Cclamp}\anakintodo{appendix?}
 
-Current clamping\todo{appendix?} is a technique for recording the membrane potential and how that potential changes by injecting current into a cell through the recording electrode.  
+Current clamping is a technique for recording the membrane potential and how that potential changes by injecting current into a cell through the recording electrode.  
 `Current clamp' implies that the current applied through the electrode is held at a constant value for the experiment, while the membrane potential is free to vary~\cite{Hammond2015ch4}. The amplifier records whatever voltage the cell generates on its own or as a result of stimulation. 
 This technique is useful for studying how a cell responds when electric current enters a cell~\cite{Hammond2015ch4}.
 
-\subsubsection{Voltage clamp technique}\label{sec:Vclamp}
+\subsubsection{Voltage clamp technique}\label{sec:Vclamp}\anakintodo{appendix?} 
  
-In contrast to the current clamp technique, in voltage clamp\todo{appendix?} mode the cell potential is `clamped' at a chosen value while recording changes in ion currents~\cite{Hammond2015ch4}. 
+In contrast to the current clamp technique, in voltage clampmode the cell potential is `clamped' at a chosen value while recording changes in ion currents~\cite{Hammond2015ch4}. 
 This allows to measure how much \textit{ionic current} is flowing through the cell's membrane at any given voltage. 
 This is important because, as will be elaborated in \Cref{sec:depol}, many of the ion channels in neuronal membrane are \gls{gls:vgate}[d] ion channels, which open only when the membrane voltage is within a certain range, and the voltage clamp technique allows for control of the variable determining the opening of those channels~\cite{Hammond2015ch4}.
 
@@ -266,10 +266,10 @@ The voltage fluctuations take the form of a rapid upward spike followed by a rap
 The \gls{ap} is a sudden and rapid \gls{gls:depol} of the \gls{gls:membrane} as a result of positive inward \gls{gls:flux} of current through the \gls{gls:axon}. In \gls{gls:neuron}[al] \glspl{gls:soma} and \glspl{gls:axon}, these currents are most commonly propogated by \gls{Na} \glspl{gls:cation}.{}\footnote{A positively charged \gls{gls:ion}, no relation to \textit{Felis Catus}}
 
 The \gls{gls:ion}[ic] basis for \gls{gls:neuron}[al] excitation was first described in the giant squid axon by Hodgkin \& Huxley \br{1952} using the voltage clamp technique~\cite{HodHux1952}.\footnote{\cref{sec:Vclamp}}{} They observed a key phenomenon, that the \gls{ap} is underlied by two separate voltage-dependent currents: an early transient inward \gls{Na} current which depolarizes the \gls{gls:membrane}, and a delayed outward \gls{K} current largely responsible for \gls{gls:repol}. 
-The resulting voltage waveform takes the shape of a rapid upward spike followed by a rapid inactivation that hyperpolarizes the \gls{gls:membrane} before returning to the resting \gls{gls:mPote} \cref{fig:AP} \cite{}.
+The resulting voltage waveform takes the shape of a rapid upward spike followed by a rapid inactivation that hyperpolarizes the \gls{gls:membrane} before returning to the resting \gls{gls:mPote} \cref{fig:AP} \cite{Hammond2015ch4}.
 
-Up to a threshold level of \gls{gls:membrane} \gls{gls:depol} (called the \gls{gls:tPote}), only passive ohmic response can be recorded, when the \gls{gls:membrane} is depolarized just above the threshold, an \gls{ap} is evoked. \todo{Include section about number of subunits in squid channels}
-Increasing the intensity of the stimulating current pulse does not increase the amplitude of the \gls{ap}, the \gls{ap} is all or none \cite{}. 
+Up to a threshold level of \gls{gls:membrane} \gls{gls:depol} (called the \gls{gls:tPote}), only passive ohmic response can be recorded, when the \gls{gls:membrane} is depolarized just above the threshold, an \gls{ap} is evoked. \anakintodo{Include section about number of subunits in squid channels}
+Increasing the intensity of the stimulating current pulse does not increase the amplitude of the \gls{ap}, the \gls{ap} is all or none \cite{Hammond2015ch4}. 
 \begin{figure}[H]
   \centering
   \includegraphics[width=0.5\linewidth]{Pictures//Anakin/AP.png}
@@ -279,21 +279,21 @@ Increasing the intensity of the stimulating current pulse does not increase the 
 
 \subsubsection{Depolarization of the membrane potential}\label{sec:depol}
 %\subsubsection{The \gls{gls:depol} phase of \gls{Na}[-dependent] \gls{ap} results from the transient entry of \gls{Na} \glspl{gls:ion} through \gls{gls:vgate}[d] \gls{Na} channels.}
-The threshold for initiation of \gls{Na}[-dependent] action \gls{gls:Pote} is due to \gls{gls:vgate}[d] \gls{Na} channels only opening in response to a \gls{gls:depol} of \qtyrange{-50}{-40}{\mV}, hence the classification `\gls{gls:vgate}[d]' \cite{}. 
+The threshold for initiation of \gls{Na}[-dependent] action \gls{gls:Pote} is due to \gls{gls:vgate}[d] \gls{Na} channels only opening in response to a \gls{gls:depol} of \qtyrange{-50}{-40}{\mV}, hence the classification `\gls{gls:vgate}[d]' \cite{Hammond2015ch4}. 
 
-In response to \gls{gls:depol} passing the \gls{gls:tPote}, closed \gls{Na} channels of the axon segment\todo{Need to elaborate that model only represents discrete segments of the axon} begin to open. The \gls{gls:flux} of \gls{Na} \glspl{gls:ion} through the open \gls{Na} channels depolarize the \gls{gls:membrane} more, triggering the opening of additional \gls{Na} channels. 
+In response to \gls{gls:depol} passing the \gls{gls:tPote}, closed \gls{Na} channels of the axon segment\anakintodo{Need to elaborate that model only represents discrete segments of the axon} begin to open. The \gls{gls:flux} of \gls{Na} \glspl{gls:ion} through the open \gls{Na} channels depolarize the \gls{gls:membrane} more, triggering the opening of additional \gls{Na} channels. 
 Consequentially, the \gls{gls:flux} of \gls{Na} \glspl{gls:ion} increases, causing further \gls{gls:depol} of the \gls{gls:membrane}, cascading until all \gls{Na} channels in the segment have opened. 
-This coincides with the \gls{gls:depol} phase reaching its peak \cite{}. 
+This coincides with the \gls{gls:depol} phase reaching its peak \cite{Hammond2015ch4}. 
 
 {}\gls{Na} channels are opened by \gls{gls:depol} and once opened, they reinforce the \gls{gls:membrane} \gls{gls:depol} and therefore their own activation: a self-maintained process,\footnotemark~which is why the \gls{Na}[-dependent] \gls{ap} is all or none.\footnotetext{Also commonly refered to as a `positive feedback cycle'.}
 Once initiated, the \gls{ap} propagates along an axon without decaying in amplitude, at rates ranging between \qtyrange{1}{100}{\meter\per\s}. 
 This propagation proceeds without \gls{gls:attenuation} due to the density of \gls{gls:vgate}[d] \gls{Na} channels remains constant along the axon; as well due to the presence of insulating \glspl{gls:myelin}. 
 Once the channels become inactive, they may not reopen, ensuring that \gls{ap} only propagates forward. 
 %originaltextend
-The time during which the \gls{Na} channel stays open is the mean open time, denoted \(\tau_o\) \cite{}.\footnote{The letter  `o', not the number `0'}
+The time during which the \gls{Na} channel stays open is the mean open time, denoted \(\tau_o\) \cite{Hammond2015ch4}.\footnote{The letter  `o', not the number `0'}
 %The functional significance of this value is the following: during a time equal to \(\tau_o\) the channel has a high probability of staying open. 
 
-The \unit[per-mode = symbol]{\ucur\sodium\per\V} relation is obtained by plotting the amplitude of the unitary current \(\br{\ucur\sodium}\) versus \gls{gls:mPote} \(\br{\unit{\V\membrane}}\). This relation is linear between \qtyrange{-50}{0}{\mV}. For \glspl{gls:mPote} \gls{gls:hypol} beyond \qty{-50}{\mV}, \(\ucur\sodium\) will have close to no value. As illustrated by \cref{eq:Na}, the \gls{Na} channel has a reduced strength of gradient, drastically lowering the probability of opening \cite{}.\footnote{Quantitative data for \glspl{gls:mPote} more depolarized than \qty{0}{\mV} is, \emph{bizarrely}, lacking.}
+The \unit[per-mode = symbol]{\ucur\sodium\per\V} relation is obtained by plotting the amplitude of the unitary current \(\br{\ucur\sodium}\) versus \gls{gls:mPote} \(\br{\unit{\V\membrane}}\). This relation is linear between \qtyrange{-50}{0}{\mV}. For \glspl{gls:mPote} \gls{gls:hypol} beyond \qty{-50}{\mV}, \(\ucur\sodium\) will have close to no value. As illustrated by \cref{eq:Na}, the \gls{Na} channel has a reduced strength of gradient, drastically lowering the probability of opening \cite{Hammond2015ch4}.\footnote{Quantitative data for \glspl{gls:mPote} more depolarized than \qty{0}{\mV} is, \emph{bizarrely}, lacking.}
 
 %When the activity of a single \gls{Na} channel is recorded at different test \glspl{gls:Pote}, it was observed that the amplitude of the inward unitary current \(\br{\ucur\sodium}\) diminishes proportionately with the state of \gls{gls:membrane} \gls{gls:depol}~\cite{Hammond2015ch4}. 
 The critical point of the current/voltage relation is the \gls{gls:mPote} for which the current is zero; i.e. the \gls{gls:rPote} of the current \(\br{\equi\reverse}\). 
