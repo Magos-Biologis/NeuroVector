@@ -11,8 +11,8 @@
 
 % ========================= Class tags
 
-% \newif\ifRUCtype@Project@
-% \newif\ifRUCtype@Assignment@
+\newif\iftagRUC@typeProject@
+\newif\iftagRUCtype@Assignment@
 
 % ========================= Tikz Packages ================================
 
@@ -46,7 +46,6 @@
     }
 
 \DeclareOption{decoLib}{%
-    \usetikzlibrary{arrows.meta}
     \usetikzlibrary{decorations.markings}
     \usetikzlibrary{decorations.pathreplacing}
     \usetikzlibrary{decorations.text}
@@ -58,11 +57,23 @@
 \DeclareOption{exterLib}{%    
     \usetikzlibrary{external}
     }
-
+    
+\newif\iftagInRUCcls@
+\DeclareOption{clsOverride}{%
+    \tagInRUCcls@true
+    }
+    
 \ExecuteOptions{}
 \ProcessOptions\relax
 
-\tikzset{>=latex} % for LaTeX arrow head
+\iftagInRUCcls@
+    \else
+        \newif\iftagRUC@typeProject@
+        \newif\iftagRUCtype@Assignment@
+    \fi
+    
+\usetikzlibrary{arrows.meta}
+\tikzset{>=Stealth} % for LaTeX arrow head
     
 \RequirePackage{pgfplots} % For plotting within LaTeX
 \RequirePackage{pgfplotstable} % table plotting

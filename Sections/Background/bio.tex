@@ -49,14 +49,15 @@ Of whether they be common skin cells or neuronal, those relevant to this project
     \caption{A simplified representation of a \gls{gls:neuron}[al] cell, with labels for each of the important features. (1) the \gls{gls:soma} of the cell; (2) a \gls{gls:dendrite}; (3) the \gls{gls:axon}; (4) the \gls{gls:ax-hill}; (5) the \gls{gls:ax-terminal}.}\label{fig:Neuron}
 \end{figure}
 
-There exist a number of important features that are foundational to the specialized functions found in the \glspl{gls:neuron};\vspace{-2em}
+There exist a number of important features that are foundational to the specialized functions found in the \glspl{gls:neuron};
+
 \begin{enumerate}
-  \item \glslink{gls:soma}{\textbf{The soma}} is the main body of the \gls{gls:neuron}. It is the space in which the nucleus resides, and by extension where protein production occurs. The nucleus can range from \qtyrange{3}{18}{\um} in diameter \cite{Hammond2015ch3,Hammond2015ch4}.
-  \item \glslink{gls:dendrite}{\textbf{The dendrites}} of a \gls{gls:neuron} are extensions of the \gls{gls:membrane} with many branches. This overall shape and structure are metaphorically referred to as a `\textit{\gls{gls:denTree}}'.\footnotemark~This is where the majority of \gls{gls:neuron} inputs are received, and carried by the `dendritic spine' down to the \gls{gls:soma}~\cite{Hammond2015ch3,Hammond2015ch4}. \footnotetext{Greek root word `\textit{dendron}' meaning tree, translates to `tree tree'.}
-  \item \glslink{gls:axon}{\textbf{The axon}} is a finer tendril that can extend tens, if not tens of thousands of times, the diameter of the \gls{gls:soma} in length. The \gls{gls:axon} primarily carries nerve signals away from the \gls{gls:soma} and carries some types of information back to it. Most \glspl{gls:neuron} have only one \gls{gls:axon}, but this \gls{gls:axon} will be able to undergo significant branching, enabling communication with many target cells \cite{Hammond2015ch3,Hammond2015ch4}. 
-  \item \glslink{gls:ax-hill}{\textbf{The axon hill-lock}} is the part of the \gls{gls:axon} where it emerges from the \gls{gls:soma}. The region contains the greatest density of voltage-dependent sodium channels. This makes it the most easily excited part of the \gls{gls:neuron}~\cite{Hammond2015ch3,Hammond2015ch4}. 
-  \item \glslink{gls:ax-terminal}{\textbf{The axon terminal}} is found at the terminus of the \gls{gls:axon} and contains synapses \cite{Hammond2015ch3,Hammond2015ch4}. 
-  \item \glslink{gls:myelin}{\textbf{The myelin sheathe}} is a lipid and protein comprised substance excreted from Schwann cells that `sheathes' the \gls{gls:axon}, creating additional insulation for \gls{gls:capa}~\cite{Hammond2015ch4}.
+    \item \glslink{gls:soma}{\textbf{The soma}} is the main body of the \gls{gls:neuron}. It is the space in which the nucleus resides, and by extension where protein production occurs. The nucleus can range from \qtyrange{3}{18}{\um} in diameter \cite{Hammond2015ch3,Hammond2015ch4}.
+    \item \glslink{gls:dendrite}{\textbf{The dendrites}} of a \gls{gls:neuron} are extensions of the \gls{gls:membrane} with many branches. This overall shape and structure are metaphorically referred to as a `\textit{\gls{gls:denTree}}'.\footnotemark~This is where the majority of \gls{gls:neuron} inputs are received, and carried by the `dendritic spine' down to the \gls{gls:soma}~\cite{Hammond2015ch3,Hammond2015ch4}. \footnotetext{Greek root word `\textit{dendron}' meaning tree, translates to `tree tree'.}
+    \item \glslink{gls:axon}{\textbf{The axon}} is a finer tendril that can extend tens, if not tens of thousands of times, the diameter of the \gls{gls:soma} in length. The \gls{gls:axon} primarily carries nerve signals away from the \gls{gls:soma} and carries some types of information back to it. Most \glspl{gls:neuron} have only one \gls{gls:axon}, but this \gls{gls:axon} will be able to undergo significant branching, enabling communication with many target cells \cite{Hammond2015ch3,Hammond2015ch4}. 
+    \item \glslink{gls:ax-hill}{\textbf{The axon hill-lock}} is the part of the \gls{gls:axon} where it emerges from the \gls{gls:soma}. The region contains the greatest density of voltage-dependent sodium channels. This makes it the most easily excited part of the \gls{gls:neuron}~\cite{Hammond2015ch3,Hammond2015ch4}. 
+    \item \glslink{gls:ax-terminal}{\textbf{The axon terminal}} is found at the terminus of the \gls{gls:axon} and contains synapses \cite{Hammond2015ch3,Hammond2015ch4}. 
+    \item \glslink{gls:myelin}{\textbf{The myelin sheathe}} is a lipid and protein comprised substance excreted from Schwann cells that `sheathes' the \gls{gls:axon}, creating additional insulation for \gls{gls:capa}~\cite{Hammond2015ch4}.
 \end{enumerate}
 
 \begin{figure}[H]
@@ -74,9 +75,9 @@ In a \gls{gls:neuron}, the overall charge in the \gls{gls:incell} space is more 
 By convention, membrane potential - \(\br{\unit{\V\membrane}}\) is the difference between the electric potential of the internal and external faces of the membrane \(\br{\unit{\V\membrane}=\unit{\V\incell}-\unit{\V\excell}}\). In the absence of ongoing electrical activity, this negative potential is termed the resting membrane potential \(\br{\unit{V_{rest}}}\). The usual resting \gls{gls:mPote} is found to be around \glslink{gls:volt}{\qty{-70}{millivolts\br{\milli\volt}}} in \glspl{gls:neuron}, however, it varies depending on the cell type and conditions~\cite{Hammond2015ch3,Hammond2015ch4}. When the membrane potential is less negative than \(V_{rest}\), the membrane is considered to be depolarized. In contrast, when the membrane potential is more negative than \(V_{rest}\), the membrane is said to be \gls{gls:hypol} \cite{Hammond2015ch3}. 
 
 The \glspl{gls:ion} primarily involved in the \gls{gls:mPote} include \gls{Na}, \gls{K}, \gls{Cl}, and, to a limited degree, \gls{Ca}. 
-In the \gls{gls:excell} space the concentrations of \gls{Na} and \gls{Cl} are kept much higher than in the cytoplasm of the \gls{gls:incell} space, whereas \gls{K} is found in much higher concentrations in the cytoplasm compared to the \gls{gls:excell} space. 
+In the \gls{gls:excell} space the concentrations of \gls{Na} and \gls{Cl} are kept much higher than in the cytoplasm\kennitodo{perhaps explain?} of the \gls{gls:incell} space, whereas \gls{K} is found in much higher concentrations in the cytoplasm compared to the \gls{gls:excell} space. 
 During rest, their concentration \glspl{gls:grad} are actively regulated and maintained at constant values by `\glspl{gls:ionPump}' chemically transporting \glspl{gls:ion} across the \gls{gls:membrane}~\cite{Hammond2015ch3,Hammond2015ch4}. 
-However, the main contributors to the negative potential of the intracellular side of the \gls{gls:membrane} are the anions of the intracellular fluid, which are organic molecules such as negatively charged amino acids, proteins, nucleic acids, phosphates, etc., which have a large molecular weight and cannot cross the lipid membrane and thus do not participate directly in electrical signaling in neurons\cite{Hammond2015ch3}. 
+However, the main contributors to the negative potential of the intracellular side of the \gls{gls:membrane} are the anions of the intracellular fluid, which are organic molecules such as negatively charged amino acids, proteins, nucleic acids, phosphates, etc., which have a large molecular weight and cannot cross the lipid membrane and thus do not participate directly in electrical signaling in neurons~\cite{Hammond2015ch3}. 
 
 
 An important structure embedded in the \gls{gls:bilipid} includes `\glspl{gls:ionChan}' which permit electrically charged \glspl{gls:ion} to diffuse across the \gls{gls:membrane} \gls{gls:grad}. \Glspl{gls:ionChan} are only permeable to a specific \gls{gls:ion}~\cite{Hammond2015ch4}. Some \glspl{gls:ionChan} are \gls{gls:vgate}[d], meaning that they can be switched between open and closed states by altering the voltage across the \gls{gls:membrane}. 
@@ -145,7 +146,6 @@ The \(\equi\ion\) of the given \glspl{gls:ion} can be calculated using the \emph
 \begin{equation}
   \equi\ion = \br{\frac{\clm{R}\, \cdot \,\clm{T}}{z\, \cdot \, \clm{F}}} \, \ln \br{\frac{\ionconc\excell }{ \ionconc\incell} } \tag{\ref*{eq:nernst}} 
 \end{equation}
-
 Where \(\clm{R}\) is the ideal gas constant \br{\qty{8.314}{\cubic\meter\pascal\per\kelvin\per\mol}}; \(\clm{T}\) is the temperature in \gls{gls:kelvin} \(\br{ x\,\unit{\glssymbol{gls:celsius}} \cong {273.15} + x\,\unit{\kelvin}}\); \(\clm{F}\) is the Faraday constant \br{\qty{96500}{\coulomb\per\mole}}; \(z\) is the valence of the \gls{gls:ion}; and \(\ionconc\) is the concentration of the given \gls{gls:ion} in the \gls{gls:excell} \( \br{ \clm{E} } \) or \gls{gls:incell} \( \br{\clm{I}}\) \gls{gls:media}. 
 % As most of these terms are constants, it is simple to reduce the equation down in dimensional complexity:
 % \begin{align} 
@@ -163,7 +163,7 @@ Where \(\clm{R}\) is the ideal gas constant \br{\qty{8.314}{\cubic\meter\pascal\
 \end{subequations}
 
 \begin{subequations}\label{eq:mVions}
-With minor adjustments to \cref{eq:nernst}, % the now derived form of \cref{eq:nernst}, 
+With minor adjustments\footnote{Left as an exercise for the reader} to \cref{eq:nernst}, % the now derived form of \cref{eq:nernst}, 
 one is able to derive;
 \begin{equation}
   \equi\ion = \cfrac{\clm{T}\unit{\per\K}}{ z } \, \cdot \, \ln \br{ \frac{ {\ionconc\excell} }{ {\ionconc\incell}} } \cdot \num{11.612515042}^{-1} \ \unit{\milli\volt} \tag{\ref*{eq:mVions}}
@@ -173,19 +173,22 @@ Plugging the relative concentrations, measured in millimoles \br{\unit{\milli\mo
 using the relevant \(\ionconc\),
 the \glspl{gls:ePote} follow:
 
-\begin{minipage}{.48\textwidth}
+\noindent
+\scalebox{0.90}{
+\begin{minipage}[c]{.525\textwidth}
   \begin{align}
-    {\equi\sodium} &= \num{310.15}\ \ln \br{ \frac{142}{15} }\cdot \num{11.612515042}^{-1} = \qty{60.034194963}{\mV} \label{eq:Na}\\
-    {\equi\potassium}  &= \num{310.15}\ \ln \br{ \frac{4}{150} }\cdot \num{11.612515042}^{-1} = \qty{-96.799817808}{\mV} \label{eq:K}
-  \end{align}
-\end{minipage}
-~
-\begin{minipage}{.48\textwidth}
+    {\equi\sodium} &= \num{310.15}\ \ln \br{ \frac{142}{15} }\cdot \num{11.612515042}^{-1} &=& \qty{60.034194963}{\mV} \label{eq:Na}\\
+    {\equi\potassium} &= \num{310.15}\ \ln \br{ \frac{4}{150} }\cdot \num{11.612515042}^{-1} &=& \qty{-96.799817808}{\mV} \label{eq:K}
+    \end{align}
+\end{minipage}}
+\hfill
+\scalebox{0.90}{
+\begin{minipage}[c]{.525\textwidth}
   \begin{align}
-    {\equi\chlorine}  &= \num{-310.15}\ \ln \br{ \frac{120}{\num{5}} }\cdot \num{11.612515042}^{-1} = \qty{-90.840043187}{\mV} \label{eq:Cl}\\
-    {\equi\calcium}  &= \frac{310.15}{2}\ \ln \br{ \frac{1}{\num{e-4}} }\cdot \num{11.612515042}^{-1} = \qty{122.996054517}{\mV} \label{eq:Ca}
+    {\equi\chlorine} &= \num{-310.15}\ \ln \br{ \frac{120}{\num{5}} }\cdot \num{11.612515042}^{-1} &=& \qty{-90.840043187}{\mV} \label{eq:Cl}\\
+    {\equi\calcium}  &= \frac{310.15}{2}\ \ln \br{ \frac{1}{\num{e-4}} }\cdot \num{11.612515042}^{-1} &=& \qty{122.996054517}{\mV} \label{eq:Ca}
   \end{align}
-\end{minipage}
+\end{minipage}}
 
 % 293.15
 

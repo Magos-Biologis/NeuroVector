@@ -1,6 +1,8 @@
 % \documentclass[../../Orator]{subfiles}
 \documentclass[class={myRUCProject}, crop=false]{standalone}
+
 \IfStandalone{%
+    \usepackage[disable]{todonotes}
     \import{../../}{customCommands}
     \import{../../}{INP-00-glossary}
     }{}
@@ -35,7 +37,7 @@ In scaling processes, the complexity of a system will often change. In the descr
 %     \label{fig:scale}
 % \end{figure}
 
-Microscopic, mesoscopic and macroscopic models represent three distinct approaches to describing the behavior of systems at varying scales. For better understanding, we're going to analyze all of them respectively. The main distinctions between those scales of models are the size of the phenomena they describe, the details and the level of abstraction they provide ~\cite{Lachowicz2011}. 
+Microscopic, mesoscopic and macroscopic models represent three distinct approaches to describing the behavior of systems at varying scales\alextodo{Should we explain what level our models are on? Or is it obvious?}. For better understanding, we're going to analyze all of them respectively. The main distinctions between those scales of models are the size of the phenomena they describe, the details and the level of abstraction they provide ~\cite{Lachowicz2011}. 
 
 \begin{enumerate}
 
@@ -69,7 +71,7 @@ For neural networks scaling up involves increasing the number of neurons interac
 %- 
 
 \section{Dynamic System Fundamentals}
-When looking at the brain in abstract form it can be seen as a multi-dimensional \gls{gls:dynSystem} governed by an independent set of system variables, such as neuronal membrane potentials, which change in time based on a set of \gls{gls:deterministic} equations with system parameters that either do not change in time (e.g. maximal \gls{gls:cond} of the ion
+When looking at the brain in abstract form it can be seen as a multi-dimensional \alextodo{We expect the reader to know basic stuff about dynamical systems} \gls{gls:dynSystem} governed by an independent set of system variables, such as neuronal membrane potentials, which change in time based on a set of \gls{gls:deterministic} equations with system parameters that either do not change in time (e.g. maximal \gls{gls:cond} of the ion
 channels on the neuronal membrane) or whose evolution happens on a much slower time scale relative to the evolution of the system variables ~\cite{Stefanescu2012}.
 
 
@@ -97,6 +99,8 @@ Lastly, there is the difference between an \gls{gls:autonomous} system, which is
 \end{comment}
 
 When analysing differential equations \textit{phase space} analysis is an important concept and tool. Phase space is the space spanned by the system's variables and the trajectories it contain are those variables traversing time. When a neuron transitions from rest to firing a qualitative change in the dynamical behavior of the system will occur. A qualitative change can be associated with phenomena such as \textit{bifurcations}, \textit{phase transitions}, emergence of (new) \textit{attractors}, or shifts in stability \cite{}. 
+
+\end{document}
 
 % % Bifurcations constitutes critical points where the stability of a system changes, leading to abrupt transitions in the system's behavior. As will be shown these transitions can provide insights into the onset of seizures and their characteristics [link to network analysis section]
 
@@ -191,7 +195,6 @@ When analysing differential equations \textit{phase space} analysis is an import
 
 % The practical barriers to simulating brain processes are to do with the modeling framework of the particular question of interest together with the computational resources needed to run complex simulations. Fortunately Moore's Law is still holding and with the emergence of AI the modeling framework have been propelled foreword. Large-scale brain simulation projects, like the Human Brain Project\footnote{\url{https://www.humanbrainproject.eu/en/brain-simulation/}}, leverage AI and high-performance computing to simulate the behavior of billions of neurons and their connections.
 
-\end{document}
 
 
 \section{Building up to Hodgkin-Huxley}

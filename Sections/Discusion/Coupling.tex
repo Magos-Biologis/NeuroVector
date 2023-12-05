@@ -29,6 +29,14 @@ Illustrated in \Cref{fig:notation}, notation will be defined as \(\langle origin
 
 \section{Coupling}
 
+
+
+\begin{enumerate}
+    \item What does coupling mean
+    \item How can that be replicated in the model
+    \item I hate my life
+\end{enumerate}
+
 % To couple things (2, 1).
 
 % When deciding to couple neurons it is important to understand what to expect as to better the verify the results obtained. In terms of behaviour, neurons can be classified as:
@@ -59,7 +67,14 @@ Illustrated in \Cref{fig:notation}, notation will be defined as \(\langle origin
 
 
 
-\section{Meth}
+\section{Constructing}
+
+In order to build a model, one must make certain simplifications lest the model take an ordinal length of time to construct. Listed are the assumptions made;
+\begin{enumerate}
+    \item \gls{ap} is the only meaningful impulse. While it is true that the potential is triggered in the dendrites by neurotransmitters. As these neurotransmitters are released with the potential, the two will be considered one and the same.
+    \item That the resulting measure of \gls{ap} will be in the \gls{gls:axon} of the cell, even though \(N\) is representing the \gls{gls:soma} of a \gls{gls:neuron}
+    \item That due to the nature and shape of an \gls{gls:axon}, we can represent the movement of the \gls{ap} along a single dimension
+\end{enumerate}
 
 Approaching this system as a diffusion of action potential through 1-dimensional paths, we choose the \(\langle 2,\,1 \rangle\) configuration.
 \begin{figure}[H]
@@ -67,6 +82,7 @@ Approaching this system as a diffusion of action potential through 1-dimensional
     \import{../../Pictures/Anakin}{2-1-con.tex}
     \caption{Caption}\label{fig:2-1-con}
 \end{figure}
+Beginning by modeling this a a linear compartmental
 
 The Fickian\alextodo[author=Alex]{cite?} diffusion law takes the form\alextodo[author=Alex]{Try and explain terms}:
 \begin{equation}
@@ -74,42 +90,44 @@ The Fickian\alextodo[author=Alex]{cite?} diffusion law takes the form\alextodo[a
 \end{equation}
 approaching our neuronal arrangement\alextodo[author=Alex]{Try and explain terms} under the same assumption;
 \begin{align}
-    \pde{t}{N_0} &= \br{\pde{t}{N_1}+\pde{t}{N_2}}\,N_0 + \eta_0\pde{x}{N_0}[2] \\
-    \pde{t}{N_1} &= \curr_1\,N_1 + \eta_1\pde{x}{N_1}[2] \\
-    \pde{t}{N_2} &= \curr_1\,N_2 + \eta_2\pde{x}{N_2}[2] 
-\end{align}
-applying a moving frame of going left to right, in the form of \(z=x-s\,t\)\alextodo[author=Alex]{Explain what the fuck} to our system;
-\begin{align}
-    \varphi_0\br{z} &= N_0\br{t,\,x} &&\implies& -s\,\ode[z]{\varphi_0} &= -s\,\br{\ode[z]{\varphi_1}+\ode[z]{\varphi_2}}\,\varphi_0 + \eta_0\ode[z]{\varphi_0}[2] \\
-    \varphi_1\br{z} &= N_1\br{t,\,x} &&\implies& -s\,\ode[z]{\varphi_1} &= \curr_1\,\varphi_1 + \eta_1\ode[z]{\varphi_1}[2] \\
-    \varphi_2\br{z} &= N_2\br{t,\,x} &&\implies& -s\,\ode[z]{\varphi_1} &= \curr_2\,\varphi_1 + \eta_1\ode[z]{\varphi_1}[2] 
-\end{align}
-making substitutions\alextodo[author=Alex]{Even more the fuck} to reduce the order of the functions;
-\begin{align*}
-    \ode[z]{\Phi_0} = \ode[z]{\varphi_0}[2] &\implies \Phi_0 = \ode[z]{\varphi_0} &
-    \ode[z]{\Phi_1} = \ode[z]{\varphi_1}[2] &\implies \Phi_1 = \ode[z]{\varphi_1} &
-    \ode[z]{\Phi_2} = \ode[z]{\varphi_2}[2] &\implies \Phi_2 = \ode[z]{\varphi_2}\\
-    \ode[z]{\varphi_0}[2] &= s\,\br{\cfrac{\br{\Phi_1+\Phi_2}\varphi_0 - \,\Phi_0}{\eta_0}} &
-    \ode[z]{\varphi_1}[2] &= -\cfrac{\curr_1 \varphi_1 + s \,\Phi_1}{\eta_1} &
-    \ode[z]{\varphi_2}[2] &= -\cfrac{\curr_2 \varphi_2 + s \,\Phi_2}{\eta_2} 
-\end{align*}
-more substitutions lead\alextodo[author=Alex]{Who even the fuck} to a system of \glspl{ode};
-\begin{align}
-    \ode[z]{\varphi_0} &= {\Phi_0}\br{-s}^{-1} \\
-    \ode[z]{\varphi_1} &= {\Phi_1}\br{-s}^{-1} \\
-    \ode[z]{\varphi_2} &= {\Phi_2}\br{-s}^{-1} \\
-    \ode[z]{\Phi_0} &= s\,\br{\cfrac{\br{\Phi_1+\Phi_2}\varphi_0 - \,\Phi_0}{\eta_0}} \\
-    \ode[z]{\Phi_1} &= -\cfrac{\curr_1 \varphi_1 + s \,\Phi_1}{\eta_1}\\
-    \ode[z]{\Phi_2} &= -\cfrac{\curr_2 \varphi_2 + s \,\Phi_2}{\eta_2}
+    \pde{t}{N_1} &= \curr_1 + D_1\pde{x}{N_2}[2] - \eta_1\,N_1 \\
+    \pde{t}{N_2} &= \curr_2 + D_2\pde{x}{N_2}[2] - \eta_2\,N_2 \\
+    \pde{t}{N_0} &= \eta_1\,\eta_2\,N_1\,N_2 + D_0\pde{x}{N_0}[2] - \br{\pde{x}{N_1}[2]+\pde{x}{N_2}[2]} - \eta_0\,N_0
 \end{align}
 
-Fixed points (?) 
+% applying a moving frame of going left to right, in the form of \(z=x-s\,t\)\alextodo[author=Alex]{Explain what the fuck} to our system;
+% \begin{align}
+%     \varphi_0\br{z} &= N_0\br{t,\,x} &&\implies& -s\,\ode[z]{\varphi_0} &= -s\,\br{\ode[z]{\varphi_1}+\ode[z]{\varphi_2}}\,\varphi_0 + \eta_0\ode[z]{\varphi_0}[2] \\
+%     \varphi_1\br{z} &= N_1\br{t,\,x} &&\implies& -s\,\ode[z]{\varphi_1} &= \curr_1\,\varphi_1 + \eta_1\ode[z]{\varphi_1}[2] \\
+%     \varphi_2\br{z} &= N_2\br{t,\,x} &&\implies& -s\,\ode[z]{\varphi_1} &= \curr_2\,\varphi_1 + \eta_1\ode[z]{\varphi_1}[2] 
+% \end{align}
+% making substitutions\alextodo[author=Alex]{Even more the fuck} to reduce the order of the functions;
+% \begin{align*}
+%     \ode[z]{\Phi_0} = \ode[z]{\varphi_0}[2] &\implies \Phi_0 = \ode[z]{\varphi_0} &
+%     \ode[z]{\Phi_1} = \ode[z]{\varphi_1}[2] &\implies \Phi_1 = \ode[z]{\varphi_1} &
+%     \ode[z]{\Phi_2} = \ode[z]{\varphi_2}[2] &\implies \Phi_2 = \ode[z]{\varphi_2}\\
+%     \ode[z]{\varphi_0}[2] &= s\,\br{\cfrac{\br{\Phi_1+\Phi_2}\varphi_0 - \,\Phi_0}{\eta_0}} &
+%     \ode[z]{\varphi_1}[2] &= -\cfrac{\curr_1 \varphi_1 + s \,\Phi_1}{\eta_1} &
+%     \ode[z]{\varphi_2}[2] &= -\cfrac{\curr_2 \varphi_2 + s \,\Phi_2}{\eta_2} 
+% \end{align*}
 
-the trivial,\alextodo[author=Alex]{AAAAAAA} \(\br{\varphi_0,\varphi_1,\varphi_2,\Phi_0,\Phi_1,\Phi_2} = (0,0,0,0,0,0)\)
-\begin{align*}
-\br{\varphi_0,\varphi_1,\varphi_2,\Phi_0,\Phi_1,\Phi_2} &= \br{1,\frac{-1}{\curr_1},\frac{1}{\curr_2},0,\frac{1}{s},\frac{-1}{s}}\\
-\br{\varphi_0,\varphi_1,\varphi_2,\Phi_0,\Phi_1,\Phi_2} &= (0,0,0,0,0,0)\\
-\br{\varphi_0,\varphi_1,\varphi_2,\Phi_0,\Phi_1,\Phi_2} &= (0,0,0,0,0,0)
-\end{align*}
+% more substitutions lead\alextodo[author=Alex]{Who even the fuck} to a system of \glspl{ode};
+% \begin{align}
+%     \ode[z]{\varphi_0} &= {\Phi_0}\br{-s}^{-1} \\
+%     \ode[z]{\varphi_1} &= {\Phi_1}\br{-s}^{-1} \\
+%     \ode[z]{\varphi_2} &= {\Phi_2}\br{-s}^{-1} \\
+%     \ode[z]{\Phi_0} &= s\,\br{\cfrac{\br{\Phi_1+\Phi_2}\varphi_0 - \,\Phi_0}{\eta_0}} \\
+%     \ode[z]{\Phi_1} &= -\cfrac{\curr_1 \varphi_1 + s \,\Phi_1}{\eta_1}\\
+%     \ode[z]{\Phi_2} &= -\cfrac{\curr_2 \varphi_2 + s \,\Phi_2}{\eta_2}
+% \end{align}
+
+% Fixed points (?) 
+
+% the trivial,\alextodo[author=Alex]{AAAAAAA} \(\br{\varphi_0,\varphi_1,\varphi_2,\Phi_0,\Phi_1,\Phi_2} = (0,0,0,0,0,0)\)
+% \begin{align*}
+% \br{\varphi_0,\varphi_1,\varphi_2,\Phi_0,\Phi_1,\Phi_2} &= \br{1,\frac{-1}{\curr_1},\frac{1}{\curr_2},0,\frac{1}{s},\frac{-1}{s}}\\
+% \br{\varphi_0,\varphi_1,\varphi_2,\Phi_0,\Phi_1,\Phi_2} &= (0,0,0,0,0,0)\\
+% \br{\varphi_0,\varphi_1,\varphi_2,\Phi_0,\Phi_1,\Phi_2} &= (0,0,0,0,0,0)
+% \end{align*}
 
 \end{document}

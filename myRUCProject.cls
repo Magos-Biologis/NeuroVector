@@ -12,14 +12,15 @@
 
 % ========================= Class tags
 
+\global\let\tagRuc@typeProject@\iftrue\relax
+    
 
-\newif\ifRUCtype@Project@
-    \RUCtype@Project@true
+\newif\iftagBibble@ 
+\newif\iftagGlossel@ 
 
-\newif\iftagFontFuckery@
+\newif\iftagFontFuckery@ 
+\newif\iftagFinal@ 
 
-\newif\iftagBibble@
-\newif\iftagGlossel@
 
 % ========================= User Options
 
@@ -36,20 +37,19 @@
 % ========================= Class Basis
 
 
-\DeclareOption{draft}{%
-    \PassOptionsToClass{\CurrentOption}{report}
-    \PassOptionsToPackage{\CurrentOption}{graphicx}
+\DeclareOption{finalHandin}{%
+    \tagFinal@true
     }
     
 
 \DeclareOption{a4}{%
     \PassOptionsToClass{a4paper}{report}
-    \PassOptionsToPackage{a4paper}{geometry}
+    \PassOptionsToPackage{a4paper,centering,vscale = 0.80,hscale = 0.75}{geometry}
     }
     
-\DeclareOption{11pt}{%
-    \PassOptionsToClass{11pt}{report}
-    }
+% \DeclareOption{11pt}{%
+%     \PassOptionsToClass{11pt}{report}
+%     }
 
 \DeclareOption{noindent}{%
     \AtBeginDocument{%
@@ -62,23 +62,20 @@
     \PassOptionsToClass{twocolumn}{report}
     }
 
-\DeclareOption{RaggedRight}{%
-    \PassOptionsToPackage{document}{ragged2e}
-    }
 
 
 % ========================= no more Options
 
 \DeclareOption*{%
     \ClassWarning{Project}{There isn't any `\CurrentOption' option dumbass}%
-}
+    }
 
 % Execute `default' options
-\ExecuteOptions{11pt, a4}
+\ExecuteOptions{a4}
 % Process given options
 \ProcessOptions\relax
 
-\LoadClass{report}
+\LoadClass[11pt]{report}
 
 % ========================= Text Packages 
 
@@ -87,19 +84,21 @@
 
 % It's 2022. UTF-8 input for TeX. 
 \iftutex
-	\RequirePackage[no-math]{fontspec}
+    \RequirePackage[no-math]{fontspec}
     \setsansfont{CMU Sans Serif}%{Arial}
     \setmainfont{CMU Serif}%{Times New Roman}
     \setmonofont{CMU Typewriter Text}%{Consolas}
     \defaultfontfeatures{Ligatures={TeX}}
-	%\setmainfont{TeX Gyre Termes}
-	%\RequirePackage{unicode-math}
-	%\setmathfont{Stix Two Math}
+    %\setmainfont{TeX Gyre Termes}
+    %\RequirePackage{unicode-math}
+    %\setmathfont{Stix Two Math}
     \else
         \RequirePackage[utf8]{inputenc}
         %
+        % \RequirePackage{psnfss} % Font support?
         \RequirePackage{mathpazo}
         \RequirePackage{crimson}        
+        % \RequirePackage{mathptmx} % Times new Roman      
         %
         \RequirePackage[T1]{fontenc} % Best imported after fonts. or something
         %
@@ -131,8 +130,8 @@
 % \RequirePackage{lastpage} % Pretty much exclusively used for page labeling
 
 \RequirePackage{enumitem}    % for list formatting
-\RequirePackage{indentfirst} % Corrects formatting inconsistancy
 
+\RequirePackage{indentfirst} % Corrects formatting inconsistancy
 \RequirePackage{setspace} % Line spacing
 % \RequirePackage{ragged2e} % Text Justifier
 
@@ -160,7 +159,6 @@
 % ======================== Custom Packages ================================
 
 \RequirePackage{myMathPreamble}
-
 \RequirePackage{myReferencePreamble}
 
 % ====================== Font config
@@ -170,14 +168,14 @@
 % \let\oldnormalfont\normalfont
 % \def\normalfont{\oldnormalfont\mdseries}
 
-
-
+% Removes the serif for default font
+% \renewcommand{\familydefault}{\sfdefault}
 
 % \renewcommand{\normalsize}{\fontsize{10pt}{12pt}\selectfont}
 
-\DeclareMathSizes{10}{18}{12}{8}   % For size 10 text
-\DeclareMathSizes{11}{19}{13}{9}   % For size 11 text
-\DeclareMathSizes{12}{20}{14}{10}  % For size 12 text
+% \DeclareMathSizes{10}{18}{12}{8}   % For size 10 text
+% \DeclareMathSizes{11}{19}{13}{9}   % For size 11 text
+% \DeclareMathSizes{12}{20}{14}{10}  % For size 12 text
 
 
 
@@ -212,7 +210,7 @@
               0={ ,500}}
 
 \SetExtraKerning[unit=space] % Needs kerning = true
-    {encoding={*}, family={*}, series={*}, size={footnotesize,small,normalsize}}{%
+    {encoding={*}, family={*}, series={*}, size={scriptsize,footnotesize,small,normalsize}}{%
     \textendash={400,400}, % en-dash, add more space around it
     "28={ ,150}, % left bracket, add space from right
     "29={150, }, % right bracket, add space from left
@@ -221,12 +219,11 @@
     \textquoteleft={ ,150}, % left quotation mark, space from right
     \textquoteright={150, }, % right quotation mark, space from left
     } %
-     
+    
 \SetExtraKerning[unit=space] % For titles
    {encoding={*}, family={qhv}, series={b}, size={large,Large}}
    {1={-200,-200}, \textendash={400,400}}
 
-    
 \SetTracking{encoding={*}, shape=sc}{40} % Fucks with small caps
 
 
@@ -261,12 +258,7 @@
 
 % ===================== Page Styles
 
-\RequirePackage[%
-    a4paper, centering,%
-    vscale = 0.80, hscale = 0.75,%
-    %total = {170mm,250mm},
-    ]{geometry} % Page margins
-
+\RequirePackage{geometry} % Page margins
 \RequirePackage{fancyhdr} % Allows for easy fancy page layouts
 \RequirePackage{titlesec} % Allows for easy editing of of headers
 
@@ -367,6 +359,9 @@
 % ========================================================================
 
 \RequirePackage{import}
+
+
+
 
 
 \endinput

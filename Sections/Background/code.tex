@@ -1,10 +1,17 @@
 % \documentclass[../../Orator]{subfiles}
 \documentclass[class={myRUCProject}, crop=false]{standalone}
+
+
+\usepackage{tikz}
+\usepackage[subpreambles=true]{standalone}
+
 \IfStandalone{%
+    \usepackage[disable]{todonotes}
     \import{../../}{customCommands}
     \import{../../}{INP-00-glossary}
     }{}
-    
+
+
     
 \begin{document}
 
@@ -34,7 +41,7 @@
 
 \begin{figure}[h!]
     \centering
-    \includegraphics[width=200 pt]{Pictures/Ana/Motif.png}
+    \import{../../Pictures/Anakin}{motif.tex}
     \caption{ Possible unidirectional 3-node network motifs. \cite{Shadizadeh2022}}
     \label{fig:enter-label}
 \end{figure}

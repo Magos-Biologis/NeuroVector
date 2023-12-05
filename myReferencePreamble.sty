@@ -9,13 +9,15 @@
 
 % ========================= Class tags
 
-% \newif\ifRUCtype@Project@
-% \newif\ifRUCtype@Assignment@
+% \newif\tagRuc@typeProject@
+% \newif\tagRuc@typeAssignment@
 
-\newif\iftagAxiom@
+% ======= Package Tags
 
-\newif\iftagBibble@
-\newif\iftagGlossel@
+\newif\iftagAxiom@ 
+
+\newif\iftagBibble@ 
+\newif\iftagGlossel@ 
 
 % ============================ Options =======================================
 
@@ -54,8 +56,19 @@
 %    \PackageWarning{References}{You're so stupid for thinking that `\CurrentOption' is possible}%
 %}
 
+% \newif\iftagInRUCcls@
+% \DeclareOption{clsOverride}{%
+%     \tagInRUCcls@true
+%     }
+
 \ExecuteOptions{}
 \ProcessOptions\relax
+
+% \iftagInRUCcls@
+%     \else
+%         \newif\tagRuc@typeProject@
+%         \newif\tagRuc@typeAssignment@
+%     \fi
 
 % =========================== Packages =======================================
 
@@ -74,88 +87,89 @@
     acronyms,%
     style       = index, %
     ]{glossaries}
-%\RequirePackage[%
+% \RequirePackage[%
 %    abbreviations,%
 %    nonumberlist,%
 %    ]{glossaries-extra}
+
 % ====================== Custom References ================================
 
 % Custom hyperref design
 \hypersetup{%
-    breaklinks=true,            %
+    breaklinks= true,            %
     %colorlinks=true,            %
-    linkcolor=[rgb]{0.65,0,0},  %
-    urlcolor=[rgb]{0,0,0.65},   %
-    citecolor=[rgb]{0,0.65,0},  %
+    linkcolor = [rgb]{0.65,0,0},  %
+    urlcolor  = [rgb]{0,0,0.65},   %
+    citecolor = [rgb]{0,0.65,0},  %
     pdfdisplaydoctitle = true,  % Displaying the title instead of the filename
-    pdfpagemode=FullScreen,     % Opens the pdf in fullscreen
+    pdfpagemode = FullScreen,     % Opens the pdf in fullscreen
     }
 
 % Custom cleveref setups
-    \crefdefaultlabelformat{#2\ensuremath{\left( \text{\textup{#1}} \right)}#3}
-    %\creflabelformat{equation}{#2{\(\left( \textbf{\textup{#1}} \right)\)}#3}
-    
-    % Generic Fields ======================================================
-    \crefformat{figure}%
-        {[fig.~\ensuremath{#2\left(\text{\textup{#1}}\right)#3}]}
-    \crefrangeformat{figure}%
-        {[fig.~\ensuremath{#3\left(\text{\textup{#1}}\right)#4} to~\ensuremath{#5\left(\text{\textup{#2}}\right)#6}}
-    \crefmultiformat{figure}%
-        {[figs.~\ensuremath{#2\left(\text{\textup{#1}}\right)#3}}%
-        { and~\ensuremath{#2\left(\text{\textup{#1}}\right)#3}]}%
-        {, \ensuremath{#2\left(\text{\textup{#1}}\right)#3}}%
-        { and~\ensuremath{#2\left(\text{\textup{#1}}\right)#3}]}
-    \crefrangemultiformat{figure}%
-        {[figs.~\ensuremath{#2\left(\text{\textup{#1}}\right)#3}}%
-        { and~\ensuremath{#2\left(\text{\textup{#1}}\right)#3}]}%
-        {, \ensuremath{#2\left(\text{\textup{#1}}\right)#3}}%
-        {, and~\ensuremath{#2\left(\text{\textup{#1}}\right)#3}]}
-    
-    \Crefformat{figure}%
-        {Figure~\ensuremath{#2\left(\text{\textup{#1}}\right)#3}}
-    \Crefrangeformat{figure}%
-        {Figures~\ensuremath{#3\left(\text{\textup{#1}}\right)#4} through~\ensuremath{#5\left(\text{\textup{#2}}\right)#6}}
-    \Crefmultiformat{figure}%
-        {Figures~\ensuremath{#2\left(\text{\textup{#1}}\right)#3}}%
-        { and~\ensuremath{#2\left(\text{\textup{#1}}\right)#3}}%
-        {, \ensuremath{#2\left(\text{\textup{#1}}\right)#3}}%
-        { and~\ensuremath{#2\left(\text{\textup{#1}}\right)#3}}
-    \Crefrangemultiformat{figure}%
-        {Figures~\ensuremath{#2\left(\text{\textup{#1}}\right)#3}}%
-        { and~\ensuremath{#2\left(\text{\textup{#1}}\right)#3}}%
-        {, \ensuremath{#2\left(\text{\textup{#1}}\right)#3}}%
-        {, and~\ensuremath{#2\left(\text{\textup{#1}}\right)#3}}
+\crefdefaultlabelformat{#2\ensuremath{\left( \text{\textup{#1}} \right)}#3}
+%\creflabelformat{equation}{#2{\(\left( \textbf{\textup{#1}} \right)\)}#3}
 
-    
-    \crefformat{table}%
-        {[tab.~\ensuremath{#2\left(\text{\textup{#1}}\right)#3}]}
-    \crefrangeformat{table}%
-        {[tab.~\ensuremath{#3\left(\text{\textup{#1}}\right)#4} to~\ensuremath{#5\left(\text{\textup{#2}}\right)#6}]}
-    \crefmultiformat{table}%
-        {[tabs.~\ensuremath{#2\left(\text{\textup{#1}}\right)#3}}%
-        { and~\ensuremath{#2\left(\text{\textup{#1}}\right)#3}]}%
-        {, \ensuremath{#2\left(\text{\textup{#1}}\right)#3}}%
-        { and~\ensuremath{#2\left(\text{\textup{#1}}\right)#3}]}
-    \crefrangemultiformat{table}%
-        {[tabs.~\ensuremath{#2\left(\text{\textup{#1}}\right)#3}}%
-        { and~\ensuremath{#2\left(\text{\textup{#1}}\right)#3}]}%
-        {, \ensuremath{#2\left(\text{\textup{#1}}\right)#3}}%
-        {, and~\ensuremath{#2\left(\text{\textup{#1}}\right)#3}]}
-    
-    \Crefformat{table}%
-        {Table~\ensuremath{#2\left(\text{\textup{#1}}\right)#3}}
-    \Crefrangeformat{table}%
-        {Tables~\ensuremath{#3\left(\text{\textup{#1}}\right)#4} through~\ensuremath{#5\left(\text{\textup{#2}}\right)#6}}
-    \Crefmultiformat{table}%
-        {Tables~\ensuremath{#2\left(\text{\textup{#1}}\right)#3}}%
-        { and~\ensuremath{#2\left(\text{\textup{#1}}\right)#3}}%
-        {, \ensuremath{#2\left(\text{\textup{#1}}\right)#3}}%
-        { and~\ensuremath{#2\left(\text{\textup{#1}}\right)#3}}
-    \Crefrangemultiformat{table}%
-        {Tables~\ensuremath{#2\left(\text{\textup{#1}}\right)#3}}%
-        { and~\ensuremath{#2\left(\text{\textup{#1}}\right)#3}}%
-        {, \ensuremath{#2\left(\text{\textup{#1}}\right)#3}}%
-        {, and~\ensuremath{#2\left(\text{\textup{#1}}\right)#3}}
+% Generic Fields ======================================================
+\crefformat{figure}%
+    {[fig.~\ensuremath{#2\left(\text{\textup{#1}}\right)#3}]}
+\crefrangeformat{figure}%
+    {[fig.~\ensuremath{#3\left(\text{\textup{#1}}\right)#4} to~\ensuremath{#5\left(\text{\textup{#2}}\right)#6}}
+\crefmultiformat{figure}%
+    {[figs.~\ensuremath{#2\left(\text{\textup{#1}}\right)#3}}%
+    { and~\ensuremath{#2\left(\text{\textup{#1}}\right)#3}]}%
+    {, \ensuremath{#2\left(\text{\textup{#1}}\right)#3}}%
+    { and~\ensuremath{#2\left(\text{\textup{#1}}\right)#3}]}
+\crefrangemultiformat{figure}%
+    {[figs.~\ensuremath{#2\left(\text{\textup{#1}}\right)#3}}%
+    { and~\ensuremath{#2\left(\text{\textup{#1}}\right)#3}]}%
+    {, \ensuremath{#2\left(\text{\textup{#1}}\right)#3}}%
+    {, and~\ensuremath{#2\left(\text{\textup{#1}}\right)#3}]}
+
+\Crefformat{figure}%
+    {Figure~\ensuremath{#2\left(\text{\textup{#1}}\right)#3}}
+\Crefrangeformat{figure}%
+    {Figures~\ensuremath{#3\left(\text{\textup{#1}}\right)#4} through~\ensuremath{#5\left(\text{\textup{#2}}\right)#6}}
+\Crefmultiformat{figure}%
+    {Figures~\ensuremath{#2\left(\text{\textup{#1}}\right)#3}}%
+    { and~\ensuremath{#2\left(\text{\textup{#1}}\right)#3}}%
+    {, \ensuremath{#2\left(\text{\textup{#1}}\right)#3}}%
+    { and~\ensuremath{#2\left(\text{\textup{#1}}\right)#3}}
+\Crefrangemultiformat{figure}%
+    {Figures~\ensuremath{#2\left(\text{\textup{#1}}\right)#3}}%
+    { and~\ensuremath{#2\left(\text{\textup{#1}}\right)#3}}%
+    {, \ensuremath{#2\left(\text{\textup{#1}}\right)#3}}%
+    {, and~\ensuremath{#2\left(\text{\textup{#1}}\right)#3}}
+
+
+\crefformat{table}%
+    {[tab.~\ensuremath{#2\left(\text{\textup{#1}}\right)#3}]}
+\crefrangeformat{table}%
+    {[tab.~\ensuremath{#3\left(\text{\textup{#1}}\right)#4} to~\ensuremath{#5\left(\text{\textup{#2}}\right)#6}]}
+\crefmultiformat{table}%
+    {[tabs.~\ensuremath{#2\left(\text{\textup{#1}}\right)#3}}%
+    { and~\ensuremath{#2\left(\text{\textup{#1}}\right)#3}]}%
+    {, \ensuremath{#2\left(\text{\textup{#1}}\right)#3}}%
+    { and~\ensuremath{#2\left(\text{\textup{#1}}\right)#3}]}
+\crefrangemultiformat{table}%
+    {[tabs.~\ensuremath{#2\left(\text{\textup{#1}}\right)#3}}%
+    { and~\ensuremath{#2\left(\text{\textup{#1}}\right)#3}]}%
+    {, \ensuremath{#2\left(\text{\textup{#1}}\right)#3}}%
+    {, and~\ensuremath{#2\left(\text{\textup{#1}}\right)#3}]}
+
+\Crefformat{table}%
+    {Table~\ensuremath{#2\left(\text{\textup{#1}}\right)#3}}
+\Crefrangeformat{table}%
+    {Tables~\ensuremath{#3\left(\text{\textup{#1}}\right)#4} through~\ensuremath{#5\left(\text{\textup{#2}}\right)#6}}
+\Crefmultiformat{table}%
+    {Tables~\ensuremath{#2\left(\text{\textup{#1}}\right)#3}}%
+    { and~\ensuremath{#2\left(\text{\textup{#1}}\right)#3}}%
+    {, \ensuremath{#2\left(\text{\textup{#1}}\right)#3}}%
+    { and~\ensuremath{#2\left(\text{\textup{#1}}\right)#3}}
+\Crefrangemultiformat{table}%
+    {Tables~\ensuremath{#2\left(\text{\textup{#1}}\right)#3}}%
+    { and~\ensuremath{#2\left(\text{\textup{#1}}\right)#3}}%
+    {, \ensuremath{#2\left(\text{\textup{#1}}\right)#3}}%
+    {, and~\ensuremath{#2\left(\text{\textup{#1}}\right)#3}}
 
 
 % ====================== Custom Glossary ================================
@@ -178,18 +192,20 @@
         }
     }
 
+\ifdefined
 \iftagBibble@
     \AtEndDocument{
         \printbibliography[heading=bibintoc, title={References}]
         }
     \fi
-
+        
 \iftagGlossel@
     \AtEndDocument{
         \microtypesetup{protrusion=false} % disables protrusion locally in the document
         \printglossary
         }
     \fi
+
 
 
 

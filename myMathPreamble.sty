@@ -11,12 +11,13 @@
 
 % ========================= Class tags
 
-% \newif\ifRUCtype@Project@
-% \newif\ifRUCtype@Assignment@
+% \newif\tagRuc@typeProject@%
+% \newif\tagRuc@typeAssignment@%
 
-\newif\iftagAxiom@
-
-\newif\iftagBase@
+% ========================= Package tags
+    
+\newif\iftagAxiom@%
+\newif\iftagBase@%
 
 % ========================= Package options
 
@@ -30,9 +31,6 @@
     \tagAxiom@true
     }
 
-
-\DeclareOption{clsOverride}{%
-    }
 
 \ExecuteOptions{}
 \ProcessOptions\relax
@@ -158,10 +156,10 @@
     \setcounter{equation}{0}%
     \def\theequation{\theparentequation\ensuremath{_\mathrm{\,\roman{equation}}\,}}%
     \ignorespaces%
-}{%
-    \setcounter{equation}{\value{parentequation}}%
-    \ignorespacesafterend
-}
+    }{%
+        \setcounter{equation}{\value{parentequation}}%
+        \ignorespacesafterend
+    }
 
 
 % xparse strat
@@ -179,7 +177,7 @@
     %
     #2
     }{%
-    \math@cr \black@\totwidth@%
+    \math@cr\black@\totwidth@%
     \egroup%
     \ifingather@%
         \restorealignstate@%
@@ -195,12 +193,6 @@
     }
 
 
-\ifRUCtype@Project@
-    \else
-        \DeclareMathSizes{10}{18}{12}{8}   % For size 10 text
-        \DeclareMathSizes{11}{19}{13}{9}   % For size 11 text
-        \DeclareMathSizes{12}{20}{14}{10}  % For size 12 text
-    \fi
 
 
 \addtolength{\jot}{0.75em} % Increases row padding between equations
@@ -217,11 +209,24 @@
 \DeclareSIUnit{\calorie}{cal}
 \DeclareSIUnit{\Calorie}{\kilo\calorie}
 
-\robustify\dots
-\sisetup{input-digits = 0123456789\dots}%
-
-\ifRUCtype@Project@
-    \sisetup{drop-zero-decimal=true, round-mode=places, round-precision=2}
+\ifx\tagRuc@typeProject@\iftrue%
+    \AtBeginDocument{%
+        % \robustify\dots 
+        \sisetup{input-digits = 0123456789\dots,drop-zero-decimal=true, round-mode=places, round-precision=2}
+        }
+    \fi%
+\ifx\tagRuc@typeAssignment@\iftrue
+    \AtBeginDocument{%
+        % \robustify\dots 
+        \sisetup{input-digits = 0123456789\dots,drop-zero-decimal=true, round-mode=places, round-precision=2}
+        }
+    \fi%
+    
+\ifx\tagRuc@typeProject@\iftrue
+    \else
+        \DeclareMathSizes{10}{18}{12}{8}   % For size 10 text
+        \DeclareMathSizes{11}{19}{13}{9}   % For size 11 text
+        \DeclareMathSizes{12}{20}{14}{10}  % For size 12 text
     \fi
     
 % ========================= Mathy Commands ===============================

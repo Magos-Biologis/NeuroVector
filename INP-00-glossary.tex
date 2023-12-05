@@ -128,21 +128,7 @@
 
 %%%%%%%%% Cell components
 
-\newglossaryentry{gls:excell}{
-        name = {Extra-Cellular Space},
-        text = {extra-cellular},
-        symbol = {\ensuremath{\mathcal{E}}},
-        description = {the outside of a cell's enclosed membrane},
-        parent = {gls:cell},
-}
 
-\newglossaryentry{gls:incell}{
-        name = {Intra-Cellular Space},
-        text = {intra-cellular},
-        symbol = {\ensuremath{\mathcal{I}}},
-        description = {the inside of a cell's enclosed membrane},
-        parent = {gls:cell},
-}
 
 \newglossaryentry{gls:cytoplasm}{
         name = {Cytoplasm},
@@ -650,6 +636,13 @@
 \newDualEntry[parent = {gls:diff}, text = {ordinary differential equation}, sort = {or}][sort = {or}, first = {ordinary differential equation}, firstplural = {ordinary differential equations}]{ode}{ODE}{Ordinary Differential Equation}{a differential equation with respect to a single variables}
 
 \newDualEntry[parent = {gls:diff}, text = {partial differential equation}, sort = {pa}][sort = {pa}, first = {partial differential equation}, firstplural = {partial differential equations}]{pde}{PDE}{Partial Differential Equation}{a differential equation with respect to multiple variables}
+
+
+\newDualEntry[text = extra-cellular, symbol = {\ensuremath{\mathcal{E}}}, parent = {gls:cell}][]
+    {excell}{\ensuremath{\mathcal{E}}}{Extra-cellular}{Space outside of the Cell}
+
+\newDualEntry[text = intra-cellular, symbol = {\ensuremath{\mathcal{I}}}, parent = {gls:cell}][]
+    {incell}{\ensuremath{\mathcal{I}}}{Intra-cellular}{Space inside of a Cell}
 
 
 \newacronym{o}{O}{open}

@@ -1,9 +1,11 @@
 % \documentclass[../../Orator]{subfiles}
  \documentclass[class={myRUCProject}, crop=false]{standalone}
- \IfStandalone{%
-     \import{../}{customCommands}
-     \import{../}{INP-00-glossary}
-     }{}
+
+\IfStandalone{%
+    \usepackage[disable]{todonotes}
+    \import{../}{customCommands}
+    \import{../}{INP-00-glossary}
+    }{}
     
 \begin{document}
 
@@ -25,6 +27,7 @@ Neurons serve as the foundational elements shaping the intricate architecture of
     \item Networks have interesting dynamics on the macro scale
     \item Inter-neuron dynamics should still be goverened by HH
     \item We want to focus on modeling the dynamics of neuron to neuron connections
+    \item A brain has too many neurons for this to matter, but 3 to 5 neuron seems ideal
 \end{enumerate}
 
 RQ: To what extent are we able to develop a model for inter-neuronal signal propagation
