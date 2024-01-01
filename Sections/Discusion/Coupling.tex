@@ -10,32 +10,39 @@
     \import{../../}{INP-00-glossary}
     }{}
 
+
+\providecommand\enpos[2]{\underset{\footnotesize\mathbf{\mathclap{\left\lfloor#1,#2\right\rceil}}}{\scalebox{1.25}{$N$}}}
+\providecommand\ndex[2]{{\raisebox{0ex}[0ex][0ex]{\raisebox{-0.25ex}{$_{\footnotesize\!\mathrlap{#1,#2}}\ \> $}}}}
+
+\providecommand\Tau{\scalebox{1.75}{$\tau$}}
+\providecommand\Chi{\scalebox{1.5}{{\raisebox{0.15ex}{$\chi$}}}}
+\providecommand\HH{\scalebox{1.0}{{$H\!H$}}}
+
+
+
 \begin{document}
 
 
 \section{Notation}
+Mathematical coupling is a relation between different variables, equations etc. that showcases the degree of interdependence in a mathematical model. Coupling describes how connected the components are, meaning how affected one of them will be by a change in another component, or how much a change in one part will affect another. Low coupling indicates that there is not high dependence between the variables, while high coupling indicates the opposite \cite{archie1981mathematic}. 
 
-
-Coupling is the foundation of neuronal dynamics, without coupling, the complex networks of the brain could never exist. There exists a vast and near endless number of possible combinations, therefore, the authors of this paper have developed some notation to better get across the ideas in play.
-As the investigations will center around inter-neuron dynamics, this notation will be limited to only the direct application of neuronal dynamics within the paper.
+Coupling is the foundation of neuronal dynamics; without coupling, the complex networks of the brain could never exist. There exists a vast and near endless number of possible combinations, therefore, a system of notations has been developed to better get across the ideas in play. As the focus will center around inter-neuron dynamics, this notation will be limited to only the direct application of neuronal dynamics within the project.
 
 Illustrated in \Cref{fig:notation}, notation will be defined as \(\langle origin(s), \, reciever(s)\rangle\)
 \begin{figure}[h]
     \centering
     \import{../../Pictures/Anakin}{Notation.tex}
-    \caption{Caption}\label{fig:notation}
+    \caption{Three examples of the proposed notion of \(\langle origin(s), \, reciever(s)\rangle\), used with respect to neuron placements.}\label{fig:notation}
 \end{figure}
 
+In the case of neurons, coupling is the bonding of one axon to another's dendrite, mathematically, it is the dependence of one equation to another.
 
-\section{Coupling}
+In our case, we investigated closely the options above concerning the notation of our mathematical model and after a lot of thought we decided to move forward with the type of notation \(\langle 2,1\rangle\). Even though all three options shown above are promising for research, the third motif introduces an element of complexity and interaction that can be more interesting for a project. 
 
+Unlike motif \(\langle 1,1,1\rangle\), the motif \(\langle 2,1\rangle\) is non-linear, instantly captivating a more realistic approach of how the brain works and how the neurons interact with each other. This non-linear connection is crucial for understanding the advanced relationships and patterns in neural systems. 
 
+What adds an extra layer of interest is how the third neuron receives information that is provided from two different sources, increasing the complexity of the communication between them. This particular choice opens the door to exploring how a neuron like this is able to reach its threshold and activate its action potential.
 
-\begin{enumerate}
-    \item What does coupling mean
-    \item How can that be replicated in the model
-    \item I hate my life
-\end{enumerate}
 
 % To couple things (2, 1).
 
@@ -68,66 +75,287 @@ Illustrated in \Cref{fig:notation}, notation will be defined as \(\langle origin
 
 
 \section{Constructing}
+%As said before in \Cref{sec:hh},
+The \gls{hh} model of \gls{ap} is an incredible achievement. However, it is important to understand the limitations inherent to the \gls{hh} model with respect to what the authors of this paper are trying to accomplish.
+\gls{hh} is a model representing the local change of \gls{gls:mPote} in a discrete region of the \gls{gls:axon} \cref{fig:distances}. While \gls{gls:Pote} propagates very quickly, the entire length of the axon does not experience these changes simultaneously. 
 
-In order to build a model, one must make certain simplifications lest the model take an ordinal length of time to construct. Listed are the assumptions made;
-\begin{enumerate}
-    \item \gls{ap} is the only meaningful impulse. While it is true that the potential is triggered in the dendrites by neurotransmitters. As these neurotransmitters are released with the potential, the two will be considered one and the same.
-    \item That the resulting measure of \gls{ap} will be in the \gls{gls:axon} of the cell, even though \(N\) is representing the \gls{gls:soma} of a \gls{gls:neuron}
-    \item That due to the nature and shape of an \gls{gls:axon}, we can represent the movement of the \gls{ap} along a single dimension
-\end{enumerate}
+\begin{figure}[H]
+    \nextfloat 
+    \centering
+    \import{../../Pictures/Anakin}{Distances.tex}
+    \caption{The lines between nodes can be interpreted as the axon of a neuron, and the node themselves being the soma. Illustrated in this figure is how each \acrfull{hh} model can only represent a fraction of the real-world interaction, limited to a discrete section of the axon with boundaries denoted by the red lines. Neurons can be any arbitrary distance from their \gls{gls:ax-terminal}, assuming an equivalent front speed, synchronized firing, and \(u_d \!\neq w_d\), then the fronts will not arrive at the same time.}\label{fig:distances}
+\end{figure}
 
-Approaching this system as a diffusion of action potential through 1-dimensional paths, we choose the \(\langle 2,\,1 \rangle\) configuration.
+This means that the \gls{hh} model can tell us nothing about the interactions between the axon and dendrites of various neuronal cells.
+And modifications alongside assumptions must be made in order to move forward.
+In order to build a model, one must make certain simplifications lest the model take an ordinal length of time to construct. The following assumptions are made;
+    (1) \gls{ap} is the only meaningful impulse. While it is true that the potential is triggered in the dendrites by neurotransmitters, as these neurotransmitters are released with the potential, the two will be considered one and the same.
+    (2) That the resulting measure of \gls{ap} will be in the \gls{gls:axon} of the cell, even though \(N\) is representing the \gls{gls:soma} of a \gls{gls:neuron}.
+    (3) That due to the nature and shape of an \gls{gls:axon}, we can represent the movement of the \gls{ap} along a line with dimension 1.
+    (4) That the initial current will occur at the same time.
+    (5) All \gls{ap} fronts propagate at the same rate as it is the same mechanism that allows any given \gls{ap} to propagate.
+    
 \begin{figure}[H]
     \centering
     \import{../../Pictures/Anakin}{2-1-con.tex}
-    \caption{Caption}\label{fig:2-1-con}
+    \caption{Each node of the diagram, represented by \(N\), is the \gls{gls:soma} of a \gls{gls:neuron} with the outward arrows representing the \gls{gls:axon}[al] pathways. \(\curr\) represents the input current, \(R\) represents resistance of the neuron, and \(\eta\) represents a `propagation' coefficient of the axon that either attenuates, augment or is set to 1.}\label{fig:2-1-con}
 \end{figure}
-Beginning by modeling this a a linear compartmental
+To begin the creation of our model, building a system of \gls{ode}[s] using the compartment diagram represented in \Cref{fig:2-1-con} as the basis;
+\begin{system}[odeModel]
+    \ode{N\ndex{1}{0}} &= \br{R_{1,0}\ \curr\ndex{1}{0}\>\,\of{t}- \eta_{1,0}}N\ndex{1}{0} \\
+    \ode{N\ndex{1}{1}} &= \br{R_{1,1}\ \curr\ndex{1}{1}\>\,\of{t}- \eta_{1,1}}N\ndex{1}{1} \\
+    \ode{N\ndex{2}{0}} &= \br{\eta_{1,0}N\ndex{1}{0} + \eta_{1,1}N\ndex{1}{1} - \eta_{2,0}}N\ndex{2}{0}
+\end{system}
 
-The Fickian\alextodo[author=Alex]{cite?} diffusion law takes the form\alextodo[author=Alex]{Try and explain terms}:
+{}\(\curr\of{t}\) represents the flow of current as a function of time, \(R\) represents the resistance of incoming current, \(N\) is the soma, and \(\eta\) represents the propagation coefficient of the axon. However, \Cref{sys:odeModel} does not fully represent the role that distance takes in such a system. Therefore in order to better represent the real-world interactions, both a time component and a distance component should be considered.
+%\alextodo[author=Alex]{Try and explain terms}
+A modification of the `Heat equation' Fick's second law of diffusion takes the form:
 \begin{equation}
-    \pde{t}{f} = D\,\pde{x}{f}[2]
+    \pde{t}{c} = D\,\pde{x}{c}[2]
 \end{equation}
-approaching our neuronal arrangement\alextodo[author=Alex]{Try and explain terms} under the same assumption;
-\begin{align}
-    \pde{t}{N_1} &= \curr_1 + D_1\pde{x}{N_2}[2] - \eta_1\,N_1 \\
-    \pde{t}{N_2} &= \curr_2 + D_2\pde{x}{N_2}[2] - \eta_2\,N_2 \\
-    \pde{t}{N_0} &= \eta_1\,\eta_2\,N_1\,N_2 + D_0\pde{x}{N_0}[2] - \br{\pde{x}{N_1}[2]+\pde{x}{N_2}[2]} - \eta_0\,N_0
+Defining a relationship of how some concentration \(\br{c}\) diffuses \(\br{D}\) at a constant rate through space \(\br{x}\) over time \(\br{t}\) \cite{Fick1855}.
+Modifying the \glspl{ode} in \Cref{sys:odeModel} to include the spatial  arrangement of the neurons, provides the following system;\todo{which?}
+
+This progresses to a system of equations that are dependent on both distance traveled, and time passed \(\br{N_{i,j}\of{t,x}}\). The choice of only an \(x\)-axis may seem odd, until you recall the fact that no matter how the axon twists and turns in 3D space, any impulse going along the length of the axon can always be defined as a distance between the \gls{gls:soma} and the \gls{gls:ax-terminal}.
+
+
+By incorporating a `travel distance' via additional parameters \(w_d,u_d\) which act as scalars on the time differentials. Consequently a system of equations emerges;
+\begin{system}[pdeModel]
+    u_d\,\pde{t}{N\ndex{1}{0}} &= \br{R_{1,0}\ \curr\ndex{1}{0}\>\,\of{t} - \eta_{1,0}}N\ndex{1}{0} + D\ndex{1}{0}\ \pde{x}{N\ndex{1}{0}}[2] \\
+    w_d\,\pde{t}{N\ndex{1}{1}} &= \br{R_{1,1}\ \curr\ndex{1}{1}\>\,\of{t} - \eta_{1,1}}N\ndex{1}{1} + D\ndex{1}{1}\ \pde{x}{N\ndex{1}{1}}[2] \\
+    \pde{t}{N\ndex{2}{0}} &= \br{\eta_{1,0}N\ndex{1}{0} + \eta_{1,1}N\ndex{1}{1}- \eta_{2,0}}N\ndex{2}{0}  
+    % - \br{\pde{x}{N\ndex{1}{0}}[2]+\pde{x}{N\ndex{1}{1}}[2]} 
+    + D\ndex{2}{0}\ \pde{x}{N\ndex{2}{0}}[2]
+\end{system}
+
+
+Now we can begin to build a sense of why it might be difficult for feedback-loops to manifest with neuronal networks. 
+As neurons themselves are not implicitly synchronized in firing nor equivalent distance from the receiving neuron. We need to ideally incorporate `\emph{tolerances}' into the model \cref{fig:distances}.
+Because when the distance of travel is different, \gls{ap}[s] triggered at the same time will be unable to reach the receiving neuron at the same time.
+Clearly, there can not be only a single possible point in time, \(t_0\), where the receiving neuron can have enough \gls{ap} to cross the threshold. 
+% As the \gls{ap} exists as a distribution, there will likely need to be a certain overlap for firing to occur. %
+Thanks to the `all or nothing' principle of \gls{ap}, a stable wavefront is guaranteed once initiated, but that does not mean ideal interaction conditions.
+% However, as transforming to a moving coordinate system means `riding' the wave forward. This introduces some a question of what to do with multiple intersecting wave-fronts.%
+% \footnote{Additionally these action potential wave-fronts are already empirically measured.}
+% \alextodo[author=Alex]{Explain what the fuck} 
+In principle, if we can identify the `\emph{width}' of an \gls{ap} wave, a range of tolerance can be derived. 
+
+
+
+A limitation of the model is that of the phase of the wavelets. In the ideal case, the signals should arrive into the receiver within some time-frame of each-other,   \(\br{ 0 \leq |t - t_0| \leq \Delta\,t_{\max} }\), such that the sum of \gls{ap}[s], 
+at point \(x_{N_{\mathrlap{2,0}}} = L\) after \(t : 0 < t_0 - \Delta t_{\max} \leq t \leq t_0 + \Delta t_{\max} \) will cross the \gls{gls:tPote}.
+% \begin{equation}
+%     \sum_{j=0}^n N\ndex{1}{j}\>\,\of{L,\,t\pm\Delta\,t} = \equi\thresh
+% \end{equation}
+% This introduces a lower and upper bound for values of \(t\) such that;
+% \begin{gather}
+%     \cfrac{
+%     % w_d  
+%     \br{ \xmathstrut{0.60} N\ndex{1}{0}\>\,\of{t+\Delta\,t,\,0} - N\ndex{1}{0}\>\,\of{t,\,0}}\,- 
+%     % u_d  
+%     \br{ \xmathstrut{0.60} N\ndex{1}{1}\>\,\of{t+\Delta\,t,\,0} - N\ndex{1}{1}\>\,\of{t,\,0}}\,}{\br{t+\Delta t - t} - \br{t + \Delta t - t}} = ?? \\
+%     \cfrac{N\ndex{1}{0}\>\,\of{t+\Delta\,t,\,0} - N\ndex{1}{1}\>\,\of{t+\Delta\,t,\,0} + N\ndex{1}{1}\>\,\of{t,\,0}-N\ndex{1}{0}\>\,\of{t,\,0}}{2\Delta t}
+% \end{gather}
+When taking into the fact that the \gls{hh} model is a system of \glspl{ode} with respect to time, separation of the variables should be possible.
+% Additionally, we now have an \gls{ivp} for defining the range of tolerance in our \gls{pde}[s], 
+We can verify this by treating the system as an \gls{ivp} to find our range of tolerance in the \gls{pde}[s].
+In order to know that we can treat the system as an \gls{ivp}, we can attempt a separation of variables, where $\Chi,\of{x}$ represents the distance and $\Tau,\of{t}$ represents the time. \todo{Where does the Chi and Tau come from?}
+\begin{system}[otherTrans]
+    N\ndex{1}{0}\>\,\of{x,t}&= \Chi\ndex{1}{0}\>\,\of{x} \Tau\ndex{1}{0}\>\,\of{t} %
+        &\hspace{-1em}\nonumber\\ &\implies 
+        u_d\,\Chi\ndex{1}{0}\>\pde{t}{\Tau\ndex{1}{0}} = \br{R_{1,0}\ \curr\ndex{1}{0}\>\,\of{t} - \eta_{1,0}}\Tau\ndex{1}{0}\>\,\Chi\ndex{1}{0} + D_{1,0}\pde{x}{\Chi\ndex{1}{0}}[2]\>\, \Tau\ndex{1}{0} \label{sys:xt10}\\
+    N\ndex{1}{1}\>\,\of{x,t}&= \Chi\ndex{1}{1}\>\,\of{x} \Tau\ndex{1}{1}\>\,\of{t}% 
+        &\hspace{-1em}\nonumber\\ &\implies 
+        w_d\,\Chi\ndex{1}{1}\>\pde{t}{\Tau\ndex{1}{1}} = \br{R_{1,1}\ \curr\ndex{1}{1}\>\,\of{t} - \eta_{1,1}}\Tau\ndex{1}{1}\>\,\Chi\ndex{1}{1}+ D_{1,1}\pde{x}{\Chi\ndex{1}{1}}[2]\>\, \Tau\ndex{1}{1} \\
+    N\ndex{2}{0}\>\,\of{x,t}&=\Chi\ndex{2}{0}\>\,\of{x} \Tau\ndex{2}{0}\>\,\of{t} % 
+        &\hspace{-1em}\nonumber\\ &\implies
+        \Chi\ndex{2}{0}\pde{t}{\Tau\ndex{2}{0}} 
+        =%
+        % \xmathstrut{2}%
+        \br{\eta_{1,0}\Tau\ndex{1}{0}\>\,\Chi\ndex{1}{0} + \eta_{1,1}\Tau\ndex{1}{1}\>\,\Chi\ndex{1}{1} - \eta_{2,0}} +  D_{2,0}\pde{x}{\Chi\ndex{2}{0}}[2] \>\, \Tau\ndex{2}{0}
+\end{system}
+By showing the method for solving \Cref{sys:xt10}, the rest should follow. Starting with the untouched relation;
+\begin{align} \tag{\ref{sys:xt10}}
+    u_d\,\Chi\ndex{1}{0}\>\pde{t}{\Tau\ndex{1}{0}} &= \br{R_{1,0}\ \curr\ndex{1}{0}\>\,\of{t} - \eta_{1,0}}\Tau\ndex{1}{0}\>\,\Chi\ndex{1}{0} + D_{1,0}\pde{x}{\Chi\ndex{1}{0}}[2]\>\, \Tau\ndex{1}{0}
+    \intertext{Dividing each side by the respective functions;}
+    \implies u_d\,\cfrac{1}{\Tau\ndex{1}{0}}\,\pde{t}{\Tau\ndex{1}{0}} &= R_{1,0}\ \curr\ndex{1}{0}\>\,\of{t}  - \eta_{1,0} + D_{1,0}\pde{x}{\Chi\ndex{1}{0}}[2]\>\, \cfrac{1}{\Chi\ndex{1}{0}}
+    \intertext{Moving time dependent functions to be on the same side;}
+    \implies u_d\,\cfrac{1}{\Tau\ndex{1}{0}}\,\pde{t}{\Tau\ndex{1}{0}} - R_{1,0}\ \curr\ndex{1}{0}\>\,\of{t} &=   D_{1,0}\pde{x}{\Chi\ndex{1}{0}}[2]\>\, \cfrac{1}{\Chi\ndex{1}{0}} - \eta_{1,0}
+    \intertext{Now we can convert from \gls{pde}[s] to \gls{ode}[s];}
+    \implies u_d\,\cfrac{1}{\Tau\ndex{1}{0}}\,\ode{\Tau\ndex{1}{0}} - R_{1,0}\ \curr\ndex{1}{0}\>\,\of{t} &=  D_{1,0}\ode[x]{\Chi\ndex{1}{0}}[2]\>\, \cfrac{1}{\Chi\ndex{1}{0}} - \eta_{1,0} \label{eq:seperated}
 \end{align}
+Using  the resultant \Cref{eq:seperated} and applying this process to each of the differentials, we get;v
+\begin{system}[odeSeperate]
+    u_d\,\cfrac{1}{\Tau\ndex{1}{0}}\,\ode{\Tau\ndex{1}{0}} - R_{1,0}\ \curr\ndex{1}{0}\>\,\of{t} &=  D_{1,0}\ode[x]{\Chi\ndex{1}{0}}[2]\>\, \cfrac{1}{\Chi\ndex{1}{0}} - \eta_{1,0} \label{sys:sepi} \\
+    w_d\,\cfrac{1}{\Tau\ndex{1}{1}}\,\ode{\Tau\ndex{1}{1}} - R_{1,1}\ \curr\ndex{1}{1}\>\,\of{t} &=  D_{1,1}\ode[x]{\Chi\ndex{1}{1}}[2]\>\, \cfrac{1}{\Chi\ndex{1}{1}} - \eta_{1,1}\label{sys:sepii} \intertext{As it is visible that \(N\ndex{1}{0}\>\) and \(N\ndex{1}{1}\) are able to have their variables seperated, we can make a substitution, \(\eta_{1,0} N\ndex{1}{0} \>\,\of{x,t} + \eta_{1,1} N\ndex{1}{1}\>\,\of{x,t} = \Chi_{\sigma} + \Tau_{\sigma}\);}
+    % N\ndex{2}{0}\>\,\of{x,t}&=\Chi\ndex{2}{0}\>\,\of{x} \Tau\ndex{2}
+    \ode{\Tau\ndex{2}{0}}\,\cfrac{1}{\Tau\ndex{2}{0}} - \Tau_{\sigma}
+    &=%
+    \Chi_{\sigma}
+    % \,\Chi\ndex{2}{0}\>\,\Tau\ndex{2}{0}\>\,
+    +  D_{2,0}\ode[x]{\Chi\ndex{2}{0}}[2] \>\,\cfrac{1}{\Chi\ndex{2}{0}} - \eta_{2,0}
+\end{system}
 
-% applying a moving frame of going left to right, in the form of \(z=x-s\,t\)\alextodo[author=Alex]{Explain what the fuck} to our system;
+That we know \Cref{sys:pdeModel} can have variables separated, means we can start approaching it with the existing  methods.
+The time dependent function is defined in the existence of the \gls{hh} model of \gls{ap}. 
+What we've done here is isolate a relationship of a spatial component to the temporal \gls{hh} model.
+Now we can establish a \gls{bvp} alongside our \gls{ivp}.%\todo{Why -alpha?}
+\begin{system}[equivalence]
+    u_d\,\cfrac{1}{\Tau\ndex{1}{0}}\,\ode{\Tau\ndex{1}{0}} - R_{1,0}\ \curr\ndex{1}{0}\>\,\of{t} = -\alpha_{1,0} &\iff -\alpha_{1,0} =  D_{1,0}\ode[x]{\Chi\ndex{1}{0}}[2]\>\, \cfrac{1}{\Chi\ndex{1}{0}} - \eta_{1,0} \label{sys:sepi} \\
+    w_d\,\cfrac{1}{\Tau\ndex{1}{1}}\,\ode{\Tau\ndex{1}{1}} - R_{1,1}\ \curr\ndex{1}{1}\>\,\of{t} = -\alpha_{1,1} &\iff -\alpha_{1,1} =  D_{1,1}\ode[x]{\Chi\ndex{1}{1}}[2]\>\, \cfrac{1}{\Chi\ndex{1}{1}} - \eta_{1,1}\label{sys:sepii} \\
+    \ode{\Tau\ndex{2}{0}}\,\cfrac{1}{\Tau\ndex{2}{0}} - \Tau_{\sigma} = -\alpha_{2,0} &\iff -\alpha_{2,0} =
+    \Chi_{\sigma} +  D_{2,0}\ode[x]{\Chi\ndex{2}{0}}[2] \>\,\cfrac{1}{\Chi\ndex{2}{0}} - \eta_{2,0}
+\end{system}
+Starting with the first equation:
+\begin{align}
+     -\alpha_{1,0} =  D_{1,0}\ode[x]{\Chi\ndex{1}{0}}[2]\>\, \cfrac{1}{\Chi\ndex{1}{0}} - \eta_{1,0} \iff \ode[x]{\Chi\ndex{1}{0}}[2]\>\ \cfrac{1}{\Chi\ndex{1}{0}} = \frac{\eta_{1,0} - \alpha_{1,0}}{D_{1,0}} \nonumber \\ 
+     \iff \ode[x]{\Chi\ndex{1}{0}}[2]\>\ = \frac{\eta_{1,0} - \alpha_{1,0}}{D_{1,0}} \cfrac{1}{\Chi\ndex{1}{0}} \iff \ode[x]{} \left(\ode[x]{\Chi\ndex{1}{0}}\right) = \frac{\eta_{1,0} - \alpha_{1,0}}{D_{1,0}} \cfrac{1}{\Chi\ndex{1}{0}}
+\end{align}
+Now, integrating with respect to x and substituting:
+\begin{align}
+    \frac{\eta_{1,0} - \alpha_{1,0}}{D_{1,0}} = u 
+\end{align}
+We get:
+\begin{align}
+      \rho^2 = u \ \iff \ \rho^2 - u = 0 \ \iff \ \rho = \pm \sqrt{u}
+\end{align}
+The general solution is a linear combination of both possible solutions:
+\begin{align}
+    \Chi\ndex{1}{0} = A e^{\left(\sqrt{u}x\right)} + \frac{B}{e^{\left(\sqrt{u}x\right)}} 
+\end{align}
+Taking back the substitution:
+\begin{align}
+    \Chi\ndex{1}{0} = A e^{\left(\sqrt{\frac{\eta_{1,0} - \alpha_{1,0}}{D_{1,0}}}x\right)} + \frac{B}{e^{\left(\sqrt{\frac{\eta_{1,0} - \alpha_{1,0}}{D_{1,0}}}x\right)}} \label{eq:1}
+\end{align}
+Likewise, from the second equation, we derive:
+\begin{align}
+    -\alpha_{1,1} =  D_{1,1}\ode[x]{\Chi\ndex{1}{1}}[2]\>\, \cfrac{1}{\Chi\ndex{1}{1}} - \eta_{1,1} \nonumber
+\end{align}
+\begin{align}
+    \Chi\ndex{1}{1} = A' e^{\left(\sqrt{\frac{\eta_{1,1} - \alpha_{1,1}}{D_{1,1}}}x\right)} + \frac{B'}{e^{\left(\sqrt{\frac{\eta_{1,1} - \alpha_{1,1}}{D_{1,1}}}x\right)}} \label{eq:2}
+\end{align}
+From the third equation:
+\begin{align}
+    -\alpha_{2,0} =
+    \Chi_{\sigma} +  D_{2,0}\ode[x]{\Chi\ndex{2}{0}}[2] \>\,\cfrac{1}{\Chi\ndex{2}{0}} - \eta_{2,0} \nonumber
+\end{align}
+Where:
+\begin{align}
+    \Chi_{\sigma} &= \Chi_{1,0} + \Chi_{1,1} \iff  \\ 
+    \Chi_{\sigma} &= A e^{\left(\sqrt{\frac{\eta_{1,0} - \alpha_{1,0}}{D_{1,0}}}x\right)} + \frac{B}{e^{\left(\sqrt{\frac{\eta_{1,0} - \alpha_{1,0}}{D_{1,0}}}x\right)}} + A' e^{\left(\sqrt{\frac{\eta_{1,1} - \alpha_{1,1}}{D_{1,1}}}x\right)} + \frac{B'}{e^{\left(\sqrt{\frac{\eta_{1,1} - \alpha_{1,1}}{D_{1,1}}}x\right)}} \nonumber
+\end{align}
+Therefore,
+\begin{align}
+    \ode[x]{\Chi\ndex{2}{0}}[2] = \frac{\eta_{2,0}-\alpha_{2,0}-\Chi_{\sigma}}{D_{2,0}} \Chi_{2,0}
+\end{align}
+And:
+\begin{align}
+    \Chi_{2,0} = A'' e^{\left(\sqrt{\frac{\eta_{2,0}-\alpha_{2,0}-\Chi_{\sigma}}{D_{2,0}}}x\right)}
+    + 
+    \frac{B''}{e^{\left(\sqrt{\frac{\eta_{2,0}-\alpha_{2,0}-\Chi_{\sigma}}{D_{2,0}}}x\right)}} \label{eq:3}
+\end{align}
+{}\Cref{eq:1,eq:2,eq:3}, we now have a representation of the spacial component.
+
+% Since $ N_{1,0}= X_{1,0} \,T_{1,0}$ :
 % \begin{align}
-%     \varphi_0\br{z} &= N_0\br{t,\,x} &&\implies& -s\,\ode[z]{\varphi_0} &= -s\,\br{\ode[z]{\varphi_1}+\ode[z]{\varphi_2}}\,\varphi_0 + \eta_0\ode[z]{\varphi_0}[2] \\
-%     \varphi_1\br{z} &= N_1\br{t,\,x} &&\implies& -s\,\ode[z]{\varphi_1} &= \curr_1\,\varphi_1 + \eta_1\ode[z]{\varphi_1}[2] \\
-%     \varphi_2\br{z} &= N_2\br{t,\,x} &&\implies& -s\,\ode[z]{\varphi_1} &= \curr_2\,\varphi_1 + \eta_1\ode[z]{\varphi_1}[2] 
+%       N_{1,0} = X_{1,0} \, T_0 \, e^{\frac{1}{u_d}\left( R_{1,0} Q_{1,0} (t) -\alpha_{1,0} t \right) )} 
 % \end{align}
-% making substitutions\alextodo[author=Alex]{Even more the fuck} to reduce the order of the functions;
-% \begin{align*}
-%     \ode[z]{\Phi_0} = \ode[z]{\varphi_0}[2] &\implies \Phi_0 = \ode[z]{\varphi_0} &
-%     \ode[z]{\Phi_1} = \ode[z]{\varphi_1}[2] &\implies \Phi_1 = \ode[z]{\varphi_1} &
-%     \ode[z]{\Phi_2} = \ode[z]{\varphi_2}[2] &\implies \Phi_2 = \ode[z]{\varphi_2}\\
-%     \ode[z]{\varphi_0}[2] &= s\,\br{\cfrac{\br{\Phi_1+\Phi_2}\varphi_0 - \,\Phi_0}{\eta_0}} &
-%     \ode[z]{\varphi_1}[2] &= -\cfrac{\curr_1 \varphi_1 + s \,\Phi_1}{\eta_1} &
-%     \ode[z]{\varphi_2}[2] &= -\cfrac{\curr_2 \varphi_2 + s \,\Phi_2}{\eta_2} 
-% \end{align*}
+% Now, the $X_{1,0}$ is needed to complete the expression of $N_{1,0}$. For that, the initial value condition is taken in consideration again:
 
-% more substitutions lead\alextodo[author=Alex]{Who even the fuck} to a system of \glspl{ode};
 % \begin{align}
-%     \ode[z]{\varphi_0} &= {\Phi_0}\br{-s}^{-1} \\
-%     \ode[z]{\varphi_1} &= {\Phi_1}\br{-s}^{-1} \\
-%     \ode[z]{\varphi_2} &= {\Phi_2}\br{-s}^{-1} \\
-%     \ode[z]{\Phi_0} &= s\,\br{\cfrac{\br{\Phi_1+\Phi_2}\varphi_0 - \,\Phi_0}{\eta_0}} \\
-%     \ode[z]{\Phi_1} &= -\cfrac{\curr_1 \varphi_1 + s \,\Phi_1}{\eta_1}\\
-%     \ode[z]{\Phi_2} &= -\cfrac{\curr_2 \varphi_2 + s \,\Phi_2}{\eta_2}
+%      D_{1,0} \frac{d^2 \chi_{1,0}}{dx^2} \frac{1}{\chi_{1,0}} - \eta_{1,0} = -\alpha_{1,0} &\iff D_{1,0} \frac{d^2 \chi_{1,0}}{dx^2} \frac{1}{\chi_{1,0}} = -\alpha_{1,0} + \eta_{1,0} \\
+%     \frac{d^2 \chi_{1,0}}{dx^2} \frac{1}{\chi_{1,0}} = - \frac{1}{D_{1,0}}\left(\alpha_{1,0} - \eta_{1,0}\right)  &\iff \frac{d^2 \chi_{1,0}}{dx^2}  = - \frac{1}{D_{1,0}}\left(\alpha_{1,0} - \eta_{1,0}\right)  \chi_{1,0}
 % \end{align}
 
-% Fixed points (?) 
+% It is worth noting that the equation above is a second order homogeneous differential equation which can be easily solved. Defining $- \frac{1}{D_{1,0}}\left(\alpha_{1,0} - \eta_{1,0}\right) = -q$:
 
-% the trivial,\alextodo[author=Alex]{AAAAAAA} \(\br{\varphi_0,\varphi_1,\varphi_2,\Phi_0,\Phi_1,\Phi_2} = (0,0,0,0,0,0)\)
-% \begin{align*}
-% \br{\varphi_0,\varphi_1,\varphi_2,\Phi_0,\Phi_1,\Phi_2} &= \br{1,\frac{-1}{\curr_1},\frac{1}{\curr_2},0,\frac{1}{s},\frac{-1}{s}}\\
-% \br{\varphi_0,\varphi_1,\varphi_2,\Phi_0,\Phi_1,\Phi_2} &= (0,0,0,0,0,0)\\
-% \br{\varphi_0,\varphi_1,\varphi_2,\Phi_0,\Phi_1,\Phi_2} &= (0,0,0,0,0,0)
-% \end{align*}
+% \begin{align}
+%       \frac{d^2 \chi_{1,0}}{dx^2}  + q \,\chi_{1,0}= 0
+% \end{align}
+
+% Now, assuming that the solution to this equation is of the form $ \chi_{1,0} = e^{r \, x}$:
+
+% \begin{align}
+%       \frac{d^2 \chi_{1,0}}{dx^2}  + q \,\chi_{1,0}= r^2 \, e^{r \, x} + q \, e^{r \, x} = 0 \implies r^2 + q  = 0
+% \end{align}
+
+% Therefore:
+% \begin{align}
+%       r^2 = - q =- \frac{1}{D_{1,0}}\left(\alpha_{1,0} - \eta_{1,0}\right) \implies r = \pm \sqrt{- \frac{1}{D_{1,0}}\left(\alpha_{1,0} - \eta_{1,0}\right)}
+% \end{align}
+% Since there are two possible solutions for r, the most general solution will be a linear combination of both:
+
+% \begin{align}
+%       \chi_{1,0} =  A \, e^{ -i \, \sqrt{ \frac{1}{D_{1,0}}\left(\alpha_{1,0} - \eta_{1,0}\right)}} + B \, e^{ i \, \sqrt{ \frac{1}{D_{1,0}}\left(\alpha_{1,0} - \eta_{1,0}\right)}} 
+% \end{align}
+
+% Now, the expression of N can be re-written as:
+
+% \begin{align}
+%       N_{1,0} = \left( A \, e^{ -i \, \sqrt{ \frac{1}{D_{1,0}}\left(\alpha_{1,0} - \eta_{1,0}\right)}} + B \, e^{ i \, \sqrt{ \frac{1}{D_{1,0}}\left(\alpha_{1,0} - \eta_{1,0}\right)}} \right) \, T_0 \, e^{\frac{1}{u_d}\left( R_{1,0} Q_{1,0} (t) -\alpha_{1,0} t \right) )} \\
+%       N_{1,0} =  N_{-} \, e^{ -i \, \sqrt{ \frac{1}{D_{1,0}}\left(\alpha_{1,0} - \eta_{1,0}\right)} + \frac{1}{u_d}\left( R_{1,0} Q_{1,0} (t) -\alpha_{1,0} t \right) )} + N_{+} \, e^{ i \, \sqrt{ \frac{1}{D_{1,0}}\left(\alpha_{1,0} - \eta_{1,0}\right)} + \frac{1}{u_d}\left( R_{1,0} Q_{1,0} (t) -\alpha_{1,0} t \right) )}  
+% \end{align}
+
+% % As \(N\ndex{i}{j}\>\of{x,t}\) is to represent the rate of change for a given neuron, 
+% % now that we have seperated the variables, we can substitute the time derivatives of \Cref{sys:odeSeperate} with the \gls{hh} model.
+% % we can now substitute a value, \(\alpha_{ij}\), such that we assume \(-\alpha_{ij}\) is the solution of the relationships shown in \Cref{sys:odeSeperate};
+% }
+
+
 
 \end{document}
+
+
+
+
+\newpage
+
+{
+To study the movement of the front, applying a moving frame of going left to right, in the form of \(z=x-st\,\) allows the system to be redefined as \gls{ode}[s]. 
+\begin{system}[firstTrans]
+      \ode[z]{\varphi\ndex{1}{0}}&=\pde{x}{N\ndex{1}{0}} - s\,\pde{t}{N\ndex{1}{0}} %
+        &\hspace{-1.5em}\implies&&
+        -s\,u_d\,\ode[t]{\varphi\ndex{1}{0}} &= \br{R_{1,0}\ \curr\ndex{1}{0}\>\,\of{t} - \eta_{1,0}}\varphi\ndex{1}{0}+ D_{1,0}\ode[z]{\varphi\ndex{1}{0}}[2] \\
+    \ode[z]{\varphi\ndex{1}{1}}&=\pde{x}{N\ndex{1}{1}} - s\,\pde{t}{N\ndex{1}{1}} %
+        &\hspace{-1.5em}\implies&&
+        -s\,w_d\,\ode[z]{\varphi\ndex{1}{1}} &= \br{R_{1,1}\ \curr\ndex{1}{1}\>\,\of{t} - \eta_{1,1}}\varphi\ndex{1}{1}+ D_{1,1}\ode[z]{\varphi\ndex{1}{1}}[2] \\
+     \ode[z]{\varphi\ndex{2}{0}}&= \pde{x}{N\ndex{2}{0}} - s\,\pde{t}{N\ndex{2}{0}}\ %
+        &\hspace{-1.5em}\implies&&
+        -s\,\ode[z]{\varphi\ndex{2}{0}} &= \br{\eta_{1,0}\varphi\ndex{1}{0} + \eta_{1,1}\varphi\ndex{1}{1} - \eta_{2,0}}\,\varphi\ndex{2}{0}+ D_{2,0}\ode[z]{\varphi\ndex{2}{0}}[2] 
+\end{system}
+}
+
+{ % Technically wrong, made a bad assumption
+making substitutions\alextodo[author=Alex]{Even more the fuck} to reduce the order of the functions;
+\begin{align*}
+    \ode[z]{\Phi\ndex{2}{0}} = \ode[z]{\varphi\ndex{2}{0}}[2] &\implies \Phi\ndex{2}{0}= \ode[z]{\varphi\ndex{2}{0}} &
+    \ode[z]{\Phi\ndex{1}{0}} = \ode[z]{\varphi\ndex{1}{0}}[2] &\implies \Phi\ndex{1}{0}= \ode[z]{\varphi\ndex{1}{0}} &
+    \ode[z]{\Phi\ndex{1}{1}} = \ode[z]{\varphi\ndex{1}{1}}[2] &\implies \Phi\ndex{1}{1}= \ode[z]{\varphi\ndex{1}{1}}\\
+    \ode[z]{\varphi\ndex{2}{0}}[2] &= s\,\br{\cfrac{\br{\Phi\ndex{1}{0}+\Phi\ndex{1}{1}}\varphi\ndex{2}{0}- \,\Phi\ndex{2}{0}}{\eta_{2,0}}} &
+    \ode[z]{\varphi\ndex{1}{0}}[2] &= -\cfrac{\curr\ndex{1}{0}\>\,\of{t}\varphi\ndex{1}{0}+ s \,\Phi\ndex{1}{0}}{\eta_{1,0}} &
+    \ode[z]{\varphi\ndex{1}{1}}[2] &= -\cfrac{\curr\ndex{1}{1}\>\,\of{t}\varphi\ndex{1}{1}+ s \,\Phi\ndex{1}{1}}{\eta_{1,1}} 
+\end{align*}
+
+more substitutions lead
+to a system of \glspl{ode};
+\begin{system}
+    \ode[z]{\varphi\ndex{2}{0}} &= {\Phi\ndex{2}{0}}\br{-s}^{-1} \\
+    \ode[z]{\varphi\ndex{1}{0}} &= {\Phi\ndex{1}{0}}\br{-s}^{-1} \\
+    \ode[z]{\varphi\ndex{1}{1}} &= {\Phi\ndex{1}{1}}\br{-s}^{-1} \\
+    \ode[z]{\Phi\ndex{2}{0}} &= s\,\br{\cfrac{\br{\Phi\ndex{1}{0}+\Phi\ndex{1}{1}}\varphi\ndex{2}{0}- \,\Phi\ndex{2}{0}}{\eta_{2,0}}} \\
+    \ode[z]{\Phi\ndex{1}{0}} &= -\cfrac{\curr\ndex{1}{0}\>\,\of{t}\varphi\ndex{1}{0}+ s \,\Phi\ndex{1}{0}}{\eta_{1,0}}\\
+    \ode[z]{\Phi\ndex{1}{1}} &= -\cfrac{\curr\ndex{1}{1}\>\,\of{t}\varphi\ndex{1}{1}+ s \,\Phi\ndex{1}{1}}{\eta_{1,1}}
+\end{system}
+
+Fixed points (?) 
+
+the trivial,\alextodo[author=Alex]{AAAAAAA} 
+\(\br{\varphi\ndex{2}{0},\varphi\ndex{1}{0},\varphi\ndex{1}{1},\Phi\ndex{2}{0},\Phi\ndex{1}{0},\Phi\ndex{1}{1}} = (0,0,0,0,0,0)\)
+\begin{align*}
+\br{\varphi\ndex{2}{0},\varphi\ndex{1}{0},\varphi\ndex{1}{1},\Phi\ndex{2}{0},\Phi\ndex{1}{0},\Phi\ndex{1}{1}} &= \br{1,\frac{-1}{\curr
+dex{1}{0}\>\,\of{t}},\frac{1}{\curr
+dex{1}{1}\>\,\of{t}},0,\frac{1}{s},\frac{-1}{s}}\\
+\br{\varphi\ndex{2}{0},\varphi\ndex{1}{0},\varphi\ndex{1}{1},\Phi\ndex{2}{0},\Phi\ndex{1}{0},\Phi\ndex{1}{1}} &= (0,0,0,0,0,0)\\
+\br{\varphi\ndex{2}{0},\varphi\ndex{1}{0},\varphi\ndex{1}{1},\Phi\ndex{2}{0},\Phi\ndex{1}{0},\Phi\ndex{1}{1}} &= (0,0,0,0,0,0)
+\end{align*}
+}

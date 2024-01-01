@@ -10,6 +10,13 @@
 \usetikzlibrary{fadings}
 \usetikzlibrary{patterns}
 
+% \usepacakge{mathpazo}
+% This bascially automates a \newcommand{<name>}{} to ensure
+% that a command with the given <name> does not already exist
+\providecommand*{\pgfmathsetnewmacro}[2]{%
+    \newcommand*{#1}{}% Error if already defined
+    \pgfmathsetmacro{#1}{#2}%
+}%
 
 \begin{document}
 
@@ -166,7 +173,7 @@
                             minimum height= 1.5 *\l cm,
                             minimum width = 2 *\w cm,
                             draw = black!80, 
-                            fill = \RGB!03!white,
+                            fill = white,
                             ] {};
     }
 
@@ -245,8 +252,8 @@
         }
 
         % Arrowing each side
-        \path ($(BL)!\Nar/2!(BR)$) -- +(0, 0.25) coordinate (BE)
-              ($(TL)!\Nar/2!(TR)$) -- +(0,-0.25) coordinate (TE);
+        \path ($(BL)!\Nar/2.25!(BR)$) -- +(0, 0.25) coordinate (BE)
+              ($(TL)!\Nar/2.25!(TR)$) -- +(0,-0.25) coordinate (TE);
         \end{scope}
         
         % Capacitance shit

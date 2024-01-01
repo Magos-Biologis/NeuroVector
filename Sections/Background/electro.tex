@@ -24,22 +24,49 @@ The circuit for the Hodgkin-Huxley model can be seen in \Cref{fig:HHcircuit}.
     \import{../../Pictures/Anakin}{HoHu.tex}
     \caption{The \gls{gls:circuit} of the \gls{hh} model~\cite{HodHux1952}.}\label{fig:HHcircuit}
 \end{figure}
-There are five elements to this \gls{gls:circuit}. These are the \gls{gls:batteries}, \gls{gls:capacitor}, \gls{gls:resistor}, \gls{gls:varresistor}, and \gls{gls:wire}. 
 
-The \gls{gls:batteries} are symbolised by two parallel lines where one is longer than the other. The shorter end is the negative side (anode) and the longer end is the positive side (cathode). In this model, there are three \gls{gls:batteries} placed in different directions. The task of the \gls{gls:batteries} is to store energy and push said energy through the \glspl{gls:wire}. When \gls{gls:batteries} are placed in parallel like this, the voltage does not get increased. However, the current capacity increases, so the \gls{gls:batteries} last longer. The unit of \gls{gls:batteries} is watt-hours (Wh) or milliamp-hours (mAh) \cite{}. 
+\subsection*{The membrane as a circuit analogy}
+The model of Hodgkin-Huxley describes the generation and propagation of an action potential in cells that are excitable. The model is based on the electrical properties of the membrane being the focal point and from where the electrical circuit theory can be analogized.
+The properties of the cell membrane can be analogized to five electrical elements that make up a \gls{gls:circuit} and who all obey Ohm's Law. The elements are the \gls{gls:batteries}, \gls{gls:capacitor}, \gls{gls:resistor}, \gls{gls:varresistor}, and the \gls{gls:wire} is the medium in which the charges move, specifically it is the intra-/extra cellular space itself \Cref{fig:HHcircuit}.
 
-The symbol for the \gls{gls:capacitor} is two parallel lines of equal length. Much like the \gls{gls:batteries}, the \gls{gls:capacitor} stores electrical charge. However, a \gls{gls:capacitor} cannot store as much energy as a comparable-sized battery. But in return, \gls{gls:capacitor}s can charge and discharge faster. Capacitance is measured in Farads (\unit{\farad}) \cite{}.
+In the circuit diagram the battery or also known as a \gls{gls:vsource} abbreviated with the letters $E_{Na}$ or $E_K$ or $E_L$ and symbolized by two parallel lines where one is longer than the other. The shorter end is the negative side (anode) and the longer end is the positive side (cathode). The function of the \gls{gls:voltage} source, in this scenario, is to facilitate transport of charges between intra-/extra cellular space. From the perspective of the cell membrane the voltage source symbolizes ion pumps (the process is fueled by the chemical compound ATP)\Cref{sec:diffuseIon}. From \Cref{fig:HHcircuit} it can be seen that there are three voltage sources two of which have the same orientation. The voltage sources can be described as follows:
 
-\Gls{gls:resistor}s are represented by zig-zag lines. These work against the \gls{gls:batteries} and the \gls{gls:resistor} as it removes energy from the equation and turns it into heat. The \gls{gls:resistor} has a fixed value of resistance. This is measured in ohms (\unit{\ohm}) \cite{}.
+\begin{enumerate}
+    \item $E_{Na}$: The Sodium Nernst Potential reflects the tendency of sodium ions to move \textit{into} the cell when sodium channels open.
+    \item $E_K$: The Potassium Nernst Potential reflects the tendency of potassium ions to move \textit{out} of the cell when potassium channels open.
+    \item $E_{L}$: The Leak Channel Potential represents the electrochemical equilibrium for the leak channels, which are permeable to multiple ions. The leak current is typically more permeable to potassium at rest, so $E_L$ is closer to the potassium Nernst potential.
+\end{enumerate}
 
-\Glspl{gls:varresistor}, also called varistors, are a type of \gls{gls:resistor}. These are also represented by a zig-zag line, however, they have an arrow through them. Unlike the normal \gls{gls:resistor}, the varistors have almost infinite resistance before a certain voltage. Here they act like an insulator allowing almost no current through. After it has reached a certain voltage, it slowly starts to act like a conductor, having almost no resistance \cite{}. 
 
-The lines connecting the pieces together are the \gls{gls:wire}. Much like what is shown in the figure, the \gls{gls:wire} connect all the parts of the model. The \gls{gls:wire} are in theory considered to have no resistance. But in reality, they always have some, even if it is very little \cite{}. 
+% The task of the \gls{gls:batteries} is to store energy and push said energy through the \glspl{gls:wire}. When \gls{gls:batteries} are placed in parallel the voltage does not increase.
+% % However, the current capacity increases, so the \gls{gls:batteries} last longer.
+% The unit of \gls{gls:batteries} is watt-hours (Wh) or milliamp-hours (mAh) \cite{}. 
+
+% The symbol for the \gls{gls:capacitor} is two parallel lines of equal length. Much like the \gls{gls:batteries}, the \gls{gls:capacitor} stores electrical charge. However, a \gls{gls:capacitor} cannot store as much energy as a comparable-sized battery. But in return, \gls{gls:capacitor}s can charge and discharge faster. Capacitance is measured in Farads (\unit{\farad}) \cite{}.
+
+% \Gls{gls:resistor}s are represented by zig-zag lines. These work against the \gls{gls:batteries} and the \gls{gls:resistor} as it removes energy from the equation and turns it into heat. The \gls{gls:resistor} has a fixed value of resistance. This is measured in ohms (\unit{\ohm}) \cite{}. Having a resistor and a battery linked together in series means that the voltage from the battery will drop after entering the resistor \cite{}.
+
+The circuit model of HH also contain tree resisters which represents ion channels, symbolized by zig-zag lines. Two of these are voltage dependent variable resisters (arrow) and one with a fixed value. Their characteristics are as follows:
+
+\begin{enumerate}
+    \item $R_{Na}$ is the Sodium Channels with voltage-dependent conductances. The channel allow sodium ions to flow into the cell when open, contributing to depolarization.
+    \item $R_K$ is the Potassium Channels with voltage-dependent conductances. The channel allow potassium ions to flow out of the cell when open, contributing to repolarization.
+    \item $R_{Leak}$ is the Leak Channels, a non-specific leak channels that allow a small constant flow of ions across the membrane, contributing to the resting membrane potential.
+\end{enumerate}
+
+The last component or structure is that of the membrane symbolized by a capacitor. It effectively stores electrical charge and influences the rate by which the membrane change potential.
+The external stimuli is symbolized by the letter $I$ and is the flow of charge particles released from the opening of ion channels. It represents any influence or perturbation that can alter the membrane potential of the neuron and potentially lead to the generation of an action potential, e.g. synaptic input, sensory stimulation, hormonal Influence \cite{EEGbook}.
+
+% \Glspl{gls:varresistor}, also called varistors \cite{}, are a type of \gls{gls:resistor}. These are also represented by a zig-zag line, however, they have an arrow through them. Unlike the normal \gls{gls:resistor}, the \gls{gls:varresistor}'s resistance can be adjusted \cite{}. 
+
+% The lines connecting the pieces together are the \gls{gls:wire}. Much like what is shown in the figure, the \gls{gls:wire} connect all the parts of the model. The \gls{gls:wire} are in theory considered to have no resistance. But in reality, they always have some, even if it is very little \cite{}. 
+
+% HELENA: ABC
 
 
- \section{Voltage and Current}
-%\(v = iR\)
-The flow of charge is called current. Current is measured by the number of charges that pass through a boundary per unit of time. The symbol for current is I and its unit is Ampere. The formula for current is derived from Ohm's law. Ohm's law is \(V=IR\), where \glssymbol{gls:volt} is the voltage, \(I\) is the current, and \(R\) is the resistance. Voltage is synonymous with electric pressure. This pressure pushes the current through a loop in order for it to produce some kind of work \cite{}. 
+% \section{Voltage and Current}
+% %\(v = iR\)
+% The flow of charge is called current. Current is measured by the number of charges that pass through a boundary per unit of time. The symbol for current is I and its unit is Ampere. The formula for current is derived from Ohm's law. Ohm's law is \(V=IR\), where \glssymbol{gls:volt} is the voltage, \(I\) is the current, and \(R\) is the resistance. Voltage is synonymous with electric pressure. This pressure pushes the current through a loop in order for it to produce some kind of work \cite{}. 
 
 
 %\section{Ions, disambigious}

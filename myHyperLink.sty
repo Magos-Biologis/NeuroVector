@@ -1,5 +1,5 @@
 \NeedsTeXFormat{LaTeX2e}
-\ProvidesPackage{myReferencePreamble}[Anakin's personalized Refrencing preamable package]
+\ProvidesPackage{myHyperLink}[Anakin's personalized interlinking preamable package]
 % ========================= Tools for package ================================
 
 \RequirePackage{ifthen}     % Guess what it does, I dare you
@@ -9,88 +9,14 @@
 
 % ========================= Class tags
 
-% \newif\tagRuc@typeProject@
-% \newif\tagRuc@typeAssignment@
-
-% ======= Package Tags
-
-\newif\iftagAxiom@ 
-
-\newif\iftagBibble@ 
-\newif\iftagGlossel@ 
-
-% ============================ Options =======================================
-
-
-\DeclareOption{printBibble}{
-    \tagBibble@true
-    }
-    
-\DeclareOption{printGloss}{
-    \tagGlossel@true
-    }
-
-
-% =============== Pre-defined types
-
-\DeclareOption{printUnit}{
-    % Unit Counter
-    \newcounter{glsunittype}
-    \newglossary*{unit}{Units}[glsunittype]
-    \AtEndDocument{
-        \printglossary[type = unit]
-        }
-    }
-
-
-\DeclareOption{printMath}{
-    % Math Counter
-    \newcounter{glsmathtype}
-    \newglossary*{math}{Math}[glsmathtype]
-    \AtEndDocument{
-        \printglossary[type = math]
-        }
-    }
-
-%\DeclareOption*{%
-%    \PackageWarning{References}{You're so stupid for thinking that `\CurrentOption' is possible}%
-%}
-
-% \newif\iftagInRUCcls@
-% \DeclareOption{clsOverride}{%
-%     \tagInRUCcls@true
-%     }
-
 \ExecuteOptions{}
 \ProcessOptions\relax
-
-% \iftagInRUCcls@
-%     \else
-%         \newif\tagRuc@typeProject@
-%         \newif\tagRuc@typeAssignment@
-%     \fi
 
 % =========================== Packages =======================================
 
 \RequirePackage[hidelinks]{hyperref}    % For hyperlinks
 \PassOptionsToPackage{hyperref}{ntheorem}
-
 \RequirePackage{cleveref}               % For configuration of references
-
-\RequirePackage[%
-    backend     = biber,%
-    sorting     = none,%
-    style       = numeric,%
-    ]{biblatex}  % For better function
-\RequirePackage[%
-    xindy, %
-    acronyms,%
-    style       = index, %
-    ]{glossaries}
-% \RequirePackage[%
-%    abbreviations,%
-%    nonumberlist,%
-%    ]{glossaries-extra}
 
 % ====================== Custom References ================================
 
@@ -99,14 +25,14 @@
     breaklinks= true,            %
     %colorlinks=true,            %
     linkcolor = [rgb]{0.65,0,0},  %
-    urlcolor  = [rgb]{0,0,0.65},   %
+    urlcolor  = [rgb]{0,0,0.65},  %
     citecolor = [rgb]{0,0.65,0},  %
     pdfdisplaydoctitle = true,  % Displaying the title instead of the filename
     pdfpagemode = FullScreen,     % Opens the pdf in fullscreen
     }
 
 % Custom cleveref setups
-\crefdefaultlabelformat{#2\ensuremath{\left( \text{\textup{#1}} \right)}#3}
+\crefdefaultlabelformat{#2\ensuremath{\left(\text{\textup{#1}}\right)}#3}
 %\creflabelformat{equation}{#2{\(\left( \textbf{\textup{#1}} \right)\)}#3}
 
 % Generic Fields ======================================================
@@ -172,51 +98,39 @@
     {, and~\ensuremath{#2\left(\text{\textup{#1}}\right)#3}}
 
 
-% ====================== Custom Glossary ================================
+% ============ My Custom Math Enviroments
 
-
-
-% Uses xparse to create dual command
-\DeclareDocumentCommand{\newDualEntry}{ O{} O{} m m m m }{%
-    \newglossaryentry{gls:#3}{%
-        name={#5},%
-        text={#5\glsadd{#3}},%
-        description={#6},%
-        #1 %
-        }
-    \makeglossaries
-        \newacronym[%
-        see={[See glossary entry;]{gls:#3}}, %
-        #2 %
-        ]{#3}{#4}{#5\glsadd{gls:#3}
-        }
-    }
-
-\ifdefined
-\iftagBibble@
-    \AtEndDocument{
-        \printbibliography[heading=bibintoc, title={References}]
-        }
-    \fi
+\@ifpackageloaded{myMath}{%
+    \crefformat{eqsystem}%
+        {[sys.~\ensuremath{#2\left(\text{\textup{#1}}\right)#3}]}
+    \crefrangeformat{eqsystem}%
+        {[sys.~\ensuremath{#3\left(\text{\textup{#1}}\right)#4} to~\ensuremath{#5\left(\text{\textup{#2}}\right)#6}]}
+    \crefmultiformat{eqsystem}%
+        {[sys.~\ensuremath{#2\left(\text{\textup{#1}}\right)#3}}%
+        { and~\ensuremath{#2\left(\text{\textup{#1}}\right)#3}]}%
+        {, \ensuremath{#2\left(\text{\textup{#1}}\right)#3}}%
+        { and~\ensuremath{#2\left(\text{\textup{#1}}\right)#3}]}
+    \crefrangemultiformat{eqsystem}%
+        {[sys.~\ensuremath{#2\left(\text{\textup{#1}}\right)#3}}%
+        { and~\ensuremath{#2\left(\text{\textup{#1}}\right)#3}]}%
+        {, \ensuremath{#2\left(\text{\textup{#1}}\right)#3}}%
+        {, and~\ensuremath{#2\left(\text{\textup{#1}}\right)#3}]}
         
-\iftagGlossel@
-    \AtEndDocument{
-        \microtypesetup{protrusion=false} % disables protrusion locally in the document
-        \printglossary
-        }
-    \fi
-
-
-
-
-%\newDualEntry[<glossaryoptions>][<acronymoptions>]{<key>}{<short>}{<long>}{<description>}
-
-%\newDualEntry{OWD} % label
-%  {OWD}            % abbreviation
-%  {One-Way Delay}  % long form
-%  {The time a packet uses through a network from one host to another} % description
-
-%\AtEndDocument{}
-
+    \Crefformat{eqsystem}%
+        {System~\ensuremath{#2\left(\text{\textup{#1}}\right)#3}}
+    \Crefrangeformat{eqsystem}%
+        {Systems~\ensuremath{#3\left(\text{\textup{#1}}\right)#4} through~\ensuremath{#5\left(\text  {\textup{#2}}\right)#6}}
+    \Crefmultiformat{eqsystem}%
+        {Systems~\ensuremath{#2\left(\text{\textup{#1}}\right)#3}}%
+        { and~\ensuremath{#2\left(\text{\textup{#1}}\right)#3}}%
+        {, \ensuremath{#2\left(\text{\textup{#1}}\right)#3}}%
+        { and~\ensuremath{#2\left(\text{\textup{#1}}\right)#3}}
+    \Crefrangemultiformat{eqsystem}%
+        {Systems~\ensuremath{#2\left(\text{\textup{#1}}\right)#3}}%
+        { and~\ensuremath{#2\left(\text{\textup{#1}}\right)#3}}%
+        {, \ensuremath{#2\left(\text{\textup{#1}}\right)#3}}%
+        {, and~\ensuremath{#2\left(\text{\textup{#1}}\right)#3}}
+    }
+    
 % ========================================================================
 \endinput

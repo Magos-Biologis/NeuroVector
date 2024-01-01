@@ -52,7 +52,7 @@
         name = {Neuron},
         text = {neuron},
         description = {a specialized cell for transmitting signal impulses; a nerve cell}
-        see = [see also]{gls:excitable-cell}
+        see = [see also]{gls:excitable-cell},
 }
 
 \newglossaryentry{gls:cell}{
@@ -64,14 +64,14 @@
 \newglossaryentry{gls:excitable-cell}{
         name = {Excitable Cell},
         text = {excitable cell},
-        description = {a specialized cell for transmitting signal impulses; a nerve cell},
+        description = {A distinct cell exhibiting the capability to react to stimuli by swiftly altering its membrane potential through the movement of ions across the membrane},
         parent = {gls:cell},
 }
 
 \newglossaryentry{gls:membrane}{
         name = {Cell Membrane},
         text = {cell membrane},
-        description = {specialized cell for transmitting signal impulses; a nerve cell},
+        description = {a fine structure that envelops a cell, separating the content of the cell from its surroundings},
         parent = {gls:cell},
 }
 
@@ -128,7 +128,11 @@
 
 %%%%%%%%% Cell components
 
-
+\newglossaryentry{gls:homeostasis}{
+        name = {Homeostasis},
+        text = {homeostasis},
+        description = {refers to the maintenance of a stable internal environment within the nervous system},
+}
 
 \newglossaryentry{gls:cytoplasm}{
         name = {Cytoplasm},
@@ -162,7 +166,6 @@
         parent = {gls:cell},
 }
 
-
 \newglossaryentry{gls:lig}{
         name = {Ligand},
         text = {ligand},
@@ -175,6 +178,12 @@
     description = {construct which blocks passage to unsuitable entities},
     }
 
+\newglossaryentry{gls:voltage}{
+    name = {Voltage},
+    text = {voltage},
+    description = {is synonymous with electric pressure. This pressure pushes the current through a loop in order for it to produce some kind of work},
+    }
+
 \newglossaryentry{gls:vgate}{
     name = {Voltage Gate},
     text = {voltage-gate},
@@ -182,6 +191,11 @@
     parent = {gls:gate}
     }
 
+\newglossaryentry{gls:vsource}{
+    name = {Voltage Source},
+    text = {voltage source},
+    description = {is responsible for maintaining a specific voltage across its terminals, regardless of the current flowing through the circuit},
+    }
 
 \newglossaryentry{gls:bilipid}{
         name = {Lipid Bilayer},
@@ -196,12 +210,15 @@
         description = {barely sentient meat animated with electricity}
 }
 
+
+
+
 % Electro
 
 \newglossaryentry{gls:circuit}{
         name   = {Circuit diagram},
         text   = {circuit diagram},
-        description = {an illustration of an electrical curcuit}
+        description = {an illustration of an electrical circuit}
 } 
 
 \newglossaryentry{gls:batteries}{
@@ -210,29 +227,35 @@
         description = {a device that transform chemical energy into electrical energy}
 }
 
+\newglossaryentry{gls:electrode}{
+        name   = {Electrode},
+        text   = {electrode},
+        description = {a conductor through which electricity enters or leaves an object, substance, or region}
+}
+
 \newglossaryentry{gls:capacitor}{
         name   = {Capacitor},
         text   = {capacitor},
-        description = {a device that stores energy}
+        description = {a device/structure that stores energy}
 }
 
 \newglossaryentry{gls:capa}{
         name   = {Capacitance},
         text   = {capacitance},
         parent = {gls:capacitor},
-        description = {capace}
+        description = {is measured by the charge in response to a difference in electric potential}
 }
 
 \newglossaryentry{gls:resistor}{
         name   = {Resistor},
         text   = {resistor},
-        description = {a device that creates resistance in a circuit},
+        description = {structure that hinder the flow of ions},
 }
 
 \newglossaryentry{gls:varresistor}{
         name   = {Variable Resistor},
         text   = {variable resistor},
-        description = {a device that can both act as a resistor and as a conductor},
+        description = {structure with a variable ability to hinder ion flow},
         parent = {gls:resistor},
 }
 
@@ -245,30 +268,55 @@
 \newglossaryentry{gls:admit}{
         name   = {Admittance},
         text   = {admittance},
-        description = {generallizard resitance inverse},
+        description = {generalized resistance, is the reciprocal of resistance},
 }
 
 \newglossaryentry{gls:cond}{
         name   = {Conductor},
         text   = {conductor},
-        description = {a device that can allow electricity to go through it},
+        description = {medium in which charge particles is carried},
+        %a device that can allow electricity to go through it
 }
 
 \newglossaryentry{gls:contan}{
         name   = {Conductance},
         text   = {conductance},
-        description = {the measure of how conductive something is?\nopostdesc},
-        parent = {gls:cond}
+        description = {the measure of how conductive something is. It is the reciprocal quantity of the opposition to the flow \nopostdesc},
+        parent = {gls:cond},
 }
 
+\newglossaryentry{gls:space-clumping}{
+        name   = {Space-clamp},
+        text   = {space-clamp},
+        description = {refers to techniques used to accurately measure and control the voltage at a specific point on a neuron, minimizing errors introduced by the spread of voltage changes along the membrane},
+}
+
+\newglossaryentry{gls:vol_clamp}{
+        name   = {Voltage Clamp},
+        text   = {voltage clamp},
+        description = {an experimental technique used to control and measure the membrane potential of a cell, typically a neuron, while recording the currents flowing across the cell membrane. Allows for the study of the behavior of ion channels and membrane conductance},
+}
+
+\newglossaryentry{gls:cur_clamp}{
+        name   = {Current Clamp},
+        text   = {current clamp},
+        description = {is an experimental technique used to inject current into a neuron while recording the resulting changes in membrane potential. Allows for the study of the intrinsic electrical properties of neurons, including their resting membrane potential, action potentials, and responses to synaptic inputs},
+}
+
+\newglossaryentry{gls:schwann}{
+        name   = {Schwann cell},
+        text   = {schwann cell},
+        description = {a special type of assisting glial cells},
+}
+
+% Math
+%-------------------------------------------------------------------------
 
 \newglossaryentry{gls:grad}{
         name = {Gradient},
         text = {gradient},
-        description = {gradient},
+        description = {it results from the movement of ions, driven by differences in their concentration (chemical gradient) and electrical charge (electrical gradient)},
     }
-
-% Math
 
 \newglossaryentry{gls:dynSystem}{
         name   = {Dynamical system},
@@ -279,18 +327,16 @@
 \newglossaryentry{gls:deterministic}{
         name   = {Deterministic},
         text   = {deterministic},
-        description = {},
+        description = {system that evolves predictably without any randomness or uncertainty},
         parent = {gls:dynSystem},
 }
 
 \newglossaryentry{gls:stochastic}{
         name   = {Stochastic},
         text   = {stochastic},
-        description = {a model that incorporates randomness},
+        description = {systems that involves elements of chance, and the future state of the system is not uniquely determined by its current state and rules alone},
         parent = {gls:dynSystem},
 }
-
-
 
 \newglossaryentry{gls:discrete}{
         name   = {Discrete},
@@ -302,7 +348,7 @@
 \newglossaryentry{gls:continuous}{
         name   = {Continuous},
         text   = {continuous},
-        description = {measured over all time},
+        description = {refers to something that does not have discontinuities like no unexpected changes in value},
         parent = {gls:dynSystem},
 }
 
@@ -323,7 +369,7 @@
 \newglossaryentry{gls:autonomous}{
         name   = {Autonomous},
         text   = {autonomous},
-        description = {independant},
+        description = {independent},
         parent = {gls:dynSystem},
 }
 
@@ -348,73 +394,106 @@
 \newglossaryentry{gls:saddle}{
         name   = {Saddle},
         text   = {saddle point},
-        description = {},
+        description = {a fixed point with a combination of stable and unstable directions, and its presence can have profound implications for the behavior of trajectories in the system},
         parent = {gls:fixed},
 }
 
 \newglossaryentry{gls:sink}{
         name   = {Sink},
         text   = {sink},
-        description = {},
+        description = {represents a state towards which the system tends to evolve, indicating stability and a tendency for nearby points to approach and settle into that specific configuration},
         parent = {gls:fixed},
 }
 
 \newglossaryentry{gls:source}{
         name   = {Source},
         text   = {source},
-        description = {},
+        description = {an unstable fixed point where trajectories move away from the equilibrium point in all directions, reflecting the repulsive nature of the dynamics near this point},
         parent = {gls:fixed},
 }
 
 \newglossaryentry{gls:max}{
         name   = {Maxima},
         text   = {maximal point},
-        description = {},
+        description = {refers to the concept of maxima or maxima points in the context of a scalar function that represents a system's behavior},
         parent = {gls:fixed},
 }
 
 \newglossaryentry{gls:min}{
         name   = {Minima},
         text   = {minimal point},
-        description = {},
+        description = {refers to the concept of minima or minima points in the context of a scalar function that represents a system's behavior},
         parent = {gls:fixed},
 }
 
 \newglossaryentry{gls:spiral}{
         name   = {Spiral sink},
         text   = {spiral sink},
-        description = {\textit{let that sink in}},
+        description = {refers to a specific type of stable equilibrium or fixed point around which trajectories exhibit a spiraling behavior in the phase space},
         parent = {gls:fixed},
 }
-
 
 \newglossaryentry{gls:nodal}{
         name   = {Nodel source},
         text   = {nodel source},
-        description = {},
+        description = {relating to, or located at or near a node. Refers to a fixed point where trajectories converge or diverge},
         parent = {gls:dynSystem},
 }
 
 \newglossaryentry{gls:nullcline}{
     name   = {Nullcline},
     text   = {nullcline},
-    description = {the line where the equation is equal to zero},
-    }
+    description = {the line where the equation is equal to zero. helps to understand the behavior of neural systems and identify key features such as fixed points, limit cycles, and bifurcations},
+}
     
 \newglossaryentry{gls:flux}{
     name   = {Flux},
     text   = {flux},
     description = {the quantity of essence moving through a boundry per time},
-    }
+}
     
 \newglossaryentry{gls:media}{
     name   = {Medium},
     text   = {medium},
     plural = {media},
     description = {a liminal substance},
-    }
+}
+
+
+\newglossaryentry{gls:entropy}{
+        name   = {Entropy},
+        text   = {entropy},
+        description = {involved in the calculation of the ion distribution across the cell membrane and influences the balance between the electrical and concentration forces acting on the ion}
+}
+
+\newglossaryentry{gls:wavelet}{
+        name   = {Wavelet},
+        text   = {wavelet},
+        plural = {wavelets},
+        description = {wavelet analysis can be employed to detect and characterize depolarization events in time. Wavelets can help identify the onset, duration, and frequency characteristics of depolarization events}
+}
+
+\newglossaryentry{gls:ergodic}{
+        name   = {Ergodic},
+        text   = {ergodic},
+        description = {a stochastic process where its statistical properties, such as mean and variance, are time-invariant and can be accurately estimated from a single, sufficiently long realization of the process}
+}
+
+
+
+
+
 
 %%%%%%%% Units
+
+\newglossaryentry{gls:current}{
+    name = {Current},
+    text = {current},
+    %type = {unit},
+    % symbol = {\unit{\second}},
+    description = {charge flow},
+    % parent = {gls:unit}
+    }
 
 \newglossaryentry{gls:unit}{
     name = {Unit},
@@ -432,7 +511,7 @@
     }
 
 \newglossaryentry{gls:kg}{
-    name = {kilogram},
+    name = {Kilogram},
     %type = {unit},
     symbol = {\unit{\kilo\gram}},
     description = {the SI unit of mass},
@@ -440,7 +519,7 @@
     }
 
 \newglossaryentry{gls:meter}{
-    name = {meter},
+    name = {Meter},
     %type = {unit},
     symbol = {\unit{\meter}},
     description = {the SI unit of length},
@@ -448,7 +527,7 @@
     }
 
 \newglossaryentry{gls:sec}{
-    name = {second},
+    name = {Second},
     %type = {unit},
     symbol = {\unit{\second}},
     description = {the SI unit of time},
@@ -456,8 +535,8 @@
     }
 
 \newglossaryentry{gls:amp}{
-    name = {ampere},
-    text = {Ampere},
+    name = {Ampere},
+    text = {ampere},
     %type = {unit},
     symbol = {\unit{\ampere}},
     description = {the SI unit of current},
@@ -474,11 +553,13 @@
     }
     
 \newglossaryentry{gls:volt}{
-        name = {volt},
-        text = {Volt},
+        name = {Volt},
+        text = {volt},
         %type = {unit},
         symbol = {\unit{\volt}},
-        description = {derived SI unit, for measuring how strongly an electrical current is sent around an electrical system},
+        description = {representing the amount of electric potential, energy per unit charge between to points or across the cell membrane, that will impart one Joule of energy per Coulomb of charge that passes through it (J/C)
+        % derived SI unit, for measuring how strongly an electrical current is sent around an electrical system
+        },
         parent = {gls:unit},
     }
 
@@ -491,10 +572,10 @@
     }
 
 \newglossaryentry{gls:coulomb}{
-        name = {coulomb},
+        name = {Coulomb},
         %type = {unit},
         symbol = {\unit{\coulomb}},
-        description = {unit charge equivalent to the amount of current in a second},
+        description = {unit charge equivalent to the amount of current in a second. Is the number of charges that pass through a boundary per unit of time},
         parent = {gls:unit},
     }
 
@@ -502,42 +583,42 @@
 %%%%%%%%% Potentials
 
 \newglossaryentry{gls:Pote}{
-        name   = {Potential},
-        text   = {potential},
-        description = {An undefined type of energy, where the possibility is what causes the difference},
+    name   = {Potential},
+    text   = {potential},
+    description = {An undefined type of energy, where the possibility is what causes the difference},
     }
 
 \newglossaryentry{gls:rPote}{
-        name   = {Reversal Potential},
-        text   = {reversal potential},
-        description = {the equilibrium point for passive diffusion of a given ion},
-        symbol = {\unit{\equi\reverse}},
-        see    = {gls:ePote},
-        parent = {gls:Pote}
+    name   = {Reversal Potential},
+    text   = {reversal potential},
+    description = {the equilibrium point for passive diffusion of a given ion},
+    symbol = {\unit{\equi\reverse}},
+    see    = {gls:ePote},
+    parent = {gls:Pote}
     }
 
 \newglossaryentry{gls:ePote}{
-        name   = {Equilibrium Potential},
-        text   = {equilibrium potential},
-        description = {the equilibrium of potential in a system},
-        symbol = {\unit{\equi}},
-        parent = {gls:Pote}
+    name   = {Equilibrium Potential},
+    text   = {equilibrium potential},
+    description = {the equilibrium of potential in a system},
+    symbol = {\unit{\equi}},
+    parent = {gls:Pote}
     }
 
 \newglossaryentry{gls:mPote}{
-        name = {Membrane Potential},
-        text = {membrane potential},
-        description = {potential of membrane},
-        symbol = {\unit{\V\membrane}},
-        parent = {gls:Pote}
+    name = {Membrane Potential},
+    text = {membrane potential},
+    description = {potential of membrane},
+    symbol = {\unit{\V\membrane}},
+    parent = {gls:Pote}
     }
 
 \newglossaryentry{gls:tPote}{
-        name = {Threshold Potential},
-        text = {threshold potential},
-        description = {threshold that potential needs to cross to trigger an action potential},
-        symbol = {\unit{\V\membrane}},
-        parent = {gls:Pote}
+    name = {Threshold Potential},
+    text = {threshold potential},
+    description = {threshold that potential needs to cross to trigger an action potential},
+    symbol = {\unit{\V\membrane}},
+    parent = {gls:Pote}
     }
     
 \newDualEntry[parent = {gls:Pote}, text ={action potential}]{ap}{AP}{Action Potential}{potential of action}
@@ -596,7 +677,7 @@
     }
 \newglossaryentry{gls:hypol}{
     name = {Hyper-Polarization},
-    text = {hyper-polarization},
+    text = {hyper-polarized},
     description = {approaches an extremely polar state},
     parent = {gls:polar},
     }
@@ -604,9 +685,14 @@
 \newglossaryentry{gls:attenuation}{
     name = {Attenuation},
     text = {attenuation},
-    description = {\nopostdesc},
+    description = {the reduction of the amplitude of a signal, electric current, or other oscillation},
     }
     
+\newglossaryentry{gls:elctroPhys}{
+    name = {Electrophysiology},
+    text = {electrophysiology},
+    description = {physiological study centered around electrodynamics},
+    }
 % Dual entry is a custom command, just ask Anakin if you want to us it
 
 
@@ -633,17 +719,23 @@
 
 \newDualEntry[text = {Hodgkin-Huxely Model}]{hh}{HH}{Hodgkin-Huxely}{of neuron action potential over time}
 
-\newDualEntry[parent = {gls:diff}, text = {ordinary differential equation}, sort = {or}][sort = {or}, first = {ordinary differential equation}, firstplural = {ordinary differential equations}]{ode}{ODE}{Ordinary Differential Equation}{a differential equation with respect to a single variables}
+\newDualEntry[parent = {gls:diff}, text = {ordinary differential equation},  sort = {or}, first = {ordinary differential equation}, firstplural = {ordinary differential equations}][sort = {or}, first = {ordinary differential equation}, firstplural = {ordinary differential equations}]{ode}{ODE}{Ordinary Differential Equation}{a differential equation with respect to a single variables}
 
-\newDualEntry[parent = {gls:diff}, text = {partial differential equation}, sort = {pa}][sort = {pa}, first = {partial differential equation}, firstplural = {partial differential equations}]{pde}{PDE}{Partial Differential Equation}{a differential equation with respect to multiple variables}
-
-
-\newDualEntry[text = extra-cellular, symbol = {\ensuremath{\mathcal{E}}}, parent = {gls:cell}][]
-    {excell}{\ensuremath{\mathcal{E}}}{Extra-cellular}{Space outside of the Cell}
-
-\newDualEntry[text = intra-cellular, symbol = {\ensuremath{\mathcal{I}}}, parent = {gls:cell}][]
-    {incell}{\ensuremath{\mathcal{I}}}{Intra-cellular}{Space inside of a Cell}
+\newDualEntry[parent = {gls:diff}, text = {partial differential equation}, sort = {pa}, first = {partial differential equation}, firstplural = {partial differential equations}][sort = {pa}, first = {partial differential equation}, firstplural = {partial differential equations}]{pde}{PDE}{Partial Differential Equation}{a differential equation with respect to multiple variables}
 
 
+\newDualEntry[text = {extra-cellular}, symbol = {\ensuremath{\mathcal{E}}}, parent = {gls:cell}][]{excell}{\ensuremath{\mathcal{E}}}{Extra-cellular}{Space outside of the Cell}
+
+\newDualEntry[text = {intra-cellular}, symbol = {\ensuremath{\mathcal{I}}}, parent = {gls:cell}][]{incell}{\ensuremath{\mathcal{I}}}{Intra-cellular}{Space inside of a Cell}
+    
+\newDualEntry[text = {adenosine tri-phosphate}, parent = {gls:cell}][]
+    {atp}{ATP}{Adenosine Tri-phosphate}{an energy-carrying molecule found in the cells of all living things, it is a nucleotide consisting of three main structures}
+
+\newDualEntry[text = {initial value problem}][]
+    {ivp}{IVP}{Initial Value problem}{involves finding a solution to the differential equation(s) that satisfies both the given equation and the specified initial conditions}
+
+\newDualEntry[text = {boundry value problem}][]
+    {bvp}{BVP}{Boundry Value Problem}{a problem involving finding a solution that satisfies both the given equation and the specified boundaries}
+    
 \newacronym{o}{O}{open}
 \newacronym{c}{C}{closed}

@@ -1,0 +1,82 @@
+% \documentclass[../../Orator]{subfiles}
+\documentclass[class={myRUCProject}, crop=false]{standalone}
+
+\IfStandalone{%
+    \usepackage[disable]{todonotes}
+    \import{../}{customCommands}
+    \import{../}{INP-00-glossary}
+    }{}
+    
+\begin{document}
+
+An animal body consists of tissues, organs, and numerous interdependent systems collaborating together to maintain homeostasis (preserving internal balance) and to support diverse physiological processes, essential for the sustenance of life~\cite{inbook2023Com}. 
+These constructs of multi-cellular origin, are the basis of the complex life we see today. Many of these cell types could not exist without the support of the rest of the system. 
+One of the most complicated and dynamically interacting systems in the body is what is referred to as the nervous system.
+
+
+It shares common characteristics with the other major systems found in animal bodies. 
+It comprises of specialized cells, regulated by signaling of the surrounding cellular-``ecosystem''\todo{Maybe} \cite{SHOYKHET2011783}. 
+\Glspl{gls:neuron} are informational highways manifested through the boundaries of what we know as life. 
+Irrespective of the subclass or the region of occurrence, a single neuron consists of a set of common biological elements, which enables it to detect, process, and transmit signals \cite{SHOYKHET2011783}. 
+Thus, neurons are in charge of fundamental functions including cognition, memory, sensory transmission, together with the maintenance of homeostasis \todo{glossary}.
+But apart from that, it is the only system that resides at the crossroads of the everlasting debate between science and philosophy \cite{SHOYKHET2011783, cons2002}, where the concept of consciousness remains a central topic of discussion \cite{cons2002}. 
+
+As such, understanding the mechanisms behind neuronal interactions is key to providing insight into very fundamental behaviors or events. 
+In the case of this project, epilepsy was the starting point given that such a neurological condition is correlated to the synchrony of neurons. 
+Subsequently, a network of three neurons modeled by the \gls{hh} model was taken into consideration. 
+Such a small network is befitting when there is an interest in understanding more in-depth the biology behind the system. The choice of model is explained in \Cref{sec:Choice}; the neuronal configuration is chosen so that it is both {different from other systems studied}, and {reflects how the synchrony of neurons is affected by their synaptic connections}.
+Being that a seizure is a rather complex process, one could not expect to accurately model a seizure in a three neuron network. 
+% For such, a larger network like that of \textit{C. elegans} would be more suitable.
+
+% Given that a seizure is an emergent and intricate phenomenon, it is not reasonable to anticipate an accurate representation within a three-neuron network governed by a more limited number of interactions.
+
+
+%\subsection*{Intraneuronal communication}
+
+%Electrical signals are traversed swiftly across the entire length of the neuron in form of charged particlesions. [?] Although dendrites are not usually engaged in the direct transmission of electrical signals, as for instance axons are, the residual chemical signals account for changes in the electrical state of the neuron. This mechanism plays a vital role in processing of information and facilitating communication within the nervous system.
+ 
+%The way neurotransmitters attach to receptors, modifies the postsynaptic cell function, inducing alterations in the electrical properties on a dendrite. It results in the production of the electrical signal known as the postsynaptic (voltage or action) potential. Electrical signals are then traversed swiftly across the entire length of the neuron in form of charged particles, ions. [?] This mechanism plays a vital role in processing of information and facilitating communication within the nervous system.
+
+
+\subsection*{Modeling neuronal activity}
+
+%Neurons serve as the foundational elements shaping the intricate architecture of the central and peripheral nervous systems \cite{shadizadeh2022investigating}. Within the structure of a neuron, there is a main cellular area, also known as the soma, accompanied by extensions of auxiliary branches, dendrites, receiving signal from neighbouring cells. Exiting electrical impulse is then carried through elongated neural fiber, called the axon \cite{njitacke2020hidden}.
+
+Neuronal activity and interactions are incredibly complex. Despite that, during the 20\textsuperscript{th} century, several mathematical models have been created to describe neuronal excitation, signal initiation, and propagation. 
+The most influential of them is the Hodgkin-Huxley model, described by Alan Hodgkin and Andrew Huxley in 1952 for the squid giant axon. 
+% (copypaste from wiki d: ->) 
+The \gls{hh} model of \gls{ap} is a set of nonlinear differential equations to approximate the characteristics of excitable cells, e.g. a neuron, or a muscle cell. It is a continuous-time dynamical system.  
+
+The goal of this project is to use the \gls{hh} model in a way that allows for modeling the dynamics of direct neuronal interactions. 
+Here we will attempt to model the interaction of three neurons. 
+As such, the research question of this paper is formulated as follows: 
+\begin{center}
+    \textbf{To what extent is it possible to develop a model for inter-neuronal signal propagation and interaction, based on the Hodgkin-Huxley model of electrical activity of a neuron?}
+\end{center}
+
+
+
+%\begin{enumerate}
+  %  \item Neurons exist - done
+   % \item Neurons  create networks
+    %\item Networks have interesting dynamics on the macro scale
+    %\item Inter-neuron dynamics should still be goverened by HH
+    %\item We want to focus on modeling the dynamics of neuron to neuron connections
+    %\item A brain has too many neurons for this to matter, but 3 to 5 neuron seems ideal
+%\end{enumerate}
+
+%RQ: To what extent are we able to develop a model for inter-neuronal signal propagation.
+
+
+%\subsection*{Walkethrough of Report Topics}
+% \vspace{-5truemm}
+To answer the research question we will begin by exploring the distinct structures within a neuron that contribute to its specialized functions as well as developing an understanding of the fundamental principles behind neuronal electro-physiology\todo{gloss}. 
+We will then describe the mathematical model of \gls{hh} in detail and then introduce our approach at integrating it into a macro scale model of inter-neuronal interactions of several neurons.
+%We begin by exploring the distinct structures within a neuron that contribute to its specialized functions and investigate the fundamental concept of the resting membrane potential to uncover how ions move within the neuron, following their electrochemical gradient. We will delve into the mechanisms of ionic currents and their role in maintaining homeostasis of the membrane potential. This leads us to the process of generating an action potential, including depolarization and repolarization. We introduce the concept of circuit abstraction that will enable us to gain insights into neuronal function without dealing with the immense complexity of individual neurons. It will facilitate the development of a model and framework that are more tractable for analysis and experimentation.
+This report takes you on a journey from the specialized structures within a neuron to the abstraction of neuronal processes into circuits, highlighting the crucial role of voltage and current in understanding neuronal functionality.
+
+
+\end{document}
+
+
+Intraneuronal communication

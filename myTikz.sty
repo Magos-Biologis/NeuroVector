@@ -11,8 +11,8 @@
 
 % ========================= Class tags
 
-\newif\iftagRUC@typeProject@
-\newif\iftagRUCtype@Assignment@
+% \newif\iftagRUC@typeProject@
+% \newif\iftagRUCtype@Assignment@
 
 % ========================= Tikz Packages ================================
 
@@ -57,24 +57,14 @@
 \DeclareOption{exterLib}{%    
     \usetikzlibrary{external}
     }
-    
-\newif\iftagInRUCcls@
-\DeclareOption{clsOverride}{%
-    \tagInRUCcls@true
-    }
+
     
 \ExecuteOptions{}
 \ProcessOptions\relax
-
-\iftagInRUCcls@
-    \else
-        \newif\iftagRUC@typeProject@
-        \newif\iftagRUCtype@Assignment@
-    \fi
     
 \usetikzlibrary{arrows.meta}
 \tikzset{>=Stealth} % for LaTeX arrow head
-    
+
 \RequirePackage{pgfplots} % For plotting within LaTeX
 \RequirePackage{pgfplotstable} % table plotting
     \pgfplotsset{compat=1.18}
@@ -146,7 +136,28 @@
     to[out=#2+\c-180,in=#2-\c]++ (#2-180:\w);
     }
 
-% =========================== Tikz Decos =================================
+% =========================== Decorations =================================
+
+% Packages needed
+\usetikzlibrary {decorations.pathreplacing, shapes.misc}
+
+% =========================== Tikz Decos 
+
+\tikzset{
+  show curve controls/.style={
+    decoration={
+      show path construction,
+      curveto code={
+        \draw [blue, dashed]
+          (\tikzinputsegmentfirst)    -- (\tikzinputsegmentsupporta)
+          node [at end, cross out, draw, solid, red, inner sep=2pt]{};
+        \draw [blue, dashed]
+          (\tikzinputsegmentsupportb) -- (\tikzinputsegmentlast)
+          node [at start, cross out, draw, solid, red, inner sep=2pt]{};
+      }
+    },decorate
+  }
+}
 
 % \pgfdeclaredecoration{Snake}{initial}%
 % {%
@@ -178,24 +189,6 @@
 %         \pgfpathsine{\pgfqpoint{0.25\pgfdecorationsegmentlength}{\pgfdecorationsegmentamplitude}}
 %     }
 % }
-
-
-\tikzset{%
-    show curve controls/.style={
-    postaction={
-        decoration={
-            show path construction,
-            curveto code={
-                \draw [blue] 
-                (\tikzinputsegmentfirst) -- (\tikzinputsegmentsupporta)
-                (\tikzinputsegmentlast) -- (\tikzinputsegmentsupportb);
-                \fill [red, opacity=0.5] 
-                (\tikzinputsegmentsupporta) circle [radius=.5ex]
-                (\tikzinputsegmentsupportb) circle [radius=.5ex];
-                }%
-            },%
-      decorate%
-    }}}
 
 % ========================================================================
 \endinput

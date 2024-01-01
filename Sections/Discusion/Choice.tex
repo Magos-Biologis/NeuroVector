@@ -9,68 +9,63 @@
     
 \begin{document}
 
-\subsection{FitzHugh-Nagumo}
-The FitzHugh-Nagumo model is the simplest of the models used in this project. Since it is only consisting of two differential equations with four parameters, it is relatively straightforward to model.\alextodo{don't know what to write here. It should problably be changed later} In order to model this dynamical system, only 72 floating point operations (addition, subtraction, multiplication, and division) are needed per millisecond. This makes the model sound like a good model to use. However, the FitzHugh-Nagumo model also has its downsides; the model does not accurately represent reality. That is, it is not biophysically relevant \cite{Izhikevich2004}. The model is, however, good for modelling many neurons. For example, in \cite{Ibrahim2021}, they modelled one thousand neurons using the FitzHugh-Nagumo model.
-
-
-\subsection{Chay}
-The Chay model is a more complicated model than the FitzHugh-Nagumo model since it is three-dimensional and has [?] parameters. Like the FitzHugh-Nagumo model \cite{Baladron2012}, it is also derived from the Hodgkin-Huxley model \cite{Shadizadeh2022}. Unlike the FitzHugh-Nagumo model, it is biophysically relevant %\cite{pusuluri2020}
-.
-
-% # FLOPS?
-% Number of neurons in a network?
 
 \subsection{Hodgkin-Huxley}
-The last of the models used in this project is the Hodgkin-Huxley model. This model is very well-known within the neuron modelling field.\todo{cite} Since it is a four-dimensional model with [?] parameters, it is the most complicated of the models presented in this project. It needs a total of 1200 operations per millisecond. On the bright side, it is very good at representing the physical properties of a neuron. That is, it is biophysically relevant. However, it is only feasible to model tens of neurons using this model \cite{Izhikevich2004}. 
+The only model used in this project is the Hodgkin-Huxley model. This model is very well-known within the neuron modeling field and also very important \cite{Izhikevich2004}. Since it is a four-dimensional model \br*{insofar that there are 4-differential systems} it is more difficult than some of the other models that were first considered (FitzHugh-Nagumo and Chay, see below). It needs a total of 1200 floating point operations (addition, subtraction, multiplication, and division) per millisecond. On the bright side, it is very good at representing the physical properties of a neuron. That is, it is biophysically relevant. This is due to the fact that it can accurately represent many of the details of the action potential. So even though there are some issues, it does live up to the basic requirements that the action potential demands \cite{White2002}. However, it is only feasible to model tens of neurons using this model \cite{Izhikevich2004}. 
 
 \subsection{Other possible models}
-This project only considers three models. This is primarily due to the time constraints that this project is under. However, there exist many other good models for neurons. Some of these are described below.
+This project only considers one model. This is primarily due to the time constraints that this project is under. However, there exist many other good models for neurons. Some of these are described below.
+
+\subsubsection*{FitzHugh-Nagumo}
+The FitzHugh-Nagumo model is the simplest of the models considered for this project. However, it ended up not being used, primarily due to the time constraints. It is only consisting of two differential equations with four parameters. In order to model this dynamical system, only 72 floating point operations are needed per millisecond. This makes the model sound like a good model to use. However, the FitzHugh-Nagumo model also has its downsides; the model does not accurately represent reality. That is, it is not biophysically relevant \cite{Izhikevich2004}. The model is, however, good for modeling many neurons. For example, in \cite{Ibrahim2021}, they modeled one thousand neurons using the FitzHugh-Nagumo model.
+
+
+\subsubsection*{Chay}
+The Chay model is a more complicated model than the FitzHugh-Nagumo model since it is three-dimensional. Like the FitzHugh-Nagumo model \cite{Baladron2012}, it is also derived from the Hodgkin-Huxley model \cite{Shadizadeh2022}. Unlike the FitzHugh-Nagumo model, it is biophysically relevant \cite{gu2013biological}. It was also considered for this project. However, it ended up not being used, since there was only time for interpreting one model and the Hodgkin-Huxley model was thought to be the better choice. This is because the Hodgkin-Huxley is the more recognized model \cite{Izhikevich2004}.
 
 \subsubsection*{Integrate and fire models}
 The integrate and fire model is one of the most used models for neurons. Since it is only one-dimensional it is very simple to understand and use. The standard integrate and fire model only requires five floating point operations. Therefore, it is very good to model thousands of neurons \cite{Izhikevich2004}.
 
-There are also many adaptations of the integrate and fire model. Of the ones described in \cite{Izhikevich2004}, they require only up to 13 operations per millisecond to work and are one-to-two-dimensional. They are therefore still good at modelling thousands of neurons. However, since they are so simple, none of the integrate and fire models are biophysically relevant.
+There are also many adaptations of the integrate and fire model. Of the ones described in \cite{Izhikevich2004}, they require only up to 13 operations per millisecond to work and are one-to-two-dimensional. They are therefore still good at modeling thousands of neurons. However, since they are so simple, none of the integrate and fire models are biophysically relevant.
 
-\subsubsection*{Izhikevich}
-The spiking model made by Eugene M. Izhikevich is a two-dimensional model that requires 13 operations per millisecond \cite{Izhikevich2004}. It is similar to the Hodgkin-Huxley model in a biological sense, however, it is capable of modelling thousands of neurons \cite{Muni2022}. It is not biophysically relevant \cite{Izhikevich2004}.
-
-\subsubsection*{Morris-Lecar}
-The Morris-Lecar model is, like the FitzHugh-Nagumo model, also a two-dimensional model derived from the Hodgkin-Huxley model \cite{Baladron2012}. However, it requires many more floating point operations to use, namely 600 per millisecond. Unlike the FitzHugh-Nagumo model, it is biophysically relevant \cite{Izhikevich2004}. For this reason, it might seem strange that the group chose to use the FitzHugh-Nagumo model instead of this model\alextodo{I don't know if we can say this}, but the FitzHugh-Nagumo model was chosen since it is a simpler model\alextodo{This is not really the reason, but I didn't know what else to say}. However, if the group had more time, this model would be at the top of the list of models to investigate\alextodo{I don't know if this is true}. In \cite{kasatkin2015transient} they showed that it is possible to model 100 neurons using the Morris-Lecar model.
-
-% How many neurons can it model?
-
-\subsubsection*{Hindmarch-Rose}
-The Hindmarch-Rose model is three-dimensional, but it only requires 120 operations per millisecond. Like most of the models, it is also not biophysically relevant \cite{Izhikevich2004}.
-
-% How many neurons can it model?
-
-\subsubsection*{Wilson}
-The last model that this project will present is the Wilson\anakintodo{Bro what?} model. This is like the Hodgkin-Huxley model also four-dimensional, however, it only requires 180 floating point operations per millisecond. It is not biophysically relevant \cite{Izhikevich2004}
-
-% How many neurons can it model?
-
-\noindent All the information about the different models is summarised in \Cref{tab:modelsChoice}. 
-
-
-
-\begin{table}[ht]
+\noindent All the information about the different models is summarized in \Cref{tab:modelsChoice}. \\
+\begin{table}[H]
 \centering
-\caption{Table of the different models used and considered for this project.}
-\label{tab:modelsChoice}
+\caption{Table of the different models used and considered for this project. }\label{tab:modelsChoice}
     \footnotesize
-\begin{tabular}{lllll}
-\hline
-Name& \begin{tabular}[c]{@{}l@{}}Biophysically\\ relevant\end{tabular} & \begin{tabular}[c]{@{}l@{}}Number of\\ operations\\ per ms\end{tabular} & Dimensions & \begin{tabular}[c]{@{}l@{}}Number of\\ neurons in\\ a network\end{tabular} \\ \hline
-FitzHugh-Nagumo & No& 72& 2&Thousand\\
-Chay&Yes&& 3&\\
-Hodgkin-Huxley& Yes& 1200& 4& Tens\\
-\begin{tabular}[c]{@{}l@{}}Standard integrate\\ and fire\end{tabular}& No& 5& 1& Thousands\\
-\begin{tabular}[c]{@{}l@{}}Integrate and fire\\ adaptations\end{tabular} & No& 7-13& 1-2& Thousands\\
-Izhikevich& No& 13& 2&Thousands\\
-Morris-Lecar& Yes& 600& 2&Hundred\\
-Hindmarch-Rose& No& 120& 3&\\
-Wilson& No& 180& 4&\\ \hline
-\end{tabular}
+    \begin{tabular}{l@{}p{2cm}@{}p{2.5cm}@{}p{2cm}@{}p{2cm}}
+    \hline
+    Name & \raggedright Biophysically relevant & \raggedright Number of \unit{\footnotesize\text{operations}\per\ms} &  Dimensions &  Number of neurons in a network \\ \hline
+    \raggedright Hodgkin-Huxley& Yes& 1200& 4& Tens\\
+     \raggedright FitzHugh-Nagumo & No& 72& 2&Thousand\\
+    \raggedright Chay&Yes&& 3&\\
+    \raggedright Standard integrate and fire & No& 5& 1& Thousands\\
+    \raggedright Adaptated integrate and fire \phantom{ficl} & No& 7-13& 1-2& Thousands\\
+    \raggedright Izhikevich& No& 13& 2&Thousands\\
+    \raggedright Morris-Lecar& Yes& 600& 2&Hundred\\
+    \raggedright Hindmarch-Rose& No& 120& 3&Ten\\
+    \raggedright Wilson& No& 180& 4&\\ \hline
+    \end{tabular}
 \end{table}
+The information given is whether or not models are bio-physically relevant, the number of floating point operations it takes to compute one ms, the number of dimensions, and the number of neurons that can feasibly be computed in a network. The last of which might be subject to change as the computers get better.
+
+% \subsubsection*{Izhikevich}
+% The spiking model made by Eugene M. Izhikevich is a two-dimensional model that requires 13 operations per millisecond \cite{Izhikevich2004}. It is similar to the Hodgkin-Huxley model in a biological sense, however, it is capable of modeling thousands of neurons \cite{Muni2022}. It is not biophysically relevant \cite{Izhikevich2004}.
+
+% \subsubsection*{Morris-Lecar}
+% The Morris-Lecar model is, like the FitzHugh-Nagumo model, also a two-dimensional model derived from the Hodgkin-Huxley model \cite{Baladron2012}. However, it requires many more floating point operations to use, namely 600 per millisecond. Unlike the FitzHugh-Nagumo model, it is biophysically relevant \cite{Izhikevich2004}. In \cite{kasatkin2015transient} they showed that it is possible to model 100 neurons using the Morris-Lecar model.
+
+% % How many neurons can it model?
+
+% \subsubsection*{Hindmarch-Rose}
+% The Hindmarch-Rose model is three-dimensional, but it only requires 120 operations per millisecond. Like most of the models, it is also not biophysically relevant \cite{Izhikevich2004}.
+
+% % How many neurons can it model?
+
+% \subsubsection*{Wilson}
+% The last model that this project will present is the Wilson\anakintodo{Bro what?} model. This is like the Hodgkin-Huxley model also four-dimensional, however, it only requires 180 floating point operations per millisecond. It is not biophysically relevant \cite{Izhikevich2004}. In \cite{Yang2021} they managed to model 12 neurons.
+
+% % How many neurons can it model?
+
 
 \end{document}

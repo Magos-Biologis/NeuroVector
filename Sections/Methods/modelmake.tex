@@ -1,0 +1,109 @@
+\documentclass[class={myRUCProject}, crop=false]{standalone}
+
+\IfStandalone{%
+    \usepackage[disable]{todonotes}
+    \import{../../}{customCommands}
+    \import{../../}{INP-00-glossary}
+    }{}
+    
+
+\begin{document}
+
+\section{Real Life to Modeling}
+
+\subsection{Definition of Mathematical Modeling}
+
+It is often needed to observe real-life problems and situations from a mathematical perspective. This procedure is very common in a variety of fields like economics, finance, environmental sciences, physics, biology and medicine. This pursuit has given rise to the powerful tool of mathematical modeling, a method that allows us to abstract, analyze, and predict the behavior of diverse systems. By translating these scenarios into mathematical language, we gain a deeper understanding of the complex mechanisms concerning natural, social, and technological phenomena. This process not only allows us to unravel the complications of the world around us but also empowers us to make assumptions about these scenarios to create a version which is easier to handle and get accurate results from \cite{dym2004principles}.
+
+In this section, we will discuss the detailed process of crafting a mathematical model from the ground up. To do so, we will go through the steps that are necessary for bringing such an idea, based on a real-world situation, to life through mathematical modeling. In our specific case, we will also introduce our thinking on how the idea of a neuron model came to life, as well as the mathematical tools we will be using to achieve it. This step-by-step explanation will highlight how mathematical models approach theoretical ideas with what we see in the real world \cite{dym2004principles}.
+
+\subsection{Stages of Mathematical Modeling}
+
+Here is an overview of the stages involved in the creation of a mathematical model \cite{dym2004principles}.
+
+\begin{enumerate}
+    \item \textbf{Problem Definition:} The creation of a mathematical model initiates with a clear definition of the real-life problem or scenario we aim to investigate. This involves identifying and explaining the key variables, parameters, and relationships that describe the system. This step requires a careful amount of attention to detail and accuracy, considering that it is the basis and foundation of the model and the objective is to make the model as physiologically relevant as possible. To ensure that, it is important to focus on a thorough examination of the factors influencing the system and the interconnections between all the components. 
+    \item \textbf{System Formulation:} We start with a very simplified approach to the problem, setting up a system of equations that are easy to understand. The reason behind this methodology is to be able to build up the complexity and accuracy of the model with every modification. It is important to make assumptions that simplify the real-world scenario without compromising the essence of the problem. These assumptions act as a link between reality and abstraction, capturing the fundamental dynamics of the system.
+    \item \textbf{Accuracy:} As the modeling process progresses, the goal is to steadily introduce additional intricacies to it, progressively refining it until we are confident that it faithfully reflects on the real-world scenario. So, during this step, we take the previously simplified equations and adjust them in order to enhance their accuracy and reflection on reality. Occasionally, it is needed to introduce new parameters that were originally overlooked due to simplification. Each added layer of complexity should be introduced purposefully, helping with the better understanding of the system.
+    \item \textbf{Analysis:} Once the mathematical model is formulated, the next step is analyzing its behavior to abstract as much information as possible. This includes solving the equations, exploring their stability, and investigating the reaction of the model according to different inputs, such as initial conditions. Model analysis provides insights into the system's dynamics and helps validate the model against real-world observations.
+   \item \textbf{Validation:} To validate the accuracy and relevance of the mathematical model that was analyzed on the previous step, we use applied data and verify its predictions against real-world outcomes. That data can be abstracted from experiments and research done by ourselves or from already verified papers and experiments. This process involves clarifying the model based on feedback derived from observed results, enhancing its predictive accuracy and aligning it with the intricacies of the authentic scenario. 
+    \item \textbf{Contribution:} This final step revolves around comprehending the outcomes of the mathematical model in the framework of the original problem. No matter what the objective of crafting the model initially was, the insights that it provided should offer a profound understanding of the real-world situation and contribute to decision making and guiding around the topic, serving as a valuable resource for gaining deep knowledge about it.
+
+\end{enumerate}
+
+\subsection{Necessary Tools and Techniques}
+
+In order to construct a mathematical model, there are some mathematical skills and techniques that are essential, some of which are listed below.
+
+
+\begin{enumerate}
+    \item \textbf{Ordinary Differential Equations (ODEs):} Fundamental mathematical equations that describe the rate of change of a function concerning an independent variable, typically time. A set of ODEs, where each of them correspond to a distinct variable, is essential for the completion of a mathematical model.
+    \item \textbf{Calculus:} A very important branch of mathematics that deals with understanding and calculating of rate of change. It is a skill-set that plays a crucial role in mathematical modeling, since it allows for the model analysis, which involves solving the ODEs and capturing the dynamics of the system.
+    \item \textbf{Dynamic System Fundamentals:} The study of systems that evolve over time and are dependent on fixed rules which govern their evolution. The understanding of these systems involves differential equations and calculus, that were described above. Dynamic systems dive deep in exploration of the stability, behavior and oscillations of the systems, provide numerical analysis and simulations for them, as well as serve as a framework for understanding interactions and predicting the future states of a system based on its current conditions.
+    \item \textbf{Programming:} Using programming languages like Python or MATLAB, it becomes easier to implement the mathematical models. Through programming, it is possible to get verification about the system analysis, also get information such as graphical representations, and extract visual results. 
+\end{enumerate}
+
+\subsection{Challenges of Mathematical Modeling}
+While constructing a mathematical model, even if there are steps to follow, there are always challenges that it is important to acknowledge. 
+
+\begin{enumerate}
+    \item \textbf{Data Collection:} Sometimes, gathering high-quality data for supporting the mathematical model that we create can be difficult. That is because the data we use have to be precise and reliable. Limited data may lead to the inability to test the model against various scenarios. The process of finding accurate and reliable sources requires a lot of attention to detail and patience.
+    \item \textbf{Assumptions:}  Making assumptions that provide simplifications is a massive step in our attempt to adjust the complexities of real-world systems into a mathematical model. However, these assumptions have a big influence on the model and its accuracy and require a lot of attention into retaining the balance between reality and simplification. By making unrealistic assumptions the model might lose its importance and lead to confusions.
+    \item \textbf{Validation:} Validation is a crucial step in the modeling process, which ensures that the model accurately presents the behavior of the system it stands for. A big challenge in this case are the initial conditions, because even small variations in them can lead to very diverse outcomes over time, making it challenging to validate the model against real-world scenarios with certainty. 
+    \item \textbf{Computational Complexities:} Simulating the mathematical model into successful code involves a lot of time and skills in order to handle the data without errors. It is important to manage the data carefully to ensure its accuracy, as this type of errors can significantly compromise the reliability of the code.
+\end{enumerate}
+
+\subsection{Our Approach}
+During this project, our team focused on a theme that delved into the dynamics of neuronal interactions. After studying existing neuron models, mostly Hodgkin-Huxley, we centered on a system involving three neurons. This is an interesting approach, especially because unlike other existing models, our model does not only describe the behavior of a single neuron, but three. For our line of action, we followed the previously described steps as it is listed below.
+
+\begin{enumerate}
+    \item \textbf{Problem Definition:} We started off by identifying key variables, parameters, and relationships, and then understanding how the interactions among these neurons could be translated into mathematical terms. Since there were many possible interactions, we emphasized into choosing the best one for our situation. 
+    \item \textbf{System Formulation:} Beginning with a simplified approach, we created a system of equations to represent the interactions. Each equation corresponded to a distinct neuron and captured the essence of their connections.
+    \item \textbf{Accuracy:} To have as much accuracy as possible, we shifted our focus to introducing complexities and enhancing the equations to express the neuronal behavior. Also, some parameters were added due to the initial simplification.
+    \item \textbf{Analysis:} The most thorough step was the analysis of the model to understand the system's behavior. We used our knowledge and abilities to solve the differential equations and run numerical simulations to observe how the system responded.
+    \item \textbf{Validation:} There was not real-world data for our own model's purpose, so the validation we persuaded was the computing interpretation of the model to verify whether our analysis was correct. This way, we extracted more information about the visuals, like graphs.
+    \item \textbf{Contribution:} Ultimately, we hope that our mathematical model of three interacting neurons contributes valuable insights into the world of neural dynamics. It is a simplified version which can be a basis for a more advanced model, meaning that it can offer a new perspective on the field.
+
+\end{enumerate}
+
+
+\begin{comment}
+
+\section{Dynamic System Fundamentals}
+When looking at the brain in abstract form it can be seen as a multi-dimensional \alextodo{We expect the reader to know basic stuff about dynamical systems} \gls{gls:dynSystem} governed by an independent set of system variables, such as neuronal membrane potentials, which change in time based on a set of \gls{gls:deterministic} equations with system parameters that either do not change in time (e.g. maximal \gls{gls:cond} of the ion
+channels on the neuronal membrane) or whose evolution happens on a much slower time scale relative to the evolution of the system variables ~\cite{Stefanescu2012}.
+
+
+Fundamentally, a \gls{gls:dynSystem} is a system that evolves over time.  This system is dependent on fixed rules which govern the evolution of the system. Thus a \gls{gls:dynSystem} is the opposite of a static system, which, unlike \gls{gls:dynSystem}s, does not depend on the past inputs. A simple example of a \gls{gls:dynSystem} can be that of a pendulum swinging back and forth \cite{}. 
+
+There are different types of \gls{gls:dynSystem}s. A system can be \gls{gls:deterministic} or \gls{gls:stochastic}, \gls{gls:discrete} or \gls{gls:continuous}, \gls{gls:linear} or \gls{gls:nonlinear}, and \gls{gls:autonomous} or \gls{gls:non-autonomous} \cite{}. 
+
+If a system is \gls{gls:deterministic}, it is possible to predict each following state given an initial state. It is also possible for a system to have an element of randomness to it. In this case, the system is said to be \gls{gls:stochastic} \cite{}. 
+
+A \gls{gls:discrete} system is one where there is only measured a position of the integer values of time. On the other hand, is a \gls{gls:continuous} system, where the positions are measured \gls{gls:continuous}ly (ie. for every possible time) \cite{}.
+
+A \gls{gls:linear} system is one where it is only composed of \gls{gls:linear} functions and a \gls{gls:nonlinear} system contains at least one \gls{gls:nonlinear} component \cite{}.
+
+Lastly, there is the difference between an \gls{gls:autonomous} system, which is one where it does not depend on the independent variable \(t\) \cite{}, and a \gls{gls:non-autonomous} system, which does depend on \(t\) \cite{}.
+
+\end{comment}
+
+%The 
+%Some of these parameters
+
+\begin{comment}
+    \begin{split}\left[\begin{array}{ccll}
+    {\displaystyle \frac{du}{dt}} &=& u\left(1-u^{2}\right)-w+I \equiv F(u,w)\\[.2cm]
+    {\displaystyle \frac{dw}{dt}} &=& \varepsilon \left(u -0.5w+1\right) \equiv \varepsilon G(u,w)\, ,\\
+    \end{array}\right.\end{split}
+    [ref:https://neuronaldynamics-exercises.readthedocs.io/en/latest/exercises/brunel-network.html]
+\end{comment}
+
+\begin{comment}
+
+When analysing differential equations \textit{phase space} analysis is an important concept and tool. Phase space is the space spanned by the system's variables and the trajectories it contain are those variables traversing time. When a neuron transitions from rest to firing a qualitative change in the dynamical behavior of the system will occur. A qualitative change can be associated with phenomena such as \textit{bifurcations}, \textit{phase transitions}, emergence of (new) \textit{attractors}, or shifts in stability \cite{}. 
+
+\end{comment}
+
+\end{document}
+

@@ -1,4 +1,4 @@
-\documentclass[printGloss, printBibble]{myRUCProject}
+\documentclass[printBibble]{myRUCProject}
 
 % ========================= Preamble Packages ================================
 
@@ -6,9 +6,7 @@
 \usepackage{myTikz}
 
 % Margin and Notes 
-\usepackage{marginnote}
-\usepackage[colorinlistoftodos]{todonotes}
-
+\usepackage[disable]{todonotes}
 
 \providecommand\anakintodo[2][]{\todo[author=Anakin, size=\scriptsize, color=black, textcolor=White, #1]{#2}}
 \providecommand\alextodo[2][]{\todo[author=Alex, size=\scriptsize, color=Turquoise, #1]{#2}}
@@ -19,8 +17,8 @@
 
 % ============================ Important Files
 
-\import{}{customCommands}
-\import{}{INP-00-glossary}
+\import{}{customCommands.tex}
+\import{}{INP-00-glossary.tex}
 \addbibresource[glob=true]{Bibble/*.bib}
 
 % ============================ Subfiles
@@ -36,7 +34,7 @@
 % \Cref[⟨options⟩]{⟨reference label⟩}
 % The [options] is not necessary for general usage the \cref command will detect the environment that the label was made in and create the corresponding reference in the text
 % Using \Cref produces the same result but in a  more 'official' style, like fig. 1 vs Figure 1
-
+ 
 % Examples of usage;
 % \cref{eq:lmao}
 % \Cref{fig:penishehe}
@@ -85,10 +83,11 @@
 % \footnote[⟨options⟩]{⟨text⟩}
     
 
+
 %==========================================================
 
 \title{Modeling of signal propagation through networks of neurons}
-\author{ Anakin Diermayr \and  Alex Winter \and Konstantina Kalagia \and Svetlana Rusnakova \and Kenni Abild \and  Ana Helena Vieira de Melo Gomes Prata }
+\author{Anakin Diermayr \and  Alex Winter \and Konstantina Kalagia \and Svetlana Rusnakova \and Kenni Abild \and  Ana Helena Vieira de Melo Gomes Prata}
 
 
 
@@ -103,8 +102,9 @@
 
 
 {%
-\setlength{\parskip}{0.5ex} % Paragraph seperation
+\setlength{\parskip}{0.75em} % Paragraph seperation
 \tableofcontents%
+% \lstlistoflistings
 
 \printacronyms%
 
@@ -127,12 +127,14 @@
 
 \newpage
 \pagenumbering{arabic}
+%import{Abstract.tex}
 \chapter*{Introduction} 
 \addcontentsline{toc}{chapter}{Introduction}
-\import{Sections/}{Intro.tex}
+\import{Sections/}{Intro(anakin).tex}
+
 
 \part{Building a Background}
-\import{Sections/}{background.tex}
+\subimport{Sections/}{background.tex}
 
 % \newpage
 
@@ -149,21 +151,31 @@
 
 \newpage
 \part{Discussion}
-\import{Sections/}{discussion.tex}
-
-
-% \newpage
-% \chapter{Reflection} % Future studies, etc.
+\subimport{Sections/}{discussion.tex}
 
 
 \newpage
-\chapter{Conclusion}
-%\import{Sections/}{Conclusion.tex}
+\chapter{Reflection} % Future studies, etc.
+\subimport{Sections/Discusion/}{FuturefuckReflection}
 
+\newpage
+\chapter{Conclusion}
+\subimport{Sections/}{Conclusion.tex}
+
+
+
+{
+\microtypesetup{protrusion=false} % disables protrusion locally in the document
+\glsaddall
+\printglossary
+}
 
 \appendix
 \part*{Appendix}
 \addcontentsline{toc}{part}{Appendix}
+
+\chapter{Hodgkin-Huxely Code}
+\lstinputlisting[language=Python]{Sections/appendices/HodHuxFun.py}
 
 % \chapter{Images}\label{ap:sfd}
 % \import{Sections/}{Appendix}

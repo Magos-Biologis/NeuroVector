@@ -12,7 +12,7 @@
 
 % ========================= Class tags
 
-\global\let\tagRuc@typeProject@\iftrue\relax
+\global\let\tagRUC@typeProject@\iftrue\relax
     
 
 \newif\iftagBibble@ 
@@ -77,10 +77,7 @@
 
 \LoadClass[11pt]{report}
 
-% ========================= Text Packages 
-
-
-
+% ========================= Font Packages 
 
 % It's 2022. UTF-8 input for TeX. 
 \iftutex
@@ -95,16 +92,18 @@
     \else
         \RequirePackage[utf8]{inputenc}
         %
-        % \RequirePackage{psnfss} % Font support?
         \RequirePackage{mathpazo}
-        \RequirePackage{crimson}        
-        % \RequirePackage{mathptmx} % Times new Roman      
+        \RequirePackage{crimson}            
         %
         \RequirePackage[T1]{fontenc} % Best imported after fonts. or something
         %
         \RequirePackage[final]{microtype}
     \fi
 
+\ifpdftex
+    \PassOptionsToPackage{pdftex}{graphicx}
+    \PassOptionsToPackage{pdftex}{hyperref}
+    \fi
 
 % ========================= Colors/Visuals/Figures Function
 
@@ -121,19 +120,19 @@
 \RequirePackage[labelfont={bf}, hypcap=false]{caption} % For figure coloration
 \RequirePackage{subcaption} % Subfigures
 
-
-\RequirePackage[outline]{contour} % Glow around text
-
 % ========================= Format margins, headers and footers
-
-\RequirePackage{datetime} % for generating dates and time
-% \RequirePackage{lastpage} % Pretty much exclusively used for page labeling
 
 \RequirePackage{enumitem}    % for list formatting
 
 \RequirePackage{indentfirst} % Corrects formatting inconsistancy
 \RequirePackage{setspace} % Line spacing
-% \RequirePackage{ragged2e} % Text Justifier
+
+\iftagFinal@
+    \RequirePackage{datetime} % for generating dates and time
+    % \RequirePackage{ragged2e} % Text Justifier  
+    % \AtBeginDocument{\Justifying}
+    % \RequirePackage{lastpage} % Pretty much exclusively used for page labeling
+    \fi
 
 % ======================== Class Bibliography Options =====================
 
@@ -158,8 +157,9 @@
 
 % ======================== Custom Packages ================================
 
-\RequirePackage{myMathPreamble}
-\RequirePackage{myReferencePreamble}
+\RequirePackage{myMath}
+\RequirePackage{mySources}
+\RequirePackage{myHyperLink}
 
 % ====================== Font config
 
@@ -249,11 +249,12 @@
     
 % \justifying
 
+% To prevent hyphenation
 \tolerance=9999         % Gives more whitespace
 \emergencystretch=10pt  % Gives more whitespace
 \hyphenpenalty=10000    % Removes hyphanation
 \exhyphenpenalty=100    % Allows for existing hyphans to stay
-
+\interlinepenalty=10000
 
 
 % ===================== Page Styles
@@ -261,8 +262,6 @@
 \RequirePackage{geometry} % Page margins
 \RequirePackage{fancyhdr} % Allows for easy fancy page layouts
 \RequirePackage{titlesec} % Allows for easy editing of of headers
-
-
 
 
 \DeclareCaptionFont{red}{\red}
@@ -275,10 +274,9 @@
 \captionsetup[subtable]{labelfont=black}
 %
 
-\interlinepenalty=10000
 
-
-\contourlength{1.4pt}
+% \RequirePackage[outline]{contour} % Glow around text
+% \contourlength{1.4pt}
 
 
 \setlength{\parindent}{2em} % Paragraph indents
@@ -314,6 +312,33 @@
 
 \fancyhfoffset{0pt}
 
+
+% Listingsshit
+\definecolor{codegreen}{rgb}{0,0.6,0}
+\definecolor{codegray}{rgb}{0.5,0.5,0.5}
+\definecolor{codepurple}{rgb}{0.58,0,0.82}
+\definecolor{backcolour}{rgb}{0.95,0.95,0.95}
+
+\lstdefinestyle{mystyle}{
+    backgroundcolor=\color{backcolour},   
+    commentstyle=\color{codegreen},
+    keywordstyle=\color{magenta},
+    numberstyle=\tiny\color{codegray},
+    stringstyle=\color{codepurple},
+    basicstyle=\ttfamily\footnotesize,
+    breakatwhitespace=false,         
+    breaklines=true,                 
+    captionpos=b,                    
+    keepspaces=true,                 
+    numbers=left,                    
+    numbersep=5pt,                  
+    showspaces=false,                
+    showstringspaces=false,
+    showtabs=false,                  
+    tabsize=2
+}
+
+\lstset{style=mystyle}
 
 % ======================== Custom Headers ================================
 
@@ -356,12 +381,8 @@
     {}
     
 
-% ========================================================================
+    
 
 \RequirePackage{import}
-
-
-
-
-
+% ========================================================================
 \endinput

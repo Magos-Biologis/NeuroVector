@@ -6,7 +6,7 @@
 \usetikzlibrary{positioning}
 \usetikzlibrary{arrows.meta}
 
-
+\providecommand\enpos[2]{\underset{\footnotesize\mathclap{\langle #1,#2 \rangle}}{N}}
 
 % This bascially automates a \newcommand{<name>}{} to ensure
 % that a command with the given <name> does not already exist
@@ -16,8 +16,9 @@
 }%
 
 
+
 \begin{document}
-\begin{tikzpicture}[black!80, line width = 1pt]
+\begin{tikzpicture}[black!80, line width = 1pt,rounded corners = 8pt,shorten >=2pt,]
 
 
     \coordinate (O) at (0,0);
@@ -25,25 +26,25 @@
 
     \begin{scope}[on grid]
         
-        \node (O) at (2,0) [circle, draw, fill = white] {$\underset{\mathclap{{\left\langle 1,1 \right\rangle}}}{N}$};
+        \node (O) at (2,0) [circle, draw, fill = white] {$\enpos{2}{0}$};
 
         
-        \node (N1) [circle, draw, fill = white, above left=1.5 of O.south west] {$\underset{\mathclap{{\left\langle 1,0 \right\rangle}}}{N}$};
-        \node (N2) [circle, draw, fill = white, below left=1.5 of O.north west] {$\underset{\mathclap{{\left\langle 2,0 \right\rangle}}}{N}$};
+        \node (N1) [circle, draw, fill = white, above left=1.5 of O.south west, yshift = 1ex] {$\enpos{1}{0}$};
+        \node (N2) [circle, draw, fill = white, below left=1.5 of O.north west, yshift = -1ex] {$\enpos{1}{1}$};
 
         \node (I1)  [left = 2 of N1.east] {};
         \node (I2)  [left = 2 of N2.east] {};
 
         
-        \draw[-{Stealth}, line width = 1.5pt] (N1) -| (O) node [pos=0.25, above] {$\eta_1$};
-        \draw[-{Stealth}, line width = 1.5pt] (N2) -| (O) node [pos=0.25, above] {$\eta_2$};
+        \draw[-{Stealth}, line width = 1.5pt] (N1) -| (O) node [pos=0.25, above] {$\eta_{1,0}$};
+        \draw[-{Stealth}, line width = 1.5pt] (N2) -| (O) node [pos=0.25, above] {$\eta_{1,1}$};
         
-        \draw[-{Stealth}, line width = 1.5pt] (I1) -- (N1) node [midway, above] {$I_1$};
-        \draw[-{Stealth}, line width = 1.5pt] (I2) -- (N2) node [midway, above] {$I_2$};
+        \draw[-{Stealth}, line width = 1.5pt] (I1) -- (N1) node [midway, above] {$\mathllap{R_{1,0} I_{1,0}}$};
+        \draw[-{Stealth}, line width = 1.5pt] (I2) -- (N2) node [midway, above] {$\mathllap{R_{1,1} I_{1,1}}$};
 
-        \draw[-{Stealth}, line width = 1.5pt] (O) -- +(0:2cm) node [midway, above] {$\eta_0$};
+        \draw[-{Stealth}, line width = 1.5pt] (O) -- +(0:2cm) node [midway, above] {$\eta_{2,0}$};
         
-        \node at (0,0) [yshift = -2cm , xshift = 1.5cm] {$\left\langle 1,2 \right\rangle$};
+        \node at (0,0) [yshift = -2cm , xshift = 1.5cm] {$\big\langle 2,1 \big\rangle$};
     \end{scope}
     
     

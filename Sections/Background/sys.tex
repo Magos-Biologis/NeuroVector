@@ -51,17 +51,17 @@ Microscopic, mesoscopic and macroscopic models represent three distinct approach
 
 The choice between microscopic, macroscopic, or mesoscopic models depends on the specific objectives of the research. Microscopic models are ideal for capturing more details at an individual level, macroscopic models offer a global perspective, ideal for understanding large-scale systems, and mesoscopic models offer an in-between approach, counting them suitable for phenomena at intermediate scales \cite{Lachowicz2011}.
 
-\subsection{Mathematical scaling}
+% \subsection{Mathematical scaling}
 
-For neural networks scaling up involves increasing the number of neurons interacting and to capture the realism the number of parameters will have to increase as well.
-% Figure \ref{fig:computational_properties} the 
+% For neural networks scaling up involves increasing the number of neurons interacting and to capture the realism the number of parameters will have to increase as well.
+% % Figure \ref{fig:computational_properties} the 
 
-%cf. \cref{fig:sum_spike_neuro} on the summary of different spiking scenarios.
-
-
+% %cf. \cref{fig:sum_spike_neuro} on the summary of different spiking scenarios.
 
 
-...
+
+
+% ...
 
 
 
@@ -69,40 +69,75 @@ For neural networks scaling up involves increasing the number of neurons interac
 %- regimes (e.g. quiet regime)
 %- voltage traces
 %- 
+\section{Computational tools}
+Python was the chosen language for analysis. It is of free-access, unlike Matlab which requires a license, more prominent than Octave (so more resources available), and very versatile. 
+As machine learning was also a consideration easrly into the project, R was deemed as not as suitable as Python. Python is a statistical programming language. Moreover, the \emph{numba} and \emph{numpy} libraries are based in C/C++ which makes the code faster.
+As such, python simulations were chosen for the sake of numerical analysis. 
+% as this language is very well-documented, approachable and already widely used in data analysis. 
+From the scripts, one can create phase planes and graphs to better visualize the behavior of variables within the model. 
 
-\section{Dynamic System Fundamentals}
-When looking at the brain in abstract form it can be seen as a multi-dimensional \alextodo{We expect the reader to know basic stuff about dynamical systems} \gls{gls:dynSystem} governed by an independent set of system variables, such as neuronal membrane potentials, which change in time based on a set of \gls{gls:deterministic} equations with system parameters that either do not change in time (e.g. maximal \gls{gls:cond} of the ion
-channels on the neuronal membrane) or whose evolution happens on a much slower time scale relative to the evolution of the system variables ~\cite{Stefanescu2012}.
 
+\subsection{Euler Method}
+The Euler method is very handy when analyzing ODEs. One defines a numerical grid for values of \(t\) with some pre-defined spacing $h \implies t_{\!\raisebox{0ex}[0ex][0ex]{\raisebox{-0.75ex}{$\mathrlap{\text{\scriptsize final}}$}}}\ = N\,h$,  where \(N\) is the number of iterations needed to get to the `\emph{final state}' of the time interval. % \newline
+Then, a derivative is used to calculate the next value of the function \(F\) where \(i\) defines the number of interactions already performed:
+\begin{align}
+    F(t_{i+1}) = F(t_{i}) + (t_{i+1} - t_{i}) \frac{\partial F\of{i}}{\partial t}
+\end{align}
+This approximates the function at each point using the slope of the derivative at each point which is considered a fairly good approximation.
 
-Fundamentally, a \gls{gls:dynSystem} is a system that evolves over time.  This system is dependent on fixed rules which govern the evolution of the system. Thus a \gls{gls:dynSystem} is the opposite of a static system, which, unlike \gls{gls:dynSystem}s, does not depend on the past inputs. A simple example of a \gls{gls:dynSystem} can be that of a pendulum swinging back and forth \cite{}. 
+\subsection{Runge Kutta}
+This is a method to solve ODEs by integrating them. This is useful when the ODE can be expressed as:
+\begin{align}
+    f(t, y)= \frac{d y}{d t}
+\end{align}
+and the value of y($t_0$) is well-defined. \newline
+The next step is to pick a step size $h$ and writing the Taylor series expansion of y in the neighborhood of $t_n$:
+\begin{align}
+    y(t_{n+1})&= y(t_{n}) +h \left(\frac{d y}{d t} \right)_{\mathrlap{t_{n}}}+\frac{h^2}{2} \left(\frac{d^2 y}{d t^2} \right)_{\mathrlap{t_{n}}}+ \clm{O}(h^3)\\
+    \frac{d^2 y}{d t^2} &= \frac{d f(t,y)}{d t} = \frac{ d f(t,y)}{d y} \frac{d y}{d t} + \frac{ d f(t,y)}{d t}\frac{d t}{d t} = f\frac{d f}{d y} +\frac{d f}{d t}\\
+    y(t_{n+1})&= y(t_{n}) +h \left(f \right)_{t_{n}}+\frac{h^2}{2} \left(f\frac{d f}{d y} +\frac{d f}{d t}\right)_{t_{n}}+ \clm{O}(h^3)
+\end{align}
 
-There are different types of \gls{gls:dynSystem}s. A system can be \gls{gls:deterministic} or \gls{gls:stochastic}, \gls{gls:discrete} or \gls{gls:continuous}, \gls{gls:linear} or \gls{gls:nonlinear}, and \gls{gls:autonomous} or \gls{gls:non-autonomous} \cite{}. 
+Now, this method uses the information on the 'slope' at more than one point to extrapolate the solution to the future time step and the order of the method defines how many points are used for this approximation being the 4th-order the most commonly used~\cite{Zeltkevic1998}.\newpage
 
-If a system is \gls{gls:deterministic}, it is possible to predict each following state given an initial state. It is also possible for a system to have an element of randomness to it. In this case, the system is said to be \gls{gls:stochastic} \cite{}. 
+From the Euler's method:
+\begin{align}
+    y_{n+1} &= y_{n} + h f(y_n, t_n) = y_{n} + k_1\\
+\intertext{It is possible then to approximate $y_{n+1}$ using more points but changing coefficients to reflect the function's Taylor expansion. Defining $k_2$ and taking the 2nd-order Taylor's expansion:}
+    k_2 &= h f(y_n + \beta k_1, t_n + \alpha h) =h \left( f(y_{n}, t_{n}) + \alpha h \left(\frac{\partial f}{\partial t} \right)_{\mathrlap{y_{n},t_{n}}} + \beta k_1 \left(\frac{\partial f}{\partial t} \right)_{\mathrlap{y_{n},t_{n}}}+\clm{O}(h^3) \right)\\
+\shortintertext{Now defining:}
+     y_{n+1}  &= y_{n} + a k_1 + b k_2\\
+\shortintertext{Substituting the expressions for $k_1$ and $k_2$:}
+    y_{n+1}  &= y_{n} + a \, h \, f(y_n, t_n) + b h \left( f(y_{n}, t_{n}) + \alpha h \left(\frac{\partial f}{\partial t} \right)_{\mathrlap{y_{n},t_{n}}} + \beta k_1 \left(\frac{\partial f}{\partial t} \right)_{\mathrlap{y_{n},t_{n}}}+ \clm{O}(h^3) \right) \\
+\shortintertext{Grouping the terms with derivative of 0 order and first order together:}
+    &= y_{n} + (a +b) \, h f(y_n, t_n) + b h^2 \left( \alpha \left(\frac{\partial f}{\partial t} \right)_{\mathrlap{y_{n},t_{n}}} +  \frac{\beta k_1}{h} \left(\frac{\partial f}{\partial t} \right)_{\mathrlap{y_{n},t_{n}}}+  \frac{\clm{O}(h^3)}{h}  \right) \\
+\shortintertext{Substituting f for $\frac{\partial y}{\partial t}$:}
+    &= y_{n} + (a +b) \, h \frac{\partial y}{\partial t} + b h^2 \left( \alpha  +  \frac{\beta k_1}{h}\right)\left(\frac{\partial^2 y}{\partial t^2} \right)_{\mathrlap{y_{n},t_{n}}}  + \clm{O}(h^3) \\
+\shortintertext{Substituting the expression for $k_1$ again:}
+    &= y_{n} + (a +b) \, h \frac{\partial y}{\partial t} + b h^2 \left( \alpha  +  \beta \frac{\partial y}{\partial t}\right)\left(\frac{\partial^2 y}{\partial t^2} \right)_{\mathrlap{y_{n},t_{n}}}  + \clm{O}(h^3) \\
+\shortintertext{Substituting $\frac{\partial y}{\partial t}$ for f:}
+    &=y_{n} + (a +b) \, h \, f(y_n, t_n) + b h^2 \left( \alpha  +  \beta f \, \right)\left(\frac{\partial f}{\partial t} \right)_{\mathrlap{y_{n},t_{n}}}  + \clm{O}(h^3) \\
+\shortintertext{Arranging the terms to look more like Taylor's expansion:}
+    &=y_{n} + (a +b) \, h \, f(y_n, t_n) +  h^2 \left( b \,\alpha  +  b \, \beta f \, \right)\left(\frac{\partial f}{\partial t} \right)_{\mathrlap{y_{n},t_{n}}}  + \clm{O}(h^3) 
+\end{align}
+Comparing the final expression with the first Taylor series expansion the value of the constants can be derived:
+\begin{equation}
+\implies
+    \begin{cases}
+      a+b = 1\\
+      \alpha \, b = \frac{1}{2} \\
+       \beta \, b = \frac{1}{2}
+    \end{cases}\,.
+\end{equation}
+Now, there are many combinations that satisfy this equations but to keep simplicity it is common to just define $\alpha = \beta = 1 \implies a= b= \frac{1}{2}$. This way, one gets the 2nd-order Runge-Kutta approximation:
 
-A \gls{gls:discrete} system is one where there is only measured a position of the integer values of time. On the other hand, is a \gls{gls:continuous} system, where the positions are measured \gls{gls:continuous}ly (ie. for every possible time) \cite{}.
-
-A \gls{gls:linear} system is one where it is only composed of \gls{gls:linear} functions and a \gls{gls:nonlinear} system contains at least one \gls{gls:nonlinear} component \cite{}.
-
-Lastly, there is the difference between an \gls{gls:autonomous} system, which is one where it does not depend on the independent variable \(t\) \cite{}, and a \gls{gls:non-autonomous} system, which does depend on \(t\) \cite{}.
-
-%The 
-%Some of these parameters
-
-\begin{comment}
-    \begin{split}\left[\begin{array}{ccll}
-    {\displaystyle \frac{du}{dt}} &=& u\left(1-u^{2}\right)-w+I \equiv F(u,w)\\[.2cm]
-    {\displaystyle \frac{dw}{dt}} &=& \varepsilon \left(u -0.5w+1\right) \equiv \varepsilon G(u,w)\, ,\\
-    \end{array}\right.\end{split}
-    [ref:https://neuronaldynamics-exercises.readthedocs.io/en/latest/exercises/brunel-network.html]
-\end{comment}
-
-When analysing differential equations \textit{phase space} analysis is an important concept and tool. Phase space is the space spanned by the system's variables and the trajectories it contain are those variables traversing time. When a neuron transitions from rest to firing a qualitative change in the dynamical behavior of the system will occur. A qualitative change can be associated with phenomena such as \textit{bifurcations}, \textit{phase transitions}, emergence of (new) \textit{attractors}, or shifts in stability \cite{}. 
+\begin{align}
+    y_{n+1}  &= y_{n} + \frac{k_1 + k_2}{2} 
+\end{align}
 
 \end{document}
 
-% % Bifurcations constitutes critical points where the stability of a system changes, leading to abrupt transitions in the system's behavior. As will be shown these transitions can provide insights into the onset of seizures and their characteristics [link to network analysis section]
+% % Bifurcations constitute critical points where the stability of a system changes, leading to abrupt transitions in the system's behavior. As will be shown these transitions can provide insights into the onset of seizures and their characteristics [link to network analysis section]
 
 
 % Let us consider a simple two-variable system where the variables represent the activity of excitatory and inhibitory neurons. A phase plane for such a system could help visualize the dynamics.

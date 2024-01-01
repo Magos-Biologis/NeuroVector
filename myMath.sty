@@ -1,0 +1,355 @@
+\NeedsTeXFormat{LaTeX2e}
+\ProvidesPackage{myMath}[Anakin's personalized Math preamable package]
+% ========================= Tools for package ================================
+
+\RequirePackage{ifthen}     % Guess what it does, I dare you
+\RequirePackage{etoolbox}   % Includes a lot of useful macros for customizations
+\RequirePackage{xkeyval}    % More useful macros
+\RequirePackage{xparse}     % More useful macros
+
+\RequirePackage{iftex}      % Allows for if {type}TeX commands
+
+\RequirePackage{mathcommand}
+
+% ========================= Package tags
+
+\global\let\my@Math@\iftrue\relax
+
+\newif\iftagSurreal@%
+\newif\iftagSIunits@%
+
+% ========================= Package counters
+
+\newcounter{eqsystem}
+\ifx\tagRUC@typeProject@\iftrue
+    \counterwithin{eqsystem}{chapter}
+    \fi
+
+% ========================= Package options
+
+\DeclareOption{mathFont}{%
+    }
+
+\DeclareOption{unitSI}{%
+    \tagSIunits@true
+    }
+    
+\DeclareOption{surreals}{%
+    \tagSurreal@true
+    }
+
+\DeclareOption{gibAxioms}{%
+    \tagAxiom@true
+    }
+
+
+\ExecuteOptions{}
+\ProcessOptions\relax
+
+
+% ========================= Math Packages
+\RequirePackage{amsmath}
+\RequirePackage{mathtools}
+\RequirePackage[standard, amsmath]{ntheorem}  % Math Theorems
+
+\ifXeTeX % Math Fonts
+    \RequirePackage[MnSymbol]{mathspec}
+    \RequirePackage{unicode-math}
+    \fi
+    
+\ifPDFTeX
+    \RequirePackage[normalweight=auto,boldweight=Bold,largedelims=false]{fdsymbol} 
+    \fi
+
+
+\RequirePackage{cancel}  % Striking through text \cancel{x}
+\RequirePackage{siunitx} % elegant SI units
+
+\IfFileExists{surreals.sty}{
+    \RequirePackage{surreals}
+    }{}
+
+% ========================= Theorem Enviroments Using Asmath
+
+% \theoremstyle{plain}
+% \theoremheaderfont{\normalfont\bfseries}
+% \theorembodyfont{\itshape}
+% \theoremseparator{}
+% \theorempreskip{\topsep}
+% \theorempostskip{\topsep}%, where\topseprefers to the spacethat LATEX inserts above and below lists,
+% \theoremindent0cm
+% \theoremnumbering{greek}
+% \theoremsymbol{}
+
+
+
+% ========================= Custom Fields 
+
+%\newtheorem{axiom}{Axiom}
+%\IfFileExists{Zeambles/MathPreme.sty}{
+%    \crefformat{axiom}{Axiom~#2#1#3}
+%    \crefrangeformat{axiom}{Axiom~#3#1#4 to~#5#2#6}
+%    \crefmultiformat{axiom}{Axiom~#2#1#3}{ and~#2#1#3}{, #2#1#3}{ and~#2#1#3}
+%    \crefrangemultiformat{axiom}{Axiom~#2#1#3}{ and~#2#1#3}{, #2#1#3}{, and~#2#1#3}
+%}
+
+% ========================= Package Configuration
+
+\addtolength{\jot}{0.75em} % Increases row padding between equations
+
+\abovedisplayskip       = 12pt
+\belowdisplayskip       = 12pt
+\abovedisplayshortskip  = 0pt
+\belowdisplayshortskip  = 7pt
+
+% SI units
+
+\DeclareSIUnit\molar{\mole\per\cubic\deci\metre}
+\DeclareSIUnit\mho{\rotatebox[origin = c]{180}{\unit{\ohm}}}
+\DeclareSIUnit\Molar{\textsc{m}}
+\DeclareSIUnit{\calorie}{cal}
+\DeclareSIUnit{\Calorie}{\kilo\calorie}
+
+\ifx\tagRUC@typeProject@\iftrue%
+    \AtBeginDocument{%
+        % \robustify\dots 
+        \sisetup{%
+            input-digits = 0123456789\dots,%
+            drop-zero-decimal=true,%
+            round-mode=places,%
+            round-precision=2%
+            }
+        }
+    \fi%
+\ifx\tagRUC@typeAssignment@\iftrue
+    \AtBeginDocument{%
+        % \robustify\dots 
+        \sisetup{%
+            input-digits = 0123456789\dots,%
+            drop-zero-decimal=true,%
+            round-mode=places,%
+            round-precision=2%
+            }
+        }
+    \fi%
+      
+% ========================= Package Commands
+
+\NewDocumentCommand{\br}{ s m }{%
+    \IfBooleanTF {#1}{%
+        \ensuremath{\left(\,\text{#2}\,\right)}%
+        }{%
+        \ensuremath{\left(\,#2\,\right)}%
+        }%
+    } % (.)
+\NewDocumentCommand{\sbr}{ s m }{% 
+    \IfBooleanTF {#1}{%
+        \ensuremath{\left[\,\text{#2}\,\right]}%
+        }{%
+        \ensuremath{\left[\,#2\,\right]}%
+        }%
+    } % [.]
+
+    
+% \def\
+% \def\ode#1#2^#3{\@ifnextchar[{\@@ode}{\t@ode}}
+
+
+\ProvideDocumentCommand{\ode}{ s O{t} m O{} }{%
+    \IfBooleanTF#1{%
+        \frac{\mathrm{d}^{#4}}{\mathrm{d}\displaystyle#2^{#4}}\displaystyle#3%
+        }{%
+        \frac{\mathrm{d}^{#4}\displaystyle#3}{\mathrm{d}\displaystyle#2^{#4}}%
+        }
+    }
+\ProvideDocumentCommand{\pde}{ s m    m O{} }{%
+    \IfBooleanTF#1{%
+        \frac{\partial^{#4}}{\partial\displaystyle#2^{#4}}\displaystyle#3%
+        }{%
+        \frac{\partial^{#4}\displaystyle#3}{\partial\displaystyle#2^{#4}}%
+        }
+    }
+    
+    
+
+    % \def\ode#1#2#3\expandafter#4{\@ifnextchar^{\@ode#1[#2]#3[#4]}{\@ode#1[#2]#3\@gobble}}
+    
+    % \def\ode#1#2^#3{\@ifnextchar[{\@@ode}{\t@ode}}
+    % \def\@@ode[#1]#2^#3{%
+    %     \frac{\mathrm{d}^{#4}\displaystyle#3}{\mathrm{d}\displaystyle#2^{#4}}%
+    %     }  
+    % \def\t@ode#1^#2{%
+    %     \frac{\mathrm{d}^{#2}\displaystyle#1}{\mathrm{d}\displaystyle t^{#2}}%
+    %     }
+    % \def\st@r@ode[#1]#2^#3{%
+    %     \frac{\mathrm{d}^{#4}\displaystyle#3}{\mathrm{d}\displaystyle#2^{#4}}%
+    %     }  
+    % \def\st@rtode#1^#2{%
+    %     \frac{\mathrm{d}^{#2}\displaystyle#1}{\mathrm{d}\displaystyle t^{#2}}%
+    %     }
+    
+\NewDocumentCommand{\rfrac}{ m m }{{}^{{\displaystyle#1}}\!/_{{\displaystyle#2}}}
+%\DeclareMathOperator{\argmax}{arg\,max}
+
+% Feels better to have an exp with parenthesis
+% Defined with plain TeX cause easiest
+\let\oldexp\exp\relax
+\edef\exp#1{\oldexp\!\left(\,#1\,\right)} 
+
+\def\of#1{\!\left(#1\right)}
+
+
+\let\oldiff\iff\relax % makes a copy of the old def, cause why not
+\let\oldimplies\implies\relax
+\let\oldimpliedby\impliedby\relax
+\renewcommand{\iff}{\Leftrightarrow}
+\renewcommand{\implies}{\Rightarrow}
+\renewcommand{\impliedby}{\Leftarrow}
+
+\newcommand{\clm}[1]{\mathcal{#1}}
+\newcommand{\fkm}[1]{\mathfrak{#1}}
+\newcommand{\itm}[1]{\mathit{#1}}
+\newcommand{\bfm}[1]{\mathbf{#1}}
+\newcommand{\bbm}[1]{\mathbb{#1}}
+\newcommand{\rmm}[1]{\mathrm{#1}}
+
+
+\providecommand{\N}{\mathbb{N}}
+\providecommand{\Z}{\mathbb{Z}}
+\providecommand{\Q}{\mathbb{Q}}
+\providecommand{\R}{\mathbb{R}}
+\providecommand{\C}{\mathbb{C}}
+\providecommand{\Su}{N_0}
+
+% ========================= Package enviroments
+
+% Redefine AMS math enviroments definitions + hooks
+\renewenvironment{subequations}{%
+    \refstepcounter{equation}%
+    \protected@edef\theeqsystem{\theequation}%
+    \setcounter{eqsystem}{\value{equation}}%
+    \setcounter{equation}{0}%
+    \def\theequation{\theeqsystem\ensuremath{_\mathrm{\,\roman{equation}}\,}}%
+    \ignorespaces%
+    }{%
+        \setcounter{equation}{\value{eqsystem}}%
+        \ignorespacesafterend
+    }
+
+
+\newenvironment{system}[1][\theequation]{% Wrapper for making systems of equations
+    \setcounter{eqsystem}{\value{equation}}%
+    \refstepcounter{eqsystem}\label{sys:#1}%
+    \refstepcounter{equation}%
+    \protected@edef\theeqsystem{\theequation}%
+    \setcounter{eqsystem}{\value{equation}}%
+    \setcounter{equation}{0}%
+    \def\theequation{\theeqsystem-\Alph{equation}}%
+    %
+    \align%
+    }{%
+    \endalign%
+    %
+    \setcounter{equation}{\value{eqsystem}}%
+    \ignorespacesafterend%
+    }
+
+
+% ========================================================================
+\endinput
+
+
+% ========================= Package Configuration
+
+% Custom enviroment for making systems of equations built off amsmath align enviroment
+% \def\align@#1#2{%
+%     \inalign@true \intertext@ \Let@ \chardef\dspbrk@context\z@
+%     \ifingather@\else\displ@y@\fi
+%     \let\math@cr@@@\math@cr@@@align
+%     \ifxxat@\else \let\tag\tag@in@align \fi
+%     \let\label\label@in@display
+%     #1% set st@r
+%     \ifst@rred\else \global\@eqnswtrue \fi
+%     \measure@{#2}%
+%     \global\row@\z@
+%     \tabskip\eqnshift@
+%     \halign\bgroup
+%         \span\align@preamble\crcr
+%         #2%
+%     }
+% \def\start@align#1#2#3{%
+%    \let\xatlevel@#1% always \z@, \@ne, or \tw@
+%    \maxfields@#3\relax
+%    \ifnum\maxfields@>\m@ne
+%        \checkat@true
+%        \ifnum\xatlevel@=\tw@
+%                \xxat@true
+%        \fi
+%        \multiply\maxfields@\tw@
+%    \else
+%        \checkat@false
+%    \fi
+%    \ifingather@
+%        \iffalse{\fi\ifnum0=‘}\fi
+%        \DN@{\vcenter\bgroup\savealignstate@\align@#2}%
+%    \else
+%        \ifmmode
+%            \if@display
+%                \DN@{\align@recover}%
+%            \else
+%                \nomath@env
+%                \DN@{\@namedef{end\@currenvir}{}\@gobble}%
+%            \fi
+%        \else
+%            $$%
+%            \let\split\insplit@
+%            \DN@{\align@#2}%
+%        \fi
+%    \fi
+%    \collect@body\next@
+%     }
+% \newenvironment{align}{%
+%    \start@align\@ne\st@rredfalse\m@ne
+%     }{%
+%    \math@cr \black@\totwidth@
+%    \egroup
+%    \ifingather@
+%        \restorealignstate@
+%        \egroup
+%        \nonumber
+%        \ifnum0=‘{\fi\iffalse}\fi
+%    \else
+%        $$%
+%    \fi
+%    \ignorespacesafterend
+%     }
+% \newenvironment{align}{%
+%     \start@align\@ne\st@rredfalse\m@ne
+%     }{%
+%     \math@cr \black@\totwidth@
+%     \egroup
+%     \ifingather@
+%     \restorealignstate@
+%     \egroup
+%     \nonumber
+%     \ifnum0=‘{\fi\iffalse}\fi
+%     \else
+%     $$%
+%     \fi
+%     \ignorespacesafterend
+%     }
+
+
+% \renewenvironment{cases}{%
+%     \matrix@check\cases\env@cases
+%     }{%
+%     \endarray\right.%
+%     }
+% \def\env@cases{%
+%     \let\@ifnextchar\new@ifnextchar
+%     \left\lbrace
+%     \def\arraystretch{1.2}%
+%     \array{@{}l@{\quad}l@{}}%
+%     }
+
+
